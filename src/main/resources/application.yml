@@ -5,3 +5,6 @@ server:
 spring:       
   application:
     name: api-webfit
+  profiles:
+    active:
+    - "test"
