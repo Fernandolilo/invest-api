@@ -3,7 +3,6 @@ package com.wefit.test.entity;
 import java.io.Serializable;
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.wefit.test.TipoPessoa;
 
 import jakarta.persistence.CascadeType;
