@@ -1,5 +1,8 @@
 package com.wefit.test.service.Impl;
 
+import java.util.Optional;
+import java.util.UUID;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -16,26 +19,34 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
-public class ClientServiceImpl implements ClientService{
+public class ClientServiceImpl implements ClientService {
 
 	private final ModelMapper mapper;
 	private final ClientRepository clientRepository;
 	private final EnderecoRepository enderecoRepository;
+
 	@Override
 	public ClientDTO save(ClientNewDTO cli, EnderecoNewDTO end) {
-		
+
 		Client entity = mapper.map(cli, Client.class);
 		Endereco endereco = mapper.map(end, Endereco.class);
-		
+
 		clientRepository.save(entity);
-		
+
 		endereco.setClient(entity);
-		
+
 		enderecoRepository.save(endereco);
-		
+
 		ClientDTO dto = mapper.map(entity, ClientDTO.class);
-		
+
 		return dto;
 	}
+
+	@Override
+	public Optional<ClientDTO> findById(UUID id) {
+	    return clientRepository.findById(id)
+	        .map(client -> mapper.map(client, ClientDTO.class));
+	}
+
 
 }

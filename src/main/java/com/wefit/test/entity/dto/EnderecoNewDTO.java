@@ -1,7 +1,5 @@
 package com.wefit.test.entity.dto;
 
-import com.wefit.test.TipoPessoa;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

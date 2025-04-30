@@ -1,9 +1,6 @@
 package com.wefit.test.entity.dto;
 
-import java.util.UUID;
-
 import com.wefit.test.TipoPessoa;
-import com.wefit.test.entity.Client;
 import com.wefit.test.entity.Endereco;
 
 import lombok.AllArgsConstructor;
