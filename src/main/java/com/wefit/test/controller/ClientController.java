@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wefit.test.entity.dto.ClientDTO;
-import com.wefit.test.entity.dto.request.ClientRequest;
-import com.wefit.test.entity.dto.response.ClientNewDtoResponse;
+import com.wefit.test.entity.dto.requests.ClientRequest;
+import com.wefit.test.entity.dto.response.ClientResponse;
 import com.wefit.test.service.ClientService;
 
 import jakarta.validation.Valid;
@@ -29,13 +29,13 @@ public class ClientController {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ClientDTO create(@RequestBody @Valid ClientNewDtoResponse dto) {
+	public ClientDTO create(@RequestBody @Valid ClientRequest dto) {
 		return service.save(dto.getClient(), dto.getEndereco());
 	}
 
 	@GetMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public Optional<ClientRequest> findById(@PathVariable UUID id) {
+	public Optional<ClientResponse> findById(@PathVariable UUID id) {
 		return service.findById(id);
 	}
 }

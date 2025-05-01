@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+
+  # Serviço do veiculo-server
+  veiculo-server:
+    image: fernando2812/wefit:latest
+    environment:
+      TZ: America/Sao_Paulo
+      SERVER_PORT: 8000
+    ports:
+      - "8000:8000"  # A porta exposta para comunicação com o serviço
+    networks:
+      - my-net  # Conexão à rede 'my-net'
+    restart: on-failure  # Configura o serviço para reiniciar em caso de falhas
+    
+
+# Definição da rede
+networks:
+  my-net:
+    driver: bridge

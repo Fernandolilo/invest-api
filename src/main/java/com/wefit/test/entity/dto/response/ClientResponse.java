@@ -1,4 +1,4 @@
-package com.wefit.test.entity.dto.request;
+package com.wefit.test.entity.dto.response;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ import com.wefit.test.TipoPessoa;
 
 import lombok.Data;
 @Data
-public class ClientRequest {
+public class ClientResponse {
 	//por que o request, por que em DTO e entidade temos dados sensiveis
     private String nome;
     private String cpfOuCnpj;
@@ -15,6 +15,6 @@ public class ClientRequest {
     private String email;
     private TipoPessoa tipo;
 
-    private EnderecoRequest endereco;
+    private EnderecoRespponse endereco;
 }
 

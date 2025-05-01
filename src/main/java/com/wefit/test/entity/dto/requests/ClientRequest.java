@@ -1,4 +1,4 @@
-package com.wefit.test.entity.dto.response;
+package com.wefit.test.entity.dto.requests;
 
 import com.wefit.test.entity.dto.ClientNewDTO;
 import com.wefit.test.entity.dto.EnderecoNewDTO;
@@ -8,7 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class ClientNewDtoResponse {
+public class ClientRequest {
 	@NotNull
     @Valid
     private ClientNewDTO client;

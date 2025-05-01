@@ -1,9 +1,9 @@
-package com.wefit.test.entity.dto.request;
+package com.wefit.test.entity.dto.response;
 
 import lombok.Data;
 
 @Data
-public class EnderecoRequest {
+public class EnderecoRespponse {
     private String cep;
     private String logradouro;
     private String numero;

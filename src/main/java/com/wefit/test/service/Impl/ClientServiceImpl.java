@@ -11,7 +11,7 @@ import com.wefit.test.entity.Endereco;
 import com.wefit.test.entity.dto.ClientDTO;
 import com.wefit.test.entity.dto.ClientNewDTO;
 import com.wefit.test.entity.dto.EnderecoNewDTO;
-import com.wefit.test.entity.dto.request.ClientRequest;
+import com.wefit.test.entity.dto.response.ClientResponse;
 import com.wefit.test.reposiotries.ClientRepository;
 import com.wefit.test.reposiotries.EnderecoRepository;
 import com.wefit.test.service.ClientService;
@@ -44,9 +44,9 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	public Optional<ClientRequest> findById(UUID id) {
+	public Optional<ClientResponse> findById(UUID id) {
 	    return clientRepository.findById(id)
-	        .map(client -> mapper.map(client, ClientRequest.class));
+	        .map(client -> mapper.map(client, ClientResponse.class));
 	}
 
 
