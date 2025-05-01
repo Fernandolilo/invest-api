@@ -1,4 +1,4 @@
-package com.wefit.test;
+package com.wefit.test.repositoryTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -13,6 +13,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import com.wefit.test.TipoPessoa;
 import com.wefit.test.entity.Client;
 import com.wefit.test.entity.Endereco;
 import com.wefit.test.reposiotries.ClientRepository;
