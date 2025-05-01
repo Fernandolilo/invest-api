@@ -25,7 +25,7 @@ public class StarDBImpl implements StartDB{
 	    // Cria o cliente
 	    Client cli = Client.builder()
 	            .nome("Fernando")
-	            .cpfOuCnpj("12345678912")
+	            .cpfOuCnpj("12312312311")
 	            .celular("11 1234-14567")				
 	            .email("fernando@wefit.com.br")
 	            .telefone("11 12345678")

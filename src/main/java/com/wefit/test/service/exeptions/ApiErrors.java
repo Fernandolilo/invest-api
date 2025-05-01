@@ -20,7 +20,13 @@ public class ApiErrors {
 		ex.getStackTrace();
 		this.errors = Arrays.asList(ex.getMessage());
 	}
-
+	
+	public ApiErrors(FieldMessage ex) {
+		ex.getStackTrace();
+		this.errors = Arrays.asList(ex.getMessage());
+	}
+	
+	
 	public List<String> getErrors() {
 		return errors;
 	}

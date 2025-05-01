@@ -1,0 +1,129 @@
+package com.wefit.test.controllerTest;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.BDDMockito;
+import org.mockito.Mockito;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wefit.test.TipoPessoa;
+import com.wefit.test.controller.ClientController;
+import com.wefit.test.entity.Client;
+import com.wefit.test.entity.Endereco;
+import com.wefit.test.entity.dto.ClientDTO;
+import com.wefit.test.entity.dto.ClientNewDTO;
+import com.wefit.test.entity.dto.EnderecoNewDTO;
+import com.wefit.test.entity.dto.requests.ClientRequest;
+import com.wefit.test.service.ClientService;
+
+@ExtendWith(SpringExtension.class)
+@ActiveProfiles("test")
+@WebMvcTest(ClientController.class)
+@AutoConfigureMockMvc
+public class ClientControllerTest {
+
+	@Autowired
+	private MockMvc mockMvc; // Mock do MockMvc para testar os endpoints
+
+	@MockBean
+	private ClientService service; // Mock do serviço
+
+	@MockBean
+	private ModelMapper mapper;
+
+	private ClientNewDTO cli;
+	private EnderecoNewDTO end;
+
+	private final static String API = "/clients";
+
+	@BeforeEach
+	void setUp() {
+
+	}
+
+	@Test
+	public void save() throws Exception {
+		cli = ClientNewDTO.builder().nome("Fernando").cpfOuCnpj("93906787060").celular("11 1234-14567")
+				.email("fernando@wefit.com.br").telefone("11 12345678").tipo(TipoPessoa.PESSOA_FISICA).confirme(true)
+				.senha("1234").build();
+
+		end = EnderecoNewDTO.builder().cep("12345.123").logradouro("Rua Faria Lima").numero("123")
+				.complemento("Predio A").bairro("Pinheiros").cidade("São Paulo").estado("SP").build();
+
+		// entity save
+		Client entityCli = Client.builder().nome(cli.getNome()).cpfOuCnpj(cli.getCpfOuCnpj()).celular(cli.getCelular())
+				.email(cli.getEmail()).telefone(cli.getTelefone()).tipo(cli.getTipo()).confirme(cli.isConfirme())
+				.senha(cli.getSenha()).build();
+
+		// entity save
+		Endereco enderecoEntity = Endereco.builder().cep(end.getCep()).logradouro(end.getLogradouro())
+				.complemento(end.getComplemento()).bairro(end.getBairro()).cidade(end.getCidade())
+				.estado(end.getEstado()).client(entityCli).build();
+
+		// objeto de retorno
+		ClientDTO entityDTO = ClientDTO.builder().nome(cli.getNome()).cpfOuCnpj(cli.getCpfOuCnpj())
+				.celular(cli.getCelular()).email(cli.getEmail()).telefone(cli.getTelefone()).tipo(cli.getTipo())
+				.confirme(cli.isConfirme()).senha(cli.getSenha()).build();
+
+		BDDMockito.given(mapper.map(Mockito.any(ClientNewDTO.class), Mockito.eq(Client.class))).willReturn(entityCli);
+
+		BDDMockito.given(service.save(cli, end)).willReturn(entityDTO);
+
+		// objeto de trasferencia de dados
+		ClientRequest clientRequest = ClientRequest.builder().client(cli).endereco(end).build();
+
+		// json a ser enviado para post.
+		String json = new ObjectMapper().writeValueAsString(clientRequest);
+
+		MockHttpServletRequestBuilder request = MockMvcRequestBuilders.post(API).accept(MediaType.APPLICATION_JSON)
+				.contentType(MediaType.APPLICATION_JSON).content(json);
+
+		// Executar o teste
+		mockMvc.perform(request).andExpect(status().isCreated()) // Espera status HTTP 201
+		; // Verifica se o voto foi "SIM"
+
+	}
+
+	@Test
+	public void save_DeveRetornarErro_QuandoCpfOuCnpjInvalido() throws Exception {
+		// Dado um DTO com CPF inválido
+		cli = ClientNewDTO.builder().nome("Fernando").cpfOuCnpj("123456789") // CPF inválido
+				.celular("11 1234-14567").email("fernando@wefit.com.br").telefone("11 12345678")
+				.tipo(TipoPessoa.PESSOA_FISICA).confirme(true).senha("1234").build();
+
+		end = EnderecoNewDTO.builder().cep("12345.123").logradouro("Rua Faria Lima").numero("123")
+				.complemento("Predio A").bairro("Pinheiros").cidade("São Paulo").estado("SP").build();
+
+		ClientRequest clientRequest = ClientRequest.builder().client(cli).endereco(end).build();
+
+		String json = new ObjectMapper().writeValueAsString(clientRequest);
+
+		// Aqui você pode simular uma exceção lançada pelo service ao detectar CPF
+		// inválido
+		BDDMockito.given(service.save(Mockito.any(), Mockito.any()))
+				.willThrow(new IllegalArgumentException("CPF/CNPJ inválido"));
+
+		MockHttpServletRequestBuilder request = MockMvcRequestBuilders.post(API).accept(MediaType.APPLICATION_JSON)
+				.contentType(MediaType.APPLICATION_JSON).content(json);
+
+		    mockMvc.perform(request)
+		            .andExpect(status().isBadRequest())
+		            .andExpect(jsonPath("$.erros[0].campo").value("client.cpfOuCnpj"))
+		            .andExpect(jsonPath("$.erros[0].mensagem").value("CPF inválido"));}
+
+}
