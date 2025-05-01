@@ -17,76 +17,61 @@ import com.wefit.test.entity.Client;
 import com.wefit.test.entity.Endereco;
 import com.wefit.test.reposiotries.ClientRepository;
 import com.wefit.test.reposiotries.EnderecoRepository;
+import com.wefit.test.service.exeptions.ObjectNotFoundException;
 
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
 @DataJpaTest
 public class ClientRepositoryTest {
-	
+
 	@Autowired
 	TestEntityManager entityManager;
-	
+
 	@Autowired
 	ClientRepository repository;
-	
+
 	@Autowired
 	EnderecoRepository enderecoRepository;
-	
-	
+
 	private Client cli;
-    private Endereco end;
+	private Endereco end;
 
-    @BeforeEach
-    public void setUp() {
-        // Inicializa os dados para o teste
-        cli = Client.builder()
-                .nome("Fernando")
-                .cpfOuCnpj("12345678912")
-                .celular("11 1234-14567")
-                .email("fernando@wefit.com.br")
-                .telefone("11 12345678")
-                .tipo(TipoPessoa.PESSOA_FISICA)
-                .confirme(true)
-                .senha("1234")
-                .build();
+	@BeforeEach
+	public void setUp() {
+		// Inicializa os dados para o teste
+		cli = Client.builder().nome("Fernando").cpfOuCnpj("12345678912").celular("11 1234-14567")
+				.email("fernando@wefit.com.br").telefone("11 12345678").tipo(TipoPessoa.PESSOA_FISICA).confirme(true)
+				.senha("1234").build();
 
-        end = Endereco.builder()
-                .cep("12345.123")
-                .logradouro("Rua Faria Lima")
-                .numero("123")
-                .complemento("Predio A")
-                .bairro("Pinheiros")
-                .cidade("São Paulo")
-                .estado("SP")
-                .client(cli)
-                .build();
-    }
-	
-	
+		end = Endereco.builder().cep("12345.123").logradouro("Rua Faria Lima").numero("123").complemento("Predio A")
+				.bairro("Pinheiros").cidade("São Paulo").estado("SP").client(cli).build();
+	}
+
 	@Test
 	@DisplayName("Save client")
-	public void saveClient() {	
-		 
-		   entityManager.persist(cli);
-		   entityManager.flush();
-		   
-		   
-		    cli.setEndereco(end);
-		    
-		    entityManager.persist(end);
-			entityManager.flush();
-			   
-			 // Verifica se o cliente foi persistido
-	        Client savedClient = repository.findById(cli.getId()).orElse(null);
-	        assertNotNull(savedClient);
-	        assertEquals("Fernando", savedClient.getNome());
+	public void saveClient() {
 
-	        // Verifica se o endereço foi persistido corretamente
-	        Endereco savedEndereco = enderecoRepository.findById(end.getId()).orElse(null);
-	        assertNotNull(savedEndereco);
-	        assertEquals("Rua Faria Lima", savedEndereco.getLogradouro());
-	        assertEquals("São Paulo", savedEndereco.getCidade());
-		
+		entityManager.persist(cli);
+		entityManager.flush();
+
+		cli.setEndereco(end);
+
+		entityManager.persist(end);
+		entityManager.flush();
+
+		// Verifica se o cliente foi persistido
+		Client savedClient = repository.findById(cli.getId())
+				.orElseThrow(() -> new ObjectNotFoundException("Client not found with id: " + cli.getId()));
+		assertNotNull(savedClient);
+		assertEquals("Fernando", savedClient.getNome());
+
+		// Verifica se o endereço foi persistido corretamente
+		Endereco savedEndereco = enderecoRepository.findById(end.getId())
+				.orElseThrow(() -> new ObjectNotFoundException("Client not found with id: " + cli.getId()));
+		assertNotNull(savedEndereco);
+		assertEquals("Rua Faria Lima", savedEndereco.getLogradouro());
+		assertEquals("São Paulo", savedEndereco.getCidade());
+
 	}
 
 }

@@ -15,6 +15,7 @@ import com.wefit.test.entity.dto.response.ClientResponse;
 import com.wefit.test.reposiotries.ClientRepository;
 import com.wefit.test.reposiotries.EnderecoRepository;
 import com.wefit.test.service.ClientService;
+import com.wefit.test.service.exeptions.ObjectNotFoundException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -45,9 +46,9 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public Optional<ClientResponse> findById(UUID id) {
-	    return clientRepository.findById(id)
-	        .map(client -> mapper.map(client, ClientResponse.class));
+		return Optional.ofNullable(
+				clientRepository.findById(id).map(client -> mapper.map(client, ClientResponse.class)).orElseThrow(
+						() -> new ObjectNotFoundException(String.format("Cliente não encontrado com o ID: " + id))));
 	}
-
 
 }
