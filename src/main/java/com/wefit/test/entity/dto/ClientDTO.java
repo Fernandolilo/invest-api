@@ -1,7 +1,8 @@
 package com.wefit.test.entity.dto;
 
-import com.wefit.test.TipoPessoa;
 import com.wefit.test.entity.Endereco;
+import com.wefit.test.entity.enums.Perfil;
+import com.wefit.test.entity.enums.TipoPessoa;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,6 +21,7 @@ public class ClientDTO {
 	private String telefone;
 	private String email;
 	private TipoPessoa tipo;
+	private Perfil perfil;
 	private String senha;
 	private boolean confirme;
 	private Endereco endereco;

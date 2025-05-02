@@ -2,9 +2,10 @@ package com.wefit.test.service.Impl;
 
 import org.springframework.stereotype.Service;
 
-import com.wefit.test.TipoPessoa;
 import com.wefit.test.entity.Client;
 import com.wefit.test.entity.Endereco;
+import com.wefit.test.entity.enums.Perfil;
+import com.wefit.test.entity.enums.TipoPessoa;
 import com.wefit.test.reposiotries.ClientRepository;
 import com.wefit.test.reposiotries.EnderecoRepository;
 import com.wefit.test.service.StartDB;
@@ -30,6 +31,7 @@ public class StarDBImpl implements StartDB{
 	            .email("fernando@wefit.com.br")
 	            .telefone("11 12345678")
 	            .tipo(TipoPessoa.PESSOA_FISICA)
+	            .perfil(Perfil.COMPRADOR)
 	            .confirme(true)
 	            .senha("1234")
 	            .build();

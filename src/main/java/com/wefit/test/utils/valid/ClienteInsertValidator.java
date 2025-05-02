@@ -3,8 +3,8 @@ package com.wefit.test.utils.valid;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.wefit.test.TipoPessoa;
 import com.wefit.test.entity.dto.ClientNewDTO;
+import com.wefit.test.entity.enums.TipoPessoa;
 import com.wefit.test.service.exeptions.FieldMessage;
 import com.wefit.test.utils.BR;
 

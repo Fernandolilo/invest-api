@@ -3,7 +3,6 @@ package com.wefit.test.controllerTest;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.BDDMockito;
@@ -21,14 +20,14 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wefit.test.TipoPessoa;
 import com.wefit.test.controller.ClientController;
 import com.wefit.test.entity.Client;
-import com.wefit.test.entity.Endereco;
 import com.wefit.test.entity.dto.ClientDTO;
 import com.wefit.test.entity.dto.ClientNewDTO;
 import com.wefit.test.entity.dto.EnderecoNewDTO;
 import com.wefit.test.entity.dto.requests.ClientRequest;
+import com.wefit.test.entity.enums.Perfil;
+import com.wefit.test.entity.enums.TipoPessoa;
 import com.wefit.test.service.ClientService;
 
 @ExtendWith(SpringExtension.class)
@@ -51,34 +50,19 @@ public class ClientControllerTest {
 
 	private final static String API = "/clients";
 
-	@BeforeEach
-	void setUp() {
-
-	}
-
 	@Test
 	public void save() throws Exception {
-		cli = ClientNewDTO.builder().nome("Fernando").cpfOuCnpj("93906787060").celular("11 1234-14567")
-				.email("fernando@wefit.com.br").telefone("11 12345678").tipo(TipoPessoa.PESSOA_FISICA).confirme(true)
-				.senha("1234").build();
+		newClientDto();
 
-		end = EnderecoNewDTO.builder().cep("12345.123").logradouro("Rua Faria Lima").numero("123")
-				.complemento("Predio A").bairro("Pinheiros").cidade("São Paulo").estado("SP").build();
+		enderecoNewDTO();
 
 		// entity save
-		Client entityCli = Client.builder().nome(cli.getNome()).cpfOuCnpj(cli.getCpfOuCnpj()).celular(cli.getCelular())
-				.email(cli.getEmail()).telefone(cli.getTelefone()).tipo(cli.getTipo()).confirme(cli.isConfirme())
-				.senha(cli.getSenha()).build();
+		Client entityCli = client();
 
 		// entity save
-		Endereco enderecoEntity = Endereco.builder().cep(end.getCep()).logradouro(end.getLogradouro())
-				.complemento(end.getComplemento()).bairro(end.getBairro()).cidade(end.getCidade())
-				.estado(end.getEstado()).client(entityCli).build();
 
 		// objeto de retorno
-		ClientDTO entityDTO = ClientDTO.builder().nome(cli.getNome()).cpfOuCnpj(cli.getCpfOuCnpj())
-				.celular(cli.getCelular()).email(cli.getEmail()).telefone(cli.getTelefone()).tipo(cli.getTipo())
-				.confirme(cli.isConfirme()).senha(cli.getSenha()).build();
+		ClientDTO entityDTO = clientDTO();
 
 		BDDMockito.given(mapper.map(Mockito.any(ClientNewDTO.class), Mockito.eq(Client.class))).willReturn(entityCli);
 
@@ -95,19 +79,16 @@ public class ClientControllerTest {
 
 		// Executar o teste
 		mockMvc.perform(request).andExpect(status().isCreated()) // Espera status HTTP 201
-		; // Verifica se o voto foi "SIM"
+		; 
 
 	}
 
 	@Test
 	public void save_DeveRetornarErro_QuandoCpfOuCnpjInvalido() throws Exception {
 		// Dado um DTO com CPF inválido
-		cli = ClientNewDTO.builder().nome("Fernando").cpfOuCnpj("123456789") // CPF inválido
-				.celular("11 1234-14567").email("fernando@wefit.com.br").telefone("11 12345678")
-				.tipo(TipoPessoa.PESSOA_FISICA).confirme(true).senha("1234").build();
+		cliNewDtoCpfInvalid();
 
-		end = EnderecoNewDTO.builder().cep("12345.123").logradouro("Rua Faria Lima").numero("123")
-				.complemento("Predio A").bairro("Pinheiros").cidade("São Paulo").estado("SP").build();
+		enderecoNewDTO();
 
 		ClientRequest clientRequest = ClientRequest.builder().client(cli).endereco(end).build();
 
@@ -121,9 +102,40 @@ public class ClientControllerTest {
 		MockHttpServletRequestBuilder request = MockMvcRequestBuilders.post(API).accept(MediaType.APPLICATION_JSON)
 				.contentType(MediaType.APPLICATION_JSON).content(json);
 
-		    mockMvc.perform(request)
-		            .andExpect(status().isBadRequest())
-		            .andExpect(jsonPath("$.erros[0].campo").value("client.cpfOuCnpj"))
-		            .andExpect(jsonPath("$.erros[0].mensagem").value("CPF inválido"));}
+		mockMvc.perform(request).andExpect(status().isBadRequest())
+				.andExpect(jsonPath("$.erros[0].campo").value("client.cpfOuCnpj"))
+				.andExpect(jsonPath("$.erros[0].mensagem").value("CPF inválido"));
+	}
+
+	private ClientDTO clientDTO() {
+		ClientDTO entityDTO = ClientDTO.builder().nome(cli.getNome()).cpfOuCnpj(cli.getCpfOuCnpj())
+				.celular(cli.getCelular()).email(cli.getEmail()).telefone(cli.getTelefone()).tipo(cli.getTipo())
+				.confirme(cli.isConfirme()).senha(cli.getSenha()).build();
+		return entityDTO;
+	}
+
+	private Client client() {
+		Client entityCli = Client.builder().nome(cli.getNome()).cpfOuCnpj(cli.getCpfOuCnpj()).celular(cli.getCelular())
+				.email(cli.getEmail()).telefone(cli.getTelefone()).tipo(cli.getTipo()).perfil(cli.getPerfil())
+				.confirme(cli.isConfirme()).senha(cli.getSenha()).build();
+		return entityCli;
+	}
+
+	private void newClientDto() {
+		cli = ClientNewDTO.builder().nome("Fernando").cpfOuCnpj("93906787060").celular("11 1234-14567")
+				.email("fernando@wefit.com.br").telefone("11 12345678").tipo(TipoPessoa.PESSOA_FISICA)
+				.perfil(Perfil.COMPRADOR).confirme(true).senha("1234").build();
+	}
+
+	private void enderecoNewDTO() {
+		end = EnderecoNewDTO.builder().cep("12345.123").logradouro("Rua Faria Lima").numero("123")
+				.complemento("Predio A").bairro("Pinheiros").cidade("São Paulo").estado("SP").build();
+	}
+
+	private void cliNewDtoCpfInvalid() {
+		cli = ClientNewDTO.builder().nome("Fernando").cpfOuCnpj("123456789") // CPF inválido
+				.celular("11 1234-14567").email("fernando@wefit.com.br").telefone("11 12345678")
+				.tipo(TipoPessoa.PESSOA_FISICA).perfil(Perfil.COMPRADOR).confirme(true).senha("1234").build();
+	}
 
 }

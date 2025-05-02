@@ -2,7 +2,8 @@ package com.wefit.test.entity.dto.response;
 
 import java.io.Serializable;
 
-import com.wefit.test.TipoPessoa;
+import com.wefit.test.entity.enums.Perfil;
+import com.wefit.test.entity.enums.TipoPessoa;
 
 import lombok.Data;
 @Data
@@ -14,6 +15,7 @@ public class ClientResponse {
     private String telefone;
     private String email;
     private TipoPessoa tipo;
+    private Perfil perfil;
 
     private EnderecoRespponse endereco;
 }
