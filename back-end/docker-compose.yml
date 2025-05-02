@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   # Serviço do veiculo-server
-  veiculo-server:
+  wefit-server:
     image: fernando2812/wefit:latest
     environment:
       TZ: America/Sao_Paulo
@@ -13,7 +13,20 @@ services:
     networks:
       - my-net  # Conexão à rede 'my-net'
     restart: on-failure  # Configura o serviço para reiniciar em caso de falhas
-    
+  
+  wefit-front:
+    image: fernando2812/webfit-front
+    networks:
+      - my-net
+    deploy:
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - api-spi
+  
+    ports:
+      - "80:80"
+      
 
 # Definição da rede
 networks:
