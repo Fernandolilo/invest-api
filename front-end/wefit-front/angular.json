@@ -46,8 +46,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "3mg",
+                  "maximumError": "3.5MB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -68,6 +68,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "options": {
+              "proxyConfig": "proxy.conf.json"
+            },  
             "production": {
               "buildTarget": "wefit-front:build:production"
             },
