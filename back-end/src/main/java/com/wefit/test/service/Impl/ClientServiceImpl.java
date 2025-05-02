@@ -12,6 +12,8 @@ import com.wefit.test.entity.dto.ClientDTO;
 import com.wefit.test.entity.dto.ClientNewDTO;
 import com.wefit.test.entity.dto.EnderecoNewDTO;
 import com.wefit.test.entity.dto.response.ClientResponse;
+import com.wefit.test.entity.enums.Perfil;
+import com.wefit.test.entity.enums.TipoPessoa;
 import com.wefit.test.reposiotries.ClientRepository;
 import com.wefit.test.reposiotries.EnderecoRepository;
 import com.wefit.test.service.ClientService;
