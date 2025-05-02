@@ -14,20 +14,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # FRONT-END: Build Angular
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Install Angular dependencies
-        run: npm install
-        working-directory: ./front-end/wefit-front
-
-      - name: Build Angular app
-        run: npm run build --prod
-        working-directory: ./front-end/wefit-front
-
       # BACK-END: Java & Maven
       - name: Set up Java JDK
         uses: actions/setup-java@v4
@@ -55,7 +41,7 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/wefit-app:latest .
-        working-directory: ./front-end/wefit-front
+        working-directory: ./back-end
 
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/wefit-app:latest
