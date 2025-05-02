@@ -22,11 +22,11 @@ jobs:
 
       - name: Install Angular dependencies
         run: npm install
-        working-directory: ./front-end
+        working-directory: ./front-end/wefit-front  # Corrigido aqui
 
       - name: Build Angular app
         run: npm run build --prod
-        working-directory: ./front-end
+        working-directory: ./front-end/wefit-front  # Corrigido aqui
 
       # BACK-END: Java & Maven
       - name: Set up Java JDK
