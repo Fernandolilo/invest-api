@@ -1,11 +1,14 @@
 package com.wefit.test.service.Impl;
 
+import java.util.HashSet;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.wefit.test.entity.Client;
 import com.wefit.test.entity.Endereco;
 import com.wefit.test.entity.enums.Perfil;
+import com.wefit.test.entity.enums.Role;
 import com.wefit.test.entity.enums.TipoPessoa;
 import com.wefit.test.reposiotries.ClientRepository;
 import com.wefit.test.reposiotries.EnderecoRepository;
@@ -41,9 +44,13 @@ public class StarDBImpl implements StartDB{
 	            .telefone("11 12345678")
 	            .tipo(TipoPessoa.PESSOA_FISICA)
 	            .perfil(Perfil.COMPRADOR)
+	            .role(Role.ADMIN)
 	            .confirme(true)
 	            .senha(bCryptPasswordEncoder.encode("1234"))
+	            .roles(new HashSet<>())
 	            .build();
+	   cli.addRole(Role.ADMIN);
+	    
 
 	    // Cria o endereço
 	    Endereco end = Endereco.builder()

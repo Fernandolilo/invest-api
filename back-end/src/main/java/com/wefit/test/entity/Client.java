@@ -1,13 +1,18 @@
 package com.wefit.test.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import com.wefit.test.entity.enums.Perfil;
 import com.wefit.test.entity.enums.Role;
 import com.wefit.test.entity.enums.TipoPessoa;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -41,9 +46,23 @@ public class Client implements Serializable {
 	private Role role;
 	private String senha;
 	private boolean confirme;
+	
+	@ElementCollection(fetch = FetchType.EAGER)
+	@CollectionTable(name = "ROLES")
+	private Set<Integer> roles = new HashSet<>();
 
 	@OneToOne(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Endereco endereco;
 	
+	public Set<Role> getRoles() {
+	    if (roles == null) {
+	        return new HashSet<>();
+	    }
+	    return roles.stream().map(Role::toEnum).collect(Collectors.toSet());
+	}
+	
+	public void addRole(Role role) {
+		roles.add(role.getCod());
+	}
 
 }

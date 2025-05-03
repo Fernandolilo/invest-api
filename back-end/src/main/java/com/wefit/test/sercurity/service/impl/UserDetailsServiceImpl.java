@@ -1,10 +1,8 @@
 package com.wefit.test.sercurity.service.impl;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -30,15 +28,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		if (!cli.isPresent()) {
 			cli.orElseThrow(() -> new AuthorizationException("Client não encontrado" + "EMAIL: " + username));
 		}
-		UserSecurityDetails user = UserSecurityDetails.builder()
-				.id(cli.get().getId())
-				.senha(cli.get().getSenha())
-				.authorities(
-			            List.of(new SimpleGrantedAuthority("ROLE_" + cli.get().getRole()))
-			        )
-				.email(cli.get().getEmail())
-				.build();
-		return user;
+				
+		return new UserSecurityDetails(cli.get().getId(), cli.get().getEmail(), cli.get().getSenha(), cli.get().getRoles());
 	}
 
 }

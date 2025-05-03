@@ -14,7 +14,7 @@ http://localhost:8000/api/webfit/h2-console/
 adicionado swager há API.
 link: http://localhost:8000/api/webfit/swagger-ui/index.html#/
 
-````{
+{
   "client": {
     "nome": "string",
     "cpfOuCnpj": "05207935000167",
@@ -35,10 +35,33 @@ link: http://localhost:8000/api/webfit/swagger-ui/index.html#/
     "cidade": "string",
     "estado": "string"
   }
-}````
+}
 
 "Adicione uma regra para distinguir entre pessoa física e pessoa jurídica:
 
 Se o usuário quiser salvar uma pessoa física, deverá informar um CPF válido. Caso tente informar um CNPJ, deverá ser lançada uma exceção.
 
 O mesmo vale para pessoa jurídica: deverá ser informado um CNPJ válido. Se for informado um CPF, uma exceção deverá ser lançada."**
+
+
+para se autenticar deixei um usuario instanciado no bd.
+
+{
+  "email": "fernando@wefit.com.br",
+  "password": "1234"
+}
+
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZXJuYW5kb0B3ZWZpdC5jb20uYnIiLCJpYXQiOjE3NDYyMzQ1NTgsImV4cCI6MTc0NjIzNDczOH0.dJIsQPgyYkofgdHsHJiL8h7miyZaDLd4PGxHvGSY8TI 
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ date: Sat,03 May 2025 01:09:18 GMT 
+ expires: 0 
+ keep-alive: timeout=60 
+ pragma: no-cache 
+ vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers 
+ x-content-type-options: nosniff 
+ x-frame-options: SAMEORIGIN 
+ x-xss-protection: 0 
+ 
+ 
+ 

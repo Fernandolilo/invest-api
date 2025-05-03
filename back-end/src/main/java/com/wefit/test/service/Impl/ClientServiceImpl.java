@@ -1,5 +1,7 @@
 package com.wefit.test.service.Impl;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -16,10 +18,14 @@ import com.wefit.test.entity.dto.ClientDTO;
 import com.wefit.test.entity.dto.ClientNewDTO;
 import com.wefit.test.entity.dto.EnderecoNewDTO;
 import com.wefit.test.entity.dto.response.ClientResponse;
+import com.wefit.test.entity.enums.Role;
 import com.wefit.test.reposiotries.ClientRepository;
 import com.wefit.test.reposiotries.EnderecoRepository;
 import com.wefit.test.sercurity.jwt.JwtService;
+import com.wefit.test.sercurity.service.UserSecurityDetails;
 import com.wefit.test.service.ClientService;
+import com.wefit.test.service.UserService;
+import com.wefit.test.service.exceptions.UserAccessNegativeException;
 import com.wefit.test.service.exeptions.AuthorizationException;
 import com.wefit.test.service.exeptions.ObjectNotFoundException;
 
@@ -34,10 +40,16 @@ public class ClientServiceImpl implements ClientService {
 	private final EnderecoRepository enderecoRepository;
 	private final AuthenticationManager authenticationManager;
 	private final JwtService jwtService;
+	private final UserService userService;
 
 
 	@Override
 	public ClientDTO save(ClientNewDTO cli, EnderecoNewDTO end) {
+		
+		UserSecurityDetails user = userService.authenticated();
+		if (!user.hasRole( Role.ADMIN)) {
+			throw new UserAccessNegativeException("Acesso negado");
+		}
 
 		Client entity = mapper.map(cli, Client.class);
 		Endereco endereco = mapper.map(end, Endereco.class);
@@ -73,5 +85,11 @@ public class ClientServiceImpl implements ClientService {
 
 	}
 
+	private boolean hasFullAccess(UserSecurityDetails user) {
+		// Lista de papéis permitidos
+		List<Role> allowedRoles = Arrays.asList( Role.ADMIN, Role.USER);
+		// Verifica se o usuário possui pelo menos um dos papéis permitidos
+		return allowedRoles.stream().anyMatch(user::hasRole);
+	}
 
 }

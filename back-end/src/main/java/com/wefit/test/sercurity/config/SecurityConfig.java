@@ -39,7 +39,6 @@ public class SecurityConfig {
 		this.env = env;
 	}
 
-
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 

@@ -3,6 +3,7 @@ package com.wefit.test.controllerTest;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.BDDMockito;
@@ -13,15 +14,18 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wefit.test.controller.ClientController;
 import com.wefit.test.entity.Client;
+import com.wefit.test.entity.dto.AuthenticationDTO;
 import com.wefit.test.entity.dto.ClientDTO;
 import com.wefit.test.entity.dto.ClientNewDTO;
 import com.wefit.test.entity.dto.EnderecoNewDTO;
@@ -47,11 +51,43 @@ public class ClientControllerTest {
 
 	private ClientNewDTO cli;
 	private EnderecoNewDTO end;
+	private String token;
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
 
 	private final static String API = "/clients";
 
+	 @BeforeEach
+	    public void authenticate() throws Exception {
+	        AuthenticationDTO auth = AuthenticationDTO.builder()
+	                .email("fernando@wefit.com.br")
+	                .password("1234")
+	                .build();
+
+	        String authJson = new ObjectMapper().writeValueAsString(auth);
+
+	        MvcResult loginResult = mockMvc.perform(MockMvcRequestBuilders.post("/auth/login")
+	                        .contentType(MediaType.APPLICATION_JSON)
+	                        .content(authJson))
+	                .andExpect(status().isOk())
+	                .andReturn();
+
+	        String responseContent = loginResult.getResponse().getContentAsString();
+	        String tokentoken = new ObjectMapper().readTree(responseContent).get("token").asText();
+	    }
+
 	@Test
 	public void save() throws Exception {
+		
+		   String jsonToken = token;
+
+	        mockMvc.perform(MockMvcRequestBuilders.post(API+"/authenticate")
+	                        .header("Authorization", "Bearer " + token)
+	                        .contentType(MediaType.APPLICATION_JSON)
+	                        .content(jsonToken))
+	                .andExpect(status().isCreated());
+	
+		
 		newClientDto();
 
 		enderecoNewDTO();
