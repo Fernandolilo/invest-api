@@ -3,6 +3,7 @@ package com.wefit.test.sercurity.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,13 +15,13 @@ import com.wefit.test.reposiotries.ClientRepository;
 import com.wefit.test.sercurity.service.UserSecurityDetails;
 import com.wefit.test.service.exeptions.AuthorizationException;
 
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @Component
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-	private final ClientRepository repository;
+	@Autowired
+	private ClientRepository repository;
+	
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

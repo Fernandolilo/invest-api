@@ -1,5 +1,6 @@
 package com.wefit.test.service.Impl;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.wefit.test.entity.Client;
@@ -15,12 +16,20 @@ import lombok.RequiredArgsConstructor;
 
 
 @Service
-@RequiredArgsConstructor
 public class StarDBImpl implements StartDB{
 
 	private final ClientRepository clientRepository;
 	private final EnderecoRepository enderecoRepository;
+	private final BCryptPasswordEncoder bCryptPasswordEncoder;
 	
+	
+	public StarDBImpl(ClientRepository clientRepository, EnderecoRepository enderecoRepository,
+			BCryptPasswordEncoder bCryptPasswordEncoder) {
+		this.clientRepository = clientRepository;
+		this.enderecoRepository = enderecoRepository;
+		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+	}
+
 	@Override
 	public void initDB() {
 	    // Cria o cliente
@@ -33,7 +42,7 @@ public class StarDBImpl implements StartDB{
 	            .tipo(TipoPessoa.PESSOA_FISICA)
 	            .perfil(Perfil.COMPRADOR)
 	            .confirme(true)
-	            .senha("1234")
+	            .senha(bCryptPasswordEncoder.encode("1234"))
 	            .build();
 
 	    // Cria o endereço
