@@ -1,6 +1,7 @@
 package com.wefit.test.entity.dto;
 
 import com.wefit.test.entity.enums.Perfil;
+import com.wefit.test.entity.enums.Role;
 import com.wefit.test.entity.enums.TipoPessoa;
 import com.wefit.test.utils.valid.ClientInsert;
 
@@ -23,6 +24,7 @@ public class ClientNewDTO {
 	private String email;
 	private TipoPessoa tipo;
 	private Perfil perfil;
+	private Role role;
 	private String senha;
 	private boolean confirme;
 

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.UUID;
 
 import com.wefit.test.entity.enums.Perfil;
+import com.wefit.test.entity.enums.Role;
 import com.wefit.test.entity.enums.TipoPessoa;
 
 import jakarta.persistence.CascadeType;
@@ -37,6 +38,7 @@ public class Client implements Serializable {
 	private String email;
 	private TipoPessoa tipo;
 	private Perfil perfil;
+	private Role role;
 	private String senha;
 	private boolean confirme;
 
