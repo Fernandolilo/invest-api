@@ -4,19 +4,23 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import com.wefit.test.entity.Client;
 import com.wefit.test.entity.Endereco;
+import com.wefit.test.entity.dto.AuthenticationDTO;
 import com.wefit.test.entity.dto.ClientDTO;
 import com.wefit.test.entity.dto.ClientNewDTO;
 import com.wefit.test.entity.dto.EnderecoNewDTO;
 import com.wefit.test.entity.dto.response.ClientResponse;
-import com.wefit.test.entity.enums.Perfil;
-import com.wefit.test.entity.enums.TipoPessoa;
 import com.wefit.test.reposiotries.ClientRepository;
 import com.wefit.test.reposiotries.EnderecoRepository;
+import com.wefit.test.sercurity.jwt.JwtService;
 import com.wefit.test.service.ClientService;
+import com.wefit.test.service.exeptions.AuthorizationException;
 import com.wefit.test.service.exeptions.ObjectNotFoundException;
 
 import lombok.RequiredArgsConstructor;
@@ -28,6 +32,9 @@ public class ClientServiceImpl implements ClientService {
 	private final ModelMapper mapper;
 	private final ClientRepository clientRepository;
 	private final EnderecoRepository enderecoRepository;
+	private final AuthenticationManager authenticationManager;
+	private final JwtService jwtService;
+
 
 	@Override
 	public ClientDTO save(ClientNewDTO cli, EnderecoNewDTO end) {
@@ -52,5 +59,19 @@ public class ClientServiceImpl implements ClientService {
 				clientRepository.findById(id).map(client -> mapper.map(client, ClientResponse.class)).orElseThrow(
 						() -> new ObjectNotFoundException(String.format("Cliente não encontrado com o ID: " + id))));
 	}
+
+	@Override
+	public String fromAuthentication(AuthenticationDTO auth) {
+		Authentication authentication = authenticationManager
+				.authenticate(new UsernamePasswordAuthenticationToken(auth.getEmail(), auth.getPassword()));
+		if (authentication.isAuthenticated()) {
+			String token = jwtService.generateToken(auth.getEmail());
+			return token;
+		} else {
+			throw new AuthorizationException("EMAIL/SENHA invalido");
+		}
+
+	}
+
 
 }
