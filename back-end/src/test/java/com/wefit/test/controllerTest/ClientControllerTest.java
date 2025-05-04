@@ -1,5 +1,6 @@
 package com.wefit.test.controllerTest;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -14,11 +15,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
@@ -32,6 +32,8 @@ import com.wefit.test.entity.dto.EnderecoNewDTO;
 import com.wefit.test.entity.dto.requests.ClientRequest;
 import com.wefit.test.entity.enums.Perfil;
 import com.wefit.test.entity.enums.TipoPessoa;
+import com.wefit.test.sercurity.jwt.JwtAuthenticationFilter;
+import com.wefit.test.sercurity.jwt.JwtService;
 import com.wefit.test.service.ClientService;
 
 @ExtendWith(SpringExtension.class)
@@ -52,42 +54,87 @@ public class ClientControllerTest {
 	private ClientNewDTO cli;
 	private EnderecoNewDTO end;
 	private String token;
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	@MockBean
+	private JwtAuthenticationFilter jwtAuthenticationFilter;
+
+	@MockBean
+	private JwtService jwtService;
+
+	@MockBean
+	private AuthenticationManager authenticationManager;
 	
 
 	private final static String API = "/clients";
 
-	 @BeforeEach
-	    public void authenticate() throws Exception {
-	        AuthenticationDTO auth = AuthenticationDTO.builder()
-	                .email("fernando@wefit.com.br")
-	                .password("1234")
-	                .build();
+	@BeforeEach
+	void setupClient() throws Exception {
+	    // Primeiro inicializa o DTO para preencher o `cli`
+	    newClientDto(); // agora this.cli não é mais null
+	    enderecoNewDTO();
 
-	        String authJson = new ObjectMapper().writeValueAsString(auth);
+	    // Em seguida pode criar o entity com base em `cli`
+	    Client entityCli = client();
+	    ClientDTO entityDTO = clientDTO();
 
-	        MvcResult loginResult = mockMvc.perform(MockMvcRequestBuilders.post("/auth/login")
-	                        .contentType(MediaType.APPLICATION_JSON)
-	                        .content(authJson))
-	                .andExpect(status().isOk())
-	                .andReturn();
+	    // Mocks necessários
+	    BDDMockito.given(mapper.map(Mockito.any(ClientNewDTO.class), Mockito.eq(Client.class)))
+	              .willReturn(entityCli);
 
-	        String responseContent = loginResult.getResponse().getContentAsString();
-	        String tokentoken = new ObjectMapper().readTree(responseContent).get("token").asText();
-	    }
+	    BDDMockito.given(service.save(Mockito.any(ClientNewDTO.class), Mockito.any(EnderecoNewDTO.class)))
+	              .willReturn(entityDTO);
+
+	    // JSON para requisição
+	    ClientRequest clientRequest = ClientRequest.builder().client(cli).endereco(end).build();
+	    String json = new ObjectMapper().writeValueAsString(clientRequest);
+
+	    // Executa o POST
+	    mockMvc.perform(MockMvcRequestBuilders.post(API)
+	            .accept(MediaType.APPLICATION_JSON)
+	            .contentType(MediaType.APPLICATION_JSON)
+	            .content(json))
+	           .andExpect(status().isCreated());
+	}
+
+	 
+	@Test
+	void shouldAuthenticateAndAddAuthorizationHeader() throws Exception {
+	    AuthenticationDTO auth = authentication();
+
+	    String expectedToken = "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
+	    String json = new ObjectMapper().writeValueAsString(auth);
+
+	    // Corrigido para usar refEq ou any()
+	    BDDMockito.given(service.fromAuthentication(Mockito.refEq(auth)))
+	              .willReturn(expectedToken);
+
+	    mockMvc.perform(MockMvcRequestBuilders.post("/clients/authenticate")
+	    	//	.with(csrf())
+	    		.contentType(MediaType.APPLICATION_JSON)
+	            .accept(MediaType.APPLICATION_JSON)
+	            .content(json))
+	        .andExpect(status().isNoContent())
+	        .andExpect(header().string("Authorization", "Bearer " + expectedToken)); // Verifica o cabeçalho
+
+	    // Verifica chamada
+	    Mockito.verify(service).fromAuthentication(Mockito.refEq(auth));
+	}
+
+
+
+	private AuthenticationDTO authentication() {
+		// Arrange
+	    AuthenticationDTO auth = AuthenticationDTO.builder()
+	            .email("fernando@wefit.com.br")
+	            .password("1234")
+	            .build();
+		return auth;
+	}
+
+
 
 	@Test
 	public void save() throws Exception {
-		
-		   String jsonToken = token;
-
-	        mockMvc.perform(MockMvcRequestBuilders.post(API+"/authenticate")
-	                        .header("Authorization", "Bearer " + token)
-	                        .contentType(MediaType.APPLICATION_JSON)
-	                        .content(jsonToken))
-	                .andExpect(status().isCreated());
-	
-		
+				
 		newClientDto();
 
 		enderecoNewDTO();

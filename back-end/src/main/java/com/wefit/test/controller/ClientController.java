@@ -47,7 +47,6 @@ public class ClientController {
 			HttpServletResponse response) {
 		final String token = service.fromAuthentication(request);
 		response.addHeader("Authorization", "Bearer " + token);
-		response.getHeader(token);
 		return ResponseEntity.noContent().build();
 	}
 }
