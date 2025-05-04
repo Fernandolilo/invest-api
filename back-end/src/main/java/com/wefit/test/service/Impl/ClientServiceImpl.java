@@ -55,9 +55,9 @@ public class ClientServiceImpl implements ClientService {
 		Endereco endereco = mapper.map(end, Endereco.class);
 
 		clientRepository.save(entity);
-
+		entity.addRole(cli.getRole());
 		endereco.setClient(entity);
-
+	
 		enderecoRepository.save(endereco);
 
 		ClientDTO dto = mapper.map(entity, ClientDTO.class);
