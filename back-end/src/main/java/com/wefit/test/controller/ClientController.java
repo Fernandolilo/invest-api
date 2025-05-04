@@ -31,9 +31,9 @@ public class ClientController {
 	private final ClientService service;
 	
 	@PostMapping
-	@ResponseStatus(HttpStatus.CREATED)
-	public ClientDTO create(@RequestBody @Valid ClientRequest dto) {
-		return service.save(dto.getClient(), dto.getEndereco());
+	public ResponseEntity<ClientDTO> create(@RequestBody @Valid ClientRequest dto) {
+	    ClientDTO saved = service.save(dto.getClient(), dto.getEndereco());
+	    return ResponseEntity.status(HttpStatus.CREATED).body(saved);
 	}
 
 	@GetMapping("/{id}")

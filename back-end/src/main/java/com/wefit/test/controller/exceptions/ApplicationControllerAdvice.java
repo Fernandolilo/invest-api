@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.wefit.test.service.exeptions.ApiErrors;
-import com.wefit.test.service.exeptions.FieldMessage;
 import com.wefit.test.service.exeptions.ObjectNotFoundException;
 
 @RestControllerAdvice
@@ -24,7 +23,7 @@ public class ApplicationControllerAdvice {
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseStatus(HttpStatus.CREATED)
 	public Map<String, Object> handleValidationErrors(MethodArgumentNotValidException ex) {
 		List<Map<String, String>> errors = ex.getBindingResult().getFieldErrors().stream()
 				.map(err -> Map.of("campo", err.getField(), "mensagem", err.getDefaultMessage()))

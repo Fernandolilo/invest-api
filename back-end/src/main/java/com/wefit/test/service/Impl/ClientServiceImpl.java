@@ -25,9 +25,9 @@ import com.wefit.test.sercurity.jwt.JwtService;
 import com.wefit.test.sercurity.service.UserSecurityDetails;
 import com.wefit.test.service.ClientService;
 import com.wefit.test.service.UserService;
-import com.wefit.test.service.exceptions.UserAccessNegativeException;
 import com.wefit.test.service.exeptions.AuthorizationException;
 import com.wefit.test.service.exeptions.ObjectNotFoundException;
+import com.wefit.test.service.exeptions.UserAccessNegativeException;
 
 import lombok.RequiredArgsConstructor;
 

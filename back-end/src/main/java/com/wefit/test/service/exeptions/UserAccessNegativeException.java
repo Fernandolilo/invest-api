@@ -1,4 +1,4 @@
-package com.wefit.test.service.exceptions;
+package com.wefit.test.service.exeptions;
 
 public class UserAccessNegativeException extends RuntimeException {
 
