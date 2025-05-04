@@ -9,10 +9,10 @@ apos finalizar entidades, inciamos a parte de persistencia a dados,
 
 o link do h2, banco de dados em memoria.
 
-http://localhost:8000/api/webfit/h2-console/
+http://localhost:8000/api/wefit/h2-console/
 
 adicionado swager há API.
-link: http://localhost:8000/api/webfit/swagger-ui/index.html#/
+link: http://localhost:8000/api/wefit/swagger-ui/index.html#/
 
 {
   "client": {
