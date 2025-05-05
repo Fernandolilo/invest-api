@@ -65,3 +65,27 @@ authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZXJuYW5kb0B3ZWZpdC5jb20uY
  
  
  
+ cobertura de codigo com jacoco, test 
+ 
+ test-tech-wefit/back-end/target/site/jacoco/index.html
+ 
+ 
+ Ambitente de desenvolvimento:
+ 
+ 
+ para acesso ao client adminer, usado para o ambiente de desenvolvimento com Docker 
+ 
+ http://localhost:8082/ neste link terá acesso ao client de BD.
+ 
+
+Motor de Base de dados: PostgreSQL
+Servidor: wefit-bd
+Nome de utilizador:  root
+Senha: root
+Base de dados: wefit-db
+
+caso queira testar a api, apensa abri um terminal na raiz da aplicação.
+
+dar um docker-compose up --build
+
+ 

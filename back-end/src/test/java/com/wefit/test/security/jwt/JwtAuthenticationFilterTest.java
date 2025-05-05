@@ -18,6 +18,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.test.context.ActiveProfiles;
 
 import com.wefit.test.sercurity.jwt.JwtAuthenticationFilter;
 import com.wefit.test.sercurity.jwt.JwtService;
@@ -27,6 +28,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+@ActiveProfiles("test")
 public class JwtAuthenticationFilterTest {
 
     @InjectMocks

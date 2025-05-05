@@ -15,6 +15,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.context.ActiveProfiles;
 
 import com.wefit.test.entity.Client;
 import com.wefit.test.entity.enums.Role;
@@ -23,6 +24,7 @@ import com.wefit.test.sercurity.service.UserSecurityDetails;
 import com.wefit.test.sercurity.service.impl.UserDetailsServiceImpl;
 import com.wefit.test.service.exeptions.AuthorizationException;
 
+@ActiveProfiles("test")	
 @ExtendWith(MockitoExtension.class) // Usando Mockito com JUnit 5
 public class UserServiceImplTest {
 

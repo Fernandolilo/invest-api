@@ -1,34 +1,59 @@
 version: '3.8'
 
 services:
+  wefit-bd:
+    image: postgres:15
+    container_name: wefit-bd
+    environment:
+      TZ: America/Sao_Paulo
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: wefit-db
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - wefit-db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - my-net
+    restart: on-failure
 
-  # Serviço do veiculo-server
+  adminer:
+    image: fernando2812/adminer
+    ports:
+      - "8082:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: wefit-bd
+    networks:
+      - my-net
+    restart: on-failure
+
   wefit-server:
     image: fernando2812/wefit:latest
     environment:
       TZ: America/Sao_Paulo
       SERVER_PORT: 8000
+      SPRING_APPLICATION_NAME: api-webfit
+      SPRING_DATASOURCE_URL: jdbc:postgresql://wefit-bd:5432/wefit-db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.PostgreSQLDialect
+      SPRING_JPA_SHOW_SQL: "true"
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create
+      SPRING_JACKSON_DEFAULT_PROPERTY_INCLUSION: non_null
+      SPRING_JACKSON_SERIALIZATION_FAIL_ON_EMPTY_BEANS: "false"
     ports:
-      - "8000:8000"  # A porta exposta para comunicação com o serviço
-    networks:
-      - my-net  # Conexão à rede 'my-net'
-    restart: on-failure  # Configura o serviço para reiniciar em caso de falhas
-  
-  wefit-front:
-    image: fernando2812/webfit-front
+      - "8000:8000"
     networks:
       - my-net
-    deploy:
-      restart_policy:
-        condition: on-failure
     depends_on:
-      - api-spi
-  
-    ports:
-      - "80:80"
-      
+      - wefit-bd
+    restart: on-failure
 
-# Definição da rede
 networks:
   my-net:
     driver: bridge
+
+volumes:
+  wefit-db-data:

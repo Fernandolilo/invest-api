@@ -7,7 +7,6 @@ import static org.mockito.Mockito.when;
 
 import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 import java.util.UUID;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -16,14 +15,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.test.context.ActiveProfiles;
 
 import com.wefit.test.entity.Client;
-import com.wefit.test.entity.enums.Role;
 import com.wefit.test.reposiotries.ClientRepository;
 import com.wefit.test.sercurity.service.impl.UserDetailsServiceImpl;
 import com.wefit.test.service.exeptions.AuthorizationException;
 
+@ActiveProfiles("test")
 public class UserDetailsServiceImplTest {
 
 	@Mock

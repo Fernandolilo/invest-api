@@ -15,9 +15,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.test.context.ActiveProfiles;
 
 import com.wefit.test.sercurity.jwt.JwtService;
 
+@ActiveProfiles("test")
 @ExtendWith(MockitoExtension.class)
 public class JwtServiceTest {
 

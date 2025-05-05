@@ -1,7 +1,6 @@
 package com.wefit.test.security.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Set;
@@ -10,10 +9,12 @@ import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.test.context.ActiveProfiles;
 
 import com.wefit.test.entity.enums.Role;
 import com.wefit.test.sercurity.service.UserSecurityDetails;
 
+@ActiveProfiles("test")
 public class UserSecurityDetailsTest {
 
     private UUID id;

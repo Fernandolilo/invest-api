@@ -33,7 +33,7 @@ public class SecurityConfig {
 	private static final String API_URL_CLIENTS_AUTH = "/clients/authenticate/**";
 	private final JwtAuthenticationFilter auth;
 	private final Environment env;
-	
+
 	public SecurityConfig(JwtAuthenticationFilter auth, Environment env) {
 		this.auth = auth;
 		this.env = env;
@@ -49,41 +49,46 @@ public class SecurityConfig {
 					.csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**", "/swagger-ui/**"))
 					.headers(headers -> headers.frameOptions().sameOrigin());
 		}
-		
+
+		// Test environment
+		if (Arrays.asList(env.getActiveProfiles()).contains("dev")) {
+			http.authorizeHttpRequests(authz -> authz.requestMatchers("/swagger-ui/**").permitAll())
+					.csrf(csrf -> csrf.ignoringRequestMatchers("/swagger-ui/**"))
+					.headers(headers -> headers.frameOptions().sameOrigin());
+		}
+
 		http.csrf(csrf -> csrf.disable())
-				.authorizeHttpRequests(authz -> authz
-						.requestMatchers(API_URL_CLIENTS_AUTH).permitAll()
-						.anyRequest().authenticated())
+				.authorizeHttpRequests(
+						authz -> authz.requestMatchers(API_URL_CLIENTS_AUTH).permitAll().anyRequest().authenticated())
 				.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authenticationProvider(authenticationProvider())
 				.addFilterBefore(auth, UsernamePasswordAuthenticationFilter.class);
 
 		return http.build();
 	}
-	
-	
+
 	@Bean
 	public CorsFilter corsFilter() {
-	    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-	    CorsConfiguration config = new CorsConfiguration();
-	    
-	    // Permitindo credenciais
-	    config.setAllowCredentials(true);
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		CorsConfiguration config = new CorsConfiguration();
 
-	      config.addAllowedOrigin("*");
-	    // Permitindo todos os cabeçalhos
-	    config.addAllowedHeader("*");
+		// Permitindo credenciais
+		config.setAllowCredentials(true);
 
-	    // Permitindo métodos GET, POST, PUT, DELETE, OPTIONS
-	    config.addAllowedMethod("GET");
-	    config.addAllowedMethod("POST"); 
-	    config.addAllowedMethod("PUT");
-	    config.addAllowedMethod("DELETE");
-	    config.addAllowedMethod("OPTIONS");
+		config.addAllowedOrigin("*");
+		// Permitindo todos os cabeçalhos
+		config.addAllowedHeader("*");
 
-	    // Registrando a configuração de CORS
-	    source.registerCorsConfiguration("/**", config);
-	    return new CorsFilter(source);
+		// Permitindo métodos GET, POST, PUT, DELETE, OPTIONS
+		config.addAllowedMethod("GET");
+		config.addAllowedMethod("POST");
+		config.addAllowedMethod("PUT");
+		config.addAllowedMethod("DELETE");
+		config.addAllowedMethod("OPTIONS");
+
+		// Registrando a configuração de CORS
+		source.registerCorsConfiguration("/**", config);
+		return new CorsFilter(source);
 	}
 
 	@Bean
