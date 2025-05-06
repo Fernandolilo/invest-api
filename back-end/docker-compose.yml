@@ -51,6 +51,19 @@ services:
       - wefit-bd
     restart: on-failure
 
+  wefit-front:
+    image: fernando2812/wefit-front
+    
+    ports:
+      - "8080:80"
+    networks:
+      - my-net
+    volumes:
+       - d:/front-end/wefit/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - wefit-server
+    restart: on-failure
+
 networks:
   my-net:
     driver: bridge

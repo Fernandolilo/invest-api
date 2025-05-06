@@ -75,7 +75,7 @@ public class SecurityConfig {
 		// Permitindo credenciais
 		config.setAllowCredentials(true);
 
-		config.addAllowedOrigin("*");
+		config.addAllowedOrigin("http://38.210.209.86:8080");
 		// Permitindo todos os cabeçalhos
 		config.addAllowedHeader("*");
 
