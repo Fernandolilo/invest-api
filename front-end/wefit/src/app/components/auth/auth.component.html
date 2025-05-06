@@ -1,0 +1,33 @@
+<header>
+    <h2>WeFit Teste Técnico!</h2>
+  </header>
+  
+  <div class="parent">
+    <div class="wrapper">
+      <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
+        <h3>Login</h3>
+  
+        <div class="input-box">
+          <input type="text" name="email" [(ngModel)]="creds.email" placeholder="Email" required>
+        </div>
+  
+        <div class="input-box" style="position: relative;">
+          <input [type]="showPassword ? 'text' : 'password'" name="password" [(ngModel)]="creds.password" placeholder="Senha" required>
+          <i class='bx bxs-lock-alt' (click)="togglePasswordVisibility()" style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"></i>
+        </div>
+  
+        <div class="remember-forgot">
+          <!-- Adicione opções como "Lembrar-me" e "Esqueceu a senha" aqui, se necessário -->
+        </div>
+  
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="footer-content">
+      <p> <a href="tel:+5511977712030"> Contato: Fernando da Silva, Cel.: (11) 97771-2030</a></p>
+    </div>
+  </footer>
+  
