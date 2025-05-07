@@ -39,22 +39,28 @@ export class AuthComponent {
   }*/
 
     login(form: NgForm) {
-      if (form.valid) {
-        console.log('Credenciais:', this.creds);
-    
-        this.service.login(this.creds).subscribe({
-          next: (response) => {
-
-            this.router.navigate(['/cadastro']);
-           
-          },
-          error: (err) => {
-            console.error('Erro ao fazer login:', err);
+      this.service.login(this.creds).subscribe(
+        (res: any) => {
+          const jwt = this.service.getToken();
+          if (jwt) {
+            this.router.navigate(['/cadastro'], {
+              queryParams: {
+                email: this.creds.email,
+              }
+            });
+          } else {
+            alert('Erro inesperado. Token não recebido.');
           }
-        });
-      } else {
-        console.log('Formulário inválido');
-      }
-    }
+        },
+        error => {
+          const errorList = error.error?.errors;
     
+          if (Array.isArray(errorList) && errorList.length > 0) {
+            alert(errorList[0]); // mostra apenas a primeira mensagem de erro
+          } else {
+            alert('Erro inesperado ao tentar fazer login.');
+          }
+        }
+      );
+    }   
 }

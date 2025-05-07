@@ -7,4 +7,4 @@ spring:
     name: api-webfit
   profiles:
     active:
-    - "dev"
+    - "test"

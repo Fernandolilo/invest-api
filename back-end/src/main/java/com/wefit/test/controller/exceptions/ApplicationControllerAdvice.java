@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.wefit.test.service.exeptions.ApiErrors;
+import com.wefit.test.service.exeptions.AuthorizationException;
 import com.wefit.test.service.exeptions.ObjectNotFoundException;
 
 @RestControllerAdvice
@@ -22,6 +23,12 @@ public class ApplicationControllerAdvice {
 		return new ApiErrors(ex);
 	}
 
+	@ExceptionHandler(AuthorizationException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public ApiErrors authorizationException(AuthorizationException ex) {
+	    return new ApiErrors(ex);
+	}
+	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Map<String, Object> handleValidationErrors(MethodArgumentNotValidException ex) {

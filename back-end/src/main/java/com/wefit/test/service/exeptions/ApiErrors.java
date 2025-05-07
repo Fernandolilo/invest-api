@@ -22,8 +22,7 @@ public class ApiErrors {
 	}
 
 	public ApiErrors(AuthorizationException ex) {
-		ex.getStackTrace();
-		this.errors = Arrays.asList(ex.getMessage());
+	    this.errors = List.of(ex.getMessage());
 	}
 
 	public ApiErrors(FieldValidationException ex) {

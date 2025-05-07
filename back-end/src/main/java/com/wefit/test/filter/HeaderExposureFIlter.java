@@ -17,8 +17,8 @@ public class HeaderExposureFIlter extends OncePerRequestFilter {
 	        throws ServletException, IOException {
 
 	    // Cabeçalhos CORS
-	    response.setHeader("Access-Control-Allow-Origin", "http://38.210.209.86:8080"); // Permite qualquer origem
-	    //response.setHeader("Access-Control-Allow-Origin", "https://pumpfrota.com.br"); // Permite qualquer origem
+	    //response.setHeader("Access-Control-Allow-Origin", "http://38.210.209.86:8080"); // Permite qualquer origem
+	    response.setHeader("Access-Control-Allow-Origin", "https://localhost:4200"); // Permite qualquer origem
 	    response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
 	    response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, xsrf-token");
 	    response.setHeader("Access-Control-Expose-Headers", "Authorization, xsrf-token");

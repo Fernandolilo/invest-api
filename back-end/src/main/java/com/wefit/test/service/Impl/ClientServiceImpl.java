@@ -7,8 +7,10 @@ import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.wefit.test.entity.Client;
@@ -74,16 +76,17 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public String fromAuthentication(AuthenticationDTO auth) {
-		Authentication authentication = authenticationManager
-				.authenticate(new UsernamePasswordAuthenticationToken(auth.getEmail(), auth.getPassword()));
-		if (authentication.isAuthenticated()) {
-			String token = jwtService.generateToken(auth.getEmail());
-			return token;
-		} else {
-			throw new AuthorizationException("EMAIL/SENHA invalido");
-		}
+	    try {
+	        Authentication authentication = authenticationManager
+	            .authenticate(new UsernamePasswordAuthenticationToken(auth.getEmail(), auth.getPassword()));
 
+	        return jwtService.generateToken(auth.getEmail());
+
+	    } catch (BadCredentialsException | UsernameNotFoundException ex) {
+	        throw new AuthorizationException("Email ou senha inválidos");
+	    }
 	}
+
 
 	private boolean hasFullAccess(UserSecurityDetails user) {
 		// Lista de papéis permitidos
