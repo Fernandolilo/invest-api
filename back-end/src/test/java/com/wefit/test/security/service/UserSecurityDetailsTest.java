@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.wefit.test.entity.enums.Role;
-import com.wefit.test.sercurity.service.UserSecurityDetails;
+import com.invest.entity.enums.Role;
+import com.invest.sercurity.service.UserSecurityDetails;
 
 @ActiveProfiles("test")
 public class UserSecurityDetailsTest {

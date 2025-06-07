@@ -20,9 +20,9 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.wefit.test.sercurity.jwt.JwtAuthenticationFilter;
-import com.wefit.test.sercurity.jwt.JwtService;
-import com.wefit.test.sercurity.service.impl.UserDetailsServiceImpl;
+import com.invest.sercurity.jwt.JwtAuthenticationFilter;
+import com.invest.sercurity.jwt.JwtService;
+import com.invest.sercurity.service.impl.UserDetailsServiceImpl;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;

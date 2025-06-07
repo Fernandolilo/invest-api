@@ -13,12 +13,12 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.wefit.test.entity.Client;
-import com.wefit.test.entity.Endereco;
-import com.wefit.test.entity.enums.TipoPessoa;
-import com.wefit.test.reposiotries.ClientRepository;
-import com.wefit.test.reposiotries.EnderecoRepository;
-import com.wefit.test.service.exeptions.ObjectNotFoundException;
+import com.invest.entity.Client;
+import com.invest.entity.Endereco;
+import com.invest.entity.enums.TipoPessoa;
+import com.invest.reposiotries.ClientRepository;
+import com.invest.reposiotries.EnderecoRepository;
+import com.invest.service.exeptions.ObjectNotFoundException;
 
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")

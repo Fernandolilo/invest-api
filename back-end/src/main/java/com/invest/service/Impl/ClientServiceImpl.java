@@ -1,0 +1,98 @@
+package com.invest.service.Impl;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.invest.dto.AuthenticationDTO;
+import com.invest.dto.ClientDTO;
+import com.invest.dto.ClientNewDTO;
+import com.invest.dto.EnderecoNewDTO;
+import com.invest.entity.Client;
+import com.invest.entity.Endereco;
+import com.invest.entity.dto.response.ClientResponse;
+import com.invest.entity.enums.Role;
+import com.invest.reposiotries.ClientRepository;
+import com.invest.reposiotries.EnderecoRepository;
+import com.invest.sercurity.jwt.JwtService;
+import com.invest.sercurity.service.UserSecurityDetails;
+import com.invest.service.ClientService;
+import com.invest.service.UserService;
+import com.invest.service.exeptions.AuthorizationException;
+import com.invest.service.exeptions.ObjectNotFoundException;
+import com.invest.service.exeptions.UserAccessNegativeException;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Service
+public class ClientServiceImpl implements ClientService {
+
+	private final ModelMapper mapper;
+	private final ClientRepository clientRepository;
+	private final EnderecoRepository enderecoRepository;
+	private final AuthenticationManager authenticationManager;
+	private final JwtService jwtService;
+	private final UserService userService;
+
+
+	@Override
+	public ClientDTO save(ClientNewDTO cli, EnderecoNewDTO end) {
+		
+		UserSecurityDetails user = userService.authenticated();
+		if (!user.hasRole( Role.ADMIN)) {
+			throw new UserAccessNegativeException("Acesso negado");
+		}
+
+		Client entity = mapper.map(cli, Client.class);
+		Endereco endereco = mapper.map(end, Endereco.class);
+
+		clientRepository.save(entity);
+		entity.addRole(cli.getRole());
+		endereco.setClient(entity);
+	
+		enderecoRepository.save(endereco);
+
+		ClientDTO dto = mapper.map(entity, ClientDTO.class);
+
+		return dto;
+	}
+
+	@Override
+	public Optional<ClientResponse> findById(UUID id) {
+		return Optional.ofNullable(
+				clientRepository.findById(id).map(client -> mapper.map(client, ClientResponse.class)).orElseThrow(
+						() -> new ObjectNotFoundException(String.format("Cliente não encontrado com o ID: " + id))));
+	}
+
+	@Override
+	public String fromAuthentication(AuthenticationDTO auth) {
+	    try {
+	        Authentication authentication = authenticationManager
+	            .authenticate(new UsernamePasswordAuthenticationToken(auth.getEmail(), auth.getPassword()));
+
+	        return jwtService.generateToken(auth.getEmail());
+
+	    } catch (BadCredentialsException | UsernameNotFoundException ex) {
+	        throw new AuthorizationException("Email ou senha inválidos");
+	    }
+	}
+
+
+	private boolean hasFullAccess(UserSecurityDetails user) {
+		// Lista de papéis permitidos
+		List<Role> allowedRoles = Arrays.asList( Role.ADMIN, Role.USER);
+		// Verifica se o usuário possui pelo menos um dos papéis permitidos
+		return allowedRoles.stream().anyMatch(user::hasRole);
+	}
+
+}

@@ -16,11 +16,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.wefit.test.entity.Client;
-import com.wefit.test.entity.Endereco;
-import com.wefit.test.entity.enums.TipoPessoa;
-import com.wefit.test.reposiotries.ClientRepository;
-import com.wefit.test.reposiotries.EnderecoRepository;
+import com.invest.entity.Client;
+import com.invest.entity.Endereco;
+import com.invest.entity.enums.TipoPessoa;
+import com.invest.reposiotries.ClientRepository;
+import com.invest.reposiotries.EnderecoRepository;
 
 @ExtendWith(MockitoExtension.class)
 @ExtendWith(SpringExtension.class)

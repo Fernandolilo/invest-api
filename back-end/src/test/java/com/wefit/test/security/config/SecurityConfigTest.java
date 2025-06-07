@@ -12,7 +12,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.wefit.test.sercurity.jwt.JwtAuthenticationFilter;
+import com.invest.sercurity.jwt.JwtAuthenticationFilter;
 
 
 @ActiveProfiles("test")

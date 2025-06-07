@@ -18,19 +18,19 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wefit.test.entity.Client;
-import com.wefit.test.entity.dto.AuthenticationDTO;
-import com.wefit.test.entity.dto.ClientDTO;
-import com.wefit.test.entity.dto.ClientNewDTO;
-import com.wefit.test.entity.dto.EnderecoNewDTO;
-import com.wefit.test.entity.dto.requests.ClientRequest;
-import com.wefit.test.entity.enums.Perfil;
-import com.wefit.test.entity.enums.Role;
-import com.wefit.test.entity.enums.TipoPessoa;
-import com.wefit.test.sercurity.jwt.JwtAuthenticationFilter;
-import com.wefit.test.sercurity.jwt.JwtService;
-import com.wefit.test.service.ClientService;
-import com.wefit.test.utils.valid.ClientInsert;
+import com.invest.dto.AuthenticationDTO;
+import com.invest.dto.ClientDTO;
+import com.invest.dto.ClientNewDTO;
+import com.invest.dto.EnderecoNewDTO;
+import com.invest.entity.Client;
+import com.invest.entity.enums.Perfil;
+import com.invest.entity.enums.Role;
+import com.invest.entity.enums.TipoPessoa;
+import com.invest.requests.ClientRequest;
+import com.invest.sercurity.jwt.JwtAuthenticationFilter;
+import com.invest.sercurity.jwt.JwtService;
+import com.invest.service.ClientService;
+import com.invest.utils.valid.ClientInsert;
 
 @ActiveProfiles("test")
 @SpringBootTest

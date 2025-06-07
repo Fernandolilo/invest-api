@@ -17,10 +17,10 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.wefit.test.entity.Client;
-import com.wefit.test.reposiotries.ClientRepository;
-import com.wefit.test.sercurity.service.impl.UserDetailsServiceImpl;
-import com.wefit.test.service.exeptions.AuthorizationException;
+import com.invest.entity.Client;
+import com.invest.reposiotries.ClientRepository;
+import com.invest.sercurity.service.impl.UserDetailsServiceImpl;
+import com.invest.service.exeptions.AuthorizationException;
 
 @ActiveProfiles("test")
 public class UserDetailsServiceImplTest {
