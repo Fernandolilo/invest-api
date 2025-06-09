@@ -6,6 +6,7 @@ import org.springframework.web.client.RestTemplate;
 import com.invest.dto.CDIValorDTO;
 import com.invest.entity.dto.response.CDIResponseDTO;
 import com.invest.service.CdiService;
+import com.invest.service.exeptions.ObjectNotFoundException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,7 +28,7 @@ public class CDIImpl implements CdiService {
 			return new CDIResponseDTO(data, valor, anual);
 		}
 
-		throw new RuntimeException("Erro ao obter o CDI diário.");
+		throw new ObjectNotFoundException("Erro ao obter o CDI diário.");
 	}
 
 	private double calcularCDIAnual(double cdiDiarioPercentual) {

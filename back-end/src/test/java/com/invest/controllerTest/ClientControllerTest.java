@@ -102,11 +102,7 @@ public class ClientControllerTest {
 
 	}
 
-	private AuthenticationDTO authentication() {
-		// Arrange
-		AuthenticationDTO auth = AuthenticationDTO.builder().email("fernando@wefit.com.br").password("1234").build();
-		return auth;
-	}
+	
 
 	@Test
 	public void save() throws Exception {
@@ -174,6 +170,12 @@ public class ClientControllerTest {
 
 	}
 
+	private AuthenticationDTO authentication() {
+		// Arrange
+		AuthenticationDTO auth = AuthenticationDTO.builder().email("fernando@wefit.com.br").password("1234").build();
+		return auth;
+	}
+	
 	private ClientDTO clientDTO() {
 		ClientDTO entityDTO = ClientDTO.builder().nome(cli.getNome()).cpfOuCnpj(cli.getCpfOuCnpj())
 				.celular(cli.getCelular()).email(cli.getEmail()).telefone(cli.getTelefone()).tipo(cli.getTipo())
