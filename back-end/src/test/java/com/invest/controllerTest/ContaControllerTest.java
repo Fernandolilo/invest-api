@@ -20,7 +20,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.invest.dto.AuthenticationDTO;
 import com.invest.dto.ContaNewDTO;
@@ -108,6 +107,9 @@ public class ContaControllerTest {
 		MockHttpServletRequestBuilder request = MockMvcRequestBuilders.post(API).accept(MediaType.APPLICATION_JSON)
 				.contentType(MediaType.APPLICATION_JSON).content(json).header("Authorization", "Bearer " + token); 
 	}
+	
+	
+	
 
 	private AuthenticationDTO authentication() {
 		// Arrange

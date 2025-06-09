@@ -10,7 +10,7 @@ import com.invest.service.CdiService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/investimentos")
+@RequestMapping("/investimentos-cdi-test")
 @RequiredArgsConstructor
 public class InvestimentoCdiController {
 	

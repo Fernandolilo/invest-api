@@ -1,7 +1,5 @@
 package com.invest.entity;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.UUID;
 
 import jakarta.persistence.Entity;
