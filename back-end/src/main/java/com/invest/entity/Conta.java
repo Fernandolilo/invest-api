@@ -33,6 +33,7 @@ public class Conta implements Serializable {
 	private UUID id;
 	private Integer numero;
 	private Integer agencia;
+	private Integer banco;
 	private double saldo;
 	private TipoConta tipo;
 	

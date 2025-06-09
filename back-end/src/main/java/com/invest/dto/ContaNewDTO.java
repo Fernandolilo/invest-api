@@ -1,7 +1,5 @@
 package com.invest.dto;
 
-import java.util.UUID;
-
 import com.invest.entity.enums.TipoConta;
 
 import lombok.AllArgsConstructor;
@@ -19,6 +17,7 @@ public class ContaNewDTO {
 	private Integer numero;
 	private Integer agencia;
 	private double saldo;
+	private Integer banco;
 	private TipoConta tipo;
 	private String cpf;
 }

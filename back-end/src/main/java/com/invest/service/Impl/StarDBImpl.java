@@ -37,7 +37,7 @@ public class StarDBImpl implements StartDB{
 	            .nome("Fernando")
 	            .cpfOuCnpj("12312312311")
 	            .celular("11 1234-14567")				
-	            .email("fernando@wefit.com.br")
+	            .email("fernando.nandotania@hotmail.com")
 	            .telefone("11 12345678")
 	            .tipo(TipoPessoa.PESSOA_FISICA)
 	            .role(Role.ADMIN)
