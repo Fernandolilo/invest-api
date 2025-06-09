@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.invest.entity.Client;
 import com.invest.entity.Endereco;
-import com.invest.entity.enums.Perfil;
 import com.invest.entity.enums.Role;
 import com.invest.entity.enums.TipoPessoa;
 import com.invest.reposiotries.ClientRepository;
@@ -41,7 +40,6 @@ public class StarDBImpl implements StartDB{
 	            .email("fernando@wefit.com.br")
 	            .telefone("11 12345678")
 	            .tipo(TipoPessoa.PESSOA_FISICA)
-	            .perfil(Perfil.COMPRADOR)
 	            .role(Role.ADMIN)
 	            .confirme(true)
 	            .senha(bCryptPasswordEncoder.encode("1234"))

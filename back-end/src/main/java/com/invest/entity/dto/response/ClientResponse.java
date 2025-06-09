@@ -1,6 +1,10 @@
 package com.invest.entity.dto.response;
 
-import com.invest.entity.enums.Perfil;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.invest.entity.Carteira;
+import com.invest.entity.Conta;
 import com.invest.entity.enums.TipoPessoa;
 
 import lombok.Data;
@@ -13,8 +17,9 @@ public class ClientResponse {
     private String telefone;
     private String email;
     private TipoPessoa tipo;
-    private Perfil perfil;
 
     private EnderecoRespponse endereco;
+    private List<Carteira> carteiras = new ArrayList<>();
+    private List<Conta> contas = new ArrayList<>();
 }
 

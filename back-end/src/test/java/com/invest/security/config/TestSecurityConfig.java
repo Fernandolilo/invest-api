@@ -1,4 +1,4 @@
-package com.wefit.test.security.config;
+package com.invest.security.config;
 
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.TestConfiguration;
@@ -8,6 +8,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.test.context.ActiveProfiles;
 
 import com.invest.sercurity.jwt.JwtAuthenticationFilter;
+
 
 @ActiveProfiles("test")
 @TestConfiguration

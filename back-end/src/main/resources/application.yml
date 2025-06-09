@@ -1,10 +1,10 @@
 server:
   port: 8000
   servlet:
-    context-path: /api/wefit
+    context-path: /api/invest
 spring:       
   application:
-    name: api-webfit
+    name: api-invest
   profiles:
     active:
     - "test"

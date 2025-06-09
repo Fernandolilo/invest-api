@@ -1,4 +1,4 @@
-package com.wefit.test.security.service.impl;
+package com.invest.security.service.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

@@ -44,22 +44,15 @@ public class ClientServiceImpl implements ClientService {
 	private final JwtService jwtService;
 	private final UserService userService;
 
-
 	@Override
 	public ClientDTO save(ClientNewDTO cli, EnderecoNewDTO end) {
-		
-		UserSecurityDetails user = userService.authenticated();
-		if (!user.hasRole( Role.ADMIN)) {
-			throw new UserAccessNegativeException("Acesso negado");
-		}
-
 		Client entity = mapper.map(cli, Client.class);
 		Endereco endereco = mapper.map(end, Endereco.class);
 
 		clientRepository.save(entity);
 		entity.addRole(cli.getRole());
 		endereco.setClient(entity);
-	
+
 		enderecoRepository.save(endereco);
 
 		ClientDTO dto = mapper.map(entity, ClientDTO.class);
@@ -69,30 +62,58 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public Optional<ClientResponse> findById(UUID id) {
+
+		UserSecurityDetails user = userService.authenticated();
+		if (!hasFullAccess(user)) {
+			throw new UserAccessNegativeException("Acesso negado");
+		}
+
 		return Optional.ofNullable(
 				clientRepository.findById(id).map(client -> mapper.map(client, ClientResponse.class)).orElseThrow(
 						() -> new ObjectNotFoundException(String.format("Cliente não encontrado com o ID: " + id))));
 	}
+	
+	
+
+	@Override
+	public List<Client> findAll() {
+		UserSecurityDetails user = userService.authenticated();
+		if (!hasFullAccess(user)) {
+			throw new UserAccessNegativeException("Acesso negado");
+		}
+
+		return clientRepository.findAll();
+	}
 
 	@Override
 	public String fromAuthentication(AuthenticationDTO auth) {
-	    try {
-	        Authentication authentication = authenticationManager
-	            .authenticate(new UsernamePasswordAuthenticationToken(auth.getEmail(), auth.getPassword()));
+		try {
+			Authentication authentication = authenticationManager
+					.authenticate(new UsernamePasswordAuthenticationToken(auth.getEmail(), auth.getPassword()));
 
-	        return jwtService.generateToken(auth.getEmail());
+			return jwtService.generateToken(auth.getEmail());
 
-	    } catch (BadCredentialsException | UsernameNotFoundException ex) {
-	        throw new AuthorizationException("Email ou senha inválidos");
-	    }
+		} catch (BadCredentialsException | UsernameNotFoundException ex) {
+			throw new AuthorizationException("Email ou senha inválidos");
+		}
 	}
-
 
 	private boolean hasFullAccess(UserSecurityDetails user) {
 		// Lista de papéis permitidos
-		List<Role> allowedRoles = Arrays.asList( Role.ADMIN, Role.USER);
+		List<Role> allowedRoles = Arrays.asList(Role.ADMIN, Role.USER);
 		// Verifica se o usuário possui pelo menos um dos papéis permitidos
 		return allowedRoles.stream().anyMatch(user::hasRole);
 	}
+
+	@Override
+	public Optional<ClientResponse> foundCli(String cpfOuCnpj) {
+	    Optional<Client> cli = clientRepository.findByCpfOuCnpj(cpfOuCnpj);
+
+	    // Se estiver presente, mapeia e retorna como Optional
+	    return cli.map(client -> mapper.map(client, ClientResponse.class));
+	}
+
+
+	
 
 }

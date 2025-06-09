@@ -1,4 +1,4 @@
-package com.wefit.test.security.jwt;
+package com.invest.security.jwt;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;

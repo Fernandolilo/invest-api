@@ -31,6 +31,9 @@ import com.invest.sercurity.service.impl.UserDetailsServiceImpl;
 public class SecurityConfig {
 
 	private static final String API_URL_CLIENTS_AUTH = "/clients/authenticate/**";
+	private static final String API_CDI = "/cdi/**";
+	
+	
 	private final JwtAuthenticationFilter auth;
 	private final Environment env;
 
@@ -59,7 +62,10 @@ public class SecurityConfig {
 
 		http.csrf(csrf -> csrf.disable())
 				.authorizeHttpRequests(
-						authz -> authz.requestMatchers(API_URL_CLIENTS_AUTH).permitAll().anyRequest().authenticated())
+						authz -> authz
+						.requestMatchers(API_URL_CLIENTS_AUTH).permitAll()
+						.requestMatchers(API_CDI).permitAll()
+						.anyRequest().authenticated())
 				.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authenticationProvider(authenticationProvider())
 				.addFilterBefore(auth, UsernamePasswordAuthenticationFilter.class);

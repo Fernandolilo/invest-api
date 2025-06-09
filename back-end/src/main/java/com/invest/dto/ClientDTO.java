@@ -1,7 +1,6 @@
 package com.invest.dto;
 
 import com.invest.entity.Endereco;
-import com.invest.entity.enums.Perfil;
 import com.invest.entity.enums.TipoPessoa;
 
 import lombok.AllArgsConstructor;
@@ -21,7 +20,6 @@ public class ClientDTO {
 	private String telefone;
 	private String email;
 	private TipoPessoa tipo;
-	private Perfil perfil;
 	private String senha;
 	private boolean confirme;
 	private Endereco endereco;

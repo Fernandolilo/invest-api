@@ -1,4 +1,4 @@
-package com.wefit.test.controllerTest;
+package com.invest.controllerTest;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -23,7 +23,6 @@ import com.invest.dto.ClientDTO;
 import com.invest.dto.ClientNewDTO;
 import com.invest.dto.EnderecoNewDTO;
 import com.invest.entity.Client;
-import com.invest.entity.enums.Perfil;
 import com.invest.entity.enums.Role;
 import com.invest.entity.enums.TipoPessoa;
 import com.invest.requests.ClientRequest;
@@ -184,7 +183,7 @@ public class ClientControllerTest {
 
 	private Client client() {
 		Client entityCli = Client.builder().nome(cli.getNome()).cpfOuCnpj(cli.getCpfOuCnpj()).celular(cli.getCelular())
-				.email(cli.getEmail()).telefone(cli.getTelefone()).tipo(cli.getTipo()).perfil(cli.getPerfil())
+				.email(cli.getEmail()).telefone(cli.getTelefone()).tipo(cli.getTipo())
 				.confirme(cli.isConfirme()).role(cli.getRole()).senha(cli.getSenha()).build();
 		return entityCli;
 	}
@@ -192,7 +191,7 @@ public class ClientControllerTest {
 	private void newClientDto() {
 		cli = ClientNewDTO.builder().nome("Fernando").cpfOuCnpj("93906787060").celular("11 1234-14567")
 				.email("fernando@wefit.com.br").telefone("11 12345678").tipo(TipoPessoa.PESSOA_FISICA)
-				.perfil(Perfil.COMPRADOR).role(Role.ADMIN).confirme(true).senha("1234").build();
+				.role(Role.ADMIN).confirme(true).senha("1234").build();
 	}
 
 	private void enderecoNewDTO() {
@@ -203,7 +202,7 @@ public class ClientControllerTest {
 	private void cliNewDtoCpfInvalid() {
 		cli = ClientNewDTO.builder().nome("Fernando").cpfOuCnpj("12345678911") // CPF inválido
 				.celular("11 1234-14567").email("fernando@wefit.com.br").telefone("11 12345678")
-				.tipo(TipoPessoa.PESSOA_FISICA).role(Role.ADMIN).perfil(Perfil.COMPRADOR).confirme(true).senha("1234")
+				.tipo(TipoPessoa.PESSOA_FISICA).role(Role.ADMIN).confirme(true).senha("1234")
 				.build();
 	}
 

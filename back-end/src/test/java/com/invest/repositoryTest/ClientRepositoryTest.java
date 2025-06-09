@@ -1,4 +1,4 @@
-package com.wefit.test.repositoryTest;
+package com.invest.repositoryTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

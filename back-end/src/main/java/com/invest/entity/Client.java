@@ -1,12 +1,14 @@
 package com.invest.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import com.invest.entity.enums.Perfil;
+import com.invest.entity.dto.response.ClientResponse;
 import com.invest.entity.enums.Role;
 import com.invest.entity.enums.TipoPessoa;
 
@@ -18,6 +20,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -42,7 +45,6 @@ public class Client implements Serializable {
 	private String telefone;
 	private String email;
 	private TipoPessoa tipo;
-	private Perfil perfil;
 	private Role role;
 	private String senha;
 	private boolean confirme;
@@ -54,6 +56,13 @@ public class Client implements Serializable {
 	@OneToOne(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Endereco endereco;
 	
+	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Carteira> carteiras = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Conta> contas = new ArrayList<>();
+
+	
 	public Set<Role> getRoles() {
 	    if (roles == null) {
 	        return new HashSet<>();
@@ -63,6 +72,9 @@ public class Client implements Serializable {
 	
 	public void addRole(Role role) {
 		roles.add(role.getCod());
+	}
+
+	public Client(ClientResponse response) {
 	}
 
 }

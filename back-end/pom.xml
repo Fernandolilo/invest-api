@@ -13,7 +13,7 @@
     </parent>
 
     <groupId>com.systempro</groupId>
-    <artifactId>com.weffit</artifactId>
+    <artifactId>com.invest</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>test-tech-wefit</name>
     <description>Demo project for Spring Boot</description>

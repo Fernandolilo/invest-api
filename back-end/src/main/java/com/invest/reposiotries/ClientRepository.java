@@ -12,4 +12,6 @@ import com.invest.entity.Client;
 public interface ClientRepository extends JpaRepository<Client, UUID>{
 
 	Optional<Client> findByEmail(String email);
+
+	Optional<Client> findByCpfOuCnpj(String cpfOuCnpj);
 }
