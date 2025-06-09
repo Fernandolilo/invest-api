@@ -16,9 +16,9 @@ public class ApiErrors {
 
 	}
 
+	
 	public ApiErrors(ObjectNotFoundException ex) {
-		ex.getStackTrace();
-		this.errors = Arrays.asList(ex.getMessage());
+	    this.errors = List.of(ex.getMessage());
 	}
 
 	public ApiErrors(AuthorizationException ex) {
