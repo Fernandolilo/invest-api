@@ -1,6 +1,7 @@
 package com.invest.dto;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 import lombok.Builder;
 import lombok.Data;
@@ -12,5 +13,6 @@ public class InvestimentoNewDTO implements Serializable{
 	
 	private double valor;
 	private String cpfOuCnpj;
+	private UUID conta;
 
 }
