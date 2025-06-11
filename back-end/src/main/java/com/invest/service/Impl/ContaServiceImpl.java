@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.invest.dto.ContaNewDTO;
+import com.invest.dto.ContaUpdateDTO;
 import com.invest.entity.Client;
 import com.invest.entity.Conta;
 import com.invest.reposiotries.ClientRepository;
@@ -34,6 +35,20 @@ public class ContaServiceImpl implements ContaService {
 		Conta con = mapper.map(conta, Conta.class);
 		con.setClient(clientOpt.get());
 
+		return repository.save(con);
+	}
+
+	@Override
+	public Conta update(ContaUpdateDTO obj) {
+		Optional<Conta> conta = repository.findById(obj.getId());
+		Optional<Client> clientOpt = clienteRepository.findByCpfOuCnpj(obj.getCpf());
+
+		if (conta.isEmpty()) {
+			throw new ObjectNotFoundException("Conta não encontrado: " + obj.getId());
+		}
+				
+		Conta con = mapper.map(obj, Conta.class);
+		con.setClient(clientOpt.get());
 		return repository.save(con);
 	}
 

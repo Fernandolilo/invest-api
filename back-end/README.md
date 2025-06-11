@@ -1,18 +1,13 @@
-"# test-tech-wefit" 
+"# API- Invest" 
 
-Teste tecnico para a empresa Webfit, neste teste faremos um endpoint para cadastro de pessoa, preciso saber se vender ou compra?
-
-será um prazer imenso atuar convosco.
-
-
-apos finalizar entidades, inciamos a parte de persistencia a dados, 
+Aplicação de investimentos 
 
 o link do h2, banco de dados em memoria.
 
-http://localhost:8000/api/wefit/h2-console/
+http://localhost:8000/api/invest/h2-console/
 
 adicionado swager há API.
-link: http://localhost:8000/api/wefit/swagger-ui/index.html#/
+link: http://localhost:8000/api/invest/swagger-ui/index.html#/
 
 {
   "client": {
@@ -22,7 +17,6 @@ link: http://localhost:8000/api/wefit/swagger-ui/index.html#/
     "telefone": "string",
     "email": "string",
     "tipo": "PESSOA_JURIDICA",
-    "perfil": "COMPRADOR",
     "senha": "string",
     "confirme": true
   },
@@ -47,7 +41,7 @@ O mesmo vale para pessoa jurídica: deverá ser informado um CNPJ válido. Se fo
 para se autenticar deixei um usuario instanciado no bd.
 
 {
-  "email": "fernando@wefit.com.br",
+  "email": "fernando.nandotaania@hotmail.com",
   "password": "1234"
 }
 
