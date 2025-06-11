@@ -1,6 +1,5 @@
 package com.invest.security.jwt;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -78,19 +77,15 @@ public class JwtServiceTest {
     }
 
     @Test
-    public void testIsTokenExpired() {
+    public void testIsTokenExpired() throws InterruptedException {
         // Cria um token expirado para testar
         String expiredToken = jwtService.generateToken(testUsername);
-        
-        // Aguardar um tempo para garantir que o token expire
-        try {
-            Thread.sleep(2000); // Dorme por 2 segundos para garantir que o token expire
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+       
 
-        // Verifica se o token expirado está sendo tratado corretamente
-        assertThat(jwtService.extractExpiration(expiredToken));
+        Date expiration = jwtService.extractExpiration(expiredToken);
+        Thread.sleep(4500);
+        
+        assertFalse(expiration.before(new Date())); // deve ser true agora
     }
 }
 

@@ -39,17 +39,20 @@ public class InvestimentoServiceImpl implements InvestimentoService {
 
 		List<Conta> contas = clientOpt.get().getContas();
 
-		double saldoTotal = contas.stream().mapToDouble(Conta::getSaldo).sum();
+		//double saldoTotal = contas.stream().mapToDouble(Conta::getSaldo).sum();
 
 		Conta contaSelecionada = contas.stream().filter(c -> c.getId().equals(obj.getConta())).findFirst()
 				.orElseThrow(() -> new ObjectNotFoundException("Conta não encontrada ou não pertence ao cliente"));
+		
 		InvestimentoNewDTO newInvest = InvestimentoNewDTO.builder().cpfOuCnpj(obj.getCpfOuCnpj()).valor(obj.getValor())
 				.build();
+		
+		double sdt = contaSelecionada.getSaldo();
 
 		Investimento inv = mapper.map(newInvest, Investimento.class);
 		inv.setConta(contaSelecionada);
 
-		if (saldoTotal < newInvest.getValor()) {
+		if (sdt < newInvest.getValor()) {
 			throw new ObjectNotFoundException("Chegue seu saldo, não há valor suficiente: ");
 
 		}
