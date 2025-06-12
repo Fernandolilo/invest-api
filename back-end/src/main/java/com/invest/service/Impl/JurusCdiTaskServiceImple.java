@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.invest.entity.Investimento;
 import com.invest.reposiotries.InvestimentoRepository;
+import com.invest.service.CdiService;
 import com.invest.service.JurusCdiTaskService;
 
 import lombok.RequiredArgsConstructor;
@@ -16,8 +17,9 @@ import lombok.RequiredArgsConstructor;
 class JurusCdiTaskServiceImple implements JurusCdiTaskService {
 
     private final InvestimentoRepository repository; // final para injeção via constructor
+    private final CdiService cdiService;
 
-    @Scheduled(cron = "*/10 * * * * ?") // Executa a cada 10 segundos
+    @Scheduled(cron = "*/60 * * * * ?") // Executa a cada 10 segundos
     @Override
     public void sendJurus() { // Sem parâmetros!
 
@@ -31,7 +33,11 @@ class JurusCdiTaskServiceImple implements JurusCdiTaskService {
 
             for (Investimento inv : page.getContent()) {
                 double atual = inv.getValor();
-                double acrescimo = atual * 0.01; // 1% de acréscimo
+               
+                double taxa =cdiService.foundCDI().getCdiDiario()  *1.02;
+                
+                double acrescimo = taxa; // 1% de acréscimo
+                
                 inv.setValor(atual + acrescimo);
             }
 
