@@ -22,7 +22,7 @@ public class ClientNewDTO {
 	private String telefone;
 	private String email;
 	private TipoPessoa tipo;
-	private Role role;
+//	private Role role;
 	private String senha;
 	private boolean confirme;
 

@@ -55,32 +55,7 @@
         </div>
       </div>
       
-      <div class="input-box">
-        <label for="perfil" class="form-label">Perfil</label>
-        <select id="perfil" name="perfil" class="form-control" [(ngModel)]="cad.perfil" required>
-          <option value="" disabled selected>Selecione o perfil</option>
-          <option value="comprador">COMPRADOR</option>
-          <option value="vendedor">VENDEDOR</option>
-        </select>
-        <div *ngIf="form.submitted && form.controls['perfil'].invalid" class="invalid-feedback d-block">
-          <div *ngIf="form.controls['perfil'].errors?.['required']">Perfil é obrigatório.</div>
-        </div>
-      </div>
-
-      <div class="input-box">
-        <label for="role" class="form-label">Nivel de acesso</label>
-        <select id="role" name="role" class="form-control" [(ngModel)]="cad.role" required>
-          <option value="" disabled selected>Selecione um nivel</option>
-          <option value="ADMIN">ADMIN</option>
-          <option value="USER">USER</option>
-        </select>
-        <div *ngIf="form.submitted && form.controls['role'].invalid" class="invalid-feedback d-block">
-          <div *ngIf="form.controls['role'].errors?.['required']">Nível de acesso é obrigatório.</div>
-        </div>
-      </div>
-      
-    
-      <div class="input-box">
+     <div class="input-box">
         <label for="senha" class="form-label">Senha</label>
         <input 
           type="password" 

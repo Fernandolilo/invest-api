@@ -9,12 +9,12 @@ import { enderecoDTO } from '../models/enderecoDTO';
 })
 export class CadastroService {
 
-  private readonly API = 'api/wefit';
+  private readonly API = 'api/invest';
 
   constructor(private http: HttpClient) { }
 
   save(payload: { client: cadastroDTO, endereco: enderecoDTO }): Observable<any> {
-    
+
     const token = localStorage.getItem('Authorization'); // Pegue o token do local storage
     if (!token) {
       return throwError(() => new Error('No token found in local storage'));
@@ -28,14 +28,14 @@ export class CadastroService {
     });
 
 
-  
+
     return this.http.post(`${this.API}/clients`, payload, {
       headers,
       observe: 'response',
       responseType: 'json'
     });
   }
-  
+
 
 
 }

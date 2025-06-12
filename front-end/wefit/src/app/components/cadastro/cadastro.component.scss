@@ -33,7 +33,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 30px 40px;
-    color: #8e44ad;
+    color:   #011325;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
   }
   
@@ -45,7 +45,7 @@
   .wrapper h1 {
     font-size: 30px;
     text-align: center;
-    color:  #8e44ad;
+    color:   #011325;
     margin-bottom: 40px;
     font-weight: 600;
     overflow-x: auto; /* Garante que a tabela não saia da tela */
@@ -64,7 +64,7 @@
     border: 2px solid #ddd; /* Borda cinza claro */
     border-radius: 4px;
     font-size: 16px;
-    color:  #8e44ad;
+    color:   #011325;
     padding: 12px 20px;
     transition: border-color 0.3s ease;
   }
@@ -74,11 +74,11 @@
   }
   
   .input-box input:focus {
-    border-color: #003366; /* Azul escuro no foco */
+    border-color: #011325; /* Azul escuro no foco */
   }
   
   .invalid-feedback {
-    color: #d9534f;
+    color: #fa02d1;
   }
   
   .btn {
@@ -86,7 +86,7 @@
     height: 45px;
     border-radius: 4px;
     border: none;
-    background:  #8e44ad;/* Gradiente de azul */
+    background:    #011325;/* Gradiente de azul */
     color: #fff;
     font-size: 14px;
     font-weight: 600;
@@ -96,7 +96,7 @@
   }
   
   .btn:hover {
-    background: linear-gradient(90deg, #001f3f 0%, #0056b3 100%); /* Gradiente de azul escuro no hover */
+    background: linear-gradient(90deg,   #011325 0%, #fa02d1 100%); /* Gradiente de azul escuro no hover */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   }
   
