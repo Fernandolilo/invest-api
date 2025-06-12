@@ -1,6 +1,6 @@
 {
-  "/api/wefit": {
-   // "target": "http://api/wefit:8000",
+  "/api/invest": {
+   // "target": "http://api/invest:8000",
     "target": "http://localhost:8000",
     "secure": false,
     "changeOrigin": true,

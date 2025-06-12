@@ -14,7 +14,7 @@ export class AuthService {
   private http = inject(HttpClient);
   private router = inject(Router);
 
-  private readonly API = 'api/wefit';
+  private readonly API = '/api/invest';
 
 
 
@@ -23,12 +23,12 @@ export class AuthService {
       email: credenciais.email,
       password: credenciais.password
     };
-  
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Accept': '*/*'
     });
-  
+
     return this.http.post(`${this.API}/clients/authenticate`, body, {
       headers,
       observe: 'response'
@@ -45,7 +45,7 @@ export class AuthService {
     );
   }
 
-  
+
   getToken(): string | null {
     return localStorage.getItem('Authorization');
   }
@@ -61,7 +61,7 @@ export class AuthService {
 
   }
 
-  
+
   isAuthenticateds(): boolean {
     if (typeof window !== 'undefined' && window.localStorage) {
       const token = localStorage.getItem('Authorization');
