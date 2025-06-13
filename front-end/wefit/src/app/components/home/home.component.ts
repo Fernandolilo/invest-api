@@ -13,4 +13,8 @@ export class HomeComponent {
   login() {
     this.router.navigate(['/login'])
   }
+
+  cadastro() {
+    this.router.navigate(['/cadastro'])
+  }
 }

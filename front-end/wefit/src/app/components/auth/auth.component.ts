@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
 })
 export class AuthComponent {
 
-  
+
   creds: CredentialDTO = {
     email: '',
     password: '',
@@ -38,29 +38,29 @@ export class AuthComponent {
     }
   }*/
 
-    login(form: NgForm) {
-      this.service.login(this.creds).subscribe(
-        (res: any) => {
-          const jwt = this.service.getToken();
-          if (jwt) {
-            this.router.navigate(['/cadastro'], {
-              queryParams: {
-                email: this.creds.email,
-              }
-            });
-          } else {
-            alert('Erro inesperado. Token não recebido.');
-          }
-        },
-        error => {
-          const errorList = error.error?.errors;
-    
-          if (Array.isArray(errorList) && errorList.length > 0) {
-            alert(errorList[0]); // mostra apenas a primeira mensagem de erro
-          } else {
-            alert('Erro inesperado ao tentar fazer login.');
-          }
+  login(form: NgForm) {
+    this.service.login(this.creds).subscribe(
+      (res: any) => {
+        const jwt = this.service.getToken();
+        if (jwt) {
+          this.router.navigate(['/dashboard'], {
+            queryParams: {
+              email: this.creds.email,
+            }
+          });
+        } else {
+          alert('Erro inesperado. Token não recebido.');
         }
-      );
-    }   
+      },
+      error => {
+        const errorList = error.error?.errors;
+
+        if (Array.isArray(errorList) && errorList.length > 0) {
+          alert(errorList[0]); // mostra apenas a primeira mensagem de erro
+        } else {
+          alert('Erro inesperado ao tentar fazer login.');
+        }
+      }
+    );
+  }
 }
