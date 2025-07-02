@@ -23,7 +23,6 @@ import com.invest.dto.ClientDTO;
 import com.invest.dto.ClientNewDTO;
 import com.invest.dto.EnderecoNewDTO;
 import com.invest.entity.Client;
-import com.invest.entity.enums.Role;
 import com.invest.entity.enums.TipoPessoa;
 import com.invest.requests.ClientRequest;
 import com.invest.sercurity.jwt.JwtAuthenticationFilter;
@@ -186,14 +185,14 @@ public class ClientControllerTest {
 	private Client client() {
 		Client entityCli = Client.builder().nome(cli.getNome()).cpfOuCnpj(cli.getCpfOuCnpj()).celular(cli.getCelular())
 				.email(cli.getEmail()).telefone(cli.getTelefone()).tipo(cli.getTipo())
-				.confirme(cli.isConfirme()).role(cli.getRole()).senha(cli.getSenha()).build();
+				.confirme(cli.isConfirme()).senha(cli.getSenha()).build();
 		return entityCli;
 	}
 
 	private void newClientDto() {
 		cli = ClientNewDTO.builder().nome("Fernando").cpfOuCnpj("93906787060").celular("11 1234-14567")
 				.email("fernando@wefit.com.br").telefone("11 12345678").tipo(TipoPessoa.PESSOA_FISICA)
-				.role(Role.ADMIN).confirme(true).senha("1234").build();
+				.confirme(true).senha("1234").build();
 	}
 
 	private void enderecoNewDTO() {
@@ -204,7 +203,7 @@ public class ClientControllerTest {
 	private void cliNewDtoCpfInvalid() {
 		cli = ClientNewDTO.builder().nome("Fernando").cpfOuCnpj("12345678911") // CPF inválido
 				.celular("11 1234-14567").email("fernando@wefit.com.br").telefone("11 12345678")
-				.tipo(TipoPessoa.PESSOA_FISICA).role(Role.ADMIN).confirme(true).senha("1234")
+				.tipo(TipoPessoa.PESSOA_FISICA).confirme(true).senha("1234")
 				.build();
 	}
 
