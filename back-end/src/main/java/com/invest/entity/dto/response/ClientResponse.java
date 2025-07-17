@@ -18,7 +18,6 @@ public class ClientResponse {
     private String email;
     private TipoPessoa tipo;
 
-    private EnderecoRespponse endereco;
     private List<Carteira> carteiras = new ArrayList<>();
     private List<Conta> contas = new ArrayList<>();
 }

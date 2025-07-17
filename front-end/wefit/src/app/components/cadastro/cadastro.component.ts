@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { cadastroDTO } from '../../models/cadastroDTO';
 import { enderecoDTO } from '../../models/enderecoDTO';
 import { CadastroService } from '../../services/cadastro.service';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -12,6 +13,7 @@ import { NgForm } from '@angular/forms';
 })
 export class CadastroComponent {
 
+  router = inject(Router);
   cad: cadastroDTO = {
     nome: '',
     cpfOuCnpj: '',
@@ -35,9 +37,9 @@ export class CadastroComponent {
     estado: ''
   }
 
-  constructor(private service: CadastroService, private http: HttpClient) {}
-  
-  
+  constructor(private service: CadastroService, private http: HttpClient) { }
+
+
 
   save(form: NgForm): void {
     if (form.valid) {
@@ -47,17 +49,13 @@ export class CadastroComponent {
         this.cad.tipo = 'PESSOA_JURIDICA';
       }
 
-      if (this.cad.perfil === 'comprador') {
-        this.cad.perfil = 'COMPRADOR';
-      } else if (this.cad.perfil === 'vendedor') {
-        this.cad.perfil = 'VENDEDOR';
-      }
+
 
       const payload = {
         client: this.cad,
         endereco: this.end
       };
-      
+
       if (!payload.client.confirme) {
         alert('Você precisa confirmar os dados e aceitar os termos antes de prosseguir.');
         return; // Interrompe a execução aqui
@@ -65,7 +63,8 @@ export class CadastroComponent {
       this.service.save(payload).subscribe(
         (response: any) => {  // Tipagem explícita para o response
           alert('Cadastro realizado com sucesso!');
-         
+          this.router.navigateByUrl("/login");
+
         },
         (error: any) => {  // Tipagem explícita para o error
           console.error('Erro ao cadastrar', error);

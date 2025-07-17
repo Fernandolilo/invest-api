@@ -1,6 +1,7 @@
 package com.invest.dto;
 
-import com.invest.entity.Endereco;
+import java.util.List;
+
 import com.invest.entity.enums.TipoPessoa;
 
 import lombok.AllArgsConstructor;
@@ -20,7 +21,6 @@ public class ClientDTO {
 	private String telefone;
 	private String email;
 	private TipoPessoa tipo;
-	private String senha;
-	private boolean confirme;
-	private Endereco endereco;
+    private List<ContaDTO> contas; // Lista de contas (múltiplas)
+
 }

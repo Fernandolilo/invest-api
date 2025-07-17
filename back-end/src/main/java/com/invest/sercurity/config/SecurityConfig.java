@@ -31,6 +31,7 @@ import com.invest.sercurity.service.impl.UserDetailsServiceImpl;
 public class SecurityConfig {
 
 	private static final String API_URL_CLIENTS_AUTH = "/clients/authenticate/**";
+	private static final String API_URL_CLIENTS_SAVE= "/clients/**";
 	private static final String API_CDI = "/cdi/**";
 	
 	
@@ -64,6 +65,7 @@ public class SecurityConfig {
 				.authorizeHttpRequests(
 						authz -> authz
 						.requestMatchers(API_URL_CLIENTS_AUTH).permitAll()
+						.requestMatchers(API_URL_CLIENTS_SAVE).permitAll()
 						.requestMatchers(API_CDI).permitAll()
 						.anyRequest().authenticated())
 				.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

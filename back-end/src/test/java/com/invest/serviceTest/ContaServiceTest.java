@@ -20,6 +20,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.invest.dto.ContaNewDTO;
@@ -29,6 +30,7 @@ import com.invest.entity.enums.TipoConta;
 import com.invest.entity.enums.TipoPessoa;
 import com.invest.reposiotries.ClientRepository;
 import com.invest.reposiotries.ContaRepository;
+import com.invest.service.UserService;
 import com.invest.service.Impl.ContaServiceImpl;
 import com.invest.service.exeptions.ObjectNotFoundException;
 
@@ -41,6 +43,12 @@ public class ContaServiceTest {
 
     @Mock
     private ClientRepository clientRepository;
+    
+    @Mock
+	private UserService userService;
+    
+    @Mock
+    private  AuthenticationManager authenticationManager;
 
     @Mock
     private ModelMapper modelMapper;
@@ -90,7 +98,7 @@ public class ContaServiceTest {
 
         MockitoAnnotations.openMocks(this);
         // Inicializa a service passando os mocks para o construtor gerado pelo @RequiredArgsConstructor
-        contaService = new ContaServiceImpl(contaRepository, modelMapper, clientRepository);
+        contaService = new ContaServiceImpl(contaRepository, modelMapper, clientRepository, userService, authenticationManager);
     }
 
   

@@ -177,8 +177,7 @@ public class ClientControllerTest {
 	
 	private ClientDTO clientDTO() {
 		ClientDTO entityDTO = ClientDTO.builder().nome(cli.getNome()).cpfOuCnpj(cli.getCpfOuCnpj())
-				.celular(cli.getCelular()).email(cli.getEmail()).telefone(cli.getTelefone()).tipo(cli.getTipo())
-				.confirme(cli.isConfirme()).senha(cli.getSenha()).build();
+				.celular(cli.getCelular()).email(cli.getEmail()).telefone(cli.getTelefone()).tipo(cli.getTipo()).build();
 		return entityDTO;
 	}
 

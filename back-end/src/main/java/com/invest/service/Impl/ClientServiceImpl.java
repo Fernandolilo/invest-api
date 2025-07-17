@@ -36,6 +36,7 @@ import com.invest.service.exeptions.AuthorizationException;
 import com.invest.service.exeptions.ObjectNotFoundException;
 import com.invest.service.exeptions.UserAccessNegativeException;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -52,6 +53,7 @@ public class ClientServiceImpl implements ClientService {
 	private final ContaRepository contaRepository;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
+	@Transactional
 	@Override
 	public ClientDTO save(ClientNewDTO cli, EnderecoNewDTO end) {
 		Client entity = mapper.map(cli, Client.class);
@@ -112,12 +114,7 @@ public class ClientServiceImpl implements ClientService {
 		}
 	}
 
-	private boolean hasFullAccess(UserSecurityDetails user) {
-		// Lista de papéis permitidos
-		List<Role> allowedRoles = Arrays.asList(Role.ADMIN, Role.USER);
-		// Verifica se o usuário possui pelo menos um dos papéis permitidos
-		return allowedRoles.stream().anyMatch(user::hasRole);
-	}
+	
 
 	@Override
 	public Optional<ClientResponse> foundCli(String cpfOuCnpj) {
@@ -125,6 +122,13 @@ public class ClientServiceImpl implements ClientService {
 
 		// Se estiver presente, mapeia e retorna como Optional
 		return cli.map(client -> mapper.map(client, ClientResponse.class));
+	}
+	
+	private boolean hasFullAccess(UserSecurityDetails user) {
+		// Lista de papéis permitidos
+		List<Role> allowedRoles = Arrays.asList(Role.ADMIN, Role.USER);
+		// Verifica se o usuário possui pelo menos um dos papéis permitidos
+		return allowedRoles.stream().anyMatch(user::hasRole);
 	}
 
 }

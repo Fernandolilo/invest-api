@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.invest.entity.dto.response.ClientResponse;
 import com.invest.entity.enums.Role;
 import com.invest.entity.enums.TipoPessoa;
@@ -53,12 +54,15 @@ public class Client implements Serializable {
 	@CollectionTable(name = "ROLES")
 	private Set<Integer> roles = new HashSet<>();
 
+	@JsonBackReference
 	@OneToOne(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Endereco endereco;
 	
+	@JsonBackReference
 	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Carteira> carteiras = new ArrayList<>();
 	
+	@JsonBackReference
 	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Conta> contas = new ArrayList<>();
 
