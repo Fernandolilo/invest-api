@@ -1,0 +1,81 @@
+.container {
+  padding-top: 2rem;
+  font-family: 'Poppins', sans-serif;
+
+  .card {
+    border-radius: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+
+    .mb-2 {
+      font-size: 1rem;
+      padding: 0.25rem 0;
+
+      strong {
+        display: inline-block;
+        min-width: 160px;
+        color: #003366;
+        font-weight: 500;
+      }
+
+      span {
+        font-weight: 500;
+      }
+    }
+
+    h5 {
+      margin-top: 1.5rem;
+      color: #003366;
+      font-weight: 600;
+    }
+
+    hr {
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      border-top: 1px solid #dee2e6;
+    }
+
+    table {
+      margin-top: 0.5rem;
+      border: 1px solid #dee2e6;
+      border-radius: 0.5rem;
+      overflow: hidden;
+
+      thead {
+        background-color: #003366;
+        color: white;
+
+        th {
+          font-weight: 500;
+        }
+      }
+
+      th,
+      td {
+        padding: 0.75rem;
+        border: 1px solid #dee2e6;
+      }
+
+      td.text-success {
+        color: #28a745;
+        font-weight: 500;
+      }
+
+      td.text-danger {
+        color: #dc3545;
+        font-weight: 500;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      padding: 1rem;
+
+      .mb-2 strong {
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+}
