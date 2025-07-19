@@ -9,6 +9,15 @@ import { requestContasDTO } from '../../models/requestContasDTO';
 })
 export class DashboardComponent implements OnInit {
 
+  contaSelecionada: any; // ou use um tipo adequado
+
+  selecionarConta(conta: any): void {
+    this.contaSelecionada = conta;
+    // Se quiser navegar, adicione algo como:
+    // this.router.navigate(['/home'], { queryParams: { contaId: conta.id } });
+    console.log('Conta selecionada:', conta);
+  }
+
   contas: requestContasDTO[] = [];
 
   constructor(private service: ContasService) { }
