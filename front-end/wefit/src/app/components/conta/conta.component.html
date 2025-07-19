@@ -1,0 +1,81 @@
+<div class="container mt-4">
+  <div class="card p-3">
+    <div class="d-flex align-items-center mb-3">
+      <strong class="me-2">Dados da Conta:</strong>
+      <!-- Ícone clicável para mostrar/ocultar dados da conta -->
+      <i 
+        class="bi"
+        [ngClass]="mostrarDadosConta ? 'bi-eye-slash-fill' : 'bi-eye-fill'" 
+        (click)="onVisualConta()" 
+        style="cursor: pointer; font-size: 1.2rem;" 
+        title="{{ mostrarDadosConta ? 'Ocultar dados da conta' : 'Mostrar dados da conta' }}">
+      </i>
+    </div>
+
+    <!-- Dados da conta aparecem ou somem -->
+    <div *ngIf="mostrarDadosConta">
+      <div class="mb-2"><strong>Número da Conta:</strong> 123456-7</div>
+      <div class="mb-2"><strong>Agência:</strong> 001</div>
+      <div class="mb-2"><strong>Titular:</strong> João da Silva</div>
+      <div class="mb-2"><strong>Tipo:</strong> Conta Corrente</div>
+    </div>
+
+    <hr>
+
+    <!-- Linha do saldo com botão para mostrar/ocultar saldo -->
+    <div class="d-flex align-items-center mb-2">
+      <strong class="me-2">Saldo Atual:</strong>
+      <span class="me-3">
+        {{ mostrarSaldo ? 'R$ 2.350,75' : '••••••' }}
+      </span>
+      <button
+        class="btn btn-sm btn-outline-secondary d-flex align-items-center"
+        (click)="alternarSaldo()"
+        title="{{ mostrarSaldo ? 'Ocultar saldo' : 'Mostrar saldo' }}"
+      >
+        <i class="bi me-1" [ngClass]="mostrarSaldo ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i>
+      </button>
+    </div>
+
+    <div class="mb-2"><strong>Data de Criação:</strong> 10/02/2021</div>
+    <div class="mb-2"><strong>Status:</strong> <span class="text-success">Ativa</span></div>
+
+    <hr>
+   <h5 class="d-flex align-items-center">
+  Últimas Transações
+  <i 
+    class="bi bi-journal-text ms-2" 
+    style="cursor: pointer; font-size: 1.3rem;" 
+    title="Ver Extrato"
+    (click)="onExtrato()"
+  ></i>
+</h5>
+
+<table *ngIf="mostrarExtrato" class="table table-sm">
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Descrição</th>
+      <th>Valor</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>15/07/2025</td>
+      <td>Transferência recebida</td>
+      <td class="text-success">+ R$ 500,00</td>
+      <td>Crédito</td>
+    </tr>
+    <tr>
+      <td>14/07/2025</td>
+      <td>Pagamento de boleto</td>
+      <td class="text-danger">- R$ 150,00</td>
+      <td>Débito</td>
+    </tr>
+  </tbody>
+</table>
+
+
+  </div>
+</div>

@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ContaComponent } from './components/conta/conta.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AuthComponent,
     CadastroComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    ContaComponent
   ],
   imports: [
     BrowserModule,

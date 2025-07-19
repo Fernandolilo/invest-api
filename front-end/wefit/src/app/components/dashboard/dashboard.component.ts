@@ -1,24 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ContasService } from '../../services/contas.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
 
-  mostrarSaldo = true;
-  mostrarDadosConta = true;
-  mostrarExtrato = true;
-
-  alternarSaldo(): void {
-    this.mostrarSaldo = !this.mostrarSaldo;
+  constructor(private service: ContasService) { }
+  ngOnInit(): void {
+    this.service.findAllContas().subscribe(
+      contas => {
+        console.log('Contas carregadas:', contas);
+        // aqui você pode atribuir a uma variável local pra exibir no template
+      },
+      error => {
+        console.error('Erro ao buscar contas:', error);
+      }
+    );
   }
 
-  onVisualConta(): void {
-    this.mostrarDadosConta = !this.mostrarDadosConta;
-  }
-  onExtrato(): void {
-    this.mostrarExtrato = !this.mostrarExtrato;
-  }
 }
