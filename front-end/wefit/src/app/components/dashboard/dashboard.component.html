@@ -1,1 +1,34 @@
-<p>dashboard</p>
+
+<body class="body">
+  <div class="header-title text-center py-4">
+    <h1>Banco Digital Pro</h1>
+    <p>
+        Selecione qual conta quer acessar?
+    </p>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 col-lg-4 mb-4" *ngFor="let conta of contas">
+        <div class="card h-100 shadow-sm rounded-4">
+          <div class="card-header text-white text-center" style="background-color: #003366;">
+            <strong>{{ conta.nome }}</strong>
+          </div>
+          <div class="card-body">
+            <p><strong>CPF/CNPJ:</strong> {{ conta.cpfOuCnpj }}</p>
+            <p><strong>Banco:</strong> {{ conta.banco }}</p>
+            <p><strong>Agência:</strong> {{ conta.agencia }}</p>
+            <p><strong>Número da conta:</strong> {{ conta.numero }}</p>
+            <p><strong>Tipo:</strong> {{ conta.tipo }}</p>
+            <p>
+              <strong>Saldo:</strong>
+              <span [ngClass]="{'text-danger': conta.saldo <= 0, 'text-success': conta.saldo > 0}">
+                R$ {{ conta.saldo | number:'1.2-2' }}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

@@ -1,10 +1,22 @@
+:root {
+  --primary: #003366;       /* azul escuro */
+  --primary-light: #00509e; /* azul claro para hover */
+  --secondary: #28a745;     /* verde sucesso */
+  --danger: #dc3545;        /* vermelho erro */
+  --background: #ffffff;    /* branco para fundo */
+  --border-color: #dee2e6;  /* cinza claro para bordas */
+  --text-primary: #003366;  /* texto azul escuro */
+  --text-secondary: #555555;/* texto cinza para info */
+}
+
+/* Container e Card */
 .container {
   padding-top: 2rem;
   font-family: 'Poppins', sans-serif;
 
   .card {
     border-radius: 1rem;
-    background-color: #ffffff;
+    background-color: var(--background);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
     padding: 2rem;
 
@@ -17,7 +29,7 @@
       strong {
         display: inline-block;
         min-width: 160px;
-        color: #003366;
+        color: var(--primary);
         font-weight: 500;
       }
 
@@ -28,7 +40,7 @@
 
     h5 {
       margin-top: 1.5rem;
-      color: #003366;
+      color: var(--primary);
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -40,7 +52,7 @@
         transition: color 0.3s ease;
 
         &:hover {
-          color: #00509e;
+          color: var(--primary-light);
         }
       }
     }
@@ -48,18 +60,18 @@
     hr {
       margin-top: 1.5rem;
       margin-bottom: 1rem;
-      border-top: 1px solid #dee2e6;
+      border-top: 1px solid var(--border-color);
     }
 
     table {
       margin-top: 0.5rem;
-      border: 1px solid #dee2e6;
+      border: 1px solid var(--border-color);
       border-radius: 0.5rem;
       overflow: hidden;
       width: 100%;
 
       thead {
-        background-color: #003366;
+        background-color: var(--primary);
         color: white;
 
         th {
@@ -71,22 +83,23 @@
       th,
       td {
         padding: 0.75rem;
-        border: 1px solid #dee2e6;
+        border: 1px solid var(--border-color);
         white-space: nowrap;
       }
 
       td.text-success {
-        color: #28a745;
+        color: var(--secondary);
         font-weight: 500;
       }
 
       td.text-danger {
-        color: #dc3545;
+        color: var(--danger);
         font-weight: 500;
       }
     }
   }
 
+  /* Responsividade */
   @media (max-width: 768px) {
     .card {
       padding: 1rem;
@@ -110,12 +123,12 @@
         }
 
         thead tr {
-          display: none; // oculta cabeçalho para layout móvel
+          display: none; /* oculta cabeçalho para layout móvel */
         }
 
         tbody tr {
           margin-bottom: 1rem;
-          border: 1px solid #dee2e6;
+          border: 1px solid var(--border-color);
           border-radius: 0.5rem;
           padding: 0.5rem;
           transition: margin 0.3s ease, border-color 0.3s ease;
@@ -134,7 +147,7 @@
             white-space: nowrap;
             font-weight: 600;
             content: attr(data-label);
-            color: #003366;
+            color: var(--primary);
           }
         }
       }

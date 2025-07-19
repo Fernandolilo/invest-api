@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary: #020346;
+  --primary-light: #0f03b8;
+  --secondary: #03c230;
+  --danger: #db051a;
+  --background: #ffffff;
+  --border-color: #ddd;
+  --text-primary: #222;
+  --text-secondary: #555;
+  --text-default: #333;
+  --card-header-bg: #f8f9fa;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.15);
+}

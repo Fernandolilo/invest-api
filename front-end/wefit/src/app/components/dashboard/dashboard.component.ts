@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ContasService } from '../../services/contas.service';
+import { requestContasDTO } from '../../models/requestContasDTO';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,17 +9,20 @@ import { ContasService } from '../../services/contas.service';
 })
 export class DashboardComponent implements OnInit {
 
+  contas: requestContasDTO[] = [];
+
   constructor(private service: ContasService) { }
   ngOnInit(): void {
     this.service.findAllContas().subscribe(
       contas => {
         console.log('Contas carregadas:', contas);
-        // aqui você pode atribuir a uma variável local pra exibir no template
+        this.contas = Array.isArray(contas) ? contas : [contas]; // 👈 importante para garantir array
       },
       error => {
         console.error('Erro ao buscar contas:', error);
       }
     );
   }
+
 
 }
