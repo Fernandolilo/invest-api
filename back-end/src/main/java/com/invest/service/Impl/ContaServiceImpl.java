@@ -3,6 +3,7 @@ package com.invest.service.Impl;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -33,6 +34,7 @@ public class ContaServiceImpl implements ContaService {
 	private final ClientRepository clienteRepository;
 	private final UserService userService;
 	private final AuthenticationManager authenticationManager;
+
 	@Override
 	public Conta save(ContaNewDTO conta) {
 		Optional<Client> clientOpt = clienteRepository.findByCpfOuCnpj(conta.getCpf());
@@ -67,27 +69,42 @@ public class ContaServiceImpl implements ContaService {
 
 	@Override
 	public List<ContaDTO> foundConta() {
-	    UserSecurityDetails user = userService.authenticated();
+		UserSecurityDetails user = userService.authenticated();
 
-	    if (!hasFullAccess(user)) {
-	        throw new UserAccessNegativeException("Acesso negado");
-	    }
+		if (!hasFullAccess(user)) {
+			throw new UserAccessNegativeException("Acesso negado");
+		}
 
-	    List<Conta> contas = repository.findAllByClientId(user.getId());
+		List<Conta> contas = repository.findAllByClientId(user.getId());
 
-	    if (contas.isEmpty()) {
-	        throw new ObjectNotFoundException("Nenhuma conta encontrada");
-	    }
+		if (contas.isEmpty()) {
+			throw new ObjectNotFoundException("Nenhuma conta encontrada");
+		}
 
-	    // Mapeia cada Conta para ContaDTO
-	    return contas.stream().map(conta -> {
-	        ContaDTO dto = mapper.map(conta, ContaDTO.class);
-	        dto.setNome(conta.getClient().getNome());
-	        dto.setCpfOuCnpj(conta.getClient().getCpfOuCnpj());
-	        return dto;
-	    }).toList();
+		// Mapeia cada Conta para ContaDTO
+		return contas.stream().map(conta -> {
+			ContaDTO dto = mapper.map(conta, ContaDTO.class);
+			dto.setNome(conta.getClient().getNome());
+			dto.setCpfOuCnpj(conta.getClient().getCpfOuCnpj());
+			return dto;
+		}).toList();
 	}
 
+	@Override
+	public ContaDTO findById(UUID id) {
+		UserSecurityDetails user = userService.authenticated();
+		if (!hasFullAccess(user)) {
+			throw new UserAccessNegativeException("Acesso negado");
+		}
+
+		Optional<Conta> conta = repository.findById(id);
+
+		if (conta.isEmpty()) {
+			throw new ObjectNotFoundException("Conta não encontrado: " + id);
+		}
+
+		return mapper.map(conta, ContaDTO.class);
+	}
 
 	private boolean hasFullAccess(UserSecurityDetails user) {
 		// Lista de papéis permitidos
@@ -95,4 +112,5 @@ public class ContaServiceImpl implements ContaService {
 		// Verifica se o usuário possui pelo menos um dos papéis permitidos
 		return allowedRoles.stream().anyMatch(user::hasRole);
 	}
+
 }

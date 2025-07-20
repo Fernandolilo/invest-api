@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { ContasService } from '../../services/contas.service';
 import { requestContasDTO } from '../../models/requestContasDTO';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,18 +10,37 @@ import { requestContasDTO } from '../../models/requestContasDTO';
 })
 export class DashboardComponent implements OnInit {
 
-  contaSelecionada: any; // ou use um tipo adequado
+  router = inject(Router);
 
-  selecionarConta(conta: any): void {
-    this.contaSelecionada = conta;
-    // Se quiser navegar, adicione algo como:
-    // this.router.navigate(['/home'], { queryParams: { contaId: conta.id } });
-    console.log('Conta selecionada:', conta);
-  }
+  contaSelecionada: any; // ou use um tipo adequado
 
   contas: requestContasDTO[] = [];
 
   constructor(private service: ContasService) { }
+  selecionarConta(conta: any): void {
+    this.contaSelecionada = conta;
+
+    this.service.findById(conta.id).subscribe({
+      next: (res) => {
+        console.log('Conta carregada via findById:', res);
+
+        // Somente após confirmar que a conta existe, navegar:
+        this.router.navigate(['/conta'], { queryParams: { id: conta.id } });
+      },
+      error: (err) => {
+        console.error('Erro ao buscar conta por ID:', err);
+
+        // Exemplo: exibir um alerta amigável
+        alert('Conta não encontrada. Por favor, selecione outra.');
+
+        // Ou redirecionar para uma página de erro personalizada
+        // this.router.navigate(['/erro-conta-nao-encontrada']);
+      }
+    });
+  }
+
+
+
   ngOnInit(): void {
     this.service.findAllContas().subscribe(
       contas => {

@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class CadastroComponent {
 
   router = inject(Router);
+
   cad: cadastroDTO = {
     nome: '',
     cpfOuCnpj: '',

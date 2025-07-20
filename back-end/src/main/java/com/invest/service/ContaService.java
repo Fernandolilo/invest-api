@@ -1,6 +1,7 @@
 package com.invest.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.invest.dto.ContaDTO;
 import com.invest.dto.ContaNewDTO;
@@ -14,4 +15,6 @@ public interface ContaService {
 	public Conta update(ContaUpdateDTO conta);
 	
 	public List< ContaDTO> foundConta();
+	
+	public ContaDTO findById(UUID id);
 }

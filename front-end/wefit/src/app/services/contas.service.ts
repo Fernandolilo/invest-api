@@ -40,4 +40,27 @@ export class ContasService {
   }
 
 
+  findById(id: string): Observable<requestContasDTO> {
+    const token = localStorage.getItem('Authorization');
+    if (!token) {
+      return throwError(() => new Error('No token found in local storage'));
+    }
+
+    const jwt = token.substring(7); // Remove "Bearer " prefix
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${jwt}`,
+      'Content-Type': 'application/json',
+      'Accept': '*/*'
+    });
+
+    return this.http.get<requestContasDTO>(`${this.API}/contas/${id}`, { headers }).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Erro ao buscar conta por ID:', error);
+        return throwError(() => new Error('Error during the request'));
+      })
+    );
+  }
+
+
 }
