@@ -10,6 +10,7 @@ import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ContaComponent } from './components/conta/conta.component';
+import { CameraComponent } from './components/camera/camera.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ContaComponent } from './components/conta/conta.component';
     CadastroComponent,
     HomeComponent,
     DashboardComponent,
-    ContaComponent
+    ContaComponent,
+    CameraComponent
   ],
   imports: [
     BrowserModule,

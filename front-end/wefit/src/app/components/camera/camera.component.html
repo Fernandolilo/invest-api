@@ -1,0 +1,5 @@
+<!-- camera.component.html -->
+<video #video autoplay playsinline></video>
+<button (click)="capture()">Capturar</button>
+<canvas #canvas style="display: none;"></canvas>
+<img *ngIf="capturedImage" [src]="capturedImage" alt="Imagem capturada" />

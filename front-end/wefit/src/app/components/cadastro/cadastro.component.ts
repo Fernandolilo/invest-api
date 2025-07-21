@@ -37,9 +37,55 @@ export class CadastroComponent {
     cidade: '',
     estado: ''
   }
-
+  step: number = 1;
   constructor(private service: CadastroService, private http: HttpClient) { }
 
+
+
+  isStep1Valid(): boolean {
+    return (
+      !!this.cad.nome && this.cad.nome.length >= 3 &&
+      !!this.cad.cpfOuCnpj &&
+      !!this.cad.celular
+    );
+  }
+
+  isStep2Valid(): boolean {
+    return (
+      !!this.end.cep &&
+      !!this.end.logradouro &&
+      !!this.end.numero &&
+      !!this.end.bairro &&
+      !!this.end.cidade &&
+      !!this.end.estado
+    );
+  }
+
+
+  validateEmail(email: string): boolean {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email.toLowerCase());
+  }
+
+  goToStep1(): void {
+    this.step = 1;
+  }
+
+  goToStep2(): void {
+    if (this.isStep1Valid()) {
+      this.step = 2;
+    } else {
+      alert('Por favor, preencha todos os campos obrigatórios corretamente antes de continuar.');
+    }
+  }
+
+  goToStep3(): void {
+    if (this.isStep2Valid()) {
+      this.step = 3;
+    } else {
+      alert('Por favor, preencha corretamente o e-mail, a senha e aceite os termos antes de continuar.');
+    }
+  }
 
 
   save(form: NgForm): void {
