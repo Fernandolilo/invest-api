@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-camera',
@@ -8,6 +8,9 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class CameraComponent implements OnInit {
   @ViewChild('video') videoRef!: ElementRef<HTMLVideoElement>;
   @ViewChild('canvas') canvasRef!: ElementRef<HTMLCanvasElement>;
+
+  @Output() selfieCaptured = new EventEmitter<string>();
+
   capturedImage: string | null = null;
 
   ngOnInit(): void {
@@ -38,7 +41,9 @@ export class CameraComponent implements OnInit {
     if (context) {
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
       this.capturedImage = canvas.toDataURL('image/jpeg');
+
+      // Emite o evento para o componente pai
+      this.selfieCaptured.emit(this.capturedImage);
     }
   }
-
 }

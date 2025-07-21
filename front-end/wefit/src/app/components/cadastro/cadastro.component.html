@@ -86,30 +86,66 @@
     </div>
   </ng-container>
 
-  <!-- Etapa 3: Conta de Acesso -->
-  <ng-container *ngIf="step === 3">
-    <h3>Conta de Acesso</h3>
+ <ng-container *ngIf="step === 3">
+  <h3>Conta de Acesso</h3>
 
-    <div class="mb-3">
-      <label class="form-label">Email</label>
-      <input type="email" class="form-control" [(ngModel)]="cad.email" name="email" required />
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" [(ngModel)]="cad.email" name="email" required />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Senha</label>
+    <input type="password" class="form-control" [(ngModel)]="cad.senha" name="senha" required minlength="6" />
+  </div>
+
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" [(ngModel)]="cad.confirme" name="confirme" />
+    <label class="form-check-label">Confirmo os dados e aceito os termos</label>
+  </div>
+
+ <ng-container *ngIf="step === 3">
+  <h3>Conta de Acesso</h3>
+
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" [(ngModel)]="cad.email" name="email" required />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Senha</label>
+    <input type="password" class="form-control" [(ngModel)]="cad.senha" name="senha" required minlength="6" />
+  </div>
+
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" [(ngModel)]="cad.confirme" name="confirme" />
+    <label class="form-check-label">Confirmo os dados e aceito os termos</label>
+  </div>
+
+  <!-- Câmera -->
+  <div class="mb-3">
+    <label class="form-label">Selfie</label>
+    <app-camera (selfieCaptured)="onSelfieCaptured($event)"></app-camera>
+    <div *ngIf="selfieDataUrl">
+      <img [src]="selfieDataUrl" class="img-thumbnail mt-2" alt="Selfie Capturada" />
     </div>
+  </div>
 
-    <div class="mb-3">
-      <label class="form-label">Senha</label>
-      <input type="password" class="form-control" [(ngModel)]="cad.senha" name="senha" required minlength="6" />
-    </div>
+  <div class="d-flex justify-content-between">
+    <button type="button" class="btn btn-secondary" (click)="goToStep2()">Voltar</button>
+   <button
+  type="submit"
+  class="btn btn-success"
+  [disabled]="
+    !selfieDataUrl ||
+    !cad.confirme ||
+    !validateEmail(cad.email) ||
+    !cad.senha ||
+    cad.senha.length < 6
+  "
+>
+  Finalizar Cadastro
+</button>
 
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" [(ngModel)]="cad.confirme" name="confirme" />
-      <label class="form-check-label">Confirmo os dados e aceito os termos</label>
-    </div>
-
-    <div class="d-flex justify-content-between">
-      <button type="button" class="btn btn-secondary" (click)="goToStep2()">Voltar</button>
-      <button type="submit" class="btn btn-success">Finalizar Cadastro</button>
-    </div>
-  </ng-container>
-</form>
-
-
+  </div>
+</ng-container>

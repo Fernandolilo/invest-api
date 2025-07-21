@@ -22,10 +22,9 @@ export class CadastroComponent {
     telefone: '',
     email: '',
     tipo: '',
-    perfil: '',
     senha: '',
-    role: '',
     confirme: false,
+    selfie: ''
   }
 
   end: enderecoDTO = {
@@ -37,10 +36,18 @@ export class CadastroComponent {
     cidade: '',
     estado: ''
   }
+  selfieDataUrl: string = '';
+
   step: number = 1;
   constructor(private service: CadastroService, private http: HttpClient) { }
 
 
+
+  // Método chamado quando a selfie for capturada
+  onSelfieCaptured(dataUrl: string): void {
+    this.selfieDataUrl = dataUrl;
+    this.cad.selfie = dataUrl;
+  }
 
   isStep1Valid(): boolean {
     return (
