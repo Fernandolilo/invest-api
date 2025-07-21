@@ -1,116 +1,116 @@
 /* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family-base);
+}
 
+body {
+  background: var(--primary);
+  color: var(--text-light);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: #fa02d1;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  header {
-    background-color: #fa02d1;
-    color: white;
-    padding: 5px;
-    border-radius: 90px;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 600;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .parent {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 150px;
-    margin-bottom: 100px;
-  }
-  
-  .wrapper {
-    background-color: #ffffff;
-    padding: 40px 30px;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  form h3 {
-    text-align: center;
-    margin-bottom: 20px;
-    color:#8B5E3C;
-  }
-  
-  .input-box {
-    position: relative;
-    margin-bottom: 20px;
-  }
-  
-  .input-box input {
-    width: 100%;
-    padding: 12px 40px 12px 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 15px;
-    transition: border 0.3s ease;
-  }
-  
-  .input-box input:focus {
-    border-color: orange;
-    outline: none;
-  }
-  
-  .input-box i {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: #999;
-  }
-  
-  .btn {
-    width: 100%;
-    padding: 12px;
-    background-color:  #fa02d1;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 16px;
-    cursor: pointer;
-   
-  }
-  
-  .btn:hover {
-    background-color: #fa02d1;
-  }
-  
-  footer {
-    background-color: #f4f4f4;
-    color: #333;
-    padding: 15px 20px;
-    text-align: center;
-    font-size: 14px;
-    border-top: 1px solid #ddd;
-  }
-  
-  .footer-content a {
-    color:   #fa02d1;
-    text-decoration: none;
-  }
-  
-  .footer-content a:hover {
-    text-decoration: underline;
-  }
-  
+header {
+  background-color: var(--primary);
+  color: var(--text-light);
+  padding: 5px;
+  border-radius: 90px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px var(--shadow-light);
+}
+
+.parent {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+
+.wrapper {
+  background-color: var(--background);
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px var(--shadow-dark);
+  width: 100%;
+  max-width: 400px;
+  color: var(--text-dark);
+}
+
+form h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--title-color);
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 40px 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 15px;
+  transition: border 0.3s ease;
+  color: var(--text-dark);
+}
+
+.input-box input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.input-box i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #999;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary);
+  color: var(--background);
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--text-primary);
+  color: var(--background);
+}
+
+footer {
+  background-color: #f4f4f4;
+  color: var(--text-dark);
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 14px;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-content a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+}
