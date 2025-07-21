@@ -103,7 +103,12 @@ public class ContaServiceImpl implements ContaService {
 			throw new ObjectNotFoundException("Conta não encontrado: " + id);
 		}
 
-		return mapper.map(conta, ContaDTO.class);
+		
+		
+		ContaDTO dto = mapper.map(conta, ContaDTO.class);
+		dto.setNome(conta.get().getClient().getNome());
+		
+		return dto;
 	}
 
 	private boolean hasFullAccess(UserSecurityDetails user) {

@@ -14,28 +14,29 @@
 
     <!-- Dados da conta aparecem ou somem -->
     <div *ngIf="mostrarDadosConta">
-      <div class="mb-2"><strong>Número da Conta:</strong> 123456-7</div>
-      <div class="mb-2"><strong>Agência:</strong> 001</div>
-      <div class="mb-2"><strong>Titular:</strong> João da Silva</div>
-      <div class="mb-2"><strong>Tipo:</strong> Conta Corrente</div>
+      <div class="mb-2"><strong>Número da Conta:</strong> {{ contaSelecionada?.numero }}</div>
+      <div class="mb-2"><strong>Agência:</strong> {{ contaSelecionada?.agencia }}</div>
+      <div class="mb-2"><strong>Titular:</strong> {{ contaSelecionada?.nome }}</div>
+      <div class="mb-2"><strong>Tipo:</strong> {{ contaSelecionada?.tipo }}</div>
     </div>
 
     <hr>
 
     <!-- Linha do saldo com botão para mostrar/ocultar saldo -->
     <div class="d-flex align-items-center mb-2">
-      <strong class="me-2">Saldo Atual:</strong>
-      <span class="me-3">
-        {{ mostrarSaldo ? 'R$ 2.350,75' : '••••••' }}
-      </span>
-      <button
-        class="btn btn-sm btn-outline-secondary d-flex align-items-center"
-        (click)="alternarSaldo()"
-        title="{{ mostrarSaldo ? 'Ocultar saldo' : 'Mostrar saldo' }}"
-      >
-        <i class="bi me-1" [ngClass]="mostrarSaldo ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i>
-      </button>
-    </div>
+  <strong class="me-2">Saldo Atual:</strong>
+  <span class="me-3">
+    {{ mostrarSaldo ? (contaSelecionada?.saldo | currency:'BRL':'symbol':'1.2-2') : '••••••' }}
+  </span>
+  <button
+    class="btn btn-sm btn-outline-secondary d-flex align-items-center"
+    (click)="alternarSaldo()"
+    title="{{ mostrarSaldo ? 'Ocultar saldo' : 'Mostrar saldo' }}"
+  >
+    <i class="bi me-1" [ngClass]="mostrarSaldo ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i>
+  </button>
+</div>
+
 
     <div class="mb-2"><strong>Data de Criação:</strong> 10/02/2021</div>
     <div class="mb-2"><strong>Status:</strong> <span class="text-success">Ativa</span></div>
