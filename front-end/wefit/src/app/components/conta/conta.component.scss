@@ -154,3 +154,14 @@
     }
   }
 }
+
+.selfie-img {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%; // <- Isso faz a mágica do círculo
+  
+}

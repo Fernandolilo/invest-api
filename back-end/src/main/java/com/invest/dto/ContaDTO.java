@@ -23,5 +23,6 @@ public class ContaDTO {
 	private TipoConta tipo;
 	private String nome;
 	private String cpfOuCnpj;
+	private String selfie;
 
 }

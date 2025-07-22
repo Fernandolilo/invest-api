@@ -1,6 +1,7 @@
 package com.invest.service.Impl;
 
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -106,6 +107,12 @@ public class ContaServiceImpl implements ContaService {
 		
 		
 		ContaDTO dto = mapper.map(conta, ContaDTO.class);
+		byte[] imagemBytes = conta.get().getClient().getImagem();
+		if (imagemBytes != null) {
+		    String base64 = Base64.getEncoder().encodeToString(imagemBytes);
+		    String mimeType = conta.get().getClient().getImagemTipo(); // ex: "image/jpeg"
+		    dto.setSelfie("data:" + mimeType + ";base64," + base64);
+		}
 		dto.setNome(conta.get().getClient().getNome());
 		
 		return dto;

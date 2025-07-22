@@ -12,6 +12,11 @@
       </i>
     </div>
 
+    <img  *ngIf="contaSelecionada?.selfie" [src]="contaSelecionada?.selfie" alt="Selfie" 
+      class="selfie-img img-thumbnail"
+      width="100"/>
+
+
     <!-- Dados da conta aparecem ou somem -->
     <div *ngIf="mostrarDadosConta">
       <div class="mb-2"><strong>Número da Conta:</strong> {{ contaSelecionada?.numero }}</div>
