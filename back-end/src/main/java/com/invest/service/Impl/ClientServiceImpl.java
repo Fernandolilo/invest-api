@@ -1,6 +1,7 @@
 package com.invest.service.Impl;
 
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -58,21 +59,45 @@ public class ClientServiceImpl implements ClientService {
 	public ClientDTO save(ClientNewDTO cli, EnderecoNewDTO end) {
 		Client entity = mapper.map(cli, Client.class);
 		entity.setSenha(bCryptPasswordEncoder.encode(cli.getSenha()));
-		Endereco endereco = mapper.map(end, Endereco.class);
 		entity.setRole(Role.USER);
 		entity.addRole(Role.USER);
+
+		// 👇 Tratamento da imagem base64 enviada
+		if (cli.getSelfie() != null && cli.getSelfie().startsWith("data:")) {
+		    String[] parts = cli.getSelfie().split(",");
+		    if (parts.length == 2) {
+		        String metadata = parts[0]; // ex: data:image/jpeg;base64
+		        String base64Data = parts[1];
+
+		        String tipoImagem = metadata.substring(metadata.indexOf(":") + 1, metadata.indexOf(";"));
+		        byte[] imagemBytes = Base64.getDecoder().decode(base64Data);
+
+		        entity.setImagem(imagemBytes);
+		        entity.setImagemTipo(tipoImagem);
+		        entity.setImagemNome("selfie_" + UUID.randomUUID() + "." + tipoImagem.split("/")[1]);
+		    }
+		}
+
 		clientRepository.save(entity);
 
+		Endereco endereco = mapper.map(end, Endereco.class);
 		endereco.setClient(entity);
-
 		enderecoRepository.save(endereco);
 
 		ClientDTO dto = mapper.map(entity, ClientDTO.class);
+
 		Optional<Integer> maxConta = contaRepository.findMaxConta();
 		Integer nextConta = maxConta.orElse(0) + 1;
-		
-		ContaNewDTO contaNewDTO = ContaNewDTO.builder().agencia(1000).banco(1).numero(nextConta).cpf(dto.getCpfOuCnpj())
-				.saldo(0).tipo(TipoConta.CONTA_CORRENTE).build();
+
+		ContaNewDTO contaNewDTO = ContaNewDTO.builder()
+			.agencia(1000)
+			.banco(1)
+			.numero(nextConta)
+			.cpf(dto.getCpfOuCnpj())
+			.saldo(0)
+			.tipo(TipoConta.CONTA_CORRENTE)
+			.build();
+
 		contaService.save(contaNewDTO);
 
 		return dto;

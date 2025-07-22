@@ -21,6 +21,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
@@ -49,7 +50,14 @@ public class Client implements Serializable {
 	private Role role;
 	private String senha;
 	private boolean confirme;
-	
+
+	// ✅ Armazenamento de imagem
+	@Lob
+	private byte[] imagem;
+
+	private String imagemNome;
+	private String imagemTipo;
+
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "ROLES")
 	private Set<Integer> roles = new HashSet<>();
@@ -57,28 +65,26 @@ public class Client implements Serializable {
 	@JsonBackReference
 	@OneToOne(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Endereco endereco;
-	
+
 	@JsonBackReference
 	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Carteira> carteiras = new ArrayList<>();
-	
+
 	@JsonBackReference
 	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Conta> contas = new ArrayList<>();
 
-	
 	public Set<Role> getRoles() {
-	    if (roles == null) {
-	        return new HashSet<>();
-	    }
-	    return roles.stream().map(Role::toEnum).collect(Collectors.toSet());
+		if (roles == null) {
+			return new HashSet<>();
+		}
+		return roles.stream().map(Role::toEnum).collect(Collectors.toSet());
 	}
-	
+
 	public void addRole(Role role) {
 		roles.add(role.getCod());
 	}
 
 	public Client(ClientResponse response) {
 	}
-
 }

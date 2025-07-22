@@ -17,6 +17,10 @@ public class ClientResponse {
     private String telefone;
     private String email;
     private TipoPessoa tipo;
+    
+    private String base64; // string base64 da imagem
+	private String nameImage; // nome do arquivo (ex: foto.png)
+	private String tipoImagem; // MIME type (ex: image/png)
 
     private List<Carteira> carteiras = new ArrayList<>();
     private List<Conta> contas = new ArrayList<>();

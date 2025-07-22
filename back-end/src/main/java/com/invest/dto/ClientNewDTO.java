@@ -25,5 +25,8 @@ public class ClientNewDTO {
 //	private Role role;
 	private String senha;
 	private boolean confirme;
+	
+	private String selfie; // imagem base64 do front
+
 
 }
