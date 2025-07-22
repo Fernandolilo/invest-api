@@ -1,10 +1,16 @@
-<video #video autoplay playsinline *ngIf="!capturedImage"></video>
+<!-- Vídeo ao vivo da câmera -->
+<video #video autoplay playsinline *ngIf="!capturedImage" class="w-100 rounded shadow"></video>
 
-<img *ngIf="capturedImage" [src]="capturedImage" alt="Imagem capturada" class="img-thumbnail" />
+<!-- Imagem capturada -->
+<img *ngIf="capturedImage" [src]="capturedImage" alt="Imagem capturada" class="img-thumbnail mt-2" />
 
-<div class="mt-2">
-  <button *ngIf="!capturedImage" (click)="capture()" class="btn btn-primary me-2">Capturar</button>
-  <button *ngIf="capturedImage" (click)="confirm()" class="btn btn-success me-2">Confirmar</button>
-  <button *ngIf="capturedImage" (click)="retake()" class="btn btn-warning me-2">Refazer</button>
-  <button (click)="stopCamera()" class="btn btn-danger">Finalizar Câmera</button>
+<!-- Canvas oculto para capturar a imagem da câmera -->
+<canvas #canvas style="display: none;"></canvas>
+
+<!-- Botões de controle -->
+<div class="mt-3 d-flex flex-wrap gap-2">
+  <button *ngIf="!capturedImage" (click)="capture()" class=" btn-primary">📸 Capturar</button>
+  <button *ngIf="capturedImage" (click)="confirm()" class=" btn-success">✅ Confirmar</button>
+  <button *ngIf="capturedImage" (click)="retake()" class=" btn-warning">🔁 Refazer</button>
+  <button (click)="stopCamera()" class="btn btn-danger">⛔ Finalizar Câmera</button>
 </div>
