@@ -105,11 +105,10 @@ public class ContaRepositoryTest {
 
 		List<Conta> contas = repository.findAllByClientId(cli.getId());
 		
+		
 		assertThat(contas).isNotEmpty();
 		
-
-		assertThat(contas).contains(conta);
-		
+		assertThat(contas).contains(conta);		
 
 		assertThat(contas).anySatisfy(c ->
 	    assertThat(conta.getClient().getNome()).isEqualTo("Fernando")

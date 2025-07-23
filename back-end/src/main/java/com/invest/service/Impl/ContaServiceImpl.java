@@ -7,7 +7,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Service;
 
 import com.invest.dto.ContaDTO;
@@ -34,8 +33,7 @@ public class ContaServiceImpl implements ContaService {
 	private final ModelMapper mapper;
 	private final ClientRepository clienteRepository;
 	private final UserService userService;
-	private final AuthenticationManager authenticationManager;
-
+	
 	@Override
 	public Conta save(ContaNewDTO conta) {
 		Optional<Client> clientOpt = clienteRepository.findByCpfOuCnpj(conta.getCpf());
@@ -98,25 +96,23 @@ public class ContaServiceImpl implements ContaService {
 			throw new UserAccessNegativeException("Acesso negado");
 		}
 
-		Optional<Conta> conta = repository.findById(id);
+		Conta conta = repository.findById(id)
+			.orElseThrow(() -> new ObjectNotFoundException("Conta não encontrado: " + id));
 
-		if (conta.isEmpty()) {
-			throw new ObjectNotFoundException("Conta não encontrado: " + id);
-		}
-
-		
-		
 		ContaDTO dto = mapper.map(conta, ContaDTO.class);
-		byte[] imagemBytes = conta.get().getClient().getImagem();
+
+		byte[] imagemBytes = conta.getClient().getImagem();
 		if (imagemBytes != null) {
-		    String base64 = Base64.getEncoder().encodeToString(imagemBytes);
-		    String mimeType = conta.get().getClient().getImagemTipo(); // ex: "image/jpeg"
-		    dto.setSelfie("data:" + mimeType + ";base64," + base64);
+			String base64 = Base64.getEncoder().encodeToString(imagemBytes);
+			String mimeType = conta.getClient().getImagemTipo(); // ex: "image/jpeg"
+			dto.setSelfie("data:" + mimeType + ";base64," + base64);
 		}
-		dto.setNome(conta.get().getClient().getNome());
-		
+
+		dto.setNome(conta.getClient().getNome());
+
 		return dto;
 	}
+
 
 	private boolean hasFullAccess(UserSecurityDetails user) {
 		// Lista de papéis permitidos

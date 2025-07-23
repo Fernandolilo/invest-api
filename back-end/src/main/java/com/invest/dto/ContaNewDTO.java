@@ -20,4 +20,5 @@ public class ContaNewDTO {
 	private Integer banco;
 	private TipoConta tipo;
 	private String cpf;
+	private String nome;
 }
