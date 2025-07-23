@@ -64,6 +64,7 @@ export class CameraComponent implements OnInit, OnDestroy {
     }
   }
 
+
   retake(): void {
     this.capturedImage = null;
     this.startCamera();

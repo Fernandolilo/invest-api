@@ -41,8 +41,6 @@ export class CadastroComponent {
   step: number = 1;
   constructor(private service: CadastroService, private http: HttpClient) { }
 
-
-
   // Método chamado quando a selfie for capturada
   onSelfieCaptured(dataUrl: string): void {
     this.selfieDataUrl = dataUrl;
@@ -90,9 +88,10 @@ export class CadastroComponent {
     if (this.isStep2Valid()) {
       this.step = 3;
     } else {
-      alert('Por favor, preencha corretamente o e-mail, a senha e aceite os termos antes de continuar.');
+      alert('Por favor, preencha todos os campos de endereço corretamente antes de continuar.');
     }
   }
+
 
 
   save(form: NgForm): void {
@@ -102,9 +101,6 @@ export class CadastroComponent {
       } else if (this.cad.tipo === 'juridica') {
         this.cad.tipo = 'PESSOA_JURIDICA';
       }
-
-
-
       const payload = {
         client: this.cad,
         endereco: this.end
