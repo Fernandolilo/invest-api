@@ -1,6 +1,11 @@
 package com.invest.controllerTest;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.Optional;
+import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
@@ -23,6 +28,7 @@ import com.invest.dto.ClientDTO;
 import com.invest.dto.ClientNewDTO;
 import com.invest.dto.EnderecoNewDTO;
 import com.invest.entity.Client;
+import com.invest.entity.dto.response.ClientResponse;
 import com.invest.entity.enums.TipoPessoa;
 import com.invest.requests.ClientRequest;
 import com.invest.sercurity.jwt.JwtAuthenticationFilter;
@@ -168,6 +174,37 @@ public class ClientControllerTest {
 	    .andReturn();
 
 	}
+	
+	
+	@Test
+	public void findByIdTest() throws Exception {
+		UUID id = UUID.randomUUID();
+
+		// Cria o DTO normalmente
+		ClientResponse clientResponse = new ClientResponse();
+		clientResponse.setNome("Fernando");
+		// setar outros campos que quiser
+
+		// Depois coloca dentro do Optional
+		Optional<ClientResponse> optionalClientResponse = Optional.of(clientResponse);
+
+		// Mocka o service para retornar o Optional correto
+		BDDMockito.given(service.findById(id)).willReturn(optionalClientResponse);
+
+		// Token (mesmo do seu save, ou qualquer válido)
+		String token = "eyJhbGciOiJIUzI1NiJ9...";
+
+		// Executa o mockMvc para GET /conta/{id}
+		mockMvc.perform(MockMvcRequestBuilders.get(API + "/" + id)
+		        .header("Authorization", "Bearer " + token)
+		        .accept(MediaType.APPLICATION_JSON))
+		    .andDo(print())  // vai mostrar resposta HTTP no console
+		    .andExpect(status().isOk())
+		  ;
+
+	}
+	
+
 
 	private AuthenticationDTO authentication() {
 		// Arrange

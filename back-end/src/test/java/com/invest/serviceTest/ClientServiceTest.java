@@ -6,6 +6,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -94,4 +95,20 @@ public class ClientServiceTest {
 		assertEquals("Rua Faria Lima", foundEndereco.getLogradouro());
 	}
 
+	
+	@Test
+	@DisplayName("FindAll client")
+	public void findByAll() {
+		// Definir o comportamento dos mocks para a busca por ID
+		when(clientRepository.findById(cli.getId())).thenReturn(java.util.Optional.of(cli));
+		when(enderecoRepository.findById(end.getId())).thenReturn(java.util.Optional.of(end));
+
+		// Buscar os dados
+		List<Client> foundClient = clientRepository.findAll();
+	
+		// Verificar se os objetos encontrados não são nulos
+		assertNotNull(foundClient);
+	
+		
+	}
 }
