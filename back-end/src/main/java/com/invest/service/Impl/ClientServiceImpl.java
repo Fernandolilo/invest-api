@@ -99,6 +99,9 @@ public class ClientServiceImpl implements ClientService {
 			.build();
 
 		contaService.save(contaNewDTO);
+	
+		
+		
 
 		return dto;
 	}
@@ -150,6 +153,9 @@ public class ClientServiceImpl implements ClientService {
 		return cli.map(client -> mapper.map(client, ClientResponse.class));
 	}
 	
+	
+	
+
 	
 	private boolean hasFullAccess(UserSecurityDetails user) {
 		// Lista de papéis permitidos

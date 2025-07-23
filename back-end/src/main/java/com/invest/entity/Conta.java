@@ -47,4 +47,7 @@ public class Conta implements Serializable {
 	
 	@OneToMany(mappedBy = "conta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Investimento> investimentos = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "conta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Cartao> cortoes = new ArrayList<>();
 }

@@ -1,6 +1,5 @@
 package com.invest.dto;
 
-import com.invest.entity.enums.Role;
 import com.invest.entity.enums.TipoPessoa;
 import com.invest.utils.valid.ClientInsert;
 

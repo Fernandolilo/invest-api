@@ -21,4 +21,5 @@ public class ContaNewDTO {
 	private TipoConta tipo;
 	private String cpf;
 	private String nome;
+	
 }
