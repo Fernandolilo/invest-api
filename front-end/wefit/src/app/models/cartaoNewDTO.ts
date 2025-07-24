@@ -5,3 +5,4 @@ export interface newCartaoDTO {
     senha: string,
     contaId: string
 }
+

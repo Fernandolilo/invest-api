@@ -26,7 +26,15 @@ export class CameraComponent implements OnInit, OnDestroy {
   }
   onCamera(): void {
     this.cameraStatus = !this.cameraStatus;
+
+    if (this.cameraStatus) {
+      this.startCamera();
+    } else {
+      this.stopCamera();
+      this.capturedImage = null;
+    }
   }
+
 
   startCamera(): void {
     if (this.cameraStatus == true) {
@@ -57,15 +65,49 @@ export class CameraComponent implements OnInit, OnDestroy {
     const video = this.videoRef.nativeElement;
     const canvas = this.canvasRef.nativeElement;
 
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
+    const videoWidth = video.videoWidth;
+    const videoHeight = video.videoHeight;
+
+    const cropWidth = videoWidth * 0.35;
+    const cropHeight = videoHeight * 0.57;
+    const cropX = (videoWidth - cropWidth) / 2;
+    const cropY = (videoHeight - cropHeight) / 2;
+
+    canvas.width = cropWidth;
+    canvas.height = cropHeight;
 
     const context = canvas.getContext('2d');
     if (context) {
-      context.drawImage(video, 0, 0, canvas.width, canvas.height);
-      this.capturedImage = canvas.toDataURL('image/jpeg');
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Máscara oval com fundo transparente
+      context.save(); // Salva o contexto antes do recorte
+      context.beginPath();
+      context.ellipse(
+        cropWidth / 2, cropHeight / 2,
+        cropWidth / 2, cropHeight / 2,
+        0, 0, 2 * Math.PI
+      );
+      context.clip(); // aplica a máscara oval
+
+      // Desenha o vídeo recortado na região oval
+      context.drawImage(
+        video,
+        cropX, cropY,
+        cropWidth, cropHeight,
+        0, 0,
+        cropWidth, cropHeight
+      );
+      context.restore(); // Restaura o contexto
+
+      // Captura como PNG (transparente fora da máscara)
+      this.capturedImage = canvas.toDataURL('image/png');
     }
   }
+
+
+
+
 
   confirm(): void {
     if (this.capturedImage) {

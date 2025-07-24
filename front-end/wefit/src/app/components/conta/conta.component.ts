@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { requestContasDTO } from '../../models/requestContasDTO';
 import { ActivatedRoute } from '@angular/router';
 import { ContasService } from '../../services/contas.service';
-import { cadastroDTO } from '../../models/cadastroDTO';
 import { newCartaoDTO } from '../../models/cartaoNewDTO';
+import { CartaoService } from '../../services/cartao.service';
 
 @Component({
   selector: 'app-conta',
@@ -30,7 +30,8 @@ export class ContaComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private service: ContasService) { }
+    private service: ContasService,
+    private cartaoService: CartaoService) { }
 
 
   ngOnInit(): void {
@@ -70,8 +71,28 @@ export class ContaComponent {
     if (this.cartao && this.contaSelecionada) {
       this.cartao.nomeTitular = this.contaSelecionada.nome;
       this.cartao.contaId = this.contaSelecionada.id;
-    }
 
-    console.log(this.cartao);
+      this.cartaoService.save(this.cartao).subscribe({
+        next: () => {
+          alert('Cartão salvo com sucesso');
+        },
+        error: (err) => {
+          // Tenta extrair a mensagem do backend
+          const errorMessage =
+            err?.error?.message || // Caso o backend envie { message: "..." }
+            err?.error?.error ||   // Caso envie { error: "..." }
+            err?.message ||        // Mensagem padrão
+            'Erro desconhecido ao salvar o cartão.';
+
+          alert(`Erro ao salvar o cartão: ${errorMessage}`);
+          console.error('Detalhes do erro:', err);
+        }
+      });
+    } else {
+      console.warn('Cartão ou conta não definidos.');
+    }
   }
+
+
+
 }

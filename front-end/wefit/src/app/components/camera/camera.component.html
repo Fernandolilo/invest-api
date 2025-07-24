@@ -9,7 +9,10 @@ Essa autorização é fundamental para realizar validações de identidade e gar
 </div>
 
 <!-- Exibe o vídeo somente se a câmera estiver ativa -->
-<video #video autoplay playsinline *ngIf="cameraStatus && !capturedImage" class="w-100 rounded shadow"></video>
+<div class="video-container">
+  <video #video autoplay playsinline *ngIf="cameraStatus && !capturedImage"></video>
+  <div class="face-mask"></div>
+</div>
 
 <!-- Imagem capturada -->
 <img *ngIf="capturedImage" [src]="capturedImage" alt="Imagem capturada" class="img-thumbnail mt-2" />
