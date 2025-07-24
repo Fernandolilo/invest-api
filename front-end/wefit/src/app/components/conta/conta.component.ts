@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { requestContasDTO } from '../../models/requestContasDTO';
 import { ActivatedRoute } from '@angular/router';
 import { ContasService } from '../../services/contas.service';
+import { cadastroDTO } from '../../models/cadastroDTO';
+import { newCartaoDTO } from '../../models/cartaoNewDTO';
 
 @Component({
   selector: 'app-conta',
@@ -12,6 +14,17 @@ export class ContaComponent {
   mostrarSaldo = true;
   mostrarDadosConta = true;
   mostrarExtrato = true;
+  solicitarCartao = true;
+  bandeiraSelecionada: string = '';
+
+
+  cartao: newCartaoDTO = {
+    nomeTitular: '',
+    tipo: '',
+    bandeira: '',
+    senha: '',
+    contaId: ''
+  };
 
   contaSelecionada: requestContasDTO | null = null;
 
@@ -48,5 +61,17 @@ export class ContaComponent {
   }
   onExtrato(): void {
     this.mostrarExtrato = !this.mostrarExtrato;
+  }
+  onSolicitarCartao(): void {
+    this.solicitarCartao = !this.solicitarCartao;
+  }
+
+  onCartao(): void {
+    if (this.cartao && this.contaSelecionada) {
+      this.cartao.nomeTitular = this.contaSelecionada.nome;
+      this.cartao.contaId = this.contaSelecionada.id;
+    }
+
+    console.log(this.cartao);
   }
 }

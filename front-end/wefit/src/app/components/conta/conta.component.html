@@ -46,8 +46,60 @@
     <div class="mb-2"><strong>Data de Criação:</strong> 10/02/2021</div>
     <div class="mb-2"><strong>Status:</strong> <span class="text-success">Ativa</span></div>
 
-    <hr>
-   <h5 class="d-flex align-items-center">
+   <div 
+    >
+      <span></span>
+   </div>
+
+
+<div class="mb-5 custom-check .form-check-input">
+      <h5 class="d-flex align-items-center">
+  Solicitar cartão
+  <i 
+     class="bi bi-journal-text ms-2 cartao-conteudo cartao"
+    style="cursor: pointer; font-size: 1.3rem;" 
+    title="Ver Extrato"
+    (click)="onSolicitarCartao()"
+  ></i>
+</h5>
+
+<!-- Conteúdo simples que aparece quando solicitarCartao for true -->
+<div *ngIf="solicitarCartao">
+ <!-- Campo: Tipo do Cartão -->
+<div class="mb-3 form-check custom-check">
+  <label for="tipoCartao" class="form-label">Tipo do Cartão</label>
+  <select id="tipoCartao" class="form-select" [(ngModel)]="cartao.tipo" name="tipoCartao">
+    <option value="" disabled selected>Selecione o tipo</option>
+    <option value="Crédito">Crédito</option>
+    <option value="Débito">Débito</option>
+    <option value="Múltiplo">Múltiplo</option>
+  </select>
+</div>
+
+<!-- Campo: Bandeira do Cartão -->
+<div class="mb-3 form-check custom-check">
+  <label for="bandeiraCartao" class="form-label">Bandeira do Cartão</label>
+  <select id="bandeiraCartao" class="form-select" [(ngModel)]="cartao.bandeira" name="bandeiraCartao">
+    <option value="" disabled selected>Selecione a bandeira</option>
+    <option value="Visa">Visa</option>
+    <option value="Mastercard">Mastercard</option>
+    <option value="Elo">Elo</option>
+  </select>
+</div>
+<div class="mb-3 form-check custom-check">
+    <label class="form-label">Senha</label>
+    <input type="password" class="form-control" [(ngModel)]="cartao.senha" name="senha" 
+     #senha="ngModel" required  minlength="6"/>
+</div>
+ <button (click)="onCartao()">
+  Solicitar 
+ </button>
+</div>
+
+</div>
+
+  <hr>
+   <h5 class="d-flex align-items-center"> 
   Últimas Transações
   <i 
     class="bi bi-journal-text ms-2" 

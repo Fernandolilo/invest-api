@@ -5,7 +5,7 @@ export interface requestContasDTO {
     saldo: number,
     tipo: string,
     nome: string,
-
+    id: string
     cpfOuCnpj: string
     selfie?: string;
 }

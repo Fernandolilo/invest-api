@@ -14,6 +14,9 @@ export class CameraComponent implements OnInit, OnDestroy {
   capturedImage: string | null = null;
   private stream?: MediaStream;
 
+  cameraStatus = false;
+
+
   ngOnInit(): void {
     this.startCamera();
   }
@@ -21,20 +24,27 @@ export class CameraComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.stopCamera();
   }
+  onCamera(): void {
+    this.cameraStatus = !this.cameraStatus;
+  }
 
   startCamera(): void {
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then(stream => {
-        this.stream = stream;
-        const videoElement = this.videoRef.nativeElement;
-        videoElement.srcObject = stream;
-        videoElement.play();
-      })
-      .catch(err => {
-        console.error('Erro ao acessar a câmera: ', err);
-        alert('Não foi possível acessar a câmera.');
-      });
+    if (this.cameraStatus == true) {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          this.stream = stream;
+          const videoElement = this.videoRef.nativeElement;
+          videoElement.srcObject = stream;
+          videoElement.play();
+
+        })
+        .catch(err => {
+          console.error('Erro ao acessar a câmera: ', err);
+          alert('Não foi possível acessar a câmera.');
+        });
+    }
   }
+
 
   stopCamera(): void {
     if (this.stream) {

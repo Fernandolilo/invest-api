@@ -1,16 +1,26 @@
-<!-- Vídeo ao vivo da câmera -->
-<video #video autoplay playsinline *ngIf="!capturedImage" class="w-100 rounded shadow"></video>
+<!-- Botão para ativar a câmera -->
+<div *ngIf="!cameraStatus" class="mb-3">
+  <button (click)="onCamera()" class="btn btn-outline-primary">
+   📷 <strong>Autorizar e Iniciar Câmera</strong><br />
+Para prosseguir com seu cadastro, é necessário permitir o uso da câmera do seu dispositivo. <br />
+Essa autorização é fundamental para realizar validações de identidade e garantir a segurança do processo.
+
+  </button>
+</div>
+
+<!-- Exibe o vídeo somente se a câmera estiver ativa -->
+<video #video autoplay playsinline *ngIf="cameraStatus && !capturedImage" class="w-100 rounded shadow"></video>
 
 <!-- Imagem capturada -->
 <img *ngIf="capturedImage" [src]="capturedImage" alt="Imagem capturada" class="img-thumbnail mt-2" />
 
-<!-- Canvas oculto para capturar a imagem da câmera -->
+<!-- Canvas oculto -->
 <canvas #canvas style="display: none;"></canvas>
 
 <!-- Botões de controle -->
-<div class="mt-3 d-flex flex-wrap gap-2">
-  <button *ngIf="!capturedImage" (click)="capture()" class=" btn-primary">📸 Capturar</button>
-  <button *ngIf="capturedImage" (click)="confirm()" class=" btn-success">✅ Confirmar</button>
-  <button *ngIf="capturedImage" (click)="retake()" class=" btn-warning">🔁 Refazer</button>
+<div class="mt-3 d-flex flex-wrap gap-2" *ngIf="cameraStatus">
+  <button *ngIf="!capturedImage" (click)="capture()" class="btn btn-primary">📸 Capturar</button>
+  <button *ngIf="capturedImage" (click)="confirm()" class="btn btn-success">✅ Confirmar</button>
+  <button *ngIf="capturedImage" (click)="retake()" class="btn btn-warning">🔁 Refazer</button>
   <button (click)="stopCamera()" class="btn btn-danger">⛔ Finalizar Câmera</button>
 </div>
