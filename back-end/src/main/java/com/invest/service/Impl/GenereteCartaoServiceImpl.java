@@ -1,4 +1,4 @@
-package com.invest.sercurity.service.impl;
+package com.invest.service.Impl;
 
 import java.util.Random;
 
