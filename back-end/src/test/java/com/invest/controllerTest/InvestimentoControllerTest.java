@@ -22,8 +22,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.invest.dto.AuthenticationDTO;
-import com.invest.dto.ContaNewDTO;
-import com.invest.dto.ContaUpdateDTO;
 import com.invest.dto.InvestimentoNewDTO;
 import com.invest.entity.Client;
 import com.invest.entity.Conta;
@@ -32,6 +30,7 @@ import com.invest.entity.enums.TipoConta;
 import com.invest.entity.enums.TipoPessoa;
 import com.invest.sercurity.jwt.JwtAuthenticationFilter;
 import com.invest.sercurity.jwt.JwtService;
+import com.invest.service.AuthService;
 import com.invest.service.ClientService;
 import com.invest.service.InvestimentoService;
 import com.invest.utils.valid.ClientInsert;
@@ -48,6 +47,10 @@ public class InvestimentoControllerTest {
 	@MockBean
 	private ClientService clientService; // Mock do serviço
 
+	@MockBean
+	private AuthService authService; // Mock do serviço
+
+	
 	@MockBean
 	private InvestimentoService service; // Mock do serviço
 
@@ -81,7 +84,7 @@ public class InvestimentoControllerTest {
 		String json = new ObjectMapper().writeValueAsString(auth);
 
 		// Garantir que o serviço gera o token correto
-		BDDMockito.given(clientService.fromAuthentication(Mockito.any(AuthenticationDTO.class)))
+		BDDMockito.given(authService.fromAuthentication(Mockito.any(AuthenticationDTO.class)))
 				.willReturn(expectedToken);
 
 		mockMvc.perform(MockMvcRequestBuilders.post(API + "/authenticate").contentType(MediaType.APPLICATION_JSON)

@@ -1,0 +1,10 @@
+1 
+pip install streamlit opencv-python pillow pytesseract
+
+2
+no bash : streamlit run app.py
+
+
+C:\Users\Rcell Asus\Pictures\ceara.png
+
+andre valela,

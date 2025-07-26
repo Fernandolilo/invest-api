@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import com.invest.dto.AuthenticationDTO;
 import com.invest.dto.ClientDTO;
 import com.invest.dto.ClientNewDTO;
 import com.invest.dto.EnderecoNewDTO;
@@ -19,8 +18,6 @@ public interface ClientService {
 	
 	Optional<ClientResponse> foundCli(String cpfOuCnpj);
 	
-	public String fromAuthentication(AuthenticationDTO auth);
-
 	List<Client> findAll();
 
 }

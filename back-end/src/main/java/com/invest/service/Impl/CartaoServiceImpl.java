@@ -1,5 +1,6 @@
 package com.invest.service.Impl;
 
+import java.beans.Transient;
 import java.math.BigDecimal;
 import java.time.YearMonth;
 
@@ -18,6 +19,7 @@ import com.invest.service.CartaoService;
 import com.invest.service.ContaService;
 import com.invest.service.GenereteCartaoService;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -29,6 +31,8 @@ public class CartaoServiceImpl implements CartaoService{
 	private final ModelMapper mapper;
 	private final ContaService contaService;
 
+	
+	@Transactional
 	@Override
 	public CartaoDTO save(CartaoNewDTO obj) {
 

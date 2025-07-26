@@ -1,7 +1,6 @@
 package com.invest.controllerTest;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.Optional;
@@ -33,6 +32,7 @@ import com.invest.entity.enums.TipoPessoa;
 import com.invest.requests.ClientRequest;
 import com.invest.sercurity.jwt.JwtAuthenticationFilter;
 import com.invest.sercurity.jwt.JwtService;
+import com.invest.service.AuthService;
 import com.invest.service.ClientService;
 import com.invest.utils.valid.ClientInsert;
 
@@ -48,6 +48,10 @@ public class ClientControllerTest {
 	@MockBean
 	private ClientService service; // Mock do serviço
 
+	@MockBean
+	private AuthService authService; // Mock do serviço
+
+	
 	@MockBean
 	private ModelMapper mapper;
 
@@ -99,7 +103,7 @@ public class ClientControllerTest {
 		String json = new ObjectMapper().writeValueAsString(auth);
 
 		// Garantir que o serviço gera o token correto
-		BDDMockito.given(service.fromAuthentication(Mockito.any(AuthenticationDTO.class))).willReturn(expectedToken);
+		BDDMockito.given(authService.fromAuthentication(Mockito.any(AuthenticationDTO.class))).willReturn(expectedToken);
 
 		mockMvc.perform(MockMvcRequestBuilders.post(API + "/authenticate").contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON).content(json)).andExpect(status().isOk());

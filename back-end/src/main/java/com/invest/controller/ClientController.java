@@ -17,6 +17,7 @@ import com.invest.dto.AuthenticationDTO;
 import com.invest.dto.ClientDTO;
 import com.invest.entity.dto.response.ClientResponse;
 import com.invest.requests.ClientRequest;
+import com.invest.service.AuthService;
 import com.invest.service.ClientService;
 
 import jakarta.servlet.http.HttpServletResponse;
@@ -29,6 +30,7 @@ import lombok.RequiredArgsConstructor;
 public class ClientController {
 
 	private final ClientService service;
+	private final AuthService authService;
 	
 	@PostMapping
 	public ResponseEntity<ClientDTO> create(@RequestBody @Valid ClientRequest dto) {
@@ -45,7 +47,7 @@ public class ClientController {
 	@PostMapping("/authenticate")
 	public ResponseEntity<Void> authenticateAndGetToken(@RequestBody AuthenticationDTO request,
 			HttpServletResponse response) {
-		final String token = service.fromAuthentication(request);
+		final String token = authService.fromAuthentication(request);
 		response.addHeader("Authorization", "Bearer " + token);
 		return ResponseEntity.noContent().build();
 	}

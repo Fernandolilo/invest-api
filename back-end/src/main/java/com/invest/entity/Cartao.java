@@ -65,4 +65,5 @@ public class Cartao implements Serializable {  // Corrigido nome da classe
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "conta_id", nullable = false)
 	private Conta conta;
+	
 }
