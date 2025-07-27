@@ -11,6 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ContaComponent } from './components/conta/conta.component';
 import { CameraComponent } from './components/camera/camera.component';
+import { NewInvestimentoComponent } from './components/new-investimento/new-investimento.component';
+import { ListInvestimentoComponent } from './components/list-investimento/list-investimento.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { CameraComponent } from './components/camera/camera.component';
     HomeComponent,
     DashboardComponent,
     ContaComponent,
-    CameraComponent
+    CameraComponent,
+    NewInvestimentoComponent,
+    ListInvestimentoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { requestContasDTO } from '../../models/requestContasDTO';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContasService } from '../../services/contas.service';
 import { newCartaoDTO } from '../../models/cartaoNewDTO';
 import { CartaoService } from '../../services/cartao.service';
@@ -11,6 +11,7 @@ import { CartaoService } from '../../services/cartao.service';
   styleUrl: './conta.component.scss'
 })
 export class ContaComponent {
+
   mostrarSaldo = true;
   mostrarDadosConta = true;
   mostrarExtrato = true;
@@ -27,6 +28,8 @@ export class ContaComponent {
   };
 
   contaSelecionada: requestContasDTO | null = null;
+
+  router = inject(Router);
 
   constructor(
     private route: ActivatedRoute,
@@ -93,6 +96,10 @@ export class ContaComponent {
     }
   }
 
+  onNewInvest(event?: Event) {
+    event?.preventDefault(); // Evita comportamento padrão do <a href="#">
+    this.router.navigateByUrl("/list-invest");
+  }
 
 
 }

@@ -1,0 +1,51 @@
+<div class="container my-4">
+  <div class="mb-3">
+    <label for="tipoInvestimento" class="form-label">Tipo de Investimento</label>
+    <select class="form-select" id="tipoInvestimento" [(ngModel)]="tipoSelecionado" (change)="onSelecionarInvestimento()">
+      <option value="">Selecione...</option>
+      <option value="cdi">CDI</option>
+      <option value="tesouro">Tesouro Direto</option>
+      <option value="cdb">CDB</option>
+    </select>
+  </div>
+
+  <div class="row">
+    <!-- Card CDI -->
+    <div class="col-md-4 mb-3" *ngIf="tipoSelecionado === 'cdi'">
+  <div class="card h-100">
+    <div class="card-body">
+      <h5 class="card-title">CDI</h5>
+      <p class="card-text">
+       <strong> Investimento com rentabilidade de 102% do CDI diário.<br></strong>
+        A taxa CDI representa a taxa média diária das operações entre bancos. Seu rendimento acompanha essa taxa, corrigido em 102%, garantindo uma rentabilidade superior à do CDI padrão.<br>
+        O imposto de renda é regressivo e incide somente sobre os rendimentos, variando de 22,5% para aplicações de até 180 dias até 15% para aplicações acima de 720 dias.
+      </p>
+      <button class="btn btn-primary">Investir</button>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Card Tesouro -->
+    <div class="col-md-4 mb-3" *ngIf="tipoSelecionado === 'tesouro'">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Tesouro Direto</h5>
+          <p class="card-text">Investimento seguro emitido pelo governo. Diversos prazos e rentabilidades.</p>
+          <button class="btn btn-success">Investir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card CDB -->
+    <div class="col-md-4 mb-3" *ngIf="tipoSelecionado === 'cdb'">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">CDB</h5>
+          <p class="card-text">Certificado de Depósito Bancário. Boa rentabilidade e garantia do FGC.</p>
+          <button class="btn btn-success">Investir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -106,9 +106,6 @@ export class CameraComponent implements OnInit, OnDestroy {
   }
 
 
-
-
-
   confirm(): void {
     if (this.capturedImage) {
       this.selfieCaptured.emit(this.capturedImage);

@@ -5,6 +5,8 @@ import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ContaComponent } from './components/conta/conta.component';
+import { NewInvestimentoComponent } from './components/new-investimento/new-investimento.component';
+import { ListInvestimentoComponent } from './components/list-investimento/list-investimento.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'cadastro', component: CadastroComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'conta', component: ContaComponent },
+  { path: 'new-invest', component: NewInvestimentoComponent },
+  { path: 'list-invest', component: ListInvestimentoComponent },
   { path: '**', redirectTo: 'login' } // <- sempre deixe essa por último
 ];
 
