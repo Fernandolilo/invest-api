@@ -13,14 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.invest.dto.AuthenticationDTO;
 import com.invest.dto.ClientDTO;
 import com.invest.entity.dto.response.ClientResponse;
 import com.invest.requests.ClientRequest;
-import com.invest.service.AuthService;
 import com.invest.service.ClientService;
 
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -30,7 +27,6 @@ import lombok.RequiredArgsConstructor;
 public class ClientController {
 
 	private final ClientService service;
-	private final AuthService authService;
 	
 	@PostMapping
 	public ResponseEntity<ClientDTO> create(@RequestBody @Valid ClientRequest dto) {
@@ -44,11 +40,4 @@ public class ClientController {
 		return service.findById(id);
 	}
 	
-	@PostMapping("/authenticate")
-	public ResponseEntity<Void> authenticateAndGetToken(@RequestBody AuthenticationDTO request,
-			HttpServletResponse response) {
-		final String token = authService.fromAuthentication(request);
-		response.addHeader("Authorization", "Bearer " + token);
-		return ResponseEntity.noContent().build();
-	}
 }

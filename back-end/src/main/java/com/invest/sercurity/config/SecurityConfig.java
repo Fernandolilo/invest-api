@@ -30,7 +30,7 @@ import com.invest.sercurity.service.impl.UserDetailsServiceImpl;
 @EnableMethodSecurity
 public class SecurityConfig {
 
-	private static final String API_URL_CLIENTS_AUTH = "/clients/authenticate/**";
+	private static final String API_URL_CLIENTS_AUTH = "/authenticate/**";
 	private static final String API_URL_CLIENTS_SAVE= "/clients/**";
 	private static final String API_CDI = "/cdi/**";
 	

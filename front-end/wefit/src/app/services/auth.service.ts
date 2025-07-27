@@ -29,7 +29,7 @@ export class AuthService {
       'Accept': '*/*'
     });
 
-    return this.http.post(`${this.API}/clients/authenticate`, body, {
+    return this.http.post(`${this.API}/authenticate`, body, {
       headers,
       observe: 'response'
     }).pipe(
