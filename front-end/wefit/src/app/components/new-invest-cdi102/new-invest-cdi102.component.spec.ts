@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewInvestimentoComponent } from './new-investimento.component';
+import { NewInvestCdi102Component } from './new-invest-cdi102.component';
 
-describe('NewInvestimentoComponent', () => {
-  let component: NewInvestimentoComponent;
-  let fixture: ComponentFixture<NewInvestimentoComponent>;
+describe('NewInvestCdi102Component', () => {
+  let component: NewInvestCdi102Component;
+  let fixture: ComponentFixture<NewInvestCdi102Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NewInvestimentoComponent]
+      declarations: [NewInvestCdi102Component]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(NewInvestimentoComponent);
+    fixture = TestBed.createComponent(NewInvestCdi102Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,12 @@
+.card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.border-primary {
+  border: 2px solid #003366 !important; /* sua cor padrão */
+}

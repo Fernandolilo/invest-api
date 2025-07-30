@@ -11,8 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ContaComponent } from './components/conta/conta.component';
 import { CameraComponent } from './components/camera/camera.component';
-import { NewInvestimentoComponent } from './components/new-investimento/new-investimento.component';
 import { ListInvestimentoComponent } from './components/list-investimento/list-investimento.component';
+import { NewInvestCdi102Component } from './components/new-invest-cdi102/new-invest-cdi102.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,9 @@ import { ListInvestimentoComponent } from './components/list-investimento/list-i
     DashboardComponent,
     ContaComponent,
     CameraComponent,
-    NewInvestimentoComponent,
-    ListInvestimentoComponent
+
+    ListInvestimentoComponent,
+     NewInvestCdi102Component
   ],
   imports: [
     BrowserModule,
