@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { newInvestDTO } from '../../models/newInvestimentoDTO';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AplicarCdiService } from '../../services/aplicar-cdi.service';
 
 @Component({
   selector: 'app-new-invest-cdi102',
@@ -12,6 +13,8 @@ export class NewInvestCdi102Component implements OnInit {
   router = inject(Router);
   route = inject(ActivatedRoute);
   id: string = '';
+
+  constructor(private service: AplicarCdiService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -33,6 +36,12 @@ export class NewInvestCdi102Component implements OnInit {
   onSubmit() {
     this.newInvest.conta = this.id;
     console.log(this.newInvest);
-    // Aqui você pode chamar o service para enviar ao backend
+    this.service.newInvestCdi102(this.newInvest).subscribe({
+      next: () => {
+        alert("Investimento realizado com sucesso!")
+      }, error: () => {
+        alert("tent novamente!")
+      }
+    });
   }
 }
