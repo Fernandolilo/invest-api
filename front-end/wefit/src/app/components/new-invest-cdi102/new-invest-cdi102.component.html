@@ -1,1 +1,53 @@
-<p>new-invest-cdi102 works!</p>
+<div class="container my-4">
+  <form #investForm="ngForm" (ngSubmit)="onSubmit()">
+
+     <!-- Texto informativo -->
+    <div class="alert alert-info" role="alert">
+      Este investimento rende <strong>102% do CDI</strong>, com rentabilidade calculada sobre
+      <strong>dias úteis</strong>.  
+      O Imposto de Renda incide apenas sobre os rendimentos e segue a tabela regressiva:
+      
+    </div>
+    <!-- Valor -->
+    <div class="mb-3">
+      <label for="valor" class="form-label">Valor</label>
+      <input type="number"
+             id="valor"
+             class="form-control"
+             [(ngModel)]="newInvest.valor"
+             name="valor"
+             placeholder="Digite o valor"
+             required>
+    </div>
+
+    <!-- CPF ou CNPJ -->
+    <div class="mb-3">
+      <label for="cpfOuCnpj" class="form-label">CPF ou CNPJ</label>
+      <input type="text"
+             id="cpfOuCnpj"
+             class="form-control"
+             [(ngModel)]="newInvest.cpfOuCnpj"
+             name="cpfOuCnpj"
+             placeholder="Digite o CPF ou CNPJ"
+             required>
+    </div>
+
+    
+     <!-- Texto informativo -->
+    <div class="alert alert-info" role="alert">
+      Este investimento rende <strong>102% do CDI</strong>, com rentabilidade calculada sobre
+      <strong>dias úteis</strong>.  
+      O Imposto de Renda incide apenas sobre os rendimentos e segue a tabela regressiva:
+      <ul class="mb-0">
+        <li>22,5% - aplicações até 180 dias</li>
+        <li>20% - aplicações de 181 a 360 dias</li>
+        <li>17,5% - aplicações de 361 a 720 dias</li>
+        <li>15% - aplicações acima de 720 dias</li>
+      </ul>
+    </div>
+
+    <!-- Botão -->
+    <button type="submit" class="btn btn-primary">Investir</button>
+
+  </form>
+</div>

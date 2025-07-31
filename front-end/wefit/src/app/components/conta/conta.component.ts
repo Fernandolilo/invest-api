@@ -17,6 +17,7 @@ export class ContaComponent {
   mostrarExtrato = true;
   solicitarCartao = true;
   bandeiraSelecionada: string = '';
+  contaId: string = '';
 
 
   cartao: newCartaoDTO = {
@@ -40,6 +41,7 @@ export class ContaComponent {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       const contaId = params['id'];
+      this.cartao.contaId = contaId;
       if (contaId) {
         this.service.findById(contaId).subscribe({
           next: (conta) => {
@@ -98,7 +100,10 @@ export class ContaComponent {
 
   onNewInvest(event?: Event) {
     event?.preventDefault(); // Evita comportamento padrão do <a href="#">
-    this.router.navigateByUrl("/list-invest");
+    console.log(this.cartao.contaId);
+    this.router.navigate(['/list-invest'], {
+      queryParams: { id: this.cartao.contaId }
+    });
   }
 
 
