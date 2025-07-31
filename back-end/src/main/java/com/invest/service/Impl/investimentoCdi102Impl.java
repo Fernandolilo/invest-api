@@ -1,6 +1,7 @@
 package com.invest.service.Impl;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.UUID;
@@ -26,8 +27,8 @@ public class investimentoCdi102Impl implements investimentoCdi102 {
 	private final ClientService clientService;
 
 	public void aplicarRendimentoDiario(UUID id) {
-	    double taxa = cdi102(); // CDI * 1.02
-	    BigDecimal taxaBD = BigDecimal.valueOf(taxa);
+	    BigDecimal taxa = cdi102(); // CDI * 1.02
+	    BigDecimal taxaBD = taxa; // já é BigDecimal
 
 	    // Corrigindo aqui
 	    Optional<ClientResponse> optionalClient = clientService.findById(id);
@@ -57,11 +58,18 @@ public class investimentoCdi102Impl implements investimentoCdi102 {
 	}
 
 
-	private double cdi102() {
-		CDIResponseDTO cdi = service.foundCDI();
-		double taxaCDI = cdi.getCdiDiario() / 100.0; // já é diário
-		double percentualAplicacao = 1.02;
-		return taxaCDI * percentualAplicacao;
+	private BigDecimal cdi102() {
+	    CDIResponseDTO cdi = service.foundCDI();
+
+	    // Converte o CDI diário para BigDecimal e divide por 100 para obter percentual
+	    BigDecimal taxaCDI = cdi.getCdiDiario()
+	        .divide(BigDecimal.valueOf(100), 10, RoundingMode.HALF_UP);
+
+	    // Multiplica pelo fator 1.02 usando BigDecimal
+	    BigDecimal percentualAplicacao = BigDecimal.valueOf(1.02);
+
+	    return taxaCDI.multiply(percentualAplicacao);
 	}
+
 
 }

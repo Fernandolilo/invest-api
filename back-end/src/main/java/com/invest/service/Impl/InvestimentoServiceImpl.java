@@ -1,5 +1,7 @@
 package com.invest.service.Impl;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,51 +25,53 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class InvestimentoServiceImpl implements InvestimentoService {
 
-	private final InvestimentoRepository repository;
-	private final ClientRepository clientRepository;
-	private final ModelMapper mapper;
-	private final ContaService contaService;
+    private final InvestimentoRepository repository;
+    private final ClientRepository clientRepository;
+    private final ModelMapper mapper;
+    private final ContaService contaService;
 
-	@Override
-	public Investimento save(InvestimentoNewDTO obj) {
+    @Override
+    public Investimento save(InvestimentoNewDTO obj) {
 
-		Optional<Client> clientOpt = clientRepository.findByCpfOuCnpj(obj.getCpfOuCnpj());
+        Optional<Client> clientOpt = clientRepository.findByCpfOuCnpj(obj.getCpfOuCnpj());
 
-		if (clientOpt.isEmpty()) {
-			throw new ObjectNotFoundException("Cliente não encontrado: " + obj.getCpfOuCnpj());
-		}
+        if (clientOpt.isEmpty()) {
+            throw new ObjectNotFoundException("Cliente não encontrado: " + obj.getCpfOuCnpj());
+        }
 
-		List<Conta> contas = clientOpt.get().getContas();
+        List<Conta> contas = clientOpt.get().getContas();
 
-		//double saldoTotal = contas.stream().mapToDouble(Conta::getSaldo).sum();
+        Conta contaSelecionada = contas.stream()
+                .filter(c -> c.getId().equals(obj.getConta()))
+                .findFirst()
+                .orElseThrow(() -> new ObjectNotFoundException("Conta não encontrada ou não pertence ao cliente"));
 
-		Conta contaSelecionada = contas.stream().filter(c -> c.getId().equals(obj.getConta())).findFirst()
-				.orElseThrow(() -> new ObjectNotFoundException("Conta não encontrada ou não pertence ao cliente"));
-		
-		InvestimentoNewDTO newInvest = InvestimentoNewDTO.builder().cpfOuCnpj(obj.getCpfOuCnpj()).valor(obj.getValor())
-				.build();
-		
-		double sdt = contaSelecionada.getSaldo();
+        BigDecimal saldoConta = contaSelecionada.getSaldo();
+        BigDecimal valorInvestimento = obj.getValor();
 
-		Investimento inv = mapper.map(newInvest, Investimento.class);
-		inv.setConta(contaSelecionada);
+        if (saldoConta == null) saldoConta = BigDecimal.ZERO;
 
-		if (sdt < newInvest.getValor()) {
-			throw new ObjectNotFoundException("Chegue seu saldo, não há valor suficiente: ");
+        // Comparação correta com BigDecimal
+        if (saldoConta.compareTo(valorInvestimento) < 0) {
+            throw new ObjectNotFoundException("Saldo insuficiente para realizar o investimento.");
+        }
 
-		}
+        // Criando o investimento
+        Investimento inv = mapper.map(obj, Investimento.class);
+        inv.setConta(contaSelecionada);
+        inv.setInstante(LocalDate.now());
 
-		repository.save(inv);
-		// TODO Auto-generated method stub
-		ContaUpdateDTO contaUpdateDTO = mapper.map(contaSelecionada, ContaUpdateDTO.class);
-		
-		double newSaldo = 0.0;
-		newSaldo = contaSelecionada.getSaldo() - obj.getValor();
-		
-		contaUpdateDTO.setCpf(contaSelecionada.getClient().getCpfOuCnpj());
-		contaUpdateDTO.setSaldo(newSaldo);		
-		contaService.update(contaUpdateDTO);
-		return inv;
-	}
+        repository.save(inv);
 
+        // Atualizando o saldo da conta corretamente
+        BigDecimal novoSaldo = saldoConta.subtract(valorInvestimento);
+
+        ContaUpdateDTO contaUpdateDTO = mapper.map(contaSelecionada, ContaUpdateDTO.class);
+        contaUpdateDTO.setCpf(contaSelecionada.getClient().getCpfOuCnpj());
+        contaUpdateDTO.setSaldo(novoSaldo);
+
+        contaService.update(contaUpdateDTO);
+
+        return inv;
+    }
 }

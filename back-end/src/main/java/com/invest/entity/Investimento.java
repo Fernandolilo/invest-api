@@ -1,5 +1,7 @@
 package com.invest.entity;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import jakarta.persistence.Entity;
@@ -23,7 +25,9 @@ public class Investimento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
-	private double valor;
+	private BigDecimal valor;
+	private BigDecimal evolucao;
+	private LocalDate instante;
 	
 	@ManyToOne
 	@JoinColumn(name = "conta_id", nullable = false)

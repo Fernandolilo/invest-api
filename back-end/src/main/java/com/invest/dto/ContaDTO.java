@@ -1,5 +1,6 @@
 package com.invest.dto;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 import com.invest.entity.enums.TipoConta;
@@ -19,7 +20,7 @@ public class ContaDTO {
 	private Integer numero;
 	private Integer agencia;
 	private Integer banco;
-	private double saldo;
+	private BigDecimal saldo;
 	private TipoConta tipo;
 	private String nome;
 	private String cpfOuCnpj;

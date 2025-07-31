@@ -1,6 +1,7 @@
 package com.invest.entity.dto.response;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +16,7 @@ public class CDIResponseDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String data;
-	private double cdiDiario;
-	private double cdiAnual;
+	private BigDecimal cdiDiario;
+	private BigDecimal cdiAnual;
 
 }

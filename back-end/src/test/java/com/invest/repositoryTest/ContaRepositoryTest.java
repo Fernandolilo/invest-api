@@ -2,6 +2,7 @@ package com.invest.repositoryTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,15 +35,6 @@ public class ContaRepositoryTest {
 	@Autowired
 	TestEntityManager entityManager;
 
-	/*
-	
-	
-	
-	
-	
-	
-	
-	*/
 
 	@Test
 	@DisplayName("Deve retornar o maior numero de conta")
@@ -160,7 +152,7 @@ public class ContaRepositoryTest {
 
 	private Conta contaPersistence(Client cli) {
 		Conta conta = Conta.builder().agencia(1000).banco(237).client(cli).numero(1001).tipo(TipoConta.CONTA_CORRENTE)
-				.saldo(150).build();
+				.saldo(BigDecimal.valueOf(150.0)).build();
 		return conta;
 	}
 }

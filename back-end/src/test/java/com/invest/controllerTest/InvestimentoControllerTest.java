@@ -2,6 +2,7 @@ package com.invest.controllerTest;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 import org.junit.jupiter.api.DisplayName;
@@ -116,17 +117,17 @@ public class InvestimentoControllerTest {
    	            .agencia(1001)
    	            .banco(237)
    	            .numero(123456)
-   	            .saldo(1000.0)
+   	            .saldo(BigDecimal.valueOf(1000.0))
    	            .tipo(TipoConta.CONTA_CORRENTE)
    	            .client(client)
    	            .build();
    	        
    	        investimentoNewDTO = InvestimentoNewDTO.builder()
-   	        		.valor(150.0)
+   	        		.valor(BigDecimal.valueOf(105.0))
    	        		.conta(conta.getId())
    	        		.cpfOuCnpj(client.getCpfOuCnpj())
    	        		.build();
-   	        Investimento inv = Investimento.builder().conta(conta).valor(0.0).build();
+   	        Investimento inv = Investimento.builder().conta(conta).valor(BigDecimal.ZERO).build();
    	        
 
 		BDDMockito.given(mapper.map(Mockito.any(InvestimentoNewDTO.class), Mockito.eq(Investimento.class))).willReturn(inv);

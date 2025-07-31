@@ -1,5 +1,7 @@
 package com.invest.service.Impl;
 
+import java.math.BigDecimal;
+
 import org.springframework.stereotype.Service;
 
 import com.invest.dto.ClientDTO;
@@ -25,7 +27,7 @@ public class ContaFactoryServiceImpl implements ContaFactoryService {
                 .banco(1)
                 .numero(nextConta)
                 .cpf(clientDTO.getCpfOuCnpj())
-                .saldo(0)
+                .saldo(BigDecimal.ZERO)
                 .tipo(TipoConta.CONTA_CORRENTE)
                 .build();
     }

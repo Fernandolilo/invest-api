@@ -1,5 +1,9 @@
 package com.invest.service.Impl;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,26 +18,40 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class CDIImpl implements CdiService {
 
-	private static final String URL_CDI = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados/ultimos/1?formato=json";
+    private static final String URL_CDI = 
+        "https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados/ultimos/1?formato=json";
 
-	@Override
-	public CDIResponseDTO foundCDI() {
-		RestTemplate restTemplate = new RestTemplate();
-		CDIValorDTO[] resposta = restTemplate.getForObject(URL_CDI, CDIValorDTO[].class);
+    @Override
+    public CDIResponseDTO foundCDI() {
+        RestTemplate restTemplate = new RestTemplate();
+        CDIValorDTO[] resposta = restTemplate.getForObject(URL_CDI, CDIValorDTO[].class);
 
-		if (resposta != null && resposta.length > 0) {
-			String data = resposta[0].getData();
-			double valor = Double.parseDouble(resposta[0].getValor());
-			double anual = calcularCDIAnual(valor);
-			return new CDIResponseDTO(data, valor, anual);
-		}
+        if (resposta != null && resposta.length > 0) {
+            String data = resposta[0].getData();
 
-		throw new ObjectNotFoundException("Erro ao obter o CDI diário.");
-	}
+            // Converte a String diretamente para BigDecimal sem passar por double
+            BigDecimal valorPercentual = new BigDecimal(resposta[0].getValor(), MathContext.DECIMAL64);
 
-	private double calcularCDIAnual(double cdiDiarioPercentual) {
-		double diario = cdiDiarioPercentual / 100;
-		return (Math.pow(1 + diario, 252) - 1) * 100;
-	}
+            // Calcula CDI anual
+            BigDecimal anual = calcularCDIAnual(valorPercentual);
 
+            return new CDIResponseDTO(data, valorPercentual, anual);
+        }
+
+        throw new ObjectNotFoundException("Erro ao obter o CDI diário.");
+    }
+
+    private BigDecimal calcularCDIAnual(BigDecimal cdiDiarioPercentual) {
+        // Converte de percentual para decimal
+        BigDecimal diario = cdiDiarioPercentual.divide(BigDecimal.valueOf(100), 10, RoundingMode.HALF_UP);
+
+        // (1 + diario) ^ 252 - 1
+        BigDecimal base = BigDecimal.ONE.add(diario);
+        double pot = Math.pow(base.doubleValue(), 252);
+
+        BigDecimal resultado = BigDecimal.valueOf(pot).subtract(BigDecimal.ONE)
+                .multiply(BigDecimal.valueOf(100)); // volta para percentual
+
+        return resultado.setScale(6, RoundingMode.HALF_UP);
+    }
 }

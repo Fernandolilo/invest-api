@@ -7,6 +7,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -79,7 +80,7 @@ public class InvestimentoServiceTest {
 	    	        		agencia(1001)
 	    	        		.agencia(237)
 	    	        		.numero(123456)
-	    	        		.saldo(100.0)
+	    	        		.saldo(BigDecimal.valueOf(100.0))
 	    	        		.tipo(TipoConta.CONTA_CORRENTE)
 	    	        		.build();
 	    	     
@@ -90,13 +91,13 @@ public class InvestimentoServiceTest {
 	    	            .agencia(1001)
 	    	            .banco(237)
 	    	            .numero(123456)
-	    	            .saldo(1000.0)
+	    	            .saldo(BigDecimal.valueOf(100.0))
 	    	            .tipo(TipoConta.CONTA_CORRENTE)
 	    	            .client(client)
 	    	            .build();
 	    	        
 	    	        investimentoNewDTO = InvestimentoNewDTO.builder()
-	    	        		.valor(150.0)
+	    	        		.valor(BigDecimal.valueOf(100.0))
 	    	        		.conta(conta.getId())
 	    	        		.cpfOuCnpj(client.getCpfOuCnpj())
 	    	        		.build();
@@ -127,11 +128,11 @@ public class InvestimentoServiceTest {
 	    	when(mapper.map(any(InvestimentoNewDTO.class), eq(Investimento.class))).thenReturn(investimentoMapeado);
 	    	
 	    	//objeto para atualizar o saldo da conta
-	    	  contaUpdateDTO = ContaUpdateDTO
-  	        		.builder()
-  	        		  .saldo(conta.getSaldo() - investimentoNewDTO.getValor())
-  	                  .cpf(conta.getClient().getCpfOuCnpj())
-  	        		.build();
+	    	contaUpdateDTO = ContaUpdateDTO
+	    		    .builder()
+	    		    .saldo(conta.getSaldo().subtract(investimentoNewDTO.getValor()))  // Corrigido aqui
+	    		    .cpf(conta.getClient().getCpfOuCnpj())
+	    		    .build();
 	    	  
 	    	  //atualiza a conta passando novo saldo com dados do request
 	    	  when(mapper.map(any(Conta.class), eq(ContaUpdateDTO.class))).thenReturn(contaUpdateDTO);
@@ -140,11 +141,6 @@ public class InvestimentoServiceTest {
 	    	  Investimento result = investimentoService.save(investimentoNewDTO);
 	    	  assertNotNull(result);
 	    	  verify(repository, times(1)).save(investimentoMapeado);
-	          verify(contaService, times(1)).update(contaUpdateDTO);
-
-	    	
-	    	
-	    	
-	    	
+	          verify(contaService, times(1)).update(contaUpdateDTO);	    	
 	    }
 }

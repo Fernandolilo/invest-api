@@ -1,6 +1,7 @@
 package com.invest.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -38,7 +39,7 @@ public class Conta implements Serializable {
 	private Integer numero;
 	private Integer agencia;
 	private Integer banco;
-	private double saldo;
+	private BigDecimal saldo;
 	private TipoConta tipo;
 	
 	@ManyToOne

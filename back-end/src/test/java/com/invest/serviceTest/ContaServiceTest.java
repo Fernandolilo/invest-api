@@ -13,6 +13,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -76,11 +77,11 @@ public class ContaServiceTest {
 				.senha("senha123").tipo(TipoPessoa.PESSOA_FISICA).confirme(true).build();
 
 		// DTO de entrada
-		contaDTO = ContaNewDTO.builder().agencia(1001).agencia(237).numero(123456).nome("Fernando").saldo(100.0)
+		contaDTO = ContaNewDTO.builder().agencia(1001).agencia(237).numero(123456).nome("Fernando").saldo(BigDecimal.valueOf(100.0))
 				.tipo(TipoConta.CONTA_CORRENTE).build();
 
 		// Conta mapeada
-		conta = Conta.builder().id(UUID.randomUUID()).agencia(1001).banco(237).numero(123456).saldo(1000.0)
+		conta = Conta.builder().id(UUID.randomUUID()).agencia(1001).banco(237).numero(123456).saldo(BigDecimal.valueOf(1000.0))
 				.tipo(TipoConta.CONTA_CORRENTE).client(client).build();
 
 		MockitoAnnotations.openMocks(this);

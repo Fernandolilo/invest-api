@@ -37,5 +37,5 @@ public class Carteira implements Serializable{
 
 	    private LocalDate dataUltimaAtualizacao;
 
-	    private double percentual;
+	    private BigDecimal percentual;
 }
