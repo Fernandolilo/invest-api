@@ -1,0 +1,11 @@
+server:
+  port: 8765
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: api-invest
+          uri: http://localhost:8000
+          predicates:
+            - Path=/api/invest/**
