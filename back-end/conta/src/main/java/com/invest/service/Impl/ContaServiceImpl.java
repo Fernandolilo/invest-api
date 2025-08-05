@@ -1,5 +1,7 @@
 package com.invest.service.Impl;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.invest.dto.ContaDTO;
 import com.invest.dto.ContaNewDTO;
+import com.invest.dto.ContaTrasacaoDepSaqDTO;
 import com.invest.dto.ContaUpdateDTO;
 import com.invest.entity.Client;
 import com.invest.entity.Conta;
@@ -33,7 +36,7 @@ public class ContaServiceImpl implements ContaService {
 	private final ModelMapper mapper;
 	private final ClientRepository clienteRepository;
 	private final UserService userService;
-	
+
 	@Override
 	public Conta save(ContaNewDTO conta) {
 		Optional<Client> clientOpt = clienteRepository.findByCpfOuCnpj(conta.getCpf());
@@ -97,7 +100,7 @@ public class ContaServiceImpl implements ContaService {
 		}
 
 		Conta conta = repository.findById(id)
-			.orElseThrow(() -> new ObjectNotFoundException("Conta não encontrado: " + id));
+				.orElseThrow(() -> new ObjectNotFoundException("Conta não encontrado: " + id));
 
 		ContaDTO dto = mapper.map(conta, ContaDTO.class);
 
@@ -113,6 +116,48 @@ public class ContaServiceImpl implements ContaService {
 		return dto;
 	}
 
+	@Override
+	public Conta deposito(ContaTrasacaoDepSaqDTO obj) {
+		validarDeposito(obj);
+
+		Optional<Conta> contaOpt = repository.findById(obj.getId());
+		Optional<Client> clientOpt = clienteRepository.findByCpfOuCnpj(obj.getCpf());
+
+		if (contaOpt.isEmpty()) {
+			throw new ObjectNotFoundException("Conta não encontrada: " + obj.getId());
+		}
+		if (clientOpt.isEmpty()) {
+			throw new ObjectNotFoundException("Cliente não encontrado: " + obj.getCpf());
+		}
+
+		Conta conta = contaOpt.get();
+
+		// Soma o saldo atual com o valor do depósito
+		BigDecimal novoSaldo = conta.getSaldo().add(obj.getSaldo()).setScale(2, RoundingMode.DOWN); // garante 2 casas
+																									// decimais sem
+																									// arredondar para
+																									// cima
+
+		conta.setSaldo(novoSaldo);
+		conta.setClient(clientOpt.get());
+
+		return repository.save(conta);
+	}
+
+	private void validarDeposito(ContaTrasacaoDepSaqDTO obj) {
+		if (obj.getId() == null) {
+			throw new IllegalArgumentException("ID da conta é obrigatório.");
+		}
+		if (obj.getCpf() == null || obj.getCpf().trim().isEmpty()) {
+			throw new IllegalArgumentException("CPF é obrigatório.");
+		}
+		if (obj.getSaldo() == null || obj.getSaldo().compareTo(BigDecimal.ZERO) <= 0) {
+			throw new IllegalArgumentException("O valor do depósito deve ser maior que zero.");
+		}
+		if (obj.getSaldo().scale() > 2) {
+			throw new IllegalArgumentException("O valor do depósito não pode ter mais que duas casas decimais.");
+		}
+	}
 
 	private boolean hasFullAccess(UserSecurityDetails user) {
 		// Lista de papéis permitidos

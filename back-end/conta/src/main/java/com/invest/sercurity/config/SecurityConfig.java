@@ -84,7 +84,7 @@ public class SecurityConfig {
 		config.setAllowCredentials(true);
 
 		//config.addAllowedOrigin("http://38.210.209.86:8080");
-		config.addAllowedOrigin("http://localhost:8765");
+		config.addAllowedOrigin("http://localhost:4200");
 		// Permitindo todos os cabeçalhos
 		config.addAllowedHeader("*");
 

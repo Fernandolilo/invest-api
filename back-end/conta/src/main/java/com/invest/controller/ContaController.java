@@ -1,7 +1,6 @@
 package com.invest.controller;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -16,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.invest.dto.ContaDTO;
 import com.invest.dto.ContaNewDTO;
+import com.invest.dto.ContaTrasacaoDepSaqDTO;
 import com.invest.entity.Conta;
-import com.invest.entity.dto.response.ClientResponse;
 import com.invest.service.ContaService;
 
 import jakarta.validation.Valid;
@@ -38,6 +37,14 @@ public class ContaController {
 		return ResponseEntity.noContent().build();
 	}
 
+	
+	@PostMapping(value = "/deposito")
+	@ResponseStatus(HttpStatus.CREATED)
+	public ResponseEntity<Conta> deposito(@Valid @RequestBody ContaTrasacaoDepSaqDTO contaDto) {
+		service.deposito(contaDto);
+		return ResponseEntity.noContent().build();
+	}
+	
 	@GetMapping("/cliente")
 	public ResponseEntity<List<ContaDTO>> getContasPorCliente() {
 		List<ContaDTO> contas = service.foundConta();
