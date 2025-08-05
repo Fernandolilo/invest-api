@@ -4,8 +4,10 @@ server:
 spring:
   cloud:
     gateway:
-      routes:
-        - id: api-invest
-          uri: http://localhost:8000
-          predicates:
-            - Path=/api/invest/**
+      server:
+        webflux:
+          routes:
+            - id: api-invest
+              uri: http://localhost:8000
+              predicates:
+                - Path=/api/invest/**
