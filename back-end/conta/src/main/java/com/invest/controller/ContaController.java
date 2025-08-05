@@ -45,6 +45,13 @@ public class ContaController {
 		return ResponseEntity.noContent().build();
 	}
 	
+	@PostMapping(value = "/saque")
+	@ResponseStatus(HttpStatus.CREATED)
+	public ResponseEntity<Conta> saque(@Valid @RequestBody ContaTrasacaoDepSaqDTO contaDto) {
+		service.saque(contaDto);
+		return ResponseEntity.noContent().build();
+	}
+	
 	@GetMapping("/cliente")
 	public ResponseEntity<List<ContaDTO>> getContasPorCliente() {
 		List<ContaDTO> contas = service.foundConta();

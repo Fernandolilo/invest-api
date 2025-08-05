@@ -20,4 +20,6 @@ public interface ContaService {
 	public ContaDTO findById(UUID id);
 	
 	public Conta deposito(ContaTrasacaoDepSaqDTO conta);
+			
+	public Conta saque(ContaTrasacaoDepSaqDTO conta);
 }
