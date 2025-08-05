@@ -28,9 +28,15 @@ jobs:
           key: maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: maven-
 
-      - name: Build and run tests with coverage
+      # Build Conta (com Jacoco)
+      - name: Build and test Conta (with coverage)
         run: mvn clean verify jacoco:report
-        working-directory: ./back-end
+        working-directory: ./back-end/conta
+
+      # Build Gateway (sem Jacoco)
+      - name: Build and test Gateway
+        run: mvn clean verify
+        working-directory: ./back-end/gateway
 
       # DOCKER: Login & Push
       - name: Log in to Docker Hub
