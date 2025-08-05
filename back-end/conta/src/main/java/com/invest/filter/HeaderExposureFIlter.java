@@ -24,7 +24,6 @@ public class HeaderExposureFIlter extends OncePerRequestFilter {
 	    response.setHeader("Access-Control-Expose-Headers", "Authorization, xsrf-token");
 	    response.setHeader("Access-Control-Allow-Credentials", "true"); // Permite credenciais
 	    response.setHeader("Access-Control-Max-Age", "3600");
-
 	    // Tratando requisição OPTIONS
 	    if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
 	        response.setStatus(HttpServletResponse.SC_OK);
