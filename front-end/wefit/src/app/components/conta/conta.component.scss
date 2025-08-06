@@ -1,3 +1,20 @@
+.header-title {
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+}
 
 /* Container e Card */
 .container {
@@ -58,7 +75,7 @@
       border: 1px solid var(--border-color);
       border-radius: 0.5rem;
       overflow: hidden;
-      width: 100%;
+      width: 98%;
 
       thead {
         background-color: var(--primary);
@@ -109,7 +126,7 @@
 
         thead, tbody, tr, th, td {
           display: block;
-          width: 100%;
+          width: 99%;
         }
 
         thead tr {
@@ -144,6 +161,78 @@
     }
   }
 }
+
+
+
+/* Responsividade */
+@media (max-width: 430px) {
+  .selfie-img {
+    position: static; /* deixa ela entrar no fluxo */
+    display: block;
+    margin: 0 auto 1rem auto; /* centraliza */
+    width: 80px;
+    height: 80px;
+  }
+
+  .header-title {
+    text-align: center;
+    padding-top: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+
+    .mb-2 {
+      flex-direction: column;
+      align-items: flex-start;
+
+      strong {
+        min-width: auto;
+        margin-bottom: 0.25rem;
+      }
+    }
+
+    table {
+      font-size: 0.85rem;
+
+      thead, tbody, tr, th, td {
+        display: block;
+        width: 95%;
+      }
+
+      thead tr {
+        display: none;
+      }
+
+      tbody tr {
+        margin-bottom: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        transition: margin 0.3s ease, border-color 0.3s ease;
+      }
+
+      tbody td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+
+        &::before {
+          position: absolute;
+          top: 0.75rem;
+          left: 1rem;
+          width: 45%;
+          white-space: nowrap;
+          font-weight: 600;
+          content: attr(data-label);
+          color: var(--primary);
+        }
+      }
+    }
+  }
+}
+
+
 
 .selfie-img {
   position: absolute;
@@ -229,4 +318,30 @@
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   z-index: 9999; /* garante que fica na frente */
+}
+
+
+
+.dados-flutuante {
+  position: fixed; /* ou absolute se for relativo ao container */
+  top: 20%; /* ajusta conforme necessário */
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 9999; /* garante que fica na frente */
+}
+
+footer {
+  font-size: 0.9rem;
+  border-top: 2px solid var(--primary); /* sua cor padrão */
+  background-color: var(--primary);
+  color: var(--background);
+  border-radius: 9px;
+}
+
+footer i {
+  color: var(--secondary); /* Azul Bootstrap */
 }

@@ -41,6 +41,8 @@ export class ContaComponent {
   ngOnInit(): void {
     this.solicitarCartao = false; // fecha o formulário no início
     this.mostrarExtrato = false;
+    this.mostrarDadosConta = false;
+
     this.route.queryParams.subscribe(params => {
       const contaId = params['id'];
       this.cartao.contaId = contaId;

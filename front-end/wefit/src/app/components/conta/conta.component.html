@@ -1,181 +1,212 @@
+<div>
+  <div class="header-title text-center py-4">
+    <h1>Banco Digital Pro</h1>
+    <p>Onde seu dinheiro cresce com segurança e inteligência.</p>
+  </div>
+</div>
+
 <div class="container mt-4">
-  <div class="card p-3">  
+  <div class="card p-4">
+    <div class="mb-5 custom-check .form-check-input">
+      <!-- Linha Transações + Saldo + Dados da Conta -->
+      <h5 class="d-flex align-items-center justify-content-between flex-wrap">
+        <!-- Esquerda: Transações + Botão/Menu + Saldo -->
+        <div class="d-flex align-items-center flex-wrap">
+          <span>Transações</span>
 
-  <div class="mb-5 custom-check .form-check-input">
-     
+          <!-- Botão/Menu Transações -->
+          <div class="dropdown ms-2">
+            <a
+              class="text-dark dropdown-toggle"
+              href="#"
+              role="button"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i
+                class="bi bi-journal-text cartao-conteudo cartao"
+                style="cursor: pointer; font-size: 1.3rem;"
+                title="Transações"
+              ></i>
+            </a>
 
-  <h5 class="d-flex align-items-center">
-  Transações
+            <div class="nav-intem">
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li>
+                  <a class="dropdown-item" href="#" (click)="onNewInvest($event)">Investimentos</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" (click)="onNewCard()">Solicitar novo cartão</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" (click)="onVerExtrato()">Últimas Transações</a>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-  <div class="dropdown ms-2">
-    <a 
-      class="text-dark dropdown-toggle" 
-      href="#" 
-      role="button" 
-      id="dropdownMenuButton" 
-      data-bs-toggle="dropdown" 
-      aria-expanded="false"
-    >
-      <i 
-        class="bi bi-journal-text cartao-conteudo cartao" 
-        style="cursor: pointer; font-size: 1.3rem;" 
-        title="Transações"
-      ></i>
-    </a>
+          <!-- Saldo -->
+          <div class="ms-3 d-flex align-items-center">
+            <strong class="me-2">Saldo:</strong>
+            <span class="me-2">
+              {{ mostrarSaldo ? (contaSelecionada?.saldo | currency:'BRL':'symbol':'1.2-2') : '••••••' }}
+            </span>
+            <button
+              class="btn btn-sm btn-outline-secondary d-flex align-items-center"
+              (click)="alternarSaldo()"
+              title="{{ mostrarSaldo ? 'Ocultar saldo' : 'Mostrar saldo' }}"
+            >
+              <i class="bi me-1" [ngClass]="mostrarSaldo ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i>
+            </button>
+          </div>
+        </div>
 
-    <div class="nav-intem">
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <li>
-        <a class="dropdown-item" href="#" (click)="onNewInvest($event)">Investimentos</a>
-      </li>
-
-       <li>
-        <a class="dropdown-item" (click)="onNewCard()">Solicitar novo cartao</a>
-      </li>
-
-       <li>
-        <a class="dropdown-item" (click)="onVerExtrato()">Ultimas Transações</a>
-      </li>
-    </ul>
+        <!-- Direita: Dados da Conta -->
+        <div class="d-flex align-items-center mb-0">
+          <strong class="me-2">Dados da Conta:</strong>
+          <i
+            class="bi"
+            [ngClass]="mostrarDadosConta ? 'bi-eye-slash-fill' : 'bi-eye-fill'"
+            (click)="onVisualConta()"
+            style="cursor: pointer; font-size: 1.2rem;"
+            title="{{ mostrarDadosConta ? 'Ocultar dados da conta' : 'Mostrar dados da conta' }}">
+          </i>
+        </div>
+      </h5>
     </div>
-   </div>
-</h5>
 
-
-
-    <div class="d-flex align-items-center mb-3">
-      <strong class="me-2">Dados da Conta:</strong>
-      <!-- Ícone clicável para mostrar/ocultar dados da conta -->
-      <i 
-        class="bi"
-        [ngClass]="mostrarDadosConta ? 'bi-eye-slash-fill' : 'bi-eye-fill'" 
-        (click)="onVisualConta()" 
-        style="cursor: pointer; font-size: 1.2rem;" 
-        title="{{ mostrarDadosConta ? 'Ocultar dados da conta' : 'Mostrar dados da conta' }}">
-      </i>
-    </div>
-
-    <img  *ngIf="contaSelecionada?.selfie" [src]="contaSelecionada?.selfie" alt="Selfie" 
+    <!-- Foto da Conta -->
+    <img
+      *ngIf="contaSelecionada?.selfie"
+      [src]="contaSelecionada?.selfie"
+      alt="Selfie"
       class="selfie-img img-thumbnail"
-      width="100"/>
-
+      width="100"
+    />
 
     <!-- Dados da conta aparecem ou somem -->
-    <div *ngIf="mostrarDadosConta">
+    <div *ngIf="mostrarDadosConta" class="dados-flutuante">
+      <i
+        class="bi bi-x-lg ms-auto"
+        style="cursor: pointer; font-size: 1.3rem;"
+        title="Fechar"
+        (click)="onVisualConta()"
+      ></i>
       <div class="mb-2"><strong>Número da Conta:</strong> {{ contaSelecionada?.numero }}</div>
       <div class="mb-2"><strong>Agência:</strong> {{ contaSelecionada?.agencia }}</div>
       <div class="mb-2"><strong>Titular:</strong> {{ contaSelecionada?.nome }}</div>
       <div class="mb-2"><strong>Tipo:</strong> {{ contaSelecionada?.tipo }}</div>
+      <div class="mb-2"><strong>Data de Criação:</strong> 10/02/2021</div>
+      <div class="mb-2"><strong>Status:</strong> <span class="text-success">Ativa</span></div>
     </div>
 
     <hr>
 
-    <!-- Linha do saldo com botão para mostrar/ocultar saldo -->
-    <div class="d-flex align-items-center mb-2">
-  <strong class="me-2">Saldo Atual:</strong>
-  <span class="me-3">
-    {{ mostrarSaldo ? (contaSelecionada?.saldo | currency:'BRL':'symbol':'1.2-2') : '••••••' }}
-  </span>
-  <button
-    class="btn btn-sm btn-outline-secondary d-flex align-items-center"
-    (click)="alternarSaldo()"
-    title="{{ mostrarSaldo ? 'Ocultar saldo' : 'Mostrar saldo' }}"
-  >
-    <i class="bi me-1" [ngClass]="mostrarSaldo ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i>
-  </button>
-</div>
-
-
-    <div class="mb-2"><strong>Data de Criação:</strong> 10/02/2021</div>
-    <div class="mb-2"><strong>Status:</strong> <span class="text-success">Ativa</span></div>
-
-   <div 
-    >
-      <span></span>
-   </div>
-
-
-<!-- Modal overlay que cobre a tela -->
-<div *ngIf="solicitarCartao" class="modal-overlay" (click)="onSolicitarCartao()">
-  <!-- Caixa modal que não fecha quando clica dentro -->
-  <div class="modal-content" (click)="$event.stopPropagation()">
-
-    <h5 class="d-flex align-items-center mb-3">
-      Solicitar cartão
-      <i 
-        class="bi bi-x-lg ms-auto"
-        style="cursor: pointer; font-size: 1.3rem;"
-        title="Fechar"
-        (click)="onSolicitarCartao()"
-      ></i>
-    </h5>
-
-    <!-- Seu formulário -->
-    <div class="mb-3">
-      <label for="tipoCartao" class="form-label">Tipo do Cartão</label>
-      <select id="tipoCartao" class="form-select" [(ngModel)]="cartao.tipo" name="tipoCartao">
-        <option value="" disabled selected>Selecione o tipo</option>
-        <option value="CREDITO">Crédito</option>
-        <option value="DEBITO">Débito</option>
-        <option value="MULTIPLO">Múltiplo</option>
-      </select>
-    </div>
-
-    <div class="mb-3">
-      <label for="bandeiraCartao" class="form-label">Bandeira do Cartão</label>
-      <select id="bandeiraCartao" class="form-select" [(ngModel)]="cartao.bandeira" name="bandeiraCartao">
-        <option value="" disabled selected>Selecione a bandeira</option>
-        <option value="VISA">Visa</option>
-        <option value="MASTERCARD">Mastercard</option>
-        <option value="ELO">Elo</option>
-      </select>
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label">Senha</label>
-      <input type="password" class="form-control" [(ngModel)]="cartao.senha" name="senha" required minlength="6" />
-    </div>
-
-    <button class="btn btn-custom-primary" (click)="onCartao()">Solicitar</button>
-
-    </div>
-  </div>
-      <div  *ngIf="mostrarExtrato" class="extrato-flutuante">
-          <hr>
-        <h5 class="d-flex align-items-center"> 
-          Últimas Transações
-          <i 
-            class="bi bi-journal-text ms-2" 
-            style="cursor: pointer; font-size: 1.3rem;" 
-            title="Ver Extrato"
-            (click)="onExtrato()"
+    <!-- Modal overlay que cobre a tela -->
+    <div *ngIf="solicitarCartao" class="modal-overlay" (click)="onSolicitarCartao()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <h5 class="d-flex align-items-center mb-3">
+          Solicitar cartão
+          <i
+            class="bi bi-x-lg ms-auto"
+            style="cursor: pointer; font-size: 1.3rem;"
+            title="Fechar"
+            (click)="onSolicitarCartao()"
           ></i>
         </h5>
 
-        <table *ngIf="mostrarExtrato" class="table table-sm">
-          <thead>
-            <tr>
-              <th>Data</th>
-              <th>Descrição</th>
-              <th>Valor</th>
-              <th>Tipo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>15/07/2025</td>
-              <td>Transferência recebida</td>
-              <td class="text-success">+ R$ 500,00</td>
-              <td>Crédito</td>
-            </tr>
-            <tr>
-              <td>14/07/2025</td>
-              <td>Pagamento de boleto</td>
-              <td class="text-danger">- R$ 150,00</td>
-              <td>Débito</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="mb-3">
+          <label for="tipoCartao" class="form-label">Tipo do Cartão</label>
+          <select id="tipoCartao" class="form-select" [(ngModel)]="cartao.tipo" name="tipoCartao">
+            <option value="" disabled selected>Selecione o tipo</option>
+            <option value="CREDITO">Crédito</option>
+            <option value="DEBITO">Débito</option>
+            <option value="MULTIPLO">Múltiplo</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="bandeiraCartao" class="form-label">Bandeira do Cartão</label>
+          <select id="bandeiraCartao" class="form-select" [(ngModel)]="cartao.bandeira" name="bandeiraCartao">
+            <option value="" disabled selected>Selecione a bandeira</option>
+            <option value="VISA">Visa</option>
+            <option value="MASTERCARD">Mastercard</option>
+            <option value="ELO">Elo</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Senha</label>
+          <input
+            type="password"
+            class="form-control"
+            [(ngModel)]="cartao.senha"
+            name="senha"
+            required
+            minlength="6"
+          />
+        </div>
+
+        <button class="btn btn-custom-primary" (click)="onCartao()">Solicitar</button>
       </div>
     </div>
+
+    <!-- Últimas Transações (Flutuante) -->
+    <div *ngIf="mostrarExtrato" class="extrato-flutuante">
+      <div class="d-flex justify-content-between align-items-center">
+        <h5 class="mb-0 d-flex align-items-center">
+          Últimas Transações
+          <i
+            class="bi bi-journal-text ms-2"
+            style="cursor: pointer; font-size: 1.3rem;"
+            title="Ver Extrato"
+          ></i>
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Fechar"
+          (click)="mostrarExtrato = false">
+        </button>
+      </div>
+
+      <hr>
+
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>Valor</th>
+            <th>Tipo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>15/07/2025</td>
+            <td>Transferência recebida</td>
+            <td class="text-success">+ R$ 500,00</td>
+            <td>Crédito</td>
+          </tr>
+          <tr>
+            <td>14/07/2025</td>
+            <td>Pagamento de boleto</td>
+            <td class="text-danger">- R$ 150,00</td>
+            <td>Débito</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
+
+<footer class="text-center py-3 mt-4">
+  <div class="container">
+    <p class="mb-1">&copy; 2025 Banco Digital Pro. Todos os direitos reservados.</p>
+    <p class="mb-0">
+      <i class="bi bi-envelope-fill me-1"></i> contato&#64;bancodigitalpro.com |
+      <i class="bi bi-telephone-fill me-1"></i> (11) 99999-9999
+    </p>
+  </div>
+</footer>
