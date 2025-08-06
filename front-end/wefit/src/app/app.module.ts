@@ -25,7 +25,8 @@ import { NewInvestCdi102Component } from './components/new-invest-cdi102/new-inv
     CameraComponent,
 
     ListInvestimentoComponent,
-     NewInvestCdi102Component
+    NewInvestCdi102Component,
+
   ],
   imports: [
     BrowserModule,

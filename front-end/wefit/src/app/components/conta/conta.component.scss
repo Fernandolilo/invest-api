@@ -166,3 +166,56 @@
   border-color: var(--primary)
 }
 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5); /* Fundo preto com transparência */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050; /* Bem na frente */
+}
+
+.modal-content {
+  background:var(--background);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  position: relative;
+}
+.btn-custom-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--background); /* para garantir o texto visível */
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom-primary:hover {
+  background-color: (var(--primary), 10%); /* se usar SCSS, ou uma cor um pouco mais escura */
+  border-color: (var(--primary), 10%);
+  color:var(--background)
+}
+
+/* Fundo azul na lista */
+.nav-intem .dropdown-menu {
+  background-color: var(--primary) !important;
+  border: none;
+}
+
+/* Links da lista */
+.nav-intem .dropdown-item {
+  color: var(--background) !important;
+}
+
+/* Hover nos links */
+.nav-intem .dropdown-item:hover {
+  background-color: var(--background) !important; /* cor secundária */
+  color: var(--primary) !important;
+}
+
+

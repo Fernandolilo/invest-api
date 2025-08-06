@@ -8,6 +8,7 @@ import { ContaComponent } from './components/conta/conta.component';
 import { ListInvestimentoComponent } from './components/list-investimento/list-investimento.component';
 import { NewInvestCdi102Component } from './components/new-invest-cdi102/new-invest-cdi102.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
