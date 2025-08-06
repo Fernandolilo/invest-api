@@ -32,6 +32,10 @@
        <li>
         <a class="dropdown-item" (click)="onNewCard()">Solicitar novo cartao</a>
       </li>
+
+       <li>
+        <a class="dropdown-item" (click)="onVerExtrato()">Ultimas Transações</a>
+      </li>
     </ul>
     </div>
    </div>
@@ -134,44 +138,44 @@
 
     <button class="btn btn-custom-primary" (click)="onCartao()">Solicitar</button>
 
+    </div>
   </div>
-</div>
+      <div  *ngIf="mostrarExtrato" class="extrato-flutuante">
+          <hr>
+        <h5 class="d-flex align-items-center"> 
+          Últimas Transações
+          <i 
+            class="bi bi-journal-text ms-2" 
+            style="cursor: pointer; font-size: 1.3rem;" 
+            title="Ver Extrato"
+            (click)="onExtrato()"
+          ></i>
+        </h5>
 
-
-  <hr>
-   <h5 class="d-flex align-items-center"> 
-  Últimas Transações
-  <i 
-    class="bi bi-journal-text ms-2" 
-    style="cursor: pointer; font-size: 1.3rem;" 
-    title="Ver Extrato"
-    (click)="onExtrato()"
-  ></i>
-</h5>
-
-<table *ngIf="mostrarExtrato" class="table table-sm">
-  <thead>
-    <tr>
-      <th>Data</th>
-      <th>Descrição</th>
-      <th>Valor</th>
-      <th>Tipo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>15/07/2025</td>
-      <td>Transferência recebida</td>
-      <td class="text-success">+ R$ 500,00</td>
-      <td>Crédito</td>
-    </tr>
-    <tr>
-      <td>14/07/2025</td>
-      <td>Pagamento de boleto</td>
-      <td class="text-danger">- R$ 150,00</td>
-      <td>Débito</td>
-    </tr>
-  </tbody>
-</table>
-  </div>
+        <table *ngIf="mostrarExtrato" class="table table-sm">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Descrição</th>
+              <th>Valor</th>
+              <th>Tipo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>15/07/2025</td>
+              <td>Transferência recebida</td>
+              <td class="text-success">+ R$ 500,00</td>
+              <td>Crédito</td>
+            </tr>
+            <tr>
+              <td>14/07/2025</td>
+              <td>Pagamento de boleto</td>
+              <td class="text-danger">- R$ 150,00</td>
+              <td>Débito</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 </div>

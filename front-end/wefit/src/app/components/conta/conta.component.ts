@@ -40,6 +40,7 @@ export class ContaComponent {
 
   ngOnInit(): void {
     this.solicitarCartao = false; // fecha o formulário no início
+    this.mostrarExtrato = false;
     this.route.queryParams.subscribe(params => {
       const contaId = params['id'];
       this.cartao.contaId = contaId;
@@ -76,6 +77,9 @@ export class ContaComponent {
 
   onNewCard() {
     this.onSolicitarCartao();
+  }
+  onVerExtrato() {
+    this.onExtrato();
   }
 
   onCartao(): void {

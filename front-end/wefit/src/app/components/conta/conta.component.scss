@@ -219,3 +219,14 @@
 }
 
 
+.extrato-flutuante {
+  position: fixed; /* ou absolute se for relativo ao container */
+  top: 20%; /* ajusta conforme necessário */
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 9999; /* garante que fica na frente */
+}
