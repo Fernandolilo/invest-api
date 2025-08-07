@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ContasService } from '../../services/contas.service';
 import { newCartaoDTO } from '../../models/cartaoNewDTO';
 import { CartaoService } from '../../services/cartao.service';
+import { depositoDTO } from '../../models/depositoDTO';
 
 @Component({
   selector: 'app-conta',
@@ -11,6 +12,8 @@ import { CartaoService } from '../../services/cartao.service';
   styleUrl: './conta.component.scss'
 })
 export class ContaComponent {
+
+  mostrarDeposito = false;
 
   mostrarSaldo = true;
   mostrarDadosConta = true;
@@ -59,6 +62,16 @@ export class ContaComponent {
         });
       }
     });
+  }
+  abrirDeposito() {
+    this.mostrarDeposito = true;
+  }
+
+  receberDeposito(dados: depositoDTO) {
+    console.log('Depósito recebido do filho:', dados);
+
+    // Aqui você pode chamar o service para salvar no backend
+    // this.depositoService.salvar(dados).subscribe(...)
   }
 
 

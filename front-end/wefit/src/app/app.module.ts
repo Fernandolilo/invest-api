@@ -13,6 +13,7 @@ import { ContaComponent } from './components/conta/conta.component';
 import { CameraComponent } from './components/camera/camera.component';
 import { ListInvestimentoComponent } from './components/list-investimento/list-investimento.component';
 import { NewInvestCdi102Component } from './components/new-invest-cdi102/new-invest-cdi102.component';
+import { DepositoComponent } from './components/deposito/deposito.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NewInvestCdi102Component } from './components/new-invest-cdi102/new-inv
 
     ListInvestimentoComponent,
     NewInvestCdi102Component,
+    DepositoComponent,
 
   ],
   imports: [

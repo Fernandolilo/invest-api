@@ -101,6 +101,20 @@
       <div class="mb-2"><strong>Status:</strong> <span class="text-success">Ativa</span></div>
     </div>
 
+   <div>
+  <button class="btn-custom-dep" (click)="abrirDeposito()">Depósito</button>
+
+ <app-deposito
+  *ngIf="mostrarDeposito"
+  [contaId]="contaSelecionada?.id || ''"
+  [cpfOuCnpj]="contaSelecionada?.cpfOuCnpj || ''"
+  (enviarDeposito)="receberDeposito($event)"
+  (fecharDeposito)="mostrarDeposito = false">
+</app-deposito>
+
+</div>
+
+
     <hr>
 
     <!-- Modal overlay que cobre a tela -->
