@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { depositoDTO } from '../../models/depositoDTO';
+import { ContasService } from '../../services/contas.service';
 
 @Component({
   selector: 'app-deposito',
@@ -8,7 +9,7 @@ import { depositoDTO } from '../../models/depositoDTO';
 })
 export class DepositoComponent implements OnInit {
   @Input() contaId: string = '';
-  @Input() cpfOuCnpj: string = '';
+  @Input() cpf: string = '';
 
   @Output() enviarDeposito = new EventEmitter<depositoDTO>();
   @Output() fecharDeposito = new EventEmitter<void>();
@@ -16,18 +17,29 @@ export class DepositoComponent implements OnInit {
   deposito: depositoDTO = {
     id: '',
     saldo: 0,
-    cpfOuCnpj: ''
+    cpf: ''
   };
+
+  constructor(private service: ContasService) { }
 
   ngOnInit() {
     this.deposito.id = this.contaId;
-    this.deposito.cpfOuCnpj = this.cpfOuCnpj;
+    this.deposito.cpf = this.cpf;
   }
 
   confirmarDeposito() {
-    console.log('Enviando depósito:', this.deposito);
-    // Aqui você chama o service para enviar para o backend
+    this.service.deposito(this.deposito).subscribe({
+      next: () => {
+        alert("Depósito executado com sucesso");
+      },
+      error: (err) => {
+        console.error("Erro ao executar depósito:", err);
+        alert("Erro ao executar depósito");
+      }
+    });
   }
+
+
   fechar() {
     this.fecharDeposito.emit();
   }

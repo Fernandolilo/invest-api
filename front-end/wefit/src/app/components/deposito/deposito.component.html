@@ -6,9 +6,9 @@
     <input type="number" id="valor" class="form-control" [(ngModel)]="deposito.saldo" />
 
     <label for="cpfOuCnpj" class="form-label">CPF ou CNPJ</label>
-    <input type="text" id="cpfOuCnpj" class="form-control" [(ngModel)]="deposito.cpfOuCnpj" />
+    <input type="text" id="cpfOuCnpj" class="form-control" [(ngModel)]="deposito.cpf" />
   </div>
 
   <button class="btn btn-success me-2" (click)="confirmarDeposito()">Confirmar Depósito</button>
-  <button class="btn btn-secondary me-2" (click)="fechar()">Cancelar</button>
+  <button class="btn btn-secondary me-2" (click)="fechar()">Fechar</button>
 </div>

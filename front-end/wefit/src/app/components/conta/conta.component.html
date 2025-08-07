@@ -107,7 +107,7 @@
  <app-deposito
   *ngIf="mostrarDeposito"
   [contaId]="contaSelecionada?.id || ''"
-  [cpfOuCnpj]="contaSelecionada?.cpfOuCnpj || ''"
+  [cpf]="contaSelecionada?.cpfOuCnpj || ''"
   (enviarDeposito)="receberDeposito($event)"
   (fecharDeposito)="mostrarDeposito = false">
 </app-deposito>
