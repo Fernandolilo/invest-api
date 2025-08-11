@@ -1,0 +1,10 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /api/auth
+spring:       
+  application:
+    name: api-auth
+  profiles:
+    active:
+    - "test"
