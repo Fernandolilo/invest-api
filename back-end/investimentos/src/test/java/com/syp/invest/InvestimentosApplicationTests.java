@@ -1,10 +1,10 @@
-package com.syp.client;
+package com.syp.invest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ClientApplicationTests {
+class InvestimentosApplicationTests {
 
 	@Test
 	void contextLoads() {

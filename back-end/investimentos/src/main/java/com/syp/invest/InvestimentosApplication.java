@@ -1,13 +1,13 @@
-package com.syp.client;
+package com.syp.invest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ClientApplication {
+public class InvestimentosApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ClientApplication.class, args);
+		SpringApplication.run(InvestimentosApplication.class, args);
 	}
 
 }

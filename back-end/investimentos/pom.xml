@@ -8,10 +8,10 @@
 		<version>3.5.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.syp.client</groupId>
-	<artifactId>cliente</artifactId>
+	<groupId>com.syp.invest</groupId>
+	<artifactId>invest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>client</name>
+	<name>investimentos</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
