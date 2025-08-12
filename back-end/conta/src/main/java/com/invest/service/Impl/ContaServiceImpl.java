@@ -94,11 +94,11 @@ public class ContaServiceImpl implements ContaService {
 
 	@Override
 	public ContaDTO findById(UUID id) {
-		UserSecurityDetails user = userService.authenticated();
+	/*	UserSecurityDetails user = userService.authenticated();
 		if (!hasFullAccess(user)) {
 			throw new UserAccessNegativeException("Acesso negado");
 		}
-
+*/
 		Conta conta = repository.findById(id)
 				.orElseThrow(() -> new ObjectNotFoundException("Conta não encontrado: " + id));
 

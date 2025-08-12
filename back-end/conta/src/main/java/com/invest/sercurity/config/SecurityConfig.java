@@ -33,6 +33,7 @@ public class SecurityConfig {
 	private static final String API_URL_CLIENTS_AUTH = "/authenticate/**";
 	private static final String API_URL_CLIENTS_SAVE= "/clients/**";
 	private static final String API_CDI = "/cdi/**";
+	private static final String API_CONTAS = "/contas/{id}**";
 	
 	
 	private final JwtAuthenticationFilter auth;
@@ -67,6 +68,7 @@ public class SecurityConfig {
 						.requestMatchers(API_URL_CLIENTS_AUTH).permitAll()
 						.requestMatchers(API_URL_CLIENTS_SAVE).permitAll()
 						.requestMatchers(API_CDI).permitAll()
+						.requestMatchers(API_CONTAS).permitAll()
 						.anyRequest().authenticated())
 				.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authenticationProvider(authenticationProvider())

@@ -19,13 +19,12 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-@Setter
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -40,6 +39,7 @@ public class Conta implements Serializable {
 	private Integer agencia;
 	private Integer banco;
 	private BigDecimal saldo;
+	private boolean status;
 	private TipoConta tipo;
 	
 	@ManyToOne
