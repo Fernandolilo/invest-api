@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Conta implements Serializable{
+public class ContaRequest implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private UUID id;

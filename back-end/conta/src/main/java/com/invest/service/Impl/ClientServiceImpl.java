@@ -16,6 +16,7 @@ import com.invest.dto.EnderecoNewDTO;
 import com.invest.entity.Client;
 import com.invest.entity.dto.response.ClientResponse;
 import com.invest.entity.enums.Role;
+import com.invest.infraestrutura.ContaMessageProducer;
 import com.invest.reposiotries.ClientRepository;
 import com.invest.sercurity.service.UserSecurityDetails;
 import com.invest.service.ClientService;
@@ -42,46 +43,8 @@ public class ClientServiceImpl implements ClientService {
 	private final ContaFactoryService contaFactoryService;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
 	private final ImageService imageService;
+	private final ContaMessageProducer contaMessageProducer;
 
-/*
-	@Transactional
-	public ClientDTO saves(ClientNewDTO cli, EnderecoNewDTO end) {
-		Client entity = mapper.map(cli, Client.class);
-		entity.setSenha(bCryptPasswordEncoder.encode(cli.getSenha()));
-		entity.setRole(Role.USER);
-		entity.addRole(Role.USER);
-
-		// 👇 Tratamento da imagem base64 enviada
-		if (cli.getSelfie() != null && cli.getSelfie().startsWith("data:")) {
-			String[] parts = cli.getSelfie().split(",");
-			if (parts.length == 2) {
-				String metadata = parts[0]; // ex: data:image/jpeg;base64
-				String base64Data = parts[1];
-
-				String tipoImagem = metadata.substring(metadata.indexOf(":") + 1, metadata.indexOf(";"));
-				byte[] imagemBytes = Base64.getDecoder().decode(base64Data);
-
-				entity.setImagem(imagemBytes);
-				entity.setImagemTipo(tipoImagem);
-				entity.setImagemNome("selfie_" + UUID.randomUUID() + "." + tipoImagem.split("/")[1]);
-			}
-		}
-
-		clientRepository.save(entity);
-		Endereco endereco = mapper.map(end, Endereco.class);
-		endereco.setClient(entity);
-		enderecoRepository.save(endereco);
-		ClientDTO dto = mapper.map(entity, ClientDTO.class);
-
-		Optional<Integer> maxConta = contaRepository.findMaxConta();
-		Integer nextConta = maxConta.orElse(0) + 1;
-		ContaNewDTO contaNewDTO = ContaNewDTO.builder().agencia(1000).banco(1).numero(nextConta).cpf(dto.getCpfOuCnpj())
-				.saldo(0).tipo(TipoConta.CONTA_CORRENTE).build();
-
-		contaService.save(contaNewDTO);
-
-		return dto;
-	}*/
 
 	
 	@Transactional
@@ -99,7 +62,8 @@ public class ClientServiceImpl implements ClientService {
 	    ClientDTO dto = mapper.map(entity, ClientDTO.class);
 
 	    ContaNewDTO contaDTO = contaFactoryService.criarContaParaCliente(dto);
-	    contaService.save(contaDTO);
+	    contaService.save(contaDTO);	    
+	    contaMessageProducer.sendMessage(contaDTO);
 
 	    return dto;
 	}

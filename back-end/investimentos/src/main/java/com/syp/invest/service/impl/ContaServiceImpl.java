@@ -10,7 +10,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.syp.invest.entity.request.Conta;
+import com.syp.invest.entity.request.ContaRequest;
 import com.syp.invest.service.ContaService;
 
 import lombok.RequiredArgsConstructor;
@@ -30,7 +30,7 @@ public class ContaServiceImpl implements ContaService {
     }
 
     @Override
-    public Conta findConta(UUID id) {
+    public ContaRequest findConta(UUID id) {
         try {
             // Monta a URL
             String url = BASE_URL + id;
@@ -51,7 +51,7 @@ public class ContaServiceImpl implements ContaService {
             }
 
             // Converte JSON para objeto ContaRequest
-            return objectMapper.readValue(response.body(), Conta.class);
+            return objectMapper.readValue(response.body(), ContaRequest.class);
 
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException("Erro ao executar requisição HTTP", e);
