@@ -1,60 +1,61 @@
 package com.syp.invest.service.impl;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.syp.invest.entity.request.ContaRequest;
+import com.syp.invest.entity.Conta;
+import com.syp.invest.entity.dto.ContaDTO;
+import com.syp.invest.entity.dto.ContaUpdateDTO;
+import com.syp.invest.repositories.ContaRepository;
 import com.syp.invest.service.ContaService;
+import com.syp.invest.service.exceptions.ObjectNotFoundException;
 
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class ContaServiceImpl implements ContaService {
 
-    private static final String BASE_URL = "http://localhost:8765/api/invest/contas/";
+	private final ModelMapper mapper;
+	private final ContaRepository repository;
 
-    private final HttpClient httpClient;
-    private final ObjectMapper objectMapper;
+	@Override
+	public ContaDTO findConta(UUID id) {
+		Conta conta = repository.findById(id)
+				.orElseThrow(() -> new ObjectNotFoundException(String.format("Conta não existe ID: %s", id)));
 
-    public ContaServiceImpl() {
-        this.httpClient = HttpClient.newHttpClient();
-        this.objectMapper = new ObjectMapper();
-    }
+		return mapper.map(conta, ContaDTO.class);
+	}
 
-    @Override
-    public ContaRequest findConta(UUID id) {
-        try {
-            // Monta a URL
-            String url = BASE_URL + id;
+	@Override
+	public List<ContaDTO> foundConta(UUID id) {
+		Optional<Conta> contas = repository.findById(id);
 
-            // Cria requisição GET
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(url))
-                    .header("Accept", "application/json")
-                    .GET()
-                    .build();
+		if (contas.isEmpty()) {
+			throw new ObjectNotFoundException("Nenhuma conta encontrada");
+		}
 
-            // Executa requisição
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+		// Mapeia cada Conta para ContaDTO
+		return contas.stream().map(conta -> {
+			ContaDTO dto = mapper.map(conta, ContaDTO.class);
+			return dto;
+		}).toList();
+	}
 
-            // Verifica status HTTP
-            if (response.statusCode() != 200) {
-                throw new RuntimeException("Erro ao buscar conta. Status: " + response.statusCode());
-            }
+	@Override
+	public Conta update(ContaUpdateDTO obj) {
+		Optional<Conta> conta = repository.findById(obj.getId());
 
-            // Converte JSON para objeto ContaRequest
-            return objectMapper.readValue(response.body(), ContaRequest.class);
+		if (conta.isEmpty()) {
+			throw new ObjectNotFoundException("Conta não encontrado: " + obj.getId());
+		}
+		Conta con = mapper.map(obj, Conta.class);
 
-        } catch (IOException | InterruptedException e) {
-            throw new RuntimeException("Erro ao executar requisição HTTP", e);
-        }
-    }
+		return repository.save(con);
+	}
+
 }

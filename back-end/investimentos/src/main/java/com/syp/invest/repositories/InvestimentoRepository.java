@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.syp.invest.entity.Investimento;
 
 @Repository
-public interface Investimentorepository extends JpaRepository<Investimento, UUID> {
+public interface InvestimentoRepository extends JpaRepository<Investimento, UUID> {
 
 }
