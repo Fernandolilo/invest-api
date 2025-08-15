@@ -9,12 +9,15 @@ import java.util.UUID;
 import com.syp.invest.entity.enums.TipoConta;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,9 +37,22 @@ public class Conta implements Serializable {
 	private Integer numero;
 	private Integer agencia;
 	private Integer banco;
+	
+	@Column(name = "saldo_da_conta", nullable = false)
+	@DecimalMin(value = "0.0", message = "saldo.")
 	private BigDecimal saldo;
+	
+	@Column(name = "status_da_conta", nullable = false)
 	private boolean status;
+	
+	@Column(name = "tipo_da_conta", nullable = false)
 	private TipoConta tipo;
+	
+	@Column(name = "cpf_ou_cnpj", nullable = false)
+	private String cpfOuCnpj;
+	
+	@Column(name = "titular_da_conta", nullable = false)
+	private String nome;
 	
 	
 	@OneToMany(mappedBy = "conta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

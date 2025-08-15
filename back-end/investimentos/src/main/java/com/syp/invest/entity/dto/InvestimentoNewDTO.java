@@ -2,8 +2,9 @@ package com.syp.invest.entity.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.UUID;
+
+import com.syp.invest.entity.enums.TipoInvestimento;
 
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +17,6 @@ public class InvestimentoNewDTO implements Serializable{
 	private UUID contaId;
 	private BigDecimal valor;
 	private String cpfOuCnpj;
-	//private UUID conta;
-	private LocalDate instante;
+	private TipoInvestimento tipo;
 
 }

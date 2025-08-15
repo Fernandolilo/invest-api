@@ -54,7 +54,8 @@ public class ContaServiceImpl implements ContaService {
 			throw new ObjectNotFoundException("Conta não encontrado: " + obj.getId());
 		}
 		Conta con = mapper.map(obj, Conta.class);
-
+		con.setNome(conta.get().getNome());
+		con.setCpfOuCnpj(conta.get().getCpfOuCnpj());
 		return repository.save(con);
 	}
 

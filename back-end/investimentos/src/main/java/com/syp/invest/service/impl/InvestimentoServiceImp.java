@@ -49,6 +49,8 @@ public class InvestimentoServiceImp implements InvestimentoService {
         Investimento investimento = mapper.map(obj, Investimento.class);
         investimento.setId(null); // Garante que o Hibernate crie um novo
         investimento.setConta(contaSelecionada);
+        investimento.setTipo(obj.getTipo());
+        investimento.setTipo(obj.getTipo());
         investimento.setInstante(LocalDate.now());
 
         repository.save(investimento);
@@ -60,4 +62,7 @@ public class InvestimentoServiceImp implements InvestimentoService {
 
         return investimento;
     }
+    
+   
+
 }

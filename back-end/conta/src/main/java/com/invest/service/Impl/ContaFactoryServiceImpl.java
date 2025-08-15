@@ -26,7 +26,7 @@ public class ContaFactoryServiceImpl implements ContaFactoryService {
                 .agencia(1000)
                 .banco(1)
                 .numero(nextConta)
-                .cpf(clientDTO.getCpfOuCnpj())
+                .cpfOuCnpj(clientDTO.getCpfOuCnpj())
                 .saldo(BigDecimal.ZERO)
                 .tipo(TipoConta.CONTA_CORRENTE)
                 .build();

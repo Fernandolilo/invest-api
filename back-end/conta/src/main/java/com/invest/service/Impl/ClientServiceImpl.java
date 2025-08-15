@@ -62,7 +62,10 @@ public class ClientServiceImpl implements ClientService {
 	    ClientDTO dto = mapper.map(entity, ClientDTO.class);
 
 	    ContaNewDTO contaDTO = contaFactoryService.criarContaParaCliente(dto);
-	    contaService.save(contaDTO);	    
+	    contaService.save(contaDTO);	
+	    contaDTO.setCpfOuCnpj(entity.getCpfOuCnpj());
+	    contaDTO.setNome(entity.getNome());
+	    contaDTO.setStatus(true);
 	    contaMessageProducer.sendMessage(contaDTO);
 
 	    return dto;

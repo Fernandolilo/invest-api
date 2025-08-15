@@ -94,7 +94,7 @@ public class ContaServiceTest {
 	@DisplayName("Deve salvar conta quando cliente existirs")
 	void deveSalvarContaComClienteExistentes() {
 		// Arrange
-		when(clientRepository.findByCpfOuCnpj(contaDTO.getCpf())).thenReturn(Optional.of(client));
+		when(clientRepository.findByCpfOuCnpj(contaDTO.getCpfOuCnpj())).thenReturn(Optional.of(client));
 		when(modelMapper.map(contaDTO, Conta.class)).thenReturn(conta);
 		conta.setClient(client);
 
@@ -114,7 +114,7 @@ public class ContaServiceTest {
 	@DisplayName("Deve lançar exceção quando cliente não existir")
 	void deveLancarExcecaoQuandoClienteNaoExistir() {
 		// Arrange
-		when(clientRepository.findByCpfOuCnpj(contaDTO.getCpf())).thenReturn(Optional.empty());
+		when(clientRepository.findByCpfOuCnpj(contaDTO.getCpfOuCnpj())).thenReturn(Optional.empty());
 
 		// Act & Assert
 		ObjectNotFoundException exception = assertThrows(ObjectNotFoundException.class, () -> {

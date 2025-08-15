@@ -39,13 +39,13 @@ public class ContaServiceImpl implements ContaService {
 
 	@Override
 	public Conta save(ContaNewDTO conta) {
-		Optional<Client> clientOpt = clienteRepository.findByCpfOuCnpj(conta.getCpf());
+		Optional<Client> clientOpt = clienteRepository.findByCpfOuCnpj(conta.getCpfOuCnpj());
 
 		Optional<Integer> maxConta = repository.findMaxConta();
 		Integer nextConta = maxConta.orElse(0) + 1;
 
 		if (clientOpt.isEmpty()) {
-			throw new ObjectNotFoundException("Cliente não encontrado: " + conta.getCpf());
+			throw new ObjectNotFoundException("Cliente não encontrado: " + conta.getCpfOuCnpj());
 		}
 
 		Conta con = mapper.map(conta, Conta.class);

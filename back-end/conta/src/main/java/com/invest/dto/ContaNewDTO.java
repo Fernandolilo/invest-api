@@ -21,7 +21,8 @@ public class ContaNewDTO {
 	private BigDecimal saldo;
 	private Integer banco;
 	private TipoConta tipo;
-	private String cpf;
+	private String cpfOuCnpj;
 	private String nome;
+	private boolean status;
 	
 }
