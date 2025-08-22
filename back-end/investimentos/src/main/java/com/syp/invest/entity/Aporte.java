@@ -3,13 +3,8 @@ package com.syp.invest.entity;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -18,7 +13,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -32,36 +26,25 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 @Entity
-public class Investimento implements Serializable {
+public class Aporte implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "valor_investimento", nullable = false)
+    @Column(name = "valor_investimento", nullable = false, precision = 15, scale = 2)
     @NotNull(message = "O valor do investimento é obrigatório.")
     @DecimalMin(value = "1.0", message = "O valor deve ser maior que zero.")
     private BigDecimal valor;
 
-    @Column(name = "evolucao_do_investimento")
-    private BigDecimal evolucao;
-
     @Column(name = "data_do_investimento", nullable = false)
     @NotNull(message = "A data do investimento é obrigatória.")
     @PastOrPresent(message = "A data não pode estar no futuro.")
+    //@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss") // opcional se usar LocalDateTime
     private LocalDate instante;
-      
 
-    @ManyToOne
-    @JoinColumn(name = "conta_id", nullable = false)
-    private Conta conta;
-    
-    @ManyToOne
-    @JoinColumn(name = "categoria_id", nullable = false)
-    private CategoriaInvestimento categoria;
-    
-    @JsonBackReference
-    @OneToMany(mappedBy = "investimento", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Aporte> depositos = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "investimento_id", nullable = false)
+    private Investimento investimento;
 }

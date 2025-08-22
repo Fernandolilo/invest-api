@@ -15,6 +15,7 @@ public class InvestimentoNewDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private UUID contaId;
+	private UUID categoriaId;
 	private BigDecimal valor;
 	private String cpfOuCnpj;
 	private TipoInvestimento tipo;

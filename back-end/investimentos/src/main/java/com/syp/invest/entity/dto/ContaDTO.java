@@ -24,6 +24,7 @@ public class ContaDTO implements Serializable {
 	private Integer banco;
 	private BigDecimal saldo;
 	private boolean status;
+	private String cpfOuCnpj;
 	private TipoConta tipo;
 
 }

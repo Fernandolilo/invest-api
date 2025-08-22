@@ -1,16 +1,10 @@
 package com.syp.invest.entity.enums;
 
 public enum TipoInvestimento {
-
     CDB("Renda Fixa", "Baixo"),
     LCI("Renda Fixa", "Baixo"),
     LCA("Renda Fixa", "Baixo"),
-    DEBENTURE("Renda Fixa", "Médio"),
-    TESOURO_DIRETO("Renda Fixa", "Baixo"),
-    ACOES("Renda Variável", "Alto"),
-    ETF("Renda Variável", "Alto"),
-    FUNDOS_IMOBILIARIOS("Renda Variável", "Médio"),
-    CRIPTOMOEDA("Alternativo", "Alto");
+    DEBENTURE("Renda Fixa", "Médio");
 
     private final String categoria;
     private final String risco;
