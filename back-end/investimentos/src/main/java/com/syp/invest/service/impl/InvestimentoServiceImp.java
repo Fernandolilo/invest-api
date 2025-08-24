@@ -46,6 +46,7 @@ public class InvestimentoServiceImp implements InvestimentoService {
         if (obj.getValor().compareTo(BigDecimal.ZERO) <= 0) {
         	throw new ObjectNotFoundException("Valor minimo da aplicacao: " + 1);
         }
+        
         // Converter contaDTO -> Conta
         Conta contaSelecionada = mapper.map(contaDTO, Conta.class);
  

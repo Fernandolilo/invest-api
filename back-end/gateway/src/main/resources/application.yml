@@ -11,3 +11,7 @@ spring:
               uri: http://localhost:8000
               predicates:
                 - Path=/api/invest/**
+            - id: api-rendafixa
+              uri: http://localhost:8001
+              predicates:
+                - Path=/api/rendafixa/**
