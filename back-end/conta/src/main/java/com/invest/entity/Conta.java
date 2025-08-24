@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.invest.entity.enums.TipoConta;
 
 import jakarta.persistence.CascadeType;
@@ -44,9 +45,7 @@ public class Conta implements Serializable {
 	@JoinColumn(name = "client_id", nullable = false)
 	private Client client;
 	
-	@OneToMany(mappedBy = "conta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Investimento> investimentos = new ArrayList<>();
-	
+	@JsonBackReference
 	@OneToMany(mappedBy = "conta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Cartao> cortoes = new ArrayList<>();
 }
