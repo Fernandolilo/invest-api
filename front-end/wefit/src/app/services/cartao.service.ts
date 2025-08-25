@@ -16,7 +16,7 @@ export class CartaoService {
 
   private readonly API = '/api/invest';
 
-  save(cartao: newCartaoDTO): Observable<any> {  // 👈 Aqui mudou
+  save(cartao: newCartaoDTO): Observable<any> {
     const token = localStorage.getItem('Authorization');
     if (!token) {
       return throwError(() => new Error('No token found in local storage'));
@@ -30,7 +30,7 @@ export class CartaoService {
       'Accept': '*/*'
     });
 
-    return this.http.post(`${this.API}/cartoes`, cartao, { 
+    return this.http.post(`${this.API}/cartoes`, cartao, {
       observe: 'response',
       responseType: 'json',
       headers

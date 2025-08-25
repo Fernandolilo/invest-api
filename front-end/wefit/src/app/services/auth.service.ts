@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
-import { CredentialDTO } from '../models/CredenciaisDTO';
 import { map, Observable, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { CredentialDTO } from '../models/CredenciaisDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +14,7 @@ export class AuthService {
   private http = inject(HttpClient);
   private router = inject(Router);
 
-  private readonly API = '/api/invest';
-
-
+  private readonly API = '/auth';
 
   login(credenciais: CredentialDTO): Observable<void> {
     const body = {

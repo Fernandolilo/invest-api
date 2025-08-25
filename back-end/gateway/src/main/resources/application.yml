@@ -1,17 +1,40 @@
 server:
   port: 8765
-
+  
 spring:
+  application:
+    name: gateway
   cloud:
     gateway:
       server:
         webflux:
+          base-path: /gateway
+          
+          
           routes:
-            - id: api-invest
+            - id: auth
               uri: http://localhost:8000
               predicates:
-                - Path=/api/invest/**
+                - Path=/auth/**
+            
             - id: api-rendafixa
               uri: http://localhost:8001
               predicates:
                 - Path=/api/rendafixa/**
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allowedOrigins:
+                  - "http://localhost:4200" # URL do seu front-end
+                allowedMethods:
+                  - GET
+                  - POST
+                  - PUT
+                  - DELETE
+                  - OPTIONS
+                allowedHeaders:
+                  - "*" # Permite todos os headers da requisição
+                exposedHeaders:
+                  - "Authorization" # Expõe o header Authorization para o front-end
+                  - "Content-Type"
+                allowCredentials: true

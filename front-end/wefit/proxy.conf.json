@@ -1,9 +1,11 @@
 {
-  "/api/invest": {
-   // "target": "http://api/invest:8000",
-    "target": "http://localhost:8000",
+  "/auth": {
+    "target": "http://localhost:8765",
     "secure": false,
     "changeOrigin": true,
-    "logLevel": "debug"
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/auth": "/auth"
+    }
   }
 }
