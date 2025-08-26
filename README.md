@@ -1,40 +1,94 @@
-API- Investimento
+Invest API
 
-o link do h2, banco de dados em memoria.
+API para gerenciamento de investimentos, construída com Spring Boot no backend e Angular no frontend.
+O projeto segue princípios de Clean Architecture, SOLID e DDD, garantindo escalabilidade, manutenção e segurança.
 
-http://localhost:8000/api/invest/h2-console/
+Tecnologias
+Backend
 
-adicionado swager há API. link: http://localhost:8000/api/invest/swagger-ui/index.html#/
+Spring Boot
+ (MVC, Data JPA, Security)
 
-Back-end:
-Framework: Spring Boot (MVC)
-Segurança: Spring Security com autenticação JWT
-Documentação: Swagger UI para explorar e testar endpoints
-Banco de Dados: H2 em ambiente de desenvolvimento (com console ativo)
-Gateway: Spring Cloud Gateway atuando como proxy e camada extra de segurança
+JWT
+ para autenticação
 
-Princípios aplicados:
-SOLID
-Clean Architecture
-DDD (Domain-Driven Design) em evolução, visando desacoplamento e escalabilidade
+Swagger
+ para documentação interativa
 
-Front-end:
- Framework: Angular
- Estilização: SCSS + Bootstrap
- Integração: Consumo de APIs protegidas com JWT
- Nginx: Configurado como proxy reverso para otimizar entrega e segurança
+Banco de dados H2 (desenvolvimento)
 
-DevOps e Infraestrutura
-CI/CD: Integração contínua configurada via GitHub Actions
-Containerização: Docker para padronizar ambientes
-Deploy Automatizado: Pipeline configurado para build, testes e publicação
-Reverse Proxy: Nginx no front-end para segurança e performance
+Frontend
 
-Funcionalidades Principais
-Cadastro e autenticação de usuários
-Gestão de contas e transações
-Consultas seguras via API documentada no Swagger
-Interface intuitiva para interação com os dados
-Monitoramento e logs estruturados
+Angular
+
+Bootstrap
+ + SCSS
+
+Nginx
+ como reverse proxy
+
+DevOps
+
+Docker
+ para containerização
+
+GitHub Actions
+ para CI/CD 
+
+ invest-api/
+│── backend/         # API em Spring Boot
+│── frontend/        # Aplicação Angular
+│── docker/          # Configurações Docker e Nginx
+│── docs/            # Documentações e diagramas
+
+Funcionalidades
+
+Cadastro e autenticação de usuários com JWT
+
+CRUD de contas e transações
+
+Gestão de investimentos
+
+Documentação da API via Swagger
+
+Interface web responsiva em Angular
+
+Logs estruturados e monitoramento básico
+
+Como rodar o projeto
+Pré-requisitos
+
+Java 17+
+
+Node.js 18+
+
+Docker
+
+Documentação da API
+
+Acesse o Swagger UI para explorar os endpoints:
+
+gateway http://localhost:8765/api/invest/swagger-ui/index.html#
+gateway http://localhost:8765/api/rendafixa/swagger-ui/index.html#
+
+o gateway chama ambas as apis.
+
+Roadmap / Melhorias Futuras
+
+ Migrar banco H2 para PostgreSQL
+
+ Adicionar testes unitários e de integração
+
+ Implementar monitoramento com Prometheus/Grafana
+
+ Deploy em ambiente orquestrado (Kubernetes)
+
+ Criar mais endpoints para investimentos
 
 
+ Autor
+
+Fernando da Silva
+📧 fernando.nandotania@hotmail.com
+
+LinkedIn : https://www.linkedin.com/in/fernando-silva-0881b672/
