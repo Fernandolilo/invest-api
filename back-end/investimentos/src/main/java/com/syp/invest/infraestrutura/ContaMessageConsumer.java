@@ -5,6 +5,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 import com.syp.invest.entity.Conta;
+import com.syp.invest.infraestrutura.config.MessageConfig;
 import com.syp.invest.repositories.ContaRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -14,10 +15,11 @@ import lombok.RequiredArgsConstructor;
 public class ContaMessageConsumer {
 
 	private final ContaRepository repository;
+	@RabbitListener(queues = MessageConfig.CONTA_QUEUE_CC)
 	
 	
-	@RabbitListener(queues = "${invest.rabbitmq.queue}")
-	public void receive(@Payload Conta conta) {
-		repository.save(conta);
+	public void receiveConta(@Payload Conta conta) {
+	    repository.save(conta);
 	}
+
 }

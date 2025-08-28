@@ -10,7 +10,10 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.invest.entity.enums.TipoConta;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +21,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,12 +40,35 @@ public class Conta implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
+	@NotNull(message = "O número da conta é obrigatório.")
+	@Column(nullable = false)
 	private Integer numero;
+
+	@NotNull(message = "A agência é obrigatória.")
+	@Column(nullable = false)
 	private Integer agencia;
+
+	@NotNull(message = "O banco é obrigatório.")
+	@Column(nullable = false)
 	private Integer banco;
+
+	@NotNull(message = "O saldo da conta é obrigatório.")
+	@DecimalMin(value = "0.0", inclusive = true, message = "O saldo deve ser maior ou igual a zero.")
+	@Column(name = "saldo_da_conta", nullable = false, precision = 15, scale = 2)
 	private BigDecimal saldo;
+
+	@Column(name = "status_da_conta", nullable = false)
 	private boolean status;
+
+	@NotNull(message = "O tipo da conta é obrigatório.")
+	@Column(name = "tipo_da_conta", nullable = false)
+	@Enumerated(EnumType.STRING)
 	private TipoConta tipo;
+
+	@NotNull(message = "O CPF ou CNPJ é obrigatório.")
+	@Size(min = 11, max = 14, message = "CPF ou CNPJ inválido.")
+	@Column(name = "cpf_ou_cnpj", nullable = false)
+	private String cpfOuCnpj;
 	
 	@ManyToOne
 	@JoinColumn(name = "client_id", nullable = false)

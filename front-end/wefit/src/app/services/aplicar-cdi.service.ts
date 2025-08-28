@@ -12,7 +12,7 @@ export class AplicarCdiService {
   private http = inject(HttpClient);
 
 
-  private readonly API = '/api/invest';
+  private readonly API = '/auth';
 
   constructor() { }
 
@@ -39,7 +39,7 @@ export class AplicarCdiService {
     });
 
 
-    return this.http.post(`${this.API}/investimentos`, body, {
+    return this.http.post(`${this.API}/api/rendafixa/investimentos`, body, {
       observe: 'response',
       responseType: 'json',
       headers

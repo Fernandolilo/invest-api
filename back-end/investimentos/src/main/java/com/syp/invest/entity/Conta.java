@@ -36,7 +36,7 @@ public class Conta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
+	//@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
 
 	@NotNull(message = "O número da conta é obrigatório.")

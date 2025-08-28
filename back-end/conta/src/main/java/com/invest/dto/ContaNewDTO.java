@@ -1,6 +1,7 @@
 package com.invest.dto;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 import com.invest.entity.enums.TipoConta;
 
@@ -16,6 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ContaNewDTO {
 
+	private UUID id;	
 	private Integer numero;
 	private Integer agencia;
 	private BigDecimal saldo;

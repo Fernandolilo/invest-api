@@ -72,8 +72,8 @@ public class Client implements Serializable {
 
 	@JsonBackReference
 	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Conta> contas = new ArrayList<>();
-
+	private List<Conta> contas =  new ArrayList<>();
+	
 	public Set<Role> getRoles() {
 		if (roles == null) {
 			return new HashSet<>();

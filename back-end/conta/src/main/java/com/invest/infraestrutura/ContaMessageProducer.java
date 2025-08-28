@@ -1,32 +1,23 @@
 package com.invest.infraestrutura;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import com.invest.dto.ContaNewDTO;
 
 import lombok.RequiredArgsConstructor;
 
-@Service
+@Component
 @RequiredArgsConstructor
 public class ContaMessageProducer {
 
-    private final RabbitTemplate rabbitTemplate;
+	private final RabbitTemplate rabbitTemplate;
 
-    @Value("${invest.rabbitmq.exchange}")
-    private String exchange;
+	public static final String CONTA_EXCHANGE = "conta.exchange";
 
-    @Value("${invest.rabbitmq.routingKey}")
-    private String routingKey;
+	public static final String ROUTING_KEY_CONTACC = "conta.cc";
 
-    public void sendMessage(ContaNewDTO conta) {
-        try {
-            rabbitTemplate.convertAndSend(exchange, routingKey, conta);
-            System.out.println(" Mensagem enviada para o RabbitMQ: " + conta);
-        } catch (Exception e) {
-            System.err.println("Erro ao enviar mensagem para o RabbitMQ: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
+	public void sendMessage(ContaNewDTO conta) {
+		rabbitTemplate.convertAndSend(CONTA_EXCHANGE, ROUTING_KEY_CONTACC, conta);
+	}
 }

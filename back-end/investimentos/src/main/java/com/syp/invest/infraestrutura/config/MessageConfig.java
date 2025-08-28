@@ -1,4 +1,4 @@
-package com.invest.infraestrutura.config;
+package com.syp.invest.infraestrutura.config;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;

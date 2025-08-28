@@ -15,7 +15,7 @@ export class ContasService {
   private http = inject(HttpClient);
   private router = inject(Router);
 
-  private readonly API = '/api/invest';
+  private readonly API = '/auth';
 
   //requestContasDTO 
 

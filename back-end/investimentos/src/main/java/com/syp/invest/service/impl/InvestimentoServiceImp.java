@@ -12,6 +12,7 @@ import com.syp.invest.entity.Investimento;
 import com.syp.invest.entity.dto.ContaDTO;
 import com.syp.invest.entity.dto.ContaUpdateDTO;
 import com.syp.invest.entity.dto.InvestimentoNewDTO;
+import com.syp.invest.infraestrutura.ContaMessageProducer;
 import com.syp.invest.repositories.CategoriaInvestimentosRepository;
 import com.syp.invest.repositories.InvestimentoRepository;
 import com.syp.invest.service.ContaService;
@@ -28,7 +29,8 @@ public class InvestimentoServiceImp implements InvestimentoService {
     private final InvestimentoRepository repository;
     private final ContaService contaService;
     private final CategoriaInvestimentosRepository categoriaInvestimentosRepository;
-
+    private final ContaMessageProducer contaMessageProducer;
+    
     @Override
     public Investimento save(InvestimentoNewDTO obj) {
     	
@@ -75,6 +77,7 @@ public class InvestimentoServiceImp implements InvestimentoService {
         ContaUpdateDTO contaUpdateDTO = mapper.map(contaSelecionada, ContaUpdateDTO.class);
         contaUpdateDTO.setSaldo(novoSaldo);
         contaService.update(contaUpdateDTO);
+        contaMessageProducer.sendMessage(contaUpdateDTO);
 
         return investimento;
     }

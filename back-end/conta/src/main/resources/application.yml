@@ -11,14 +11,16 @@ spring:
       - test
       
   rabbitmq:
+    connection-timeout: 5000
     host: localhost
     port: 5672
     username: nando.systempro@hotmail.com
     password: Fe281244
     
     
-invest:
-  rabbitmq:
-    exchange: invest.exchange
-    queue: conta.invest.queue
-    routingKey: conta.routing.key
+
+
+
+
+
+

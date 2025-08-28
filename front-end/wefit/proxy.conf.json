@@ -7,5 +7,15 @@
     "pathRewrite": {
       "^/auth": "/auth"
     }
+  },
+
+  "/api": {
+    "target": "http://localhost:8765",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": "/api"
+    }
   }
 }

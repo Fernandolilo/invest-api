@@ -9,7 +9,7 @@ import { enderecoDTO } from '../models/enderecoDTO';
 })
 export class CadastroService {
 
-  private readonly API = 'api/invest';
+  private readonly API = '/auth';
 
   constructor(private http: HttpClient) { }
 

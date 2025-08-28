@@ -14,6 +14,7 @@ import com.invest.dto.ClientNewDTO;
 import com.invest.dto.ContaNewDTO;
 import com.invest.dto.EnderecoNewDTO;
 import com.invest.entity.Client;
+import com.invest.entity.Conta;
 import com.invest.entity.dto.response.ClientResponse;
 import com.invest.entity.enums.Role;
 import com.invest.infraestrutura.ContaMessageProducer;
@@ -45,30 +46,28 @@ public class ClientServiceImpl implements ClientService {
 	private final ImageService imageService;
 	private final ContaMessageProducer contaMessageProducer;
 
-
-	
 	@Transactional
 	@Override
 	public ClientDTO save(ClientNewDTO cli, EnderecoNewDTO end) {
-	    Client entity = mapper.map(cli, Client.class);
-	    entity.setSenha(bCryptPasswordEncoder.encode(cli.getSenha()));
-	    entity.setRole(Role.USER);
-	    entity.addRole(Role.USER);
+		Client entity = mapper.map(cli, Client.class);
+		entity.setSenha(bCryptPasswordEncoder.encode(cli.getSenha()));
+		entity.setRole(Role.USER);
+		entity.addRole(Role.USER);
 
-	    imageService.processarSelfie(cli, entity);
-	    clientRepository.save(entity);
+		imageService.processarSelfie(cli, entity);
+		clientRepository.save(entity);
 
-	    enderecoService.salvarEnderecoParaCliente(end, entity);
-	    ClientDTO dto = mapper.map(entity, ClientDTO.class);
+		enderecoService.salvarEnderecoParaCliente(end, entity);
+		ClientDTO dto = mapper.map(entity, ClientDTO.class);
 
-	    ContaNewDTO contaDTO = contaFactoryService.criarContaParaCliente(dto);
-	    contaService.save(contaDTO);	
-	    contaDTO.setCpfOuCnpj(entity.getCpfOuCnpj());
-	    contaDTO.setNome(entity.getNome());
-	    contaDTO.setStatus(true);
-	    contaMessageProducer.sendMessage(contaDTO);
-
-	    return dto;
+		ContaNewDTO contaDTO = contaFactoryService.criarContaParaCliente(dto);
+		Conta contaSalva = contaService.save(contaDTO);
+		contaDTO.setId(contaSalva.getId());
+		contaDTO.setCpfOuCnpj(entity.getCpfOuCnpj());
+		contaDTO.setNome(entity.getNome());
+		contaDTO.setStatus(true);
+		contaMessageProducer.sendMessage(contaDTO);
+		return dto;
 	}
 
 	@Override
