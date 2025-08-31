@@ -22,13 +22,10 @@ import com.invest.entity.enums.TipoConta;
 import com.invest.entity.enums.TipoPessoa;
 import com.invest.reposiotries.ContaRepository;
 
-import jakarta.validation.constraints.AssertTrue;
-
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
 @DataJpaTest
 public class ContaRepositoryTest {
-
 	@Autowired
 	private ContaRepository repository;
 
@@ -59,7 +56,6 @@ public class ContaRepositoryTest {
 	@DisplayName("Deve retornar o cliente pelo CPF ou CNPJ da conta")
 	void deveRetornarClientePeloCpfOuCnpjDaConta() {
 		Client cli = clientPersistence();
-
 		entityManager.persist(cli);
 		entityManager.flush();
 
@@ -83,7 +79,7 @@ public class ContaRepositoryTest {
 	
 	
 	@Test
-	@DisplayName("Deve retornar uma lista de conta pelos cnnpj/cpf")
+	@DisplayName("Deve retornar uma lista de conta pelos cnpj/cpf")
 	void deveRetornarListaClientePeloCpfOuCnpjDaConta() {
 		Client cli = clientPersistence();
 
@@ -151,7 +147,7 @@ public class ContaRepositoryTest {
 	}
 
 	private Conta contaPersistence(Client cli) {
-		Conta conta = Conta.builder().agencia(1000).banco(237).client(cli).numero(1001).tipo(TipoConta.CONTA_CORRENTE)
+		Conta conta = Conta.builder().agencia(1000).banco(237).client(cli).cpfOuCnpj("12312312311").numero(1001).tipo(TipoConta.CONTA_CORRENTE)
 				.saldo(BigDecimal.valueOf(150.0)).build();
 		return conta;
 	}
