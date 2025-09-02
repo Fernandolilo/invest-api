@@ -12,7 +12,7 @@ export class AplicarCdiService {
   private http = inject(HttpClient);
 
 
-  private readonly API = '/auth';
+  private readonly API = '/api';
 
   constructor() { }
 

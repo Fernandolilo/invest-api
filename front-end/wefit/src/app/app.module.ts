@@ -14,6 +14,8 @@ import { CameraComponent } from './components/camera/camera.component';
 import { ListInvestimentoComponent } from './components/list-investimento/list-investimento.component';
 import { NewInvestCdi102Component } from './components/new-invest-cdi102/new-invest-cdi102.component';
 import { DepositoComponent } from './components/deposito/deposito.component';
+import { NewAtivoComponent } from './componentes/new-ativo/new-ativo.component';
+import { HomeBrokerComponent } from './components/home-broker/home-broker.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { DepositoComponent } from './components/deposito/deposito.component';
     ListInvestimentoComponent,
     NewInvestCdi102Component,
     DepositoComponent,
+    NewAtivoComponent,
+    HomeBrokerComponent,
 
   ],
   imports: [

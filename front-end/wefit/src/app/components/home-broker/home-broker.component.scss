@@ -1,0 +1,17 @@
+.navbar-ticker {
+  overflow: hidden;
+  color:  var(--primary);
+  background-color: var(--background);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.ticker-wrapper {
+  display: flex;
+  gap: 3rem;       /* Espaço entre os items */
+  white-space: nowrap; /* Mantém tudo em linha */
+}
+
+.data-item {
+  display: inline-block;
+}
