@@ -1,19 +1,7 @@
 <nav class="navbar-ticker">
   <div class="ticker-wrapper">
-    <div class="data-item">
-  {{ dados[currentIndex].mensal !== undefined ? 
-    '📊 IPCA hoje ' + dados[currentIndex].data + ': Mensal: ' + dados[currentIndex].mensal + '%, Acum. Ano: ' + dados[currentIndex].acumuladoAno + '%, Acum. 12M: ' + dados[currentIndex].acumulado12Meses :
-    dados[currentIndex].cdiDiario !== undefined ? 
-    '💹 CDI hoje ' + dados[currentIndex].data + ': CDI Diário: ' + dados[currentIndex].cdiDiario + '%, CDI Anual: ' + dados[currentIndex].cdiAnual + '%' :
-    '' }}
-  <span *ngIf="dados[currentIndex].valorComercialVenda !== undefined">
-    <i class="bi bi-currency-dollar text-success"></i>
-    Dólar hoje {{ dados[currentIndex].data }}: 
-    Venda: {{ dados[currentIndex].valorComercialVenda }}, 
-    Compra: {{ dados[currentIndex].valorComercialCompra }}, 
-    Turismo Venda: {{ dados[currentIndex].valorTurismoVenda }}, 
-    Turismo Compra: {{ dados[currentIndex].valorTurismoCompra }}
-  </span>
+    <div class="data-item" *ngIf="tickers.length > 0">
+  {{ tickers[currentIndex].texto }}
 </div>
 
   </div>
