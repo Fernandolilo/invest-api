@@ -14,8 +14,8 @@ import { CameraComponent } from './components/camera/camera.component';
 import { ListInvestimentoComponent } from './components/list-investimento/list-investimento.component';
 import { NewInvestCdi102Component } from './components/new-invest-cdi102/new-invest-cdi102.component';
 import { DepositoComponent } from './components/deposito/deposito.component';
-import { NewAtivoComponent } from './componentes/new-ativo/new-ativo.component';
-import { HomeBrokerComponent } from './components/home-broker/home-broker.component';
+import { CategoriaInvestComponent } from './components/categoria-invest/categoria-invest.component';
+import { BrlPipe } from './pipes/brl.pipe';
 
 @NgModule({
   declarations: [
@@ -26,12 +26,11 @@ import { HomeBrokerComponent } from './components/home-broker/home-broker.compon
     DashboardComponent,
     ContaComponent,
     CameraComponent,
-
     ListInvestimentoComponent,
     NewInvestCdi102Component,
     DepositoComponent,
-    NewAtivoComponent,
-    HomeBrokerComponent,
+    CategoriaInvestComponent,
+    BrlPipe,
 
   ],
   imports: [

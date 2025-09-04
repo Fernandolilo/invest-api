@@ -29,7 +29,7 @@ import lombok.NoArgsConstructor;
 public class CategoriaInvestimentoNewDTO {
 
     @NotNull(message = "A descrição é obrigatória.")
-    @Size(min = 3, max = 100, message = "A descrição deve ter entre 3 e 100 caracteres.")
+    @Size(min = 3, max = 1000, message = "A descrição deve ter entre 3 e 100 caracteres.")
     @Column(nullable = false)
     private String descricao;
 

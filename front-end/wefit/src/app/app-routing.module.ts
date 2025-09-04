@@ -7,7 +7,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ContaComponent } from './components/conta/conta.component';
 import { ListInvestimentoComponent } from './components/list-investimento/list-investimento.component';
 import { NewInvestCdi102Component } from './components/new-invest-cdi102/new-invest-cdi102.component';
-import { HomeBrokerComponent } from './components/home-broker/home-broker.component';
 
 
 const routes: Routes = [
@@ -19,7 +18,6 @@ const routes: Routes = [
   { path: 'conta', component: ContaComponent },
   { path: 'new-invest-cdi102', component: NewInvestCdi102Component },
   { path: 'list-invest', component: ListInvestimentoComponent },
-  { path: 'home-brooker', component: HomeBrokerComponent },
   { path: '**', redirectTo: 'login' } // <- sempre deixe essa por último
 ];
 

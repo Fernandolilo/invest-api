@@ -1,50 +1,65 @@
-<div class="container my-4">
-  <!-- Campo de seleção -->
-  <div class="mb-3">
-  <label class="form-label">Tipo de Investimento</label>
-  
+<div class="header text-center mb-4">
+  <header>
+    <h1>Bem vindo ao Home Broker</h1>
+    <h2>Banco Digital Pro</h2>
+  </header>
+</div>
+
+
+
+
+<!-- Tela inicial com os cards -->
+<div class="row" *ngIf="!invShow">
+  <div class="col-md-4 mb-3">
+    <div class="card h-100 shadow-sm"
+         [class.border-primary]="tipoSelecionado === 'cdi'"
+         (click)="selecionarInvestimento('cdi')"
+         style="cursor: pointer;">
+      <div class="card-body text-center">
+        <h5 class="card-title">Renda fixa</h5>
+        <p class="card-text small">Rentabilidade atrelada à taxa CDI.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Detalhe da categoria -->
+<div *ngIf="invShow">
+
+  <div class="row mb-3">
+    <div class="col-12">
+      <button class="btn btn-light mb-3" (click)="voltar()">
+        <i class="bi bi-arrow-left"></i> Voltar
+      </button>
+    </div>
+  </div>
+
   <div class="row">
-    <!-- Card CDI -->
-    <div class="col-md-4 mb-3">
-      <div class="card h-100 shadow-sm"
-           [class.border-primary]="tipoSelecionado === 'cdi'"
-           (click)="selecionarInvestimento('cdi')"
-           style="cursor: pointer;">
-        <div class="card-body text-center">
-          <h5 class="card-title">CDI</h5>
-          <p class="card-text small">
-            Rentabilidade atrelada à taxa CDI.
-          </p>
-        </div>
-      </div>
-    </div>
+    <!-- Itera sobre todas as categorias -->
+    <div class="col-md-12 mb-3" *ngFor="let cat of categorias">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Tipo de Investimento: {{ cat.tipo }}</h5>
 
-    <!-- Card Tesouro Direto -->
-    <div class="col-md-4 mb-3">
-      <div class="card h-100 shadow-sm"
-           [class.border-primary]="tipoSelecionado === 'tesouro'"
-           (click)="selecionarInvestimento('tesouro')"
-           style="cursor: pointer;">
-        <div class="card-body text-center">
-          <h5 class="card-title">Tesouro Direto</h5>
-          <p class="card-text small">
-            Título público seguro emitido pelo governo.
-          </p>
-        </div>
-      </div>
-    </div>
+          <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item"><strong>Indexador:</strong> {{ cat.tipo }}</li>
+            <li class="list-group-item"><strong>Data Início:</strong> {{ cat.dataInicio }}</li>
+            <li class="list-group-item"><strong>Data Vencimento:</strong> {{ cat.dataVencimento }}</li>
+            <li class="list-group-item"><strong>Descrição:</strong> {{ cat.descricao }}</li>
+            <li class="list-group-item"
+                [ngClass]="{
+                  'text-success': cat.risco === 'RISCO_BAIXO',
+                  'text-warning': cat.risco === 'RISCO_MEDIO',
+                  'text-danger': cat.risco === 'RISCO_ALTO'
+                }">
+              <strong>Risco:</strong> {{ cat.risco }}
+            </li>
+          </ul>
+          <p> <strong>Resgate: </strong> {{ cat.carencia }}</p>
 
-    <!-- Card CDB -->
-    <div class="col-md-4 mb-3">
-      <div class="card h-100 shadow-sm"
-           [class.border-primary]="tipoSelecionado === 'cdb'"
-           (click)="selecionarInvestimento('cdb')"
-           style="cursor: pointer;">
-        <div class="card-body text-center">
-          <h5 class="card-title">CDB</h5>
-          <p class="card-text small">
-            Certificado de Depósito Bancário.
-          </p>
+          <div class="text-center">
+            <button class="btn btn-success" (click)="onInvestCdi102()">Investir</button>
+          </div>
         </div>
       </div>
     </div>
@@ -52,46 +67,31 @@
 </div>
 
 
-  <div class="row">
-    <!-- Card CDI -->
-    <div class="col-md-4 mb-3" *ngIf="tipoSelecionado === 'cdi'">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">CDI</h5>
-          <p class="card-text">
-            <strong>Investimento com rentabilidade de 102% do CDI diário.</strong><br>
-            A taxa CDI representa a taxa média diária das operações entre bancos. Seu rendimento acompanha essa taxa, corrigido em 102%, garantindo uma rentabilidade superior à do CDI padrão.<br>
-            O imposto de renda é regressivo e incide somente sobre os rendimentos, variando de 22,5% para aplicações de até 180 dias até 15% para aplicações acima de 720 dias.
-          </p>
-          <button class="btn btn-success" (click)="onInvestCdi102()">Investir</button>
-        </div>
+<footer>
+  <div class="container">
+  <div class="d-flex flex-column align-items-center gap-3">
+    
+    <!-- IPCA -->
+    <div class="card w-100 w-md-50 shadow-sm" *ngIf="ipcaShow">
+      <div class="card-body ticker-wrapper">
+        {{ getTickerTexto('ipca') }}
       </div>
     </div>
 
-    <!-- Card Tesouro Direto -->
-    <div class="col-md-4 mb-3" *ngIf="tipoSelecionado === 'tesouro'">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">Tesouro Direto</h5>
-          <p class="card-text">
-            Investimento seguro emitido pelo governo, com diversos prazos e rentabilidades disponíveis.
-          </p>
-          <button class="btn btn-success">Investir</button>
-        </div>
+    <!-- CDI -->
+    <div class="card w-100 w-md-50 shadow-sm" *ngIf="cdiShow">
+      <div class="card-body ticker-wrapper">
+        {{ getTickerTexto('cdi') }}
       </div>
     </div>
 
-    <!-- Card CDB -->
-    <div class="col-md-4 mb-3" *ngIf="tipoSelecionado === 'cdb'">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">CDB</h5>
-          <p class="card-text">
-            Certificado de Depósito Bancário, com boa rentabilidade e garantia do FGC.
-          </p>
-          <button class="btn btn-success">Investir</button>
-        </div>
+    <!-- Dólar -->
+    <div class="card w-100 w-md-50 shadow-sm" *ngIf="dolarShow">
+      <div class="card-body ticker-wrapper">
+        {{ getTickerTexto('dolar') }}
       </div>
     </div>
+
   </div>
-</div>
+  </div>
+</footer>

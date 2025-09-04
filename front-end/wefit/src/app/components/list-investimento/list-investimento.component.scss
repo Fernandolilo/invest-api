@@ -10,3 +10,65 @@
 .border-primary {
   border: 2px solid #003366 !important; /* sua cor padrão */
 }
+
+.row {
+  display: flex;           /* Ativa flexbox */
+  justify-content: center; /* Centraliza horizontalmente */
+  flex-wrap: wrap;         /* Permite que os cards quebrem linha quando necessário */
+  gap: 1rem;   
+}
+
+.navbar-ticker {
+  background-color: var(--background); // cor de fundo do ticker
+  color: var(--text-default);       // cor do texto
+  padding: 0.5rem 1rem;
+  overflow-x: auto;                 // permite scroll horizontal no celular
+  white-space: nowrap;               // impede quebra de linha
+  font-size: 1rem;
+
+  .ticker-wrapper {
+    display: inline-block;           // mantém o conteúdo inline para scroll
+  }
+
+  .data-item {
+    display: inline-block;
+    margin-right: 2rem;              // espaço entre os itens
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .navbar-ticker {
+    font-size: 0.85rem;              // reduz o tamanho da fonte em telas pequenas
+    padding: 0.3rem 0.5rem;
+  }
+
+  .data-item {
+    margin-right: 1rem;
+  }
+}
+
+footer {
+  background-color: #f8f9fa; // cor clara de fundo
+  padding: 2rem 0;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    .card {
+      width: 100%;
+      max-width: 500px; // limita o tamanho do card
+      text-align: center;
+      border-radius: 0.5rem;
+    }
+
+    .ticker-wrapper {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+  }
+}
+

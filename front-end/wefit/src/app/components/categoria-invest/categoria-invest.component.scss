@@ -1,0 +1,43 @@
+/* categoria-invest.component.scss */
+
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem; // espaço entre os cards
+  padding: 1rem;
+  color: var(--primary);
+}
+
+.card {
+  width: 10rem; // já definido inline, pode manter
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: var(--primary);
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .list-group-item {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+}
+

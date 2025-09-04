@@ -130,8 +130,7 @@ export class ContaComponent {
       queryParams: { id: this.cartao.contaId }
     });
   }
-  onHomeBrooker(event?: Event) {
-    event?.preventDefault(); // Evita comportamento padrão do <a href="#">
+  onHomeBrooker() {
     this.router.navigateByUrl("/home-brooker");
   }
 

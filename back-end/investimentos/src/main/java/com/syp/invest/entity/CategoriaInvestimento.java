@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.syp.invest.entity.enums.RiscoInvestimento;
 import com.syp.invest.entity.enums.TipoInvestimento;
 import com.syp.invest.entity.enums.TipoRendimento;
@@ -49,7 +50,7 @@ public class CategoriaInvestimento implements Serializable {
 	private UUID id;
 
 	@NotNull(message = "A descrição é obrigatória.")
-	@Size(min = 3, max = 100, message = "A descrição deve ter entre 3 e 100 caracteres.")
+	@Size(min = 3, max = 1000, message = "A descrição deve ter entre 3 e 100 caracteres.")
 	@Column(nullable = false)
 	private String descricao;
 	
@@ -69,10 +70,12 @@ public class CategoriaInvestimento implements Serializable {
 	@Column(name = "carencia", nullable = false)
 	private VencimentoInvestimento carencia;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	@Column(name = "data_inicial")
 	//@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataInicio;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	@Column(name = "vencimento")
 //	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataVencimento;

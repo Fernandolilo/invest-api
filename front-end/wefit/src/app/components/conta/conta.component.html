@@ -51,11 +51,15 @@
           </div>
 
           <!-- Saldo -->
-          <div class="ms-3 d-flex align-items-center">
+           <br>
+          <div class="ms-0 d-flex">
+             <hr> 
+             <br>
             <strong class="me-2">Saldo:</strong>
             <span class="me-2">
-              {{ mostrarSaldo ? (contaSelecionada?.saldo | currency:'BRL':'symbol':'1.2-2') : '••••••' }}
+              {{ mostrarSaldo ? (contaSelecionada?.saldo | brl) : '••••••' }}
             </span>
+            <br>
             <button
               class="btn btn-sm btn-outline-secondary d-flex align-items-center"
               (click)="alternarSaldo()"
@@ -67,8 +71,8 @@
         </div>
 
         <!-- Direita: Dados da Conta -->
-        <div class="d-flex align-items-center mb-0">
-          <strong class="me-2">Dados da Conta:</strong>
+        <div>
+          <strong class="ms-0 flex-wrap">Dados da Conta: </strong>
           <i
             class="bi"
             [ngClass]="mostrarDadosConta ? 'bi-eye-slash-fill' : 'bi-eye-fill'"

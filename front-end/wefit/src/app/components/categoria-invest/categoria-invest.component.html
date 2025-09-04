@@ -1,0 +1,21 @@
+<div *ngFor="let categoria of categorias" 
+     class="card m-3 shadow-sm"
+     [ngClass]="{
+       'risco-alto text-danger': categoria.risco === 'RISCO_ALTO',
+       'risco-medio text-warning': categoria.risco === 'RISCO_MEDIO',
+       'risco-baixo text-success': categoria.risco === 'RISCO_BAIXO'
+     }">
+    
+  <div class="card-body">
+    <h5 class="card-title">{{ categoria.tipo }} - {{ categoria.descricao }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ categoria.tipoRendimento }} | Risco: {{ categoria.risco }}</h6>
+    
+    <ul class="list-group list-group-flush mt-3">
+      <li class="list-group-item"><strong>Percentual Adicional:</strong> {{ categoria.percentualAdicional }}%</li>
+      <li class="list-group-item"><strong>Percentual Indexador:</strong> {{ categoria.percentualIndexador }}%</li>
+      <li class="list-group-item"><strong>Carência:</strong> {{ categoria.carencia }}</li>
+      <li class="list-group-item"><strong>Data Início:</strong> {{ categoria.dataInicio }}</li>
+      <li class="list-group-item"><strong>Data Vencimento:</strong> {{ categoria.dataVencimento }}</li>
+    </ul>
+  </div>
+</div>
