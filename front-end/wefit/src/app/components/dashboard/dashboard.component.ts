@@ -94,9 +94,8 @@ export class DashboardComponent implements OnInit {
     this.menuOpen = false; // fecha menu
   }
 
-  opcao1() {
-    console.log('Opção 1 selecionada');
-    this.fecharMenuAdmin();
+  onNewCategira() {
+    this.router.navigateByUrl("/new-categoria");
   }
 
   opcao2() {
