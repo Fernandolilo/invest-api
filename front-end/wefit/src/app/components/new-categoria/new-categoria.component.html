@@ -1,6 +1,9 @@
+<nav>
+   <h5>Nova carteira de investimento</h5>
+</nav>
+<form (ngSubmit)="onNewInvestimento()">
 <div class="card p-3">
-  <h5>Nova carteira de investimento</h5>
-  <div class="mb-3">
+   <div class="mb-3">
   <label for="descricao" class="form-label">Detalhe do tipo de investimento</label>
   <input
     type="text"
@@ -118,6 +121,29 @@
 
 
 <div class="mb-3">
+  <label for="indexador" class="form-label">Tipo de investimento</label>
+  <select
+    id="indexador"
+    class="form-control"
+    [(ngModel)]="categoria.indexador"
+    name="indexador"
+    required
+    #indexador="ngModel"
+  >
+    <option value="" disabled>Selecione a tipo de correção para o investimento</option>
+    <option value="CDI">CDI</option>
+    <option value="SELIC">SELIC</option>
+    <option value="IPCA">IPCA</option>
+    <option value="PRE_FIXADO">PRE_FIXADO</option>
+  </select>
+
+  <!-- Mensagem de erro -->
+  <div *ngIf="indexador.invalid && indexador.touched" class="text-danger mt-1">
+    Este campo é obrigatório.
+  </div>
+</div>
+
+<div class="mb-3">
   <label for="tipo" class="form-label">Tipo de investimento</label>
   <select
     id="tipo"
@@ -186,6 +212,33 @@
   </div>
 </div>
 
- <button class="btn btn-success me-2">Confirmar</button>
+<div class="mb-3">
+  <label for="resgatavelAntecipadamente" class="form-label">
+    Resgatável antecipadamente
+  </label>
+  <select
+    id="resgatavelAntecipadamente"
+    class="form-control"
+    [(ngModel)]="categoria.resgatavelAntecipadamente"
+    name="resgatavelAntecipadamente"
+    required
+    #resgatavelAntecipadamente="ngModel"
+  >
+    <option [ngValue]="true">Sim</option>
+    <option [ngValue]="false">Não</option>
+  </select>
+
+  <!-- Mensagem de erro -->
+  <div *ngIf="resgatavelAntecipadamente.invalid && resgatavelAntecipadamente.touched" class="text-danger mt-1">
+    Este campo é obrigatório.
+  </div>
+</div>
+
+
+  <button class="btn btn-success me-2" type="submit">Confirmar</button>
+
   <button class="btn btn-secondary me-2" >Fechar</button>
 </div>
+
+
+</form>

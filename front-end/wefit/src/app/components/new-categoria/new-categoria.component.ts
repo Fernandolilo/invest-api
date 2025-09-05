@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CategoriaInvestDTO } from '../../models/categoriaInvestDTO';
+import { NewCategoriaInvestDTO } from '../../models/categoriaInvestDTO';
 
 @Component({
   selector: 'app-new-categoria',
@@ -8,8 +8,10 @@ import { CategoriaInvestDTO } from '../../models/categoriaInvestDTO';
 })
 export class NewCategoriaComponent {
 
-  categoria: CategoriaInvestDTO = {
+
+  categoria: NewCategoriaInvestDTO = {
     descricao: '',
+    indexador: '',
     percentualAdicional: 0,
     percentualIndexador: 0,
     carencia: '',
@@ -17,8 +19,12 @@ export class NewCategoriaComponent {
     dataVencimento: '',
     tipo: '',
     tipoRendimento: '',
-    risco: ''
+    risco: '',
+    resgatavelAntecipadamente: true
   };
 
-
+  onNewInvestimento() {
+    console.log('Valores do formulário:', this.categoria);
+    // aqui você pode enviar para o backend
+  }
 }
