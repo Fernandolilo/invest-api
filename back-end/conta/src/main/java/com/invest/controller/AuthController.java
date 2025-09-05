@@ -1,6 +1,7 @@
 package com.invest.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,5 +27,11 @@ public class AuthController {
 		response.addHeader("Authorization", "Bearer " + token);
 		return ResponseEntity.noContent().build();
 	}
+	
+	 @GetMapping("/roles")
+	    public ResponseEntity<String> getUserRoles() {
+	        String roles = authService.fromAuthorization();
+	        return ResponseEntity.ok(roles);
+	    }
 
 }

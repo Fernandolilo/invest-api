@@ -20,6 +20,7 @@ public class UserSecurityDetailsTest {
     private UUID id;
     private String email;
     private String senha;
+    private String cpfOuCnpj;
     private Set<Role> roles;
     private UserSecurityDetails userDetails;
 
@@ -28,9 +29,10 @@ public class UserSecurityDetailsTest {
         id = UUID.randomUUID();
         email = "test@example.com";
         senha = "123456";
+        cpfOuCnpj = "12312312311";
         roles = Set.of(Role.ADMIN, Role.USER);
 
-        userDetails = new UserSecurityDetails(id, email, senha, roles);
+        userDetails = new UserSecurityDetails(id, email, senha, cpfOuCnpj, roles);
     }
 
     @Test

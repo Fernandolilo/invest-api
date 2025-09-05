@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, Observable, tap, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CredentialDTO } from '../models/CredenciaisDTO';
 
@@ -42,6 +42,27 @@ export class AuthService {
       map(() => void 0) // retorna apenas void
     );
   }
+
+
+
+  findRole(): Observable<string> {
+    const token = localStorage.getItem('Authorization');
+    if (!token) {
+      return throwError(() => new Error('No token found in local storage'));
+    }
+
+    const headers = new HttpHeaders({
+      'Authorization': token,
+      'Accept': 'text/plain'
+    });
+
+    return this.http.get(`${this.API}/authenticate/roles`, {
+      headers,
+      responseType: 'text' // 👈 força tratar como string
+    });
+  }
+
+
 
 
   getToken(): string | null {

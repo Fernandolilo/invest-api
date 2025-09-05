@@ -29,7 +29,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			cli.orElseThrow(() -> new AuthorizationException("Client não encontrado" + "EMAIL: " + username));
 		}
 				
-		return new UserSecurityDetails(cli.get().getId(), cli.get().getEmail(), cli.get().getSenha(), cli.get().getRoles());
+		return new UserSecurityDetails(cli.get().getId(), cli.get().getEmail(), cli.get().getCpfOuCnpj(), cli.get().getSenha(), cli.get().getRoles());
 	}
 
 }

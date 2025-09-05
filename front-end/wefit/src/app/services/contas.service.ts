@@ -15,6 +15,7 @@ export class ContasService {
   private http = inject(HttpClient);
   private router = inject(Router);
 
+
   private readonly API = '/auth';
 
   //requestContasDTO 
@@ -26,18 +27,13 @@ export class ContasService {
     }
 
     const jwt = token.substring(7); // Remova o prefixo "Bearer " do token
-
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${jwt}`,
       'Content-Type': 'application/json',
       'Accept': '*/*'
     });
-
     return this.http.get<requestContasDTO[]>(`${this.API}/contas/cliente`, { headers }).pipe(
-      catchError((error: HttpErrorResponse) => {
-        console.error('Erro ao buscar tanques:', error);
-        return throwError(() => new Error('Error during the request'));
-      }));
+    );
   }
 
 

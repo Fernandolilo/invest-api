@@ -19,5 +19,7 @@ public interface ClientService {
 	Optional<ClientResponse> foundCli(String cpfOuCnpj);
 	
 	List<Client> findAll();
+	
+
 
 }

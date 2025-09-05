@@ -95,12 +95,11 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public Optional<ClientResponse> foundCli(String cpfOuCnpj) {
-
-		Optional<Client> cli = clientRepository.findByCpfOuCnpj(cpfOuCnpj);
-
+		Optional<Client> cli = clientRepository.findByCpfOuCnpj(cpfOuCnpj);		
 		// Se estiver presente, mapeia e retorna como Optional
 		return cli.map(client -> mapper.map(client, ClientResponse.class));
 	}
+	
 
 	private boolean hasFullAccess(UserSecurityDetails user) {
 		// Lista de papéis permitidos

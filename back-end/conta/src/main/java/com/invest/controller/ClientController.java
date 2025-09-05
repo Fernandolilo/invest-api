@@ -40,4 +40,9 @@ public class ClientController {
 		return service.findById(id);
 	}
 	
+	/*@GetMapping(value = "cpfoucnpj/{cpfOuCnpj}")
+	@ResponseStatus(HttpStatus.OK)
+	public Optional<ClientResponse> findByCpfOuCnpj(@PathVariable String cpfOuCnpj) {
+		return service.foundCli(cpfOuCnpj);
+	}*/	
 }

@@ -77,8 +77,11 @@ public class ContaServiceImpl implements ContaService {
 			throw new UserAccessNegativeException("Acesso negado");
 		}
 
+		
+
 		List<Conta> contas = repository.findAllByClientId(user.getId());
 
+		
 		if (contas.isEmpty()) {
 			throw new ObjectNotFoundException("Nenhuma conta encontrada");
 		}
@@ -118,93 +121,84 @@ public class ContaServiceImpl implements ContaService {
 
 	@Override
 	public Conta deposito(ContaTrasacaoDepSaqDTO obj) {
-	    validarTransacao(obj);  // valida os dados básicos para depósito
+		validarTransacao(obj); // valida os dados básicos para depósito
 
-	    Optional<Conta> contaOpt = repository.findById(obj.getId());
-	    Optional<Client> clientOpt = clienteRepository.findByCpfOuCnpj(obj.getCpf());
+		Optional<Conta> contaOpt = repository.findById(obj.getId());
+		Optional<Client> clientOpt = clienteRepository.findByCpfOuCnpj(obj.getCpf());
 
-	    if (contaOpt.isEmpty()) {
-	        throw new ObjectNotFoundException("Conta não encontrada: " + obj.getId());
-	    }
-	    if (clientOpt.isEmpty()) {
-	        throw new ObjectNotFoundException("Cliente não encontrado: " + obj.getCpf());
-	    }
+		if (contaOpt.isEmpty()) {
+			throw new ObjectNotFoundException("Conta não encontrada: " + obj.getId());
+		}
+		if (clientOpt.isEmpty()) {
+			throw new ObjectNotFoundException("Cliente não encontrado: " + obj.getCpf());
+		}
 
-	    Conta conta = contaOpt.get();
+		Conta conta = contaOpt.get();
 
-	    BigDecimal novoSaldo = conta.getSaldo()
-	        .add(obj.getSaldo())
-	        .setScale(2, RoundingMode.DOWN);
+		BigDecimal novoSaldo = conta.getSaldo().add(obj.getSaldo()).setScale(2, RoundingMode.DOWN);
 
-	    conta.setSaldo(novoSaldo);
-	    conta.setClient(clientOpt.get());
+		conta.setSaldo(novoSaldo);
+		conta.setClient(clientOpt.get());
 
-	    return repository.save(conta);
+		return repository.save(conta);
 	}
-
 
 	@Override
 	public Conta saque(ContaTrasacaoDepSaqDTO obj) {
-	    Optional<Conta> contaOpt = repository.findById(obj.getId());
-	    Optional<Client> clientOpt = clienteRepository.findByCpfOuCnpj(obj.getCpf());
+		Optional<Conta> contaOpt = repository.findById(obj.getId());
+		Optional<Client> clientOpt = clienteRepository.findByCpfOuCnpj(obj.getCpf());
 
-	    if (contaOpt.isEmpty()) {
-	        throw new ObjectNotFoundException("Conta não encontrada: " + obj.getId());
-	    }
-	    if (clientOpt.isEmpty()) {
-	        throw new ObjectNotFoundException("Cliente não encontrado: " + obj.getCpf());
-	    }
+		if (contaOpt.isEmpty()) {
+			throw new ObjectNotFoundException("Conta não encontrada: " + obj.getId());
+		}
+		if (clientOpt.isEmpty()) {
+			throw new ObjectNotFoundException("Cliente não encontrado: " + obj.getCpf());
+		}
 
-	    Conta conta = contaOpt.get();
+		Conta conta = contaOpt.get();
 
-	    validarSaque(obj, conta);  // chama validação específica para saque
+		validarSaque(obj, conta); // chama validação específica para saque
 
-	    BigDecimal novoSaldo = conta.getSaldo()
-	        .subtract(obj.getSaldo())
-	        .setScale(2, RoundingMode.DOWN);
+		BigDecimal novoSaldo = conta.getSaldo().subtract(obj.getSaldo()).setScale(2, RoundingMode.DOWN);
 
-	    conta.setSaldo(novoSaldo);
-	    conta.setClient(clientOpt.get());
+		conta.setSaldo(novoSaldo);
+		conta.setClient(clientOpt.get());
 
-	    return repository.save(conta);
+		return repository.save(conta);
 	}
 
-
-
 	private void validarTransacao(ContaTrasacaoDepSaqDTO obj) {
-	    if (obj.getId() == null) {
-	        throw new IllegalArgumentException("ID da conta é obrigatório.");
-	    }
-	    if (obj.getCpf() == null || obj.getCpf().trim().isEmpty()) {
-	        throw new IllegalArgumentException("CPF é obrigatório.");
-	    }
-	    if (obj.getSaldo() == null || obj.getSaldo().compareTo(BigDecimal.ZERO) <= 0) {
-	        throw new IllegalArgumentException("O valor da transação deve ser maior que zero.");
-	    }
-	    if (obj.getSaldo().scale() > 2) {
-	        throw new IllegalArgumentException("O valor da transação não pode ter mais que duas casas decimais.");
-	    }
+		if (obj.getId() == null) {
+			throw new IllegalArgumentException("ID da conta é obrigatório.");
+		}
+		if (obj.getCpf() == null || obj.getCpf().trim().isEmpty()) {
+			throw new IllegalArgumentException("CPF é obrigatório.");
+		}
+		if (obj.getSaldo() == null || obj.getSaldo().compareTo(BigDecimal.ZERO) <= 0) {
+			throw new IllegalArgumentException("O valor da transação deve ser maior que zero.");
+		}
+		if (obj.getSaldo().scale() > 2) {
+			throw new IllegalArgumentException("O valor da transação não pode ter mais que duas casas decimais.");
+		}
 	}
 
 	private void validarSaque(ContaTrasacaoDepSaqDTO obj, Conta conta) {
-	    validarTransacao(obj);
+		validarTransacao(obj);
 
-	    if (conta.getSaldo().compareTo(obj.getSaldo()) < 0) {
-	        throw new IllegalArgumentException("Saldo insuficiente para o saque.");
-	    }
+		if (conta.getSaldo().compareTo(obj.getSaldo()) < 0) {
+			throw new IllegalArgumentException("Saldo insuficiente para o saque.");
+		}
 	}
-	
+
 	private void validarDeposito(ContaTrasacaoDepSaqDTO obj) {
-	    validarTransacao(obj);
+		validarTransacao(obj);
 
-	    BigDecimal depositoMinimo = new BigDecimal("10.00");
+		BigDecimal depositoMinimo = new BigDecimal("10.00");
 
-	    if (obj.getSaldo().compareTo(depositoMinimo) < 0) {
-	        throw new IllegalArgumentException("O valor do depósito deve ser maior ou igual a R$ 2,00.");
-	    }
+		if (obj.getSaldo().compareTo(depositoMinimo) < 0) {
+			throw new IllegalArgumentException("O valor do depósito deve ser maior ou igual a R$ 2,00.");
+		}
 	}
-
-
 
 	private boolean hasFullAccess(UserSecurityDetails user) {
 		// Lista de papéis permitidos

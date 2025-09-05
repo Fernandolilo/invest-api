@@ -1,8 +1,37 @@
 <div class="container body">
-  <div class="header-title text-center py-4">
+  <div class="header-title text-center py-4 position-relative">
     <h1>Banco Digital Pro</h1>
-    <p>Selecione qual conta quer acessar?</p>
+   
+
+  
+<!-- Botão para abrir menu (apenas para admins) -->
+<div *ngIf="isAdmin" class="admin-button-wrapper">
+  <button class="btn btn admin-button" (click)="abrirMenuAdmin()">
+    <i class="bi bi-list me-2"></i>
+    Abrir Menu
+  </button>
+</div>
+
+<!-- Menu flutuante -->
+<div class="admin-menu-wrapper" *ngIf="menuOpen">
+  <div class="admin-menu-header">
+    <h5>Menu Admin</h5>
+    <button class="close-btn" (click)="fecharMenuAdmin()">
+      <i class="bi bi-x-lg"></i>
+    </button>
   </div>
+
+  <ul class="admin-menu-list">
+    <li (click)="opcao1()">Opção 1</li>
+    <li (click)="opcao2()">Opção 2</li>
+    <li (click)="opcao3()">Opção 3</li>
+  </ul>
+</div>
+
+
+  </div>
+
+
 
   <div class="row justify-content-center">
     <div
@@ -10,6 +39,10 @@
       *ngFor="let conta of contas"
       (click)="selecionarConta(conta)"
     >
+      <div class="header-title text-center py-4 position-relative">
+         <p>Selecione qual conta quer acessar?</p>
+      </div>
+    
       <div
         class="card h-100 shadow-sm rounded-4 card-conta"
         [class.card-conta-selecionada]="conta === contaSelecionada"
