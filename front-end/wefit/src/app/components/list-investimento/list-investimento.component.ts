@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HomebrokerService } from '../../services/homebroker.service';
-import { categoriaInvestDTO } from '../../models/categoriaInvestDTO';
+import { CategoriaInvestDTO } from '../../models/categoriaInvestDTO';
 import { CategoriaInvestService } from '../../services/categoria-invest.service';
 
 @Component({
@@ -36,7 +36,7 @@ export class ListInvestimentoComponent implements OnInit {
     { nome: 'LCA', value: 'lca' }
   ];
 
-  categorias: categoriaInvestDTO[] = [];
+  categorias: CategoriaInvestDTO[] = [];
 
   constructor(
     private service: HomebrokerService,

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { categoriaInvestDTO } from '../models/categoriaInvestDTO';
+import { CategoriaInvestDTO } from '../models/categoriaInvestDTO';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class CategoriaInvestService {
 
   constructor(private http: HttpClient) { }
 
-  getCategoria(): Observable<categoriaInvestDTO[]> {
-    return this.http.get<categoriaInvestDTO[]>(`${this.API}/rendafixa/categorias-investimentos/produtos`);
+  getCategoria(): Observable<CategoriaInvestDTO[]> {
+    return this.http.get<CategoriaInvestDTO[]>(`${this.API}/rendafixa/categorias-investimentos/produtos`);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { categoriaInvestDTO } from '../../models/categoriaInvestDTO';
+import { CategoriaInvestDTO } from '../../models/categoriaInvestDTO';
 import { CategoriaInvestService } from '../../services/categoria-invest.service';
 
 @Component({
@@ -10,9 +10,9 @@ import { CategoriaInvestService } from '../../services/categoria-invest.service'
 export class CategoriaInvestComponent implements OnInit {
 
   @Input() filtro: string | null = null;
-  @Output() categoriasCarregadas: EventEmitter<categoriaInvestDTO[]> = new EventEmitter<categoriaInvestDTO[]>();
+  @Output() categoriasCarregadas: EventEmitter<CategoriaInvestDTO[]> = new EventEmitter<CategoriaInvestDTO[]>();
 
-  categorias: categoriaInvestDTO[] = [];
+  categorias: CategoriaInvestDTO[] = [];
 
   constructor(private service: CategoriaInvestService) { }
 

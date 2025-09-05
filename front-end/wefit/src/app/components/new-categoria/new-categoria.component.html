@@ -1,1 +1,191 @@
-<p>new-categoria works!</p>
+<div class="card p-3">
+  <h5>Nova carteira de investimento</h5>
+  <div class="mb-3">
+  <label for="descricao" class="form-label">Detalhe do tipo de investimento</label>
+  <input
+    type="text"
+    id="descricao"
+    class="form-control"
+    [(ngModel)]="categoria.descricao"
+    name="descricao"
+    required
+    #descricao="ngModel"
+  />
+
+  <!-- Mensagem de erro -->
+  <div *ngIf="descricao.invalid && descricao.touched" class="text-danger mt-1">
+    Este campo é obrigatório.
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="percentualAdicional" class="form-label"> Percentual sobre o IPCA (para investimentos com correção IPCA)</label>
+  <input
+    type="number"
+    id="percentualAdicional"
+    class="form-control"
+    [(ngModel)]="categoria.percentualAdicional"
+    name="percentualAdicional"
+    required
+    #percentualAdicional="ngModel"
+  />
+
+  <!-- Mensagem de erro -->
+  <div *ngIf="percentualAdicional.invalid && percentualAdicional.touched" class="text-danger mt-1">
+    Este campo é obrigatório.
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="percentualIndexador" class="form-label">Percentual do investimento</label>
+  <input
+    type="number"
+    id="percentualIndexador"
+    class="form-control"
+    [(ngModel)]="categoria.percentualIndexador"
+    name="percentualIndexador"
+    required
+    #percentualIndexador="ngModel"
+  />
+
+  <!-- Mensagem de erro -->
+  <div *ngIf="percentualIndexador.invalid && percentualIndexador.touched" class="text-danger mt-1">
+    Este campo é obrigatório.
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="carencia" class="form-label">Carência</label>
+  <select
+    id="carencia"
+    class="form-control"
+    [(ngModel)]="categoria.carencia"
+    name="carencia"
+    required
+    #carencia="ngModel"
+  >
+    <option value="" disabled>Selecione a carência</option>
+    <option value="QUALQUER_INSTANTE">Qualquer instante</option>
+    <option value="DIAS_30">30 dias</option>
+    <option value="DIAS_60">60 dias</option>
+    <option value="DIAS_90">90 dias</option>
+    <option value="DIAS_180">180 dias</option>
+    <option value="ANUAL">Anual</option>
+    <option value="VENCIMENTO">Vencimento</option>
+  </select>
+
+  <!-- Mensagem de erro -->
+  <div *ngIf="carencia.invalid && carencia.touched" class="text-danger mt-1">
+    Este campo é obrigatório.
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="dataInicio" class="form-label">Inicio do investimento</label>
+  <input
+    type="date"
+    id="dataInicio"
+    class="form-control"
+    [(ngModel)]="categoria.dataInicio"
+    name="dataInicio"
+    required
+    #dataInicio="ngModel"
+  />
+
+  <!-- Mensagem de erro -->
+  <div *ngIf="dataInicio.invalid && dataInicio.touched" class="text-danger mt-1">
+    Este campo é obrigatório.
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="dataVencimento" class="form-label">Fim do investimento (este campo e para quando o investimento tem um tempo determinado para resgate)</label>
+  <input
+    type="date"
+    id="dataVencimento"
+    class="form-control"
+    [(ngModel)]="categoria.dataVencimento"
+    name="dataVencimento"
+    required
+    #dataVencimento="ngModel"
+  />
+
+  <!-- Mensagem de erro -->
+  <div *ngIf="dataVencimento.invalid && dataVencimento.touched" class="text-danger mt-1">
+    Este campo é obrigatório.
+  </div>
+</div>
+
+
+<div class="mb-3">
+  <label for="tipo" class="form-label">Tipo de investimento</label>
+  <select
+    id="tipo"
+    class="form-control"
+    [(ngModel)]="categoria.tipo"
+    name="tipo"
+    required
+    #tipo="ngModel"
+  >
+    <option value="" disabled>Selecione a tipo de investimento</option>
+    <option value="CDB">CDB</option>
+    <option value="LCI">LCI</option>
+    <option value="LCA">LCA</option>
+    <option value="DEBENTURE">DEBENTURE</option>
+  </select>
+
+  <!-- Mensagem de erro -->
+  <div *ngIf="tipo.invalid && tipo.touched" class="text-danger mt-1">
+    Este campo é obrigatório.
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="tipoRendimento" class="form-label">Tipo de rendimento</label>
+  <select
+    id="tipoRendimento"
+    class="form-control"
+    [(ngModel)]="categoria.tipoRendimento"
+    name="tipoRendimento"
+    required
+    #tipoRendimento="ngModel"
+  >
+    <option value="" disabled>Selecione a tipo de rendimento</option>
+    <option value="PREFIXADO">PREFIXADO</option>
+    <option value="POSFIXADO">POSFIXADO</option>
+    <option value="HIBRIDO">HIBRIDO</option>
+   
+  </select>
+
+  <!-- Mensagem de erro -->
+  <div *ngIf="tipoRendimento.invalid && tipoRendimento.touched" class="text-danger mt-1">
+    Este campo é obrigatório.
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="risco" class="form-label">Risco do investimento</label>
+  <select
+    id="risco"
+    class="form-control"
+    [(ngModel)]="categoria.risco"
+    name="risco"
+    required
+    #risco="ngModel"
+  >
+    <option value="" disabled>Selecione risco para este investimento</option>
+    <option value="RISCO_BAIXO">RISCO_BAIXO</option>
+    <option value="RISCO_MEDIO">RISCO_MEDIO</option>
+    <option value="RISCO_ALTO">RISCO_ALTO</option>
+   
+  </select>
+
+  <!-- Mensagem de erro -->
+  <div *ngIf="risco.invalid && risco.touched" class="text-danger mt-1">
+    Este campo é obrigatório.
+  </div>
+</div>
+
+ <button class="btn btn-success me-2">Confirmar</button>
+  <button class="btn btn-secondary me-2" >Fechar</button>
+</div>

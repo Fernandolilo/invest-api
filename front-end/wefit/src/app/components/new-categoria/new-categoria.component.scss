@@ -1,0 +1,74 @@
+/* Container principal */
+.card {
+  background-color: var(--background);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--primary-light);
+  padding: 2rem;
+  max-width: 600px;
+  margin: 2rem auto;
+
+  h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color:var(--primary);
+  }
+
+  .mb-3 {
+    margin-bottom: 1.25rem;
+
+    label.form-label {
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    input.form-control,
+    select.form-control {
+      border-radius: 8px;
+      border: 1px solid var(--primary-light);
+      padding: 0.5rem 0.75rem;
+      font-size: 0.95rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+
+      &:focus {
+        border-color:  var(--primary-light);
+        box-shadow: 0 0 0 0.2rem  var(--text-default);
+      }
+    }
+
+    .text-danger {
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
+  }
+
+  /* Botões (se forem usados no futuro) */
+  .btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s;
+
+    &.btn-success {
+        background-color: var(--primary);
+      border-color: var(--primary);
+      &:hover {
+        background-color: var(--secondary);
+      border-color: var(--secondary);
+     
+      }
+    }
+
+    &.btn-secondary {
+         background-color: var(--danger);
+         border-color: var(--danger);
+    
+
+      &:hover {
+         background-color: #6c757d;
+      border-color: #6c757d;
+      }
+    }
+  }
+}
