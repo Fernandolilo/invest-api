@@ -26,11 +26,10 @@ public class UserSecurityDetails implements UserDetails {
     private UUID id;
     private String email;
     private String senha;
-    private String cpfOuCnpj;
     private Collection<? extends GrantedAuthority> authorities;
 
     // Construtor que converte o Set<Role> em uma Collection de GrantedAuthority
-    public UserSecurityDetails(UUID id, String email, String cpfOuCnpj, String senha, Set<Role> perfis) {
+    public UserSecurityDetails(UUID id, String email, String senha, Set<Role> perfis) {
         this.id = id;
         this.email = email;
         this.senha = senha;
@@ -53,11 +52,6 @@ public class UserSecurityDetails implements UserDetails {
         return email;
     }
     
-    public String getCpfOuCnpj() {
-        return cpfOuCnpj;
-    }
-    
-
     @Override
     public boolean isAccountNonExpired() {
         return true;

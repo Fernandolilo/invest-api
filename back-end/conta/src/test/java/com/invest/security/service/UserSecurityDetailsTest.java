@@ -32,7 +32,7 @@ public class UserSecurityDetailsTest {
         cpfOuCnpj = "12312312311";
         roles = Set.of(Role.ADMIN, Role.USER);
 
-        userDetails = new UserSecurityDetails(id, email, senha, cpfOuCnpj, roles);
+        userDetails = new UserSecurityDetails(id, email, senha, roles);
     }
 
     @Test
