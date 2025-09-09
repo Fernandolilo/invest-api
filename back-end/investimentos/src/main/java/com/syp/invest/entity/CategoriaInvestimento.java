@@ -9,6 +9,7 @@ import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.syp.invest.entity.enums.Indexador;
 import com.syp.invest.entity.enums.RiscoInvestimento;
 import com.syp.invest.entity.enums.TipoInvestimento;
 import com.syp.invest.entity.enums.TipoRendimento;
@@ -69,6 +70,12 @@ public class CategoriaInvestimento implements Serializable {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "carencia", nullable = false)
 	private VencimentoInvestimento carencia;
+	
+	 // índice base do investimento: IPCA, CDI, SELIC, PREFIXADO
+    @NotNull(message = "O indexador é obrigatório.")
+    @Enumerated(EnumType.STRING)
+    @Column(name = "indexador", nullable = false)
+    private Indexador indexador;
 
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	@Column(name = "data_inicial")

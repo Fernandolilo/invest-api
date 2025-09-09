@@ -9,8 +9,10 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.syp.invest.entity.Investimento;
+import com.syp.invest.entity.enums.Indexador;
 import com.syp.invest.repositories.InvestimentoRepository;
 import com.syp.invest.service.CdiService;
+import com.syp.invest.service.DataService;
 import com.syp.invest.service.JurusCdiTaskService;
 
 import lombok.RequiredArgsConstructor;
@@ -20,7 +22,8 @@ import lombok.RequiredArgsConstructor;
 class JurusCdiTaskServiceImple implements JurusCdiTaskService {
 
 	  private final InvestimentoRepository repository;
-	    private final CdiService cdiService;
+	  private final CdiService cdiService;
+	  private final DataService dataService;
 
 	    /**
 	     * Executa a cada 60 segundos (1 minuto).
@@ -32,11 +35,16 @@ class JurusCdiTaskServiceImple implements JurusCdiTaskService {
 
 	        int pageNumber = 0;
 	        int pageSize = 100;
-
+	       
+	        
+	        if(dataService.diaUtil().isDiaUtil() == true) {
+	         
+	     
+	        
 	        Page<Investimento> page;
 
 	        do {
-	            page = repository.findAll(PageRequest.of(pageNumber, pageSize));
+	        	 page = repository.findAllByIndexador(Indexador.valueOf("CDI"), PageRequest.of(pageNumber, pageSize));
 
 	            for (Investimento inv : page.getContent()) {
 
@@ -77,4 +85,5 @@ class JurusCdiTaskServiceImple implements JurusCdiTaskService {
 
 	        } while (page.hasNext());
 	    }
+	 }
 }

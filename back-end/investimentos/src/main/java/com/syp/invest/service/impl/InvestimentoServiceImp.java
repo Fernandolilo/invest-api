@@ -66,6 +66,7 @@ public class InvestimentoServiceImp implements InvestimentoService {
         		.categoria(categoriaInvestimento)
         		.conta(contaSelecionada)
         		.instante(LocalDate.now())
+        		.indexador(categoriaInvestimento.getIndexador())
         		.valor(obj.getValor())
         		.build();
         		

@@ -25,7 +25,7 @@ nav{
 
     label.form-label {
       font-weight: 500;
-      color: var(--primary);
+      color: var(--primary-to);
       margin-bottom: 0.5rem;
     }
 
@@ -38,7 +38,7 @@ nav{
       transition: border-color 0.3s, box-shadow 0.3s;
 
       &:focus {
-        border-color:  var(--primary-light);
+        border-color:  var(--primary-to);
         box-shadow: 0 0 0 0.2rem  var(--text-default);
       }
     }
@@ -57,23 +57,26 @@ nav{
     transition: all 0.3s;
 
     &.btn-success {
-        background-color: var(--primary);
-      border-color: var(--primary);
-      &:hover {
-        background-color: var(--secondary);
-      border-color: var(--secondary);
+       background-color: var(--background);
+        color: var(--primary);
+        border-color: var(--primary);
      
+      &:hover {
+       background-color: var(--primary-light);
+       border-color: var(--primary-light);
+       color: var(--background);
       }
     }
 
     &.btn-secondary {
-         background-color: var(--danger);
-         border-color: var(--danger);
-    
-
+         background-color:var(--background);
+          border-color: var(--danger);
+          color: var(--danger);
+         margin-top: 4px;
       &:hover {
-         background-color: #6c757d;
-      border-color: #6c757d;
+        background-color: var(--danger);
+        border-color: var(--danger);
+        color: var(--background);
       }
     }
   }
