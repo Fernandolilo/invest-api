@@ -9,7 +9,7 @@
 
 
 <!-- Tela inicial com os cards -->
-<div class="row" *ngIf="!invShow">
+<div class="row-init" *ngIf="!invShow">
   <div class="col-md-4 mb-3">
     <div class="card h-100 shadow-sm"
          [class.border-primary]="tipoSelecionado === 'cdi'"
@@ -26,46 +26,41 @@
 <!-- Detalhe da categoria -->
 <div *ngIf="invShow">
 
-  <div class="row mb-3">
+  <div class="btn-v mb-3">
     <div class="col-12">
-      <button class="btn btn-light mb-3" (click)="voltar()">
+      <button class="btn mb-3" (click)="voltar()">
         <i class="bi bi-arrow-left"></i> Voltar
       </button>
     </div>
   </div>
 
-  <div class="row">
-    <!-- Itera sobre todas as categorias -->
-    <div class="col-md-12 mb-3" *ngFor="let cat of categorias">
-      <div class="card h-100 shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">Tipo de Investimento: {{ cat.tipo }}</h5>
+ <div class="row">
+  <div class="card mb-1" *ngFor="let cat of categorias">
+    <div class="card-body">
+      <h5 class="card-title">Tipo de Investimento: {{ cat.tipo }}</h5>
 
-          <ul class="list-group list-group-flush mb-3">
-            <li class="list-group-item"><strong>Indexador:</strong> {{ cat.tipo }}</li>
-            <li class="list-group-item"><strong>Data Início:</strong> {{ cat.dataInicio }}</li>
-            <li class="list-group-item"><strong>Data Vencimento:</strong> {{ cat.dataVencimento }}</li>
-            <li class="list-group-item"><strong>Descrição:</strong> {{ cat.descricao }}</li>
-            <li class="list-group-item"
-                [ngClass]="{
-                  'text-success': cat.risco === 'RISCO_BAIXO',
-                  'text-warning': cat.risco === 'RISCO_MEDIO',
-                  'text-danger': cat.risco === 'RISCO_ALTO'
-                }">
-              <strong>Risco:</strong> {{ cat.risco }}
-            </li>
-          </ul>
-          <p> <strong>Resgate: </strong> {{ cat.carencia }}</p>
+      <ul class="list-group list-group-flush mb-3">
+        <li class="list-group-item"><strong>Indexador:</strong> {{ cat.tipo }}</li>
+        <li class="list-group-item"><strong>Data Início:</strong> {{ cat.dataInicio }}</li>
+        <li class="list-group-item"><strong>Data Vencimento:</strong> {{ cat.dataVencimento }}</li>
+        <li class="list-group-item"><strong>Descrição:</strong> {{ cat.descricao }}</li>
+        <li class="list-group-item"
+            [ngClass]="{
+              'text-success': cat.risco === 'RISCO_BAIXO',
+              'text-warning': cat.risco === 'RISCO_MEDIO',
+              'text-danger': cat.risco === 'RISCO_ALTO'
+            }">
+          <strong>Risco:</strong> {{ cat.risco }}
+        </li>
+      </ul>
+      <p><strong>Resgate: </strong>{{ cat.carencia }}</p>
 
-          <div class="text-center">
-            <button class="btn btn-success" (click)="onInvestCdi102()">Investir</button>
-          </div>
-        </div>
+      <div class="text-center">
+        <button class="btn btn-success" (click)="onInvestCdi102()">Investir</button>
       </div>
     </div>
   </div>
 </div>
-
 
 <footer>
   <div class="container">

@@ -12,15 +12,14 @@ export interface CategoriaInvestDTO {
 
 export interface NewCategoriaInvestDTO {
     descricao: string;
-    indexador: string,
+    indexador: string;
     percentualAdicional: number;
     percentualIndexador: number;
     carencia: string;
-    dataInicio: string;
-    dataVencimento: string;
     tipo: string;
     tipoRendimento: string;
     risco: string;
     resgatavelAntecipadamente: boolean;
 }
+
 

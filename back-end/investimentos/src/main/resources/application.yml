@@ -1,14 +1,14 @@
 server:
   port: 8001
   servlet:
-    context-path: /api/rendafixa
+    context-path: /rendafixa
 
 spring:       
   application:
-    name: api-invest
+    name: rendafixa
   profiles:
     active:
-      - test  
+      - test
 
   rabbitmq:
     connection-timeout: 5000

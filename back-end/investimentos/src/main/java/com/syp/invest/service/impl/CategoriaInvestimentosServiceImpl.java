@@ -1,5 +1,6 @@
 package com.syp.invest.service.impl;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -24,6 +25,8 @@ public class CategoriaInvestimentosServiceImpl implements CategoriaInvestimentos
 	@Override
 	public CategoriaInvestimentoDTO save(CategoriaInvestimentoNewDTO obj) {
 		CategoriaInvestimento entity = mapper.map(obj, CategoriaInvestimento.class);
+		entity.setDataInicio(LocalDate.now());
+		entity.setDataVencimento(LocalDate.now());
 		repository.save(entity);
 		return mapper.map(entity, CategoriaInvestimentoDTO.class);
 	}

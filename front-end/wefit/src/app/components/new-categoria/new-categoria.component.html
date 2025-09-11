@@ -83,42 +83,6 @@
   </div>
 </div>
 
-<div class="mb-3">
-  <label for="dataInicio" class="form-label">Inicio do investimento</label>
-  <input
-    type="date"
-    id="dataInicio"
-    class="form-control"
-    [(ngModel)]="categoria.dataInicio"
-    name="dataInicio"
-    required
-    #dataInicio="ngModel"
-  />
-
-  <!-- Mensagem de erro -->
-  <div *ngIf="dataInicio.invalid && dataInicio.touched" class="text-danger mt-1">
-    Este campo é obrigatório.
-  </div>
-</div>
-
-<div class="mb-3">
-  <label for="dataVencimento" class="form-label">Fim do investimento (este campo e para quando o investimento tem um tempo determinado para resgate)</label>
-  <input
-    type="date"
-    id="dataVencimento"
-    class="form-control"
-    [(ngModel)]="categoria.dataVencimento"
-    name="dataVencimento"
-    required
-    #dataVencimento="ngModel"
-  />
-
-  <!-- Mensagem de erro -->
-  <div *ngIf="dataVencimento.invalid && dataVencimento.touched" class="text-danger mt-1">
-    Este campo é obrigatório.
-  </div>
-</div>
-
 
 <div class="mb-3">
   <label for="indexador" class="form-label">Tipo de investimento</label>

@@ -75,8 +75,6 @@ export class ListInvestimentoComponent implements OnInit {
     });
   }
 
-
-
   nextTicker() {
     if (!this.tickers.length) return;
 
