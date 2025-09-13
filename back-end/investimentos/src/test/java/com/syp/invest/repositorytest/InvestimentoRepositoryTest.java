@@ -43,8 +43,7 @@ public class InvestimentoRepositoryTest {
     private Investimento investimento;
 
     @BeforeEach
-    public void setUp() {
-    	
+    public void setUp() {    	
     	
     	//persistindo uma categoria
         CategoriaInvestimentoNewDTO categoriaDTO = categoriaNewDTO();        

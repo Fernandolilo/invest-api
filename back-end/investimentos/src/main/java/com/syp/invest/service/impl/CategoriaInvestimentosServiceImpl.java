@@ -29,8 +29,6 @@ public class CategoriaInvestimentosServiceImpl implements CategoriaInvestimentos
 		entity.setDataInicio(LocalDate.now());
 		  // calcula o vencimento com base no enum informado
 		 entity.setDataVencimento(calcularDataVencimento(entity.getCarencia(), obj.getDataVencimento()));
-
-
 		repository.save(entity);
 		return mapper.map(entity, CategoriaInvestimentoDTO.class);
 	}

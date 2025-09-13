@@ -1,0 +1,95 @@
+2025-09-13T10:00:11.616-03:00  INFO 2312 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 2312 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2025-09-13T10:00:11.628-03:00 DEBUG 2312 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-09-13T10:00:11.633-03:00  INFO 2312 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-09-13T10:00:12.078-03:00  INFO 2312 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-09-13T10:00:12.081-03:00  INFO 2312 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-09-13T10:00:13.981-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=72b58d9c-461f-3539-bd15-4572bc53e6db
+2025-09-13T10:00:15.583-03:00 DEBUG 2312 --- [gateway] [restartedMain] o.s.c.gateway.config.GatewayProperties   : Routes supplied from Gateway Properties: [RouteDefinition{id='auth', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/auth/**}}], filters=[], uri=http://localhost:8000, order=0, metadata={}, enabled=true}, RouteDefinition{id='rendafixa', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/rendafixa/**}}], filters=[], uri=http://localhost:8001, order=0, metadata={}, enabled=true}]
+2025-09-13T10:00:16.155-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2025-09-13T10:00:16.156-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2025-09-13T10:00:16.157-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2025-09-13T10:00:16.158-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2025-09-13T10:00:16.159-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2025-09-13T10:00:16.160-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2025-09-13T10:00:16.161-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2025-09-13T10:00:16.161-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2025-09-13T10:00:16.163-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2025-09-13T10:00:16.164-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2025-09-13T10:00:16.165-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2025-09-13T10:00:16.165-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-09-13T10:00:16.166-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2025-09-13T10:00:16.166-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-09-13T10:00:16.712-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-09-13T10:00:17.345-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8765 (http)
+2025-09-13T10:00:17.666-03:00 DEBUG 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition auth applying {_genkey_0=/auth/**} to Path
+2025-09-13T10:00:17.706-03:00 DEBUG 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition matched: auth
+2025-09-13T10:00:17.707-03:00 DEBUG 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition rendafixa applying {_genkey_0=/rendafixa/**} to Path
+2025-09-13T10:00:17.710-03:00 DEBUG 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition matched: rendafixa
+2025-09-13T10:00:17.724-03:00  INFO 2312 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Started GatewayApplication in 7.275 seconds (process running for 8.798)
+2025-09-13T10:00:17.733-03:00  WARN 2312 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.routes[0].id
+		Line: 11
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].id
+	Key: spring.cloud.gateway.routes[0].uri
+		Line: 12
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].uri
+	Key: spring.cloud.gateway.routes[0].predicates[0]
+		Line: 14
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].predicates[0]
+	Key: spring.cloud.gateway.routes[1].id
+		Line: 16
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].id
+	Key: spring.cloud.gateway.routes[1].uri
+		Line: 17
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].uri
+	Key: spring.cloud.gateway.routes[1].predicates[0]
+		Line: 19
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].predicates[0]
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-09-13T10:00:17.737-03:00  WARN 2312 --- [gateway] [restartedMain] o.s.b.c.p.m.PropertiesMigrationListener  : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedorigins[0]
+		Line: 26
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedorigins[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[0]
+		Line: 28
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[1]
+		Line: 29
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[2]
+		Line: 30
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[2]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[3]
+		Line: 31
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[3]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[4]
+		Line: 32
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[4]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedheaders[0]
+		Line: 34
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[0]
+		Line: 36
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[1]
+		Line: 37
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowcredentials
+		Line: 38
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowcredentials
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-09-13T10:17:28.256-03:00  INFO 2312 --- [gateway] [RMI TCP Connection(28)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-09-13T10:17:28.454-03:00  INFO 2312 --- [gateway] [RMI TCP Connection(28)-127.0.0.1] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-09-13T10:17:28.507-03:00  INFO 2312 --- [gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
