@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.syp.invest.entity.CategoriaInvestimento;
 import com.syp.invest.entity.dto.CategoriaInvestimentoDTO;
 import com.syp.invest.entity.dto.CategoriaInvestimentoNewDTO;
+import com.syp.invest.entity.enums.VencimentoInvestimento;
 import com.syp.invest.repositories.CategoriaInvestimentosRepository;
 import com.syp.invest.service.CategoriaInvestimentosService;
 import com.syp.invest.service.exceptions.ObjectNotFoundException;
@@ -26,7 +27,10 @@ public class CategoriaInvestimentosServiceImpl implements CategoriaInvestimentos
 	public CategoriaInvestimentoDTO save(CategoriaInvestimentoNewDTO obj) {
 		CategoriaInvestimento entity = mapper.map(obj, CategoriaInvestimento.class);
 		entity.setDataInicio(LocalDate.now());
-		entity.setDataVencimento(LocalDate.now());
+		  // calcula o vencimento com base no enum informado
+		 entity.setDataVencimento(calcularDataVencimento(entity.getCarencia(), obj.getDataVencimento()));
+
+
 		repository.save(entity);
 		return mapper.map(entity, CategoriaInvestimentoDTO.class);
 	}
@@ -43,6 +47,33 @@ public class CategoriaInvestimentosServiceImpl implements CategoriaInvestimentos
 		            .map(cat -> mapper.map(cat, CategoriaInvestimentoDTO.class))
 		            .toList();
 		}
+	
+	private LocalDate calcularDataVencimento(VencimentoInvestimento carencia, LocalDate dataManual) {
+	    LocalDate hoje = LocalDate.now();
+
+	    switch (carencia) {
+	        case QUALQUER_INSTANTE:
+	            return hoje;
+	        case DIAS_30:
+	            return hoje.plusDays(30);
+	        case DIAS_60:
+	            return hoje.plusDays(60);
+	        case DIAS_90:
+	            return hoje.plusDays(90);
+	        case DIAS_180:
+	            return hoje.plusDays(180);
+	        case ANUAL:
+	            return hoje.plusYears(1);
+	        case VENCIMENTO:
+	            if (dataManual == null) {
+	                throw new IllegalArgumentException("A data de vencimento manual deve ser informada quando a carência for VENCIMENTO.");
+	            }
+	            return dataManual;
+	        default:
+	            throw new IllegalArgumentException("Carência não suportada: " + carencia);
+	    }
+	}
+
 
 
 }

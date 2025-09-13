@@ -10,19 +10,19 @@ import { cdiDTO } from '../models/cdiDTO';
 })
 export class HomebrokerService {
 
-  private readonly API = '/api';
+  private readonly API = '/rendafixa';
 
   constructor(private http: HttpClient) { }
 
   getResumoIpca(): Observable<ipcaDTO> {
-    return this.http.get<ipcaDTO>(`${this.API}/rendafixa/ipca/resumo`);
+    return this.http.get<ipcaDTO>(`${this.API}/ipca/resumo`);
   }
 
   getDolar(): Observable<dolarDTo> {
-    return this.http.get<dolarDTo>(`${this.API}/rendafixa/dollarXreal`);
+    return this.http.get<dolarDTo>(`${this.API}/dollarXreal`);
   }
 
   getCadi(): Observable<cdiDTO> {
-    return this.http.get<cdiDTO>(`${this.API}/rendafixa/cdi`);
+    return this.http.get<cdiDTO>(`${this.API}/cdi`);
   }
 }

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NewCategoriaInvestDTO } from '../../models/categoriaInvestDTO';
 import { CategoriaInvestService } from '../../services/categoria-invest.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-categoria',
@@ -8,6 +9,8 @@ import { CategoriaInvestService } from '../../services/categoria-invest.service'
   styleUrls: ['./new-categoria.component.scss'] // Corrigido de styleUrl para styleUrls
 })
 export class NewCategoriaComponent {
+
+  router = inject(Router);
 
   categoria: NewCategoriaInvestDTO = this.getEmptyCategoria();
 
@@ -28,9 +31,8 @@ export class NewCategoriaComponent {
       next: (response) => {
         this.alertType = 'success';
         this.alertMessage = `Salvo com sucesso! Status: ${response.status}`;
-        console.log('Resposta do backend:', response);
-
         this.resetForm();
+        this.router.navigate(['/list-invest'])
       },
       error: (error) => {
         this.alertType = 'danger';
