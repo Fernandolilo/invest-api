@@ -46,6 +46,8 @@ public class CategoriaInvestimentosServiceImpl implements CategoriaInvestimentos
 		            .toList();
 		}
 	
+	
+	
 	private LocalDate calcularDataVencimento(VencimentoInvestimento carencia, LocalDate dataManual) {
 	    LocalDate hoje = LocalDate.now();
 
