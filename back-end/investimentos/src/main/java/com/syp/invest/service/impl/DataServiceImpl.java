@@ -23,15 +23,16 @@ import com.syp.invest.entity.dto.response.FeriadoResponse;
 import com.syp.invest.service.DataService;
 import com.syp.invest.service.exceptions.ObjectNotFoundException;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class DataServiceImpl implements DataService {
 
-    private static final LocalDate agora = LocalDate.now();
-    private static final String FERIADO_NACIONAL = "https://feriadosbancarios.febraban.org.br/Home/ObterFeriadosFederais?ano=" + agora.getYear();
+    private final HttpClient httpClient;
+    private final ObjectMapper objectMapper;
 
-    private static final HttpClient client = HttpClient.newHttpClient();
-    private static final ObjectMapper mapper = new ObjectMapper();
-
+   
     @Override
     public DiaUtilResponseDTO diaUtil() {
         LocalDate hoje = LocalDate.now();
@@ -46,27 +47,26 @@ public class DataServiceImpl implements DataService {
         dto.setDia(hoje);
         dto.setDiaUtil(util);
         dto.setName(feriado.map(FeriadoResponse::getNomeFeriado).orElse(util ? "Dia útil" : "Fim de semana"));
-       
 
         return dto;
     }
 
-  
-
     private Optional<FeriadoResponse> buscarFeriado(LocalDate data) {
         try {
+            String url = "https://feriadosbancarios.febraban.org.br/Home/ObterFeriadosFederais?ano=" + data.getYear();
+
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(FERIADO_NACIONAL))
+                    .uri(URI.create(url))
                     .GET()
                     .build();
 
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
             if (response.statusCode() != 200) {
-                throw new ObjectNotFoundException("Erro ao buscar feriados: " + response.statusCode());
+                throw new ObjectNotFoundException("Erro ao buscar feriados: código " + response.statusCode());
             }
 
-            List<FeriadoResponse> feriados = mapper.readValue(
+            List<FeriadoResponse> feriados = objectMapper.readValue(
                     response.body(), new TypeReference<List<FeriadoResponse>>() {}
             );
 
@@ -80,7 +80,6 @@ public class DataServiceImpl implements DataService {
     }
 
     private LocalDate parseDiaMes(String diaMes) {
-        // Ex: "01 de janeiro"
         DateTimeFormatter formatter = new DateTimeFormatterBuilder()
                 .parseCaseInsensitive()
                 .appendPattern("dd 'de' MMMM")
@@ -89,7 +88,7 @@ public class DataServiceImpl implements DataService {
 
         return LocalDate.parse(diaMes, formatter);
     }
-    
+
     private boolean isDiaUtil(LocalDate data, Optional<FeriadoResponse> feriado) {
         DayOfWeek dia = data.getDayOfWeek();
         if (dia == DayOfWeek.SATURDAY || dia == DayOfWeek.SUNDAY) {

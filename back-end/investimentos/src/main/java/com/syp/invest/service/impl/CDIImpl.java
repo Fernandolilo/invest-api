@@ -21,9 +21,10 @@ public class CDIImpl implements CdiService {
     private static final String URL_CDI = 
         "https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados/ultimos/1?formato=json";
 
+    private final RestTemplate restTemplate;
+    
     @Override
     public CDIResponseDTO foundCDI() {
-        RestTemplate restTemplate = new RestTemplate();
         CDIValorDTO[] resposta = restTemplate.getForObject(URL_CDI, CDIValorDTO[].class);
 
         if (resposta != null && resposta.length > 0) {
@@ -55,3 +56,5 @@ public class CDIImpl implements CdiService {
         return resultado.setScale(6, RoundingMode.HALF_UP);
     }
 }
+
+

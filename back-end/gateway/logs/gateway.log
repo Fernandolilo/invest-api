@@ -1,32 +1,32 @@
-2025-09-13T10:00:11.616-03:00  INFO 2312 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 2312 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
-2025-09-13T10:00:11.628-03:00 DEBUG 2312 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Running with Spring Boot v3.5.4, Spring v6.2.9
-2025-09-13T10:00:11.633-03:00  INFO 2312 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
-2025-09-13T10:00:12.078-03:00  INFO 2312 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-09-13T10:00:12.081-03:00  INFO 2312 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-09-13T10:00:13.981-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=72b58d9c-461f-3539-bd15-4572bc53e6db
-2025-09-13T10:00:15.583-03:00 DEBUG 2312 --- [gateway] [restartedMain] o.s.c.gateway.config.GatewayProperties   : Routes supplied from Gateway Properties: [RouteDefinition{id='auth', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/auth/**}}], filters=[], uri=http://localhost:8000, order=0, metadata={}, enabled=true}, RouteDefinition{id='rendafixa', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/rendafixa/**}}], filters=[], uri=http://localhost:8001, order=0, metadata={}, enabled=true}]
-2025-09-13T10:00:16.155-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
-2025-09-13T10:00:16.156-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
-2025-09-13T10:00:16.157-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
-2025-09-13T10:00:16.158-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
-2025-09-13T10:00:16.159-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
-2025-09-13T10:00:16.160-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
-2025-09-13T10:00:16.161-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
-2025-09-13T10:00:16.161-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
-2025-09-13T10:00:16.163-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
-2025-09-13T10:00:16.164-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
-2025-09-13T10:00:16.165-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
-2025-09-13T10:00:16.165-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
-2025-09-13T10:00:16.166-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
-2025-09-13T10:00:16.166-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
-2025-09-13T10:00:16.712-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2025-09-13T10:00:17.345-03:00  INFO 2312 --- [gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8765 (http)
-2025-09-13T10:00:17.666-03:00 DEBUG 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition auth applying {_genkey_0=/auth/**} to Path
-2025-09-13T10:00:17.706-03:00 DEBUG 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition matched: auth
-2025-09-13T10:00:17.707-03:00 DEBUG 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition rendafixa applying {_genkey_0=/rendafixa/**} to Path
-2025-09-13T10:00:17.710-03:00 DEBUG 2312 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition matched: rendafixa
-2025-09-13T10:00:17.724-03:00  INFO 2312 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Started GatewayApplication in 7.275 seconds (process running for 8.798)
-2025-09-13T10:00:17.733-03:00  WARN 2312 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+2025-09-15T14:58:57.488-03:00  INFO 276 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 276 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2025-09-15T14:58:57.496-03:00 DEBUG 276 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-09-15T14:58:57.497-03:00  INFO 276 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-09-15T14:58:57.742-03:00  INFO 276 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-09-15T14:58:57.744-03:00  INFO 276 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-09-15T14:58:59.118-03:00  INFO 276 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=72b58d9c-461f-3539-bd15-4572bc53e6db
+2025-09-15T14:59:00.592-03:00 DEBUG 276 --- [gateway] [restartedMain] o.s.c.gateway.config.GatewayProperties   : Routes supplied from Gateway Properties: [RouteDefinition{id='auth', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/auth/**}}], filters=[], uri=http://localhost:8000, order=0, metadata={}, enabled=true}, RouteDefinition{id='rendafixa', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/rendafixa/**}}], filters=[], uri=http://localhost:8001, order=0, metadata={}, enabled=true}]
+2025-09-15T14:59:00.893-03:00  INFO 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2025-09-15T14:59:00.894-03:00  INFO 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2025-09-15T14:59:00.894-03:00  INFO 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2025-09-15T14:59:00.894-03:00  INFO 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2025-09-15T14:59:00.895-03:00  INFO 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2025-09-15T14:59:00.895-03:00  INFO 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2025-09-15T14:59:00.895-03:00  INFO 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2025-09-15T14:59:00.895-03:00  INFO 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2025-09-15T14:59:00.895-03:00  INFO 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2025-09-15T14:59:00.895-03:00  INFO 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2025-09-15T14:59:00.895-03:00  INFO 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2025-09-15T14:59:00.896-03:00  INFO 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-09-15T14:59:00.896-03:00  INFO 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2025-09-15T14:59:00.896-03:00  INFO 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-09-15T14:59:01.236-03:00  INFO 276 --- [gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-09-15T14:59:01.691-03:00  INFO 276 --- [gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8765 (http)
+2025-09-15T14:59:01.944-03:00 DEBUG 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition auth applying {_genkey_0=/auth/**} to Path
+2025-09-15T14:59:01.977-03:00 DEBUG 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition matched: auth
+2025-09-15T14:59:01.978-03:00 DEBUG 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition rendafixa applying {_genkey_0=/rendafixa/**} to Path
+2025-09-15T14:59:01.981-03:00 DEBUG 276 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition matched: rendafixa
+2025-09-15T14:59:01.993-03:00  INFO 276 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Started GatewayApplication in 5.363 seconds (process running for 6.612)
+2025-09-15T14:59:02.000-03:00  WARN 276 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
 The use of configuration keys that have been renamed was found in the environment:
 
 Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
@@ -52,7 +52,7 @@ Property source 'Config resource 'class path resource [application.yml]' via loc
 
 Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
 
-2025-09-13T10:00:17.737-03:00  WARN 2312 --- [gateway] [restartedMain] o.s.b.c.p.m.PropertiesMigrationListener  : 
+2025-09-15T14:59:02.007-03:00  WARN 276 --- [gateway] [restartedMain] o.s.b.c.p.m.PropertiesMigrationListener  : 
 The use of configuration keys that have been renamed was found in the environment:
 
 Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
@@ -90,6 +90,333 @@ Property source 'Config resource 'class path resource [application.yml]' via loc
 
 Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
 
-2025-09-13T10:17:28.256-03:00  INFO 2312 --- [gateway] [RMI TCP Connection(28)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2025-09-13T10:17:28.454-03:00  INFO 2312 --- [gateway] [RMI TCP Connection(28)-127.0.0.1] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
-2025-09-13T10:17:28.507-03:00  INFO 2312 --- [gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+2025-09-15T15:02:23.618-03:00 DEBUG 276 --- [gateway] [reactor-http-nio-4] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: rendafixa
+2025-09-15T15:02:23.620-03:00 DEBUG 276 --- [gateway] [reactor-http-nio-4] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: GET http://localhost:8765/rendafixa/swagger-ui/swagger-initializer.js] to Route{id='rendafixa', uri=http://localhost:8001, order=0, predicate=(RouteDefinitionRouteLocator$$Lambda$1070/0x000001e69a5aa2f0 && Paths: [/rendafixa/**], match trailing slash: true), gatewayFilters=[], metadata={}}
+2025-09-15T15:02:23.621-03:00 DEBUG 276 --- [gateway] [reactor-http-nio-4] o.s.c.g.h.RoutePredicateHandlerMapping   : [9aa2c35e-2] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@67d30342
+2025-09-15T15:02:23.623-03:00 DEBUG 276 --- [gateway] [reactor-http-nio-4] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@d00d902}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@46f4458f}, order = -2147482648], [GatewayFilterAdapter{delegate=com.syp.gateway.config.LoggingFilter@1f40f497}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@1414d9c6}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@28651869}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@157c6079}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.config.GatewayNoLoadBalancerClientAutoConfiguration$NoLoadBalancerClientFilter@55afdf1b}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@23260cae}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@47190ce5}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@1a8d3817}, order = 2147483647]]
+2025-09-15T15:02:23.629-03:00  INFO 276 --- [gateway] [reactor-http-nio-4] com.syp.gateway.config.LoggingFilter     : [REQ e6f805dd-7762-4e2a-acca-fff3561b8e60] GET http://localhost:8765/rendafixa/swagger-ui/swagger-initializer.js from 0:0:0:0:0:0:0:1
+2025-09-15T15:02:24.080-03:00  INFO 276 --- [gateway] [reactor-http-nio-4] com.syp.gateway.config.LoggingFilter     : [RES e6f805dd-7762-4e2a-acca-fff3561b8e60] Status=200 OK Duration=451ms
+2025-09-15T15:02:24.103-03:00 DEBUG 276 --- [gateway] [reactor-http-nio-4] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: rendafixa
+2025-09-15T15:02:24.104-03:00 DEBUG 276 --- [gateway] [reactor-http-nio-4] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: GET http://localhost:8765/rendafixa/v3/api-docs/swagger-config] to Route{id='rendafixa', uri=http://localhost:8001, order=0, predicate=(RouteDefinitionRouteLocator$$Lambda$1070/0x000001e69a5aa2f0 && Paths: [/rendafixa/**], match trailing slash: true), gatewayFilters=[], metadata={}}
+2025-09-15T15:02:24.104-03:00 DEBUG 276 --- [gateway] [reactor-http-nio-4] o.s.c.g.h.RoutePredicateHandlerMapping   : [9aa2c35e-3] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@67d30342
+2025-09-15T15:02:24.104-03:00 DEBUG 276 --- [gateway] [reactor-http-nio-4] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@d00d902}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@46f4458f}, order = -2147482648], [GatewayFilterAdapter{delegate=com.syp.gateway.config.LoggingFilter@1f40f497}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@1414d9c6}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@28651869}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@157c6079}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.config.GatewayNoLoadBalancerClientAutoConfiguration$NoLoadBalancerClientFilter@55afdf1b}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@23260cae}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@47190ce5}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@1a8d3817}, order = 2147483647]]
+2025-09-15T15:02:24.105-03:00  INFO 276 --- [gateway] [reactor-http-nio-4] com.syp.gateway.config.LoggingFilter     : [REQ 0c0ffaa5-e866-4124-af78-c1d788ae3ec5] GET http://localhost:8765/rendafixa/v3/api-docs/swagger-config from 0:0:0:0:0:0:0:1
+2025-09-15T15:02:24.151-03:00  INFO 276 --- [gateway] [reactor-http-nio-4] com.syp.gateway.config.LoggingFilter     : [RES 0c0ffaa5-e866-4124-af78-c1d788ae3ec5] Status=200 OK Duration=46ms
+2025-09-15T15:02:24.195-03:00 DEBUG 276 --- [gateway] [reactor-http-nio-4] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: rendafixa
+2025-09-15T15:02:24.195-03:00 DEBUG 276 --- [gateway] [reactor-http-nio-4] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: GET http://localhost:8765/rendafixa/v3/api-docs] to Route{id='rendafixa', uri=http://localhost:8001, order=0, predicate=(RouteDefinitionRouteLocator$$Lambda$1070/0x000001e69a5aa2f0 && Paths: [/rendafixa/**], match trailing slash: true), gatewayFilters=[], metadata={}}
+2025-09-15T15:02:24.195-03:00 DEBUG 276 --- [gateway] [reactor-http-nio-4] o.s.c.g.h.RoutePredicateHandlerMapping   : [9aa2c35e-4] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@67d30342
+2025-09-15T15:02:24.195-03:00 DEBUG 276 --- [gateway] [reactor-http-nio-4] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@d00d902}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@46f4458f}, order = -2147482648], [GatewayFilterAdapter{delegate=com.syp.gateway.config.LoggingFilter@1f40f497}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@1414d9c6}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@28651869}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@157c6079}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.config.GatewayNoLoadBalancerClientAutoConfiguration$NoLoadBalancerClientFilter@55afdf1b}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@23260cae}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@47190ce5}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@1a8d3817}, order = 2147483647]]
+2025-09-15T15:02:24.196-03:00  INFO 276 --- [gateway] [reactor-http-nio-4] com.syp.gateway.config.LoggingFilter     : [REQ 28ac6d42-1283-4f6a-8bd4-bbbf8c821e8f] GET http://localhost:8765/rendafixa/v3/api-docs from 0:0:0:0:0:0:0:1
+2025-09-15T15:02:24.899-03:00  INFO 276 --- [gateway] [reactor-http-nio-4] com.syp.gateway.config.LoggingFilter     : [RES 28ac6d42-1283-4f6a-8bd4-bbbf8c821e8f] Status=200 OK Duration=703ms
+2025-09-15T15:27:01.356-03:00  INFO 276 --- [gateway] [RMI TCP Connection(36)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-09-15T15:27:01.360-03:00  INFO 276 --- [gateway] [RMI TCP Connection(36)-127.0.0.1] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-09-15T15:27:01.363-03:00  INFO 276 --- [gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+2025-09-15T15:31:44.286-03:00  INFO 1800 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 1800 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2025-09-15T15:31:44.289-03:00 DEBUG 1800 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-09-15T15:31:44.290-03:00  INFO 1800 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-09-15T15:31:44.507-03:00  INFO 1800 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-09-15T15:31:44.507-03:00  INFO 1800 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-09-15T15:31:45.398-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=72b58d9c-461f-3539-bd15-4572bc53e6db
+2025-09-15T15:31:46.335-03:00 DEBUG 1800 --- [gateway] [restartedMain] o.s.c.gateway.config.GatewayProperties   : Routes supplied from Gateway Properties: [RouteDefinition{id='auth', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/auth/**}}], filters=[], uri=http://localhost:8000, order=0, metadata={}, enabled=true}, RouteDefinition{id='rendafixa', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/rendafixa/**}}], filters=[], uri=http://localhost:8001, order=0, metadata={}, enabled=true}]
+2025-09-15T15:31:46.588-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2025-09-15T15:31:46.589-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2025-09-15T15:31:46.589-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2025-09-15T15:31:46.589-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2025-09-15T15:31:46.589-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2025-09-15T15:31:46.590-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2025-09-15T15:31:46.590-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2025-09-15T15:31:46.590-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2025-09-15T15:31:46.591-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2025-09-15T15:31:46.591-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2025-09-15T15:31:46.591-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2025-09-15T15:31:46.592-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-09-15T15:31:46.592-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2025-09-15T15:31:46.592-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-09-15T15:31:47.034-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-09-15T15:31:47.644-03:00  INFO 1800 --- [gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8765 (http)
+2025-09-15T15:31:47.859-03:00 DEBUG 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition auth applying {_genkey_0=/auth/**} to Path
+2025-09-15T15:31:47.888-03:00 DEBUG 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition matched: auth
+2025-09-15T15:31:47.889-03:00 DEBUG 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition rendafixa applying {_genkey_0=/rendafixa/**} to Path
+2025-09-15T15:31:47.891-03:00 DEBUG 1800 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition matched: rendafixa
+2025-09-15T15:31:47.904-03:00  INFO 1800 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Started GatewayApplication in 4.293 seconds (process running for 5.354)
+2025-09-15T15:31:47.910-03:00  WARN 1800 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.routes[0].id
+		Line: 11
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].id
+	Key: spring.cloud.gateway.routes[0].uri
+		Line: 12
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].uri
+	Key: spring.cloud.gateway.routes[0].predicates[0]
+		Line: 14
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].predicates[0]
+	Key: spring.cloud.gateway.routes[1].id
+		Line: 16
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].id
+	Key: spring.cloud.gateway.routes[1].uri
+		Line: 17
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].uri
+	Key: spring.cloud.gateway.routes[1].predicates[0]
+		Line: 19
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].predicates[0]
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-09-15T15:31:47.915-03:00  WARN 1800 --- [gateway] [restartedMain] o.s.b.c.p.m.PropertiesMigrationListener  : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedorigins[0]
+		Line: 26
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedorigins[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[0]
+		Line: 28
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[1]
+		Line: 29
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[2]
+		Line: 30
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[2]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[3]
+		Line: 31
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[3]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[4]
+		Line: 32
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[4]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedheaders[0]
+		Line: 34
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[0]
+		Line: 36
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[1]
+		Line: 37
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowcredentials
+		Line: 38
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowcredentials
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-09-15T15:35:23.939-03:00  INFO 1800 --- [gateway] [RMI TCP Connection(13)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-09-15T15:35:23.943-03:00  INFO 1800 --- [gateway] [RMI TCP Connection(13)-127.0.0.1] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-09-15T15:35:23.947-03:00  INFO 1800 --- [gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+2025-09-15T21:35:13.402-03:00  INFO 8932 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 8932 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2025-09-15T21:35:13.408-03:00 DEBUG 8932 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-09-15T21:35:13.412-03:00  INFO 8932 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-09-15T21:35:14.043-03:00  INFO 8932 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-09-15T21:35:14.044-03:00  INFO 8932 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-09-15T21:35:16.105-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=72b58d9c-461f-3539-bd15-4572bc53e6db
+2025-09-15T21:35:17.654-03:00 DEBUG 8932 --- [gateway] [restartedMain] o.s.c.gateway.config.GatewayProperties   : Routes supplied from Gateway Properties: [RouteDefinition{id='auth', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/auth/**}}], filters=[], uri=http://localhost:8000, order=0, metadata={}, enabled=true}, RouteDefinition{id='rendafixa', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/rendafixa/**}}], filters=[], uri=http://localhost:8001, order=0, metadata={}, enabled=true}]
+2025-09-15T21:35:18.083-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2025-09-15T21:35:18.084-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2025-09-15T21:35:18.084-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2025-09-15T21:35:18.084-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2025-09-15T21:35:18.084-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2025-09-15T21:35:18.084-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2025-09-15T21:35:18.085-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2025-09-15T21:35:18.085-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2025-09-15T21:35:18.085-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2025-09-15T21:35:18.085-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2025-09-15T21:35:18.085-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2025-09-15T21:35:18.085-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-09-15T21:35:18.086-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2025-09-15T21:35:18.086-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-09-15T21:35:18.672-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-09-15T21:35:19.280-03:00  INFO 8932 --- [gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8765 (http)
+2025-09-15T21:35:19.652-03:00 DEBUG 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition auth applying {_genkey_0=/auth/**} to Path
+2025-09-15T21:35:19.707-03:00 DEBUG 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition matched: auth
+2025-09-15T21:35:19.708-03:00 DEBUG 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition rendafixa applying {_genkey_0=/rendafixa/**} to Path
+2025-09-15T21:35:19.712-03:00 DEBUG 8932 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition matched: rendafixa
+2025-09-15T21:35:19.734-03:00  INFO 8932 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Started GatewayApplication in 7.694 seconds (process running for 10.39)
+2025-09-15T21:35:19.748-03:00  WARN 8932 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.routes[0].id
+		Line: 11
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].id
+	Key: spring.cloud.gateway.routes[0].uri
+		Line: 12
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].uri
+	Key: spring.cloud.gateway.routes[0].predicates[0]
+		Line: 14
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].predicates[0]
+	Key: spring.cloud.gateway.routes[1].id
+		Line: 16
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].id
+	Key: spring.cloud.gateway.routes[1].uri
+		Line: 17
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].uri
+	Key: spring.cloud.gateway.routes[1].predicates[0]
+		Line: 19
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].predicates[0]
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-09-15T21:35:19.753-03:00  WARN 8932 --- [gateway] [restartedMain] o.s.b.c.p.m.PropertiesMigrationListener  : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedorigins[0]
+		Line: 26
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedorigins[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[0]
+		Line: 28
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[1]
+		Line: 29
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[2]
+		Line: 30
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[2]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[3]
+		Line: 31
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[3]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[4]
+		Line: 32
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[4]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedheaders[0]
+		Line: 34
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[0]
+		Line: 36
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[1]
+		Line: 37
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowcredentials
+		Line: 38
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowcredentials
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-09-15T21:35:37.715-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: rendafixa
+2025-09-15T21:35:37.716-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: GET http://localhost:8765/rendafixa/swagger-ui/index.html] to Route{id='rendafixa', uri=http://localhost:8001, order=0, predicate=(RouteDefinitionRouteLocator$$Lambda$1070/0x0000027dca5ab748 && Paths: [/rendafixa/**], match trailing slash: true), gatewayFilters=[], metadata={}}
+2025-09-15T21:35:37.717-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.h.RoutePredicateHandlerMapping   : [d6298e0b-1] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@3633ae7b
+2025-09-15T21:35:37.719-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@24ff259e}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@45d72f04}, order = -2147482648], [GatewayFilterAdapter{delegate=com.syp.gateway.config.LoggingFilter@31299ba1}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@5e4a284a}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@1f98f054}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@59f65633}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.config.GatewayNoLoadBalancerClientAutoConfiguration$NoLoadBalancerClientFilter@29ba7453}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@4216e5ec}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@f18d717}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@109f9275}, order = 2147483647]]
+2025-09-15T21:35:37.722-03:00  INFO 8932 --- [gateway] [reactor-http-nio-2] com.syp.gateway.config.LoggingFilter     : [REQ d381e97a-4462-4af7-9e01-57ae468f02c5] GET http://localhost:8765/rendafixa/swagger-ui/index.html from 0:0:0:0:0:0:0:1
+2025-09-15T21:35:38.176-03:00  INFO 8932 --- [gateway] [reactor-http-nio-2] com.syp.gateway.config.LoggingFilter     : [RES d381e97a-4462-4af7-9e01-57ae468f02c5] Status=304 NOT_MODIFIED Duration=454ms
+2025-09-15T21:35:38.213-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: rendafixa
+2025-09-15T21:35:38.214-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: GET http://localhost:8765/rendafixa/swagger-ui/swagger-initializer.js] to Route{id='rendafixa', uri=http://localhost:8001, order=0, predicate=(RouteDefinitionRouteLocator$$Lambda$1070/0x0000027dca5ab748 && Paths: [/rendafixa/**], match trailing slash: true), gatewayFilters=[], metadata={}}
+2025-09-15T21:35:38.215-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.h.RoutePredicateHandlerMapping   : [d6298e0b-2] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@3633ae7b
+2025-09-15T21:35:38.215-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@24ff259e}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@45d72f04}, order = -2147482648], [GatewayFilterAdapter{delegate=com.syp.gateway.config.LoggingFilter@31299ba1}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@5e4a284a}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@1f98f054}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@59f65633}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.config.GatewayNoLoadBalancerClientAutoConfiguration$NoLoadBalancerClientFilter@29ba7453}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@4216e5ec}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@f18d717}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@109f9275}, order = 2147483647]]
+2025-09-15T21:35:38.215-03:00  INFO 8932 --- [gateway] [reactor-http-nio-2] com.syp.gateway.config.LoggingFilter     : [REQ fe6b0907-b03f-43e8-b9c0-ceffe0f6d29a] GET http://localhost:8765/rendafixa/swagger-ui/swagger-initializer.js from 0:0:0:0:0:0:0:1
+2025-09-15T21:35:38.339-03:00  INFO 8932 --- [gateway] [reactor-http-nio-2] com.syp.gateway.config.LoggingFilter     : [RES fe6b0907-b03f-43e8-b9c0-ceffe0f6d29a] Status=200 OK Duration=124ms
+2025-09-15T21:35:38.421-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: rendafixa
+2025-09-15T21:35:38.421-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: GET http://localhost:8765/rendafixa/v3/api-docs/swagger-config] to Route{id='rendafixa', uri=http://localhost:8001, order=0, predicate=(RouteDefinitionRouteLocator$$Lambda$1070/0x0000027dca5ab748 && Paths: [/rendafixa/**], match trailing slash: true), gatewayFilters=[], metadata={}}
+2025-09-15T21:35:38.422-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.h.RoutePredicateHandlerMapping   : [d6298e0b-3] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@3633ae7b
+2025-09-15T21:35:38.423-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@24ff259e}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@45d72f04}, order = -2147482648], [GatewayFilterAdapter{delegate=com.syp.gateway.config.LoggingFilter@31299ba1}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@5e4a284a}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@1f98f054}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@59f65633}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.config.GatewayNoLoadBalancerClientAutoConfiguration$NoLoadBalancerClientFilter@29ba7453}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@4216e5ec}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@f18d717}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@109f9275}, order = 2147483647]]
+2025-09-15T21:35:38.424-03:00  INFO 8932 --- [gateway] [reactor-http-nio-2] com.syp.gateway.config.LoggingFilter     : [REQ f326d0fa-3960-4e18-9be4-9a3f1cd33245] GET http://localhost:8765/rendafixa/v3/api-docs/swagger-config from 0:0:0:0:0:0:0:1
+2025-09-15T21:35:38.490-03:00  INFO 8932 --- [gateway] [reactor-http-nio-2] com.syp.gateway.config.LoggingFilter     : [RES f326d0fa-3960-4e18-9be4-9a3f1cd33245] Status=200 OK Duration=66ms
+2025-09-15T21:35:38.536-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: rendafixa
+2025-09-15T21:35:38.536-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: GET http://localhost:8765/rendafixa/v3/api-docs] to Route{id='rendafixa', uri=http://localhost:8001, order=0, predicate=(RouteDefinitionRouteLocator$$Lambda$1070/0x0000027dca5ab748 && Paths: [/rendafixa/**], match trailing slash: true), gatewayFilters=[], metadata={}}
+2025-09-15T21:35:38.537-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.h.RoutePredicateHandlerMapping   : [d6298e0b-4] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@3633ae7b
+2025-09-15T21:35:38.537-03:00 DEBUG 8932 --- [gateway] [reactor-http-nio-2] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@24ff259e}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@45d72f04}, order = -2147482648], [GatewayFilterAdapter{delegate=com.syp.gateway.config.LoggingFilter@31299ba1}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@5e4a284a}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@1f98f054}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@59f65633}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.config.GatewayNoLoadBalancerClientAutoConfiguration$NoLoadBalancerClientFilter@29ba7453}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@4216e5ec}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@f18d717}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@109f9275}, order = 2147483647]]
+2025-09-15T21:35:38.538-03:00  INFO 8932 --- [gateway] [reactor-http-nio-2] com.syp.gateway.config.LoggingFilter     : [REQ 89e00e06-5d4e-4f74-86f6-c5e3d772a69e] GET http://localhost:8765/rendafixa/v3/api-docs from 0:0:0:0:0:0:0:1
+2025-09-15T21:35:39.349-03:00  INFO 8932 --- [gateway] [reactor-http-nio-2] com.syp.gateway.config.LoggingFilter     : [RES 89e00e06-5d4e-4f74-86f6-c5e3d772a69e] Status=200 OK Duration=811ms
+2025-09-15T21:38:19.161-03:00  INFO 8932 --- [gateway] [RMI TCP Connection(12)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-09-15T21:38:19.165-03:00  INFO 8932 --- [gateway] [RMI TCP Connection(12)-127.0.0.1] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-09-15T21:38:19.168-03:00  INFO 8932 --- [gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+2025-09-15T21:44:32.535-03:00  INFO 14684 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 14684 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2025-09-15T21:44:32.540-03:00 DEBUG 14684 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-09-15T21:44:32.542-03:00  INFO 14684 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-09-15T21:44:32.890-03:00  INFO 14684 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-09-15T21:44:32.890-03:00  INFO 14684 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-09-15T21:44:34.204-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=72b58d9c-461f-3539-bd15-4572bc53e6db
+2025-09-15T21:44:35.462-03:00 DEBUG 14684 --- [gateway] [restartedMain] o.s.c.gateway.config.GatewayProperties   : Routes supplied from Gateway Properties: [RouteDefinition{id='auth', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/auth/**}}], filters=[], uri=http://localhost:8000, order=0, metadata={}, enabled=true}, RouteDefinition{id='rendafixa', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/rendafixa/**}}], filters=[], uri=http://localhost:8001, order=0, metadata={}, enabled=true}]
+2025-09-15T21:44:35.790-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2025-09-15T21:44:35.790-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2025-09-15T21:44:35.790-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2025-09-15T21:44:35.790-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2025-09-15T21:44:35.790-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2025-09-15T21:44:35.790-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2025-09-15T21:44:35.791-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2025-09-15T21:44:35.791-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2025-09-15T21:44:35.791-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2025-09-15T21:44:35.791-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2025-09-15T21:44:35.791-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2025-09-15T21:44:35.791-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-09-15T21:44:35.791-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2025-09-15T21:44:35.791-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-09-15T21:44:36.145-03:00  WARN 14684 --- [gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-09-15T21:44:36.588-03:00  INFO 14684 --- [gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8765 (http)
+2025-09-15T21:44:36.882-03:00 DEBUG 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition auth applying {_genkey_0=/auth/**} to Path
+2025-09-15T21:44:36.928-03:00 DEBUG 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition matched: auth
+2025-09-15T21:44:36.929-03:00 DEBUG 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition rendafixa applying {_genkey_0=/rendafixa/**} to Path
+2025-09-15T21:44:36.931-03:00 DEBUG 14684 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : RouteDefinition matched: rendafixa
+2025-09-15T21:44:36.951-03:00  INFO 14684 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Started GatewayApplication in 5.376 seconds (process running for 6.632)
+2025-09-15T21:44:36.960-03:00  WARN 14684 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.routes[0].id
+		Line: 11
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].id
+	Key: spring.cloud.gateway.routes[0].uri
+		Line: 12
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].uri
+	Key: spring.cloud.gateway.routes[0].predicates[0]
+		Line: 14
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].predicates[0]
+	Key: spring.cloud.gateway.routes[1].id
+		Line: 16
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].id
+	Key: spring.cloud.gateway.routes[1].uri
+		Line: 17
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].uri
+	Key: spring.cloud.gateway.routes[1].predicates[0]
+		Line: 19
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].predicates[0]
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-09-15T21:44:36.963-03:00  WARN 14684 --- [gateway] [restartedMain] o.s.b.c.p.m.PropertiesMigrationListener  : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedorigins[0]
+		Line: 26
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedorigins[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[0]
+		Line: 28
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[1]
+		Line: 29
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[2]
+		Line: 30
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[2]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[3]
+		Line: 31
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[3]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[4]
+		Line: 32
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[4]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedheaders[0]
+		Line: 34
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[0]
+		Line: 36
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[1]
+		Line: 37
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowcredentials
+		Line: 38
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowcredentials
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-09-15T21:52:38.113-03:00  INFO 14684 --- [gateway] [RMI TCP Connection(16)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-09-15T21:52:38.121-03:00  INFO 14684 --- [gateway] [RMI TCP Connection(16)-127.0.0.1] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-09-15T21:52:38.129-03:00  INFO 14684 --- [gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
