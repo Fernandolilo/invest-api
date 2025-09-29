@@ -3,6 +3,7 @@ package com.syp.invest.entity.dto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.syp.invest.entity.enums.Indexador;
@@ -32,6 +33,7 @@ public class CategoriaInvestimentoDTO  implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
+	    private UUID id;
 	    @NotNull(message = "A descrição é obrigatória.")
 	    @Size(min = 3, max = 1000, message = "A descrição deve ter entre 3 e 100 caracteres.")
 	    @Column(nullable = false)

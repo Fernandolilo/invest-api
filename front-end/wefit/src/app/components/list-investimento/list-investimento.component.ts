@@ -60,20 +60,23 @@ export class ListInvestimentoComponent implements OnInit {
 
   selecionarInvestimento(valor: string) {
     this.tipoSelecionado = valor;
-    console.log('Tipo selecionado:', this.tipoSelecionado);
-    console.log('Conta ID:', this.contaIdParam);
     this.foundCategoria();
     this.invShow = true;
   }
 
   onInvestCdi102() {
-    console.log('Conta ID:', this.contaIdParam);
+    const objetoUnico = {
+      categoriaId: this.categorias[0].id,
+      contaId: this.contaIdParam
+    };
 
-    // Navega para rota já levando o parâmetro
     this.router.navigate(['/new-invest-cdi102'], {
-      queryParams: { id: this.contaIdParam }
+      queryParams: { data: JSON.stringify(objetoUnico) }
     });
+
+    console.log('Enviado:', objetoUnico);
   }
+
 
   nextTicker() {
     if (!this.tickers.length) return;
@@ -92,6 +95,54 @@ export class ListInvestimentoComponent implements OnInit {
     // Passa para o próximo índice
     this.currentIndex = (this.currentIndex + 1) % this.tickers.length;
   }
+
+  foundCategoria() {
+    this.CategoriaService.getCategoria().subscribe({
+      next: res => {
+        this.categorias = res;
+
+        const categoriasComConta = this.categorias.map(cat => ({
+          categoriaId: cat.id,
+          tipo: cat.tipo,
+          contaId: this.contaIdParam
+        }));
+
+        const objetoUnico = categoriasComConta[0];
+        console.log('Objeto único:', objetoUnico);
+
+      },
+      error: err => console.error('Erro ao buscar categorias', err)
+    });
+  }
+
+  getRiscoClass(risco: string): string {
+    switch (risco?.toUpperCase()) {
+      case 'ALTO':
+        return 'risco-alto';
+      case 'MEDIO':
+        return 'risco-medio';
+      case 'BAIXO':
+        return 'risco-baixo';
+      default:
+        return '';
+    }
+  }
+
+  onCardClick() {
+    this.selecionarInvestimento('cdi');
+    this.foundCategoria();
+  }
+
+  voltar() {
+    this.invShow = false;
+    this.tipoSelecionado = null;
+  }
+
+  getTickerTexto(tipo: string): string {
+    const ticker = this.tickers.find(t => t.tipo === tipo);
+    return ticker ? ticker.texto : '';
+  }
+
 
 
   loadTickers() {
@@ -129,45 +180,6 @@ export class ListInvestimentoComponent implements OnInit {
       error: err => console.error('Erro ao buscar Dólar', err)
     });
   }
-
-  foundCategoria() {
-    this.CategoriaService.getCategoria().subscribe({
-      next: res => {
-        this.categorias = res;
-        console.log('Categorias carregadas:', this.categorias);
-      },
-      error: err => console.error('Erro ao buscar categorias', err)
-    });
-  }
-
-  getRiscoClass(risco: string): string {
-    switch (risco?.toUpperCase()) {
-      case 'ALTO':
-        return 'risco-alto';
-      case 'MEDIO':
-        return 'risco-medio';
-      case 'BAIXO':
-        return 'risco-baixo';
-      default:
-        return '';
-    }
-  }
-
-  onCardClick() {
-    this.selecionarInvestimento('cdi');
-    this.foundCategoria();
-  }
-
-  voltar() {
-    this.invShow = false;
-    this.tipoSelecionado = null;
-  }
-
-  getTickerTexto(tipo: string): string {
-    const ticker = this.tickers.find(t => t.tipo === tipo);
-    return ticker ? ticker.texto : '';
-  }
-
 
 
 }

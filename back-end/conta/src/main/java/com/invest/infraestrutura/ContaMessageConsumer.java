@@ -32,7 +32,7 @@ public class ContaMessageConsumer {
 	                .banco(conta.getBanco())  // corrigido para pegar o banco certo
 	                .tipo(conta.getTipo())
 	                .client(cc.getClient())
-	                .cpfOuCnpj(conta.getCpf())
+	                .cpfOuCnpj(conta.getCpfOuCnpj())
 	                .build();
 	        repository.save(updateConta);
 	        System.out.println("Conta atualizada: " + cc.getId());

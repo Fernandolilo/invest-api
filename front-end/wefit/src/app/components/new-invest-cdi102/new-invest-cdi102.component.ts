@@ -13,15 +13,22 @@ export class NewInvestCdi102Component implements OnInit {
   router = inject(Router);
   route = inject(ActivatedRoute);
   id: string = '';
+  objetoRecebido: any;
 
   constructor(private service: AplicarCdiService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      const contaId = params['id'];
-      this.id = contaId;
-      if (contaId) {
-        console.log(contaId)
+      if (params['data']) {
+        this.objetoRecebido = JSON.parse(params['data']);
+        console.log('Recebido:', this.objetoRecebido);
+
+        // ⚡ atualiza o newInvest **depois** que o objeto é recebido
+        this.newInvest.contaId = this.objetoRecebido.contaId;
+        this.newInvest.tipo = this.objetoRecebido.tipo;
+        this.newInvest.categoriaId = this.objetoRecebido.categoriaId;
+
+        console.log('newInvest atualizado:', this.newInvest);
       }
     });
   }
@@ -30,18 +37,17 @@ export class NewInvestCdi102Component implements OnInit {
   newInvest: newInvestDTO = {
     valor: 0,
     cpfOuCnpj: '',
-    conta: ''
+    contaId: '',
+    categoriaId: '',
+    tipo: ''
   };
 
   onSubmit() {
-    this.newInvest.conta = this.id;
-    console.log(this.newInvest);
+    console.log('Payload final:', this.newInvest);
+
     this.service.newInvestCdi102(this.newInvest).subscribe({
-      next: () => {
-        alert("Investimento realizado com sucesso!")
-      }, error: () => {
-        alert("tent novamente!")
-      }
+      next: () => alert("Investimento realizado com sucesso!"),
+      error: () => alert("Tente novamente!")
     });
   }
 }

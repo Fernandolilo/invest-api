@@ -30,7 +30,7 @@ import com.syp.invest.entity.enums.VencimentoInvestimento;
 import com.syp.invest.repositories.InvestimentoRepository;
 
 @DataJpaTest
-public class InvestimentoRepositoryTest {
+class InvestimentoRepositoryTest {
 
     @Autowired
     private InvestimentoRepository repository;
@@ -43,7 +43,8 @@ public class InvestimentoRepositoryTest {
     private Investimento investimento;
 
     @BeforeEach
-    public void setUp() {    	
+    
+    void setUp() {    	
     	
     	//persistindo uma categoria
         CategoriaInvestimentoNewDTO categoriaDTO = categoriaNewDTO();        

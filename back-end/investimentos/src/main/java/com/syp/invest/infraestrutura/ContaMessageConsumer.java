@@ -19,7 +19,14 @@ public class ContaMessageConsumer {
 	
 	
 	public void receiveConta(@Payload Conta conta) {
+		if(conta.getId() != null) {
+			conta.setSaldo(conta.getSaldo());
+			repository.save(conta);
+		}
 	    repository.save(conta);
 	}
 
+	public void receiveUpdateConta(@Payload Conta conta) {
+	    repository.save(conta);
+	}
 }

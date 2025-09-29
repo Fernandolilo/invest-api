@@ -23,5 +23,7 @@ public class ContaUpdateDTO {
 	private BigDecimal saldo;
 	private Integer banco;
 	private TipoConta tipo;
-	private String cpf;
+	private String nome;
+	private String cpfOuCnpj;
+	
 }

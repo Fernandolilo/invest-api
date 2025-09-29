@@ -24,5 +24,5 @@ public class ContaUpdateDTO implements Serializable {
 	private BigDecimal saldo;
 	private Integer banco;
 	private TipoConta tipo;
-	private String cpf;
+	private String cpfOuCnpj;
 }

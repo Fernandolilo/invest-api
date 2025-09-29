@@ -63,6 +63,7 @@ export class ContaComponent {
       }
     });
   }
+
   abrirDeposito() {
     this.mostrarDeposito = true;
   }

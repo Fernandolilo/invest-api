@@ -36,6 +36,7 @@ import com.invest.entity.Conta;
 import com.invest.entity.enums.Role;
 import com.invest.entity.enums.TipoConta;
 import com.invest.entity.enums.TipoPessoa;
+import com.invest.infraestrutura.ContaMessageProducer;
 import com.invest.reposiotries.ClientRepository;
 import com.invest.reposiotries.ContaRepository;
 import com.invest.sercurity.service.UserSecurityDetails;
@@ -59,6 +60,9 @@ public class ContaServiceTest {
 
 	@Mock
 	private AuthenticationManager authenticationManager;
+	
+	@Mock
+	private	ContaMessageProducer contaMessageProducer;
 
 	@Mock
 	private ModelMapper modelMapper;
@@ -87,7 +91,7 @@ public class ContaServiceTest {
 		MockitoAnnotations.openMocks(this);
 		// Inicializa a service passando os mocks para o construtor gerado pelo
 		// @RequiredArgsConstructor
-		contaService = new ContaServiceImpl(contaRepository, modelMapper, clientRepository, userService);
+		contaService = new ContaServiceImpl(contaRepository, modelMapper, clientRepository, userService, contaMessageProducer);
 	}
 
 	@Test

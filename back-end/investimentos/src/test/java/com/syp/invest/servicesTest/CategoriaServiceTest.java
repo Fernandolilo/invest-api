@@ -35,7 +35,7 @@ import com.syp.invest.service.impl.CategoriaInvestimentosServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 @ExtendWith(SpringExtension.class)
-public class CategoriaServiceTest {
+class CategoriaServiceTest {
 
 	@Mock
 	private CategoriaInvestimentosRepository repository;
@@ -81,8 +81,8 @@ public class CategoriaServiceTest {
 		verify(repository, times(1)).save(any(CategoriaInvestimento.class));
 	}
 
+	@Test
 	void foundListCategoria() {
-
 		CategoriaInvestimento categoria =  CategoriaInvestimento.builder().build();
 
 		CategoriaInvestimentoDTO dto =  CategoriaInvestimentoDTO.builder().build();

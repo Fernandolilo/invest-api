@@ -2,6 +2,8 @@ package com.syp.invest.service.impl;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,7 @@ import com.syp.invest.entity.Conta;
 import com.syp.invest.entity.Investimento;
 import com.syp.invest.entity.dto.ContaDTO;
 import com.syp.invest.entity.dto.ContaUpdateDTO;
+import com.syp.invest.entity.dto.InvestimentoDTO;
 import com.syp.invest.entity.dto.InvestimentoNewDTO;
 import com.syp.invest.infraestrutura.ContaMessageProducer;
 import com.syp.invest.repositories.CategoriaInvestimentosRepository;
@@ -82,6 +85,14 @@ public class InvestimentoServiceImp implements InvestimentoService {
 
         return investimento;
     }
+
+	@Override
+	public List<InvestimentoDTO> findByInvestimentoContaId(UUID id) {
+		   return repository.findByContaId(id)
+                   .stream()
+                   .map(InvestimentoDTO::new) // construtor DTO(Investimento entity)
+                   .toList();
+	}
 
    
 

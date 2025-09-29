@@ -1,4 +1,5 @@
 export interface CategoriaInvestDTO {
+    id: string;
     descricao: string;
     percentualAdicional: number;
     percentualIndexador: number;

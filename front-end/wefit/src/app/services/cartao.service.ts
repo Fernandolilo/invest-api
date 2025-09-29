@@ -14,7 +14,7 @@ export class CartaoService {
   private http = inject(HttpClient);
   private router = inject(Router);
 
-  private readonly API = '/api/invest';
+  private readonly API = '/auth';
 
   save(cartao: newCartaoDTO): Observable<any> {
     const token = localStorage.getItem('Authorization');

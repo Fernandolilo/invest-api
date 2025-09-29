@@ -18,6 +18,7 @@ import com.invest.dto.ContaUpdateDTO;
 import com.invest.entity.Client;
 import com.invest.entity.Conta;
 import com.invest.entity.enums.Role;
+import com.invest.infraestrutura.ContaMessageProducer;
 import com.invest.reposiotries.ClientRepository;
 import com.invest.reposiotries.ContaRepository;
 import com.invest.sercurity.service.UserSecurityDetails;
@@ -36,7 +37,9 @@ public class ContaServiceImpl implements ContaService {
 	private final ModelMapper mapper;
 	private final ClientRepository clienteRepository;
 	private final UserService userService;
-
+	private final ContaMessageProducer contaMessageProducer;
+	
+	
 	@Override
 	public Conta save(ContaNewDTO conta) {
 		Optional<Client> clientOpt = clienteRepository.findByCpfOuCnpj(conta.getCpfOuCnpj());
@@ -58,7 +61,7 @@ public class ContaServiceImpl implements ContaService {
 	@Override
 	public Conta update(ContaUpdateDTO obj) {
 		Optional<Conta> conta = repository.findById(obj.getId());
-		Optional<Client> clientOpt = clienteRepository.findByCpfOuCnpj(obj.getCpf());
+		Optional<Client> clientOpt = clienteRepository.findByCpfOuCnpj(obj.getCpfOuCnpj());
 
 		if (conta.isEmpty()) {
 			throw new ObjectNotFoundException("Conta não encontrado: " + obj.getId());
@@ -66,6 +69,9 @@ public class ContaServiceImpl implements ContaService {
 
 		Conta con = mapper.map(obj, Conta.class);
 		con.setClient(clientOpt.get());
+		
+		
+		
 		return repository.save(con);
 	}
 
@@ -139,6 +145,10 @@ public class ContaServiceImpl implements ContaService {
 
 		conta.setSaldo(novoSaldo);
 		conta.setClient(clientOpt.get());
+		
+		ContaUpdateDTO upConta = mapper.map(conta, ContaUpdateDTO.class);
+		upConta.setNome(conta.getClient().getNome());
+		contaMessageProducer.sendUpdateMessage(upConta);
 
 		return repository.save(conta);
 	}

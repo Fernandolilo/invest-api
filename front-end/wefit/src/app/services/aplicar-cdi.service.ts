@@ -12,7 +12,7 @@ export class AplicarCdiService {
   private http = inject(HttpClient);
 
 
-  private readonly API = '/api';
+  private readonly API = '/rendafixa';
 
   constructor() { }
 
@@ -22,7 +22,9 @@ export class AplicarCdiService {
     const body = {
       valor: investimento.valor,
       cpfOuCnpj: investimento.cpfOuCnpj,
-      conta: investimento.conta
+      contaId: investimento.contaId,
+      categoriaId: investimento.categoriaId,
+      tipo: investimento.tipo,
     };
 
     const token = localStorage.getItem('Authorization');
@@ -39,7 +41,7 @@ export class AplicarCdiService {
     });
 
 
-    return this.http.post(`${this.API}/api/rendafixa/investimentos`, body, {
+    return this.http.post(`${this.API}/investimentos`, body, {
       observe: 'response',
       responseType: 'json',
       headers
