@@ -68,8 +68,8 @@ Documentação da API
 
 Acesse o Swagger UI para explorar os endpoints:
 
-gateway http://localhost:8765/api/invest/swagger-ui/index.html#
-gateway http://localhost:8765/api/rendafixa/swagger-ui/index.html#
+gateway http://localhost:8765/auth/swagger-ui/index.html#
+gateway http://localhost:8765/rendafixa/swagger-ui/index.html#
 
 o gateway chama ambas as apis.
 
