@@ -17,8 +17,23 @@ spring:
     username: nando.systempro@hotmail.com
     password: Fe281244
     
-    
 
+logging:
+  file:
+    name: logs/api.log
+  level:
+    root: INFO
+    com.invest.utils: DEBUG
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    prometheus:
+      access: ALLOW
 
 
 

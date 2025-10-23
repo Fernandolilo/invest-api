@@ -37,12 +37,12 @@ spring:
               - "Content-Type"
             allowCredentials: true
 
-logging:
-  level:
-    root: INFO
-    org.springframework.cloud.gateway: DEBUG
-    com.syp.gateway: DEBUG
-  pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} [%X{requestId}] %-5level %logger{36} - %msg%n"
-  file:
-    name: logs/gateway.log
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
+  endpoint:
+    prometheus:
+      enabled: true
+ 

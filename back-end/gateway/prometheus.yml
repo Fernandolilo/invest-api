@@ -1,0 +1,24 @@
+global:
+  scrape_interval: 15s         # Intervalo padrão de scrape
+  evaluation_interval: 15s     # Intervalo de avaliação das regras
+
+scrape_configs:
+  # Spring Boot / Gateway Proxy
+  - job_name: 'gateway-proxy'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['192.168.15.3:8765']
+
+  # RabbitMQ com autenticação básica
+  - job_name: 'rabbitmq'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['192.168.15.3:15692']
+    basic_auth:
+      username: 'nando.systempro@hotmail.com'
+      password: 'Fe281244'
+
+  # Node Exporter
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']

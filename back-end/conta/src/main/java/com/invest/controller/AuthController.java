@@ -1,5 +1,8 @@
 package com.invest.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,12 +24,21 @@ public class AuthController {
 	private final AuthService authService;
 	
 	@PostMapping()
-	public ResponseEntity<Void> authenticateAndGetToken(@RequestBody AuthenticationDTO request,
-			HttpServletResponse response) {
-		final String token = authService.fromAuthentication(request);
-		response.addHeader("Authorization", "Bearer " + token);
-		return ResponseEntity.noContent().build();
+	public ResponseEntity<Map<String, String>> authenticateAndGetToken(
+	        @RequestBody AuthenticationDTO request,
+	        HttpServletResponse response) {
+	    final String token = authService.fromAuthentication(request);
+
+	    // Header
+	    response.addHeader("Authorization", "Bearer " + token);
+
+	    // Body
+	    Map<String, String> body = new HashMap<>();
+	    body.put("token", token);
+
+	    return ResponseEntity.ok(body);
 	}
+
 	
 	 @GetMapping("/roles")
 	    public ResponseEntity<String> getUserRoles() {
@@ -34,4 +46,5 @@ public class AuthController {
 	        return ResponseEntity.ok(roles);
 	    }
 
+	
 }

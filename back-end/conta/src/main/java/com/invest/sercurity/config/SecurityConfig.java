@@ -34,8 +34,9 @@ public class SecurityConfig {
 	private static final String API_URL_CLIENTS_SAVE= "/clients/**";
 	private static final String API_URL_CLIENTS_CPFOUCNPJ= "/clients/cpfoucnpj/{cpfOuCnpj}";
 	private static final String API_CDI = "/cdi/**";
-	private static final String API_CONTAS = "/contas/{id}**";
-	
+	private static final String API_CONTAS = "/contas/{id}**"; 
+	private static final String API_URL_CLIENTS_AUTH_LOG = "/logs/**";
+	private static final String API_URL_PROMETHEUS = "/actuator/prometheus";
 	
 	private final JwtAuthenticationFilter auth;
 	private final Environment env;
@@ -67,6 +68,9 @@ public class SecurityConfig {
 				.authorizeHttpRequests(
 						authz -> authz
 						.requestMatchers(API_URL_CLIENTS_AUTH).permitAll()
+						.requestMatchers(API_URL_PROMETHEUS).permitAll()
+					
+						.requestMatchers(API_URL_CLIENTS_AUTH_LOG).permitAll()
 						.requestMatchers(API_URL_CLIENTS_SAVE).permitAll()
 						.requestMatchers(API_URL_CLIENTS_CPFOUCNPJ).permitAll()
 						.requestMatchers(API_CDI).permitAll()
@@ -89,6 +93,8 @@ public class SecurityConfig {
 
 		//config.addAllowedOrigin("http://38.210.209.86:8080");
 		config.addAllowedOrigin("http://localhost:4200");
+		config.addAllowedOrigin("http://localhost:8765"); // Swagger UI
+		config.addAllowedOrigin("http://localhost:3000");
 		// Permitindo todos os cabeçalhos
 		config.addAllowedHeader("*");
 
