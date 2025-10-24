@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -46,5 +46,22 @@ public class ContaServiceTest {
 		ContaDTO result = service.findConta(id);
 		assertNotNull(result);
 		assertEquals(id, result.getId());
+	}
+	
+	@Test
+	void foundListConta() {
+		UUID id = UUID.randomUUID();
+		Conta conta = new Conta();
+		conta.setId(id);
+
+		ContaDTO contaDTO = new ContaDTO();
+		contaDTO.setId(id);
+
+		when(repository.findById(id)).thenReturn(Optional.of(conta));
+		when(mapper.map(conta, ContaDTO.class)).thenReturn(contaDTO);
+
+		List<ContaDTO> result = service.foundConta(id);
+		assertNotNull(result);
+		//assertEquals(id, result.size());
 	}
 }
