@@ -17,9 +17,10 @@ import com.syp.invest.service.JurusCdiTaskService;
 
 import lombok.RequiredArgsConstructor;
 
+
 @RequiredArgsConstructor
 @Service
-class JurusCdiTaskServiceImple implements JurusCdiTaskService {
+public class JurusCdiTaskServiceImpl implements JurusCdiTaskService {
 
 	  private final InvestimentoRepository repository;
 	  private final CdiService cdiService;

@@ -1,25 +1,30 @@
 package com.invest.utils;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.ContentCachingRequestWrapper;
+import org.springframework.web.util.ContentCachingResponseWrapper;
 
 import com.invest.dto.ApiLogDTO;
 import com.invest.service.ApiLogService;
 
-import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Timer;
+
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @Component
-public class ApiLoggingFilter implements HandlerInterceptor {
+public class ApiLoggingFilter extends OncePerRequestFilter {
 
     private static final Logger logger = LoggerFactory.getLogger(ApiLoggingFilter.class);
 
@@ -32,77 +37,84 @@ public class ApiLoggingFilter implements HandlerInterceptor {
     }
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        request.setAttribute("startTime", System.currentTimeMillis());
+    protected void doFilterInternal(HttpServletRequest requestRaw,
+                                    HttpServletResponse responseRaw,
+                                    FilterChain filterChain) throws ServletException, IOException {
 
-        // Envolver a requisição apenas se ainda não for ContentCachingRequestWrapper
-        if (!(request instanceof ContentCachingRequestWrapper)) {
-            request = new ContentCachingRequestWrapper(request);
-        }
+        long startTime = System.currentTimeMillis();
 
-        return true;
-    }
+        // Envolver request e response
+        ContentCachingRequestWrapper request = new ContentCachingRequestWrapper(requestRaw);
+        ContentCachingResponseWrapper response = new ContentCachingResponseWrapper(responseRaw);
 
-    @Override
-    public void afterCompletion(HttpServletRequest requestRaw, HttpServletResponse response, Object handler, Exception ex) {
-        long start = (long) requestRaw.getAttribute("startTime");
-        long duration = System.currentTimeMillis() - start;
+        try {
+            filterChain.doFilter(request, response);
+        } finally {
+            long duration = System.currentTimeMillis() - startTime;
 
-        String requestBody = "";
-
-        // Evita ClassCastException
-        ContentCachingRequestWrapper request;
-        if (requestRaw instanceof ContentCachingRequestWrapper) {
-            request = (ContentCachingRequestWrapper) requestRaw;
-            byte[] buf = request.getContentAsByteArray();
-            if (buf.length > 0) {
+            // Captura request body
+            String requestBody = "";
+            byte[] requestBuf = request.getContentAsByteArray();
+            if (requestBuf.length > 0) {
                 try {
-                    requestBody = new String(buf, request.getCharacterEncoding());
+                    requestBody = new String(requestBuf, request.getCharacterEncoding());
                     // Mascarar password
-                    requestBody = requestBody.replaceAll("\"password\"\\s*:\\s*\".*?\"", "\"password\":\"****\"");
+                    requestBody = requestBody.replaceAll(
+                    	    "\"(password|senha)\"\\s*:\\s*\".*?\"",  // campos password ou senha
+                    	    "\"$1\":\"****\""                        // mantém o nome do campo, mas mascara o valor
+                    	);
+
                 } catch (Exception e) {
                     logger.warn("Erro ao ler request body", e);
                 }
             }
-        }
 
-        // Criar DTO de log
-        ApiLogDTO log = new ApiLogDTO();
-        log.setMethod(requestRaw.getMethod());
-        log.setPath(requestRaw.getRequestURI());
-        log.setStatus(response.getStatus());
-        log.setDurationMs(duration);
-        log.setIp(requestRaw.getRemoteAddr()); // IP externo
-        log.setRequestBody(requestBody);
-        log.setTimestamp(LocalDateTime.now());
+            // Captura response body (opcional)
+            String responseBody = "";
+            byte[] responseBuf = response.getContentAsByteArray();
+            if (responseBuf.length > 0) {
+                try {
+                    responseBody = new String(responseBuf, response.getCharacterEncoding());
+                } catch (Exception e) {
+                    logger.warn("Erro ao ler response body", e);
+                }
+            }
 
-        // Salvar log
-        apiLogService.addLog(log);
+            // Criar DTO de log
+            ApiLogDTO log = new ApiLogDTO();
+            log.setMethod(request.getMethod());
+            log.setPath(request.getRequestURI());
+            log.setStatus(response.getStatus());
+            log.setDurationMs(duration);
+            log.setIp(request.getRemoteAddr());
+            log.setRequestBody(requestBody);
+            log.setTimestamp(LocalDateTime.now());
 
-        // Log no console
-        if (ex != null) {
-            logger.error(log.toString(), ex);
-        } else {
+            // Salvar log no serviço
+            apiLogService.addLog(log);
+
+            // Log no console
             logger.info(log.toString());
+
+            // Métricas Prometheus
+            Timer.builder("api_requests_duration_ms")
+                 .description("Duração das requisições HTTP em ms")
+                 .tag("method", log.getMethod())
+                 .tag("path", log.getPath())
+                 .tag("status", String.valueOf(log.getStatus()))
+                 .register(meterRegistry)
+                 .record(Duration.ofMillis(duration));
+
+            Counter.builder("api_requests_total")
+                   .description("Número total de requisições HTTP")
+                   .tag("method", log.getMethod())
+                   .tag("path", log.getPath())
+                   .tag("status", String.valueOf(log.getStatus()))
+                   .register(meterRegistry)
+                   .increment();
+
+            // Copiar o corpo da response de volta para o cliente
+            response.copyBodyToResponse();
         }
-
-        // Métricas Prometheus
-        // 1️⃣ Duração da requisição
-        Timer.builder("api_requests_duration_ms")
-             .description("Duração das requisições HTTP em ms")
-             .tag("method", log.getMethod())
-             .tag("path", log.getPath())
-             .tag("status", String.valueOf(log.getStatus()))
-             .register(meterRegistry)
-             .record(Duration.ofMillis(duration));
-
-        // 2️⃣ Contagem de requisições
-        Counter.builder("api_requests_total")
-               .description("Número total de requisições HTTP")
-               .tag("method", log.getMethod())
-               .tag("path", log.getPath())
-               .tag("status", String.valueOf(log.getStatus()))
-               .register(meterRegistry)
-               .increment();
     }
 }
