@@ -131,8 +131,8 @@ export class ContaComponent {
       queryParams: { id: this.cartao.contaId }
     });
   }
-  onHomeBrooker() {
-    this.router.navigateByUrl("/home-brooker");
+  onListInvest() {
+    this.router.navigateByUrl("/investimentos");
   }
 
 }

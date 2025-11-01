@@ -1,0 +1,1038 @@
+2025-10-31T10:25:57.038-03:00  INFO 10032 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 10032 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2025-10-31T10:25:57.052-03:00  INFO 10032 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-10-31T10:25:57.535-03:00  INFO 10032 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-31T10:25:57.535-03:00  INFO 10032 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-31T10:26:00.725-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=01052c59-9b84-3556-a5ff-d8ab0412adb5
+2025-10-31T10:26:03.746-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2025-10-31T10:26:03.746-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2025-10-31T10:26:03.747-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2025-10-31T10:26:03.747-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2025-10-31T10:26:03.747-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2025-10-31T10:26:03.747-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2025-10-31T10:26:03.747-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2025-10-31T10:26:03.748-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2025-10-31T10:26:03.748-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2025-10-31T10:26:03.748-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2025-10-31T10:26:03.748-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2025-10-31T10:26:03.748-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-10-31T10:26:03.749-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2025-10-31T10:26:03.749-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-10-31T10:26:04.952-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-31T10:26:05.607-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-31T10:26:06.302-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8765 (http)
+2025-10-31T10:26:07.142-03:00  INFO 10032 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Started GatewayApplication in 11.51 seconds (process running for 13.853)
+2025-10-31T10:26:07.192-03:00  WARN 10032 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.routes[0].id
+		Line: 11
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].id
+	Key: spring.cloud.gateway.routes[0].uri
+		Line: 12
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].uri
+	Key: spring.cloud.gateway.routes[0].predicates[0]
+		Line: 14
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].predicates[0]
+	Key: spring.cloud.gateway.routes[1].id
+		Line: 16
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].id
+	Key: spring.cloud.gateway.routes[1].uri
+		Line: 17
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].uri
+	Key: spring.cloud.gateway.routes[1].predicates[0]
+		Line: 19
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].predicates[0]
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:26:07.229-03:00  WARN 10032 --- [gateway] [restartedMain] o.s.b.c.p.m.PropertiesMigrationListener  : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedorigins[0]
+		Line: 26
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedorigins[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[0]
+		Line: 28
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[1]
+		Line: 29
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[2]
+		Line: 30
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[2]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[3]
+		Line: 31
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[3]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[4]
+		Line: 32
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[4]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedheaders[0]
+		Line: 34
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[0]
+		Line: 36
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[1]
+		Line: 37
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowcredentials
+		Line: 38
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowcredentials
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:28:12.184-03:00  INFO 10032 --- [gateway] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2025-10-31T10:28:12.205-03:00  INFO 10032 --- [gateway] [Thread-7] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-31T10:28:12.217-03:00  INFO 10032 --- [gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+2025-10-31T10:28:12.673-03:00  INFO 10032 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 10032 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2025-10-31T10:28:12.674-03:00  INFO 10032 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-10-31T10:28:14.187-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a0c6d2b4-07f0-347c-ba4c-0132b6ac3d29
+2025-10-31T10:28:14.317-03:00  WARN 10032 --- [gateway] [restartedMain] onfigReactiveWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiLoggingFilter': Lookup method resolution failed
+2025-10-31T10:28:14.326-03:00  WARN 10032 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.routes[0].id
+		Line: 11
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].id
+	Key: spring.cloud.gateway.routes[0].uri
+		Line: 12
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].uri
+	Key: spring.cloud.gateway.routes[0].predicates[0]
+		Line: 14
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].predicates[0]
+	Key: spring.cloud.gateway.routes[1].id
+		Line: 16
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].id
+	Key: spring.cloud.gateway.routes[1].uri
+		Line: 17
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].uri
+	Key: spring.cloud.gateway.routes[1].predicates[0]
+		Line: 19
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].predicates[0]
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:28:14.329-03:00  WARN 10032 --- [gateway] [restartedMain] o.s.b.c.p.m.PropertiesMigrationListener  : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedorigins[0]
+		Line: 26
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedorigins[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[0]
+		Line: 28
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[1]
+		Line: 29
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[2]
+		Line: 30
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[2]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[3]
+		Line: 31
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[3]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[4]
+		Line: 32
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[4]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedheaders[0]
+		Line: 34
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[0]
+		Line: 36
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[1]
+		Line: 37
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowcredentials
+		Line: 38
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowcredentials
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:28:14.360-03:00  INFO 10032 --- [gateway] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-31T10:28:14.446-03:00 ERROR 10032 --- [gateway] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiLoggingFilter': Lookup method resolution failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:498) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1229) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.refresh(ReactiveWebServerApplicationContext.java:66) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.4.jar:3.5.4]
+	at com.syp.gateway.GatewayApplication.main(GatewayApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.4.jar:3.5.4]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.syp.gateway.trace.ApiLoggingFilter] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@4a64bc6e]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-6.2.9.jar:6.2.9]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:476) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 26 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: HttpServletRequest
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3402) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2504) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-6.2.9.jar:6.2.9]
+	... 28 common frames omitted
+Caused by: java.lang.ClassNotFoundException: HttpServletRequest
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:467) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.5.4.jar:3.5.4]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525) ~[na:na]
+	... 32 common frames omitted
+
+2025-10-31T10:29:54.746-03:00  INFO 10032 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 10032 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2025-10-31T10:29:54.749-03:00  INFO 10032 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-10-31T10:29:57.994-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a0c6d2b4-07f0-347c-ba4c-0132b6ac3d29
+2025-10-31T10:29:58.150-03:00  WARN 10032 --- [gateway] [restartedMain] onfigReactiveWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiLoggingFilter' defined in file [D:\test-tech-wefit\back-end\gateway\target\classes\com\syp\gateway\trace\ApiLoggingFilter.class]: Failed to instantiate [com.syp.gateway.trace.ApiLoggingFilter]: Constructor threw exception
+2025-10-31T10:29:58.152-03:00  WARN 10032 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.routes[0].id
+		Line: 11
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].id
+	Key: spring.cloud.gateway.routes[0].uri
+		Line: 12
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].uri
+	Key: spring.cloud.gateway.routes[0].predicates[0]
+		Line: 14
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].predicates[0]
+	Key: spring.cloud.gateway.routes[1].id
+		Line: 16
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].id
+	Key: spring.cloud.gateway.routes[1].uri
+		Line: 17
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].uri
+	Key: spring.cloud.gateway.routes[1].predicates[0]
+		Line: 19
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].predicates[0]
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:29:58.154-03:00  WARN 10032 --- [gateway] [restartedMain] o.s.b.c.p.m.PropertiesMigrationListener  : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedorigins[0]
+		Line: 26
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedorigins[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[0]
+		Line: 28
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[1]
+		Line: 29
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[2]
+		Line: 30
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[2]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[3]
+		Line: 31
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[3]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[4]
+		Line: 32
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[4]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedheaders[0]
+		Line: 34
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[0]
+		Line: 36
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[1]
+		Line: 37
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowcredentials
+		Line: 38
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowcredentials
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:29:58.173-03:00  INFO 10032 --- [gateway] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-31T10:29:58.179-03:00 ERROR 10032 --- [gateway] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiLoggingFilter' defined in file [D:\test-tech-wefit\back-end\gateway\target\classes\com\syp\gateway\trace\ApiLoggingFilter.class]: Failed to instantiate [com.syp.gateway.trace.ApiLoggingFilter]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:321) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:309) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.refresh(ReactiveWebServerApplicationContext.java:66) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.4.jar:3.5.4]
+	at com.syp.gateway.GatewayApplication.main(GatewayApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.4.jar:3.5.4]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.syp.gateway.trace.ApiLoggingFilter]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:223) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:146) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:318) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 26 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	The method getMethodValue() is undefined for the type ServerHttpRequest
+
+	at com.syp.gateway.trace.ApiLoggingFilter.<init>(ApiLoggingFilter.java:45) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:210) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 28 common frames omitted
+
+2025-10-31T10:30:35.676-03:00  INFO 10032 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 10032 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2025-10-31T10:30:35.677-03:00  INFO 10032 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-10-31T10:30:37.331-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a0c6d2b4-07f0-347c-ba4c-0132b6ac3d29
+2025-10-31T10:30:37.458-03:00  WARN 10032 --- [gateway] [restartedMain] onfigReactiveWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiLoggingFilter' defined in file [D:\test-tech-wefit\back-end\gateway\target\classes\com\syp\gateway\trace\ApiLoggingFilter.class]: Failed to instantiate [com.syp.gateway.trace.ApiLoggingFilter]: Constructor threw exception
+2025-10-31T10:30:37.459-03:00  WARN 10032 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.routes[0].id
+		Line: 11
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].id
+	Key: spring.cloud.gateway.routes[0].uri
+		Line: 12
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].uri
+	Key: spring.cloud.gateway.routes[0].predicates[0]
+		Line: 14
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].predicates[0]
+	Key: spring.cloud.gateway.routes[1].id
+		Line: 16
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].id
+	Key: spring.cloud.gateway.routes[1].uri
+		Line: 17
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].uri
+	Key: spring.cloud.gateway.routes[1].predicates[0]
+		Line: 19
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].predicates[0]
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:30:37.461-03:00  WARN 10032 --- [gateway] [restartedMain] o.s.b.c.p.m.PropertiesMigrationListener  : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedorigins[0]
+		Line: 26
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedorigins[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[0]
+		Line: 28
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[1]
+		Line: 29
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[2]
+		Line: 30
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[2]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[3]
+		Line: 31
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[3]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[4]
+		Line: 32
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[4]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedheaders[0]
+		Line: 34
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[0]
+		Line: 36
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[1]
+		Line: 37
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowcredentials
+		Line: 38
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowcredentials
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:30:37.481-03:00  INFO 10032 --- [gateway] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-31T10:30:37.487-03:00 ERROR 10032 --- [gateway] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiLoggingFilter' defined in file [D:\test-tech-wefit\back-end\gateway\target\classes\com\syp\gateway\trace\ApiLoggingFilter.class]: Failed to instantiate [com.syp.gateway.trace.ApiLoggingFilter]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:321) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:309) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.refresh(ReactiveWebServerApplicationContext.java:66) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.4.jar:3.5.4]
+	at com.syp.gateway.GatewayApplication.main(GatewayApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.4.jar:3.5.4]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.syp.gateway.trace.ApiLoggingFilter]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:223) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:146) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:318) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 26 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	The method setMethod(String) in the type ApiLogDTO is not applicable for the arguments (HttpMethod)
+
+	at com.syp.gateway.trace.ApiLoggingFilter.<init>(ApiLoggingFilter.java:45) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:210) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 28 common frames omitted
+
+2025-10-31T10:30:46.352-03:00  INFO 10032 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 10032 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2025-10-31T10:30:46.354-03:00  INFO 10032 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-10-31T10:30:47.473-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a0c6d2b4-07f0-347c-ba4c-0132b6ac3d29
+2025-10-31T10:30:47.955-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2025-10-31T10:30:47.956-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2025-10-31T10:30:47.956-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2025-10-31T10:30:47.956-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2025-10-31T10:30:47.957-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2025-10-31T10:30:47.957-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2025-10-31T10:30:47.958-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2025-10-31T10:30:47.958-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2025-10-31T10:30:47.958-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2025-10-31T10:30:47.958-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2025-10-31T10:30:47.958-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2025-10-31T10:30:47.958-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-10-31T10:30:47.959-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2025-10-31T10:30:47.959-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-10-31T10:30:48.409-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-31T10:30:48.575-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-31T10:30:48.700-03:00  INFO 10032 --- [gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8765 (http)
+2025-10-31T10:30:49.596-03:00  INFO 10032 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Started GatewayApplication in 3.574 seconds (process running for 296.307)
+2025-10-31T10:30:49.603-03:00  WARN 10032 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.routes[0].id
+		Line: 11
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].id
+	Key: spring.cloud.gateway.routes[0].uri
+		Line: 12
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].uri
+	Key: spring.cloud.gateway.routes[0].predicates[0]
+		Line: 14
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].predicates[0]
+	Key: spring.cloud.gateway.routes[1].id
+		Line: 16
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].id
+	Key: spring.cloud.gateway.routes[1].uri
+		Line: 17
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].uri
+	Key: spring.cloud.gateway.routes[1].predicates[0]
+		Line: 19
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].predicates[0]
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:30:49.605-03:00  WARN 10032 --- [gateway] [restartedMain] o.s.b.c.p.m.PropertiesMigrationListener  : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedorigins[0]
+		Line: 26
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedorigins[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[0]
+		Line: 28
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[1]
+		Line: 29
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[2]
+		Line: 30
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[2]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[3]
+		Line: 31
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[3]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[4]
+		Line: 32
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[4]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedheaders[0]
+		Line: 34
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[0]
+		Line: 36
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[1]
+		Line: 37
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowcredentials
+		Line: 38
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowcredentials
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:30:49.628-03:00  INFO 10032 --- [gateway] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-31T10:31:17.328-03:00  INFO 10032 --- [gateway] [RMI TCP Connection(18)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-10-31T10:31:17.335-03:00  INFO 10032 --- [gateway] [RMI TCP Connection(18)-127.0.0.1] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-31T10:31:17.338-03:00  INFO 10032 --- [gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+2025-10-31T10:31:24.289-03:00  INFO 13836 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 13836 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2025-10-31T10:31:24.295-03:00  INFO 13836 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-10-31T10:31:24.724-03:00  INFO 13836 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-31T10:31:24.724-03:00  INFO 13836 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-31T10:31:27.618-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a0c6d2b4-07f0-347c-ba4c-0132b6ac3d29
+2025-10-31T10:31:29.838-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2025-10-31T10:31:29.839-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2025-10-31T10:31:29.839-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2025-10-31T10:31:29.840-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2025-10-31T10:31:29.840-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2025-10-31T10:31:29.840-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2025-10-31T10:31:29.840-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2025-10-31T10:31:29.840-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2025-10-31T10:31:29.840-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2025-10-31T10:31:29.840-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2025-10-31T10:31:29.841-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2025-10-31T10:31:29.841-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-10-31T10:31:29.841-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2025-10-31T10:31:29.841-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-10-31T10:31:30.675-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-31T10:31:31.195-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-31T10:31:31.747-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8765 (http)
+2025-10-31T10:31:32.272-03:00  INFO 13836 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Started GatewayApplication in 9.372 seconds (process running for 11.819)
+2025-10-31T10:31:32.285-03:00  WARN 13836 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.routes[0].id
+		Line: 11
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].id
+	Key: spring.cloud.gateway.routes[0].uri
+		Line: 12
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].uri
+	Key: spring.cloud.gateway.routes[0].predicates[0]
+		Line: 14
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].predicates[0]
+	Key: spring.cloud.gateway.routes[1].id
+		Line: 16
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].id
+	Key: spring.cloud.gateway.routes[1].uri
+		Line: 17
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].uri
+	Key: spring.cloud.gateway.routes[1].predicates[0]
+		Line: 19
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].predicates[0]
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:31:32.291-03:00  WARN 13836 --- [gateway] [restartedMain] o.s.b.c.p.m.PropertiesMigrationListener  : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedorigins[0]
+		Line: 26
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedorigins[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[0]
+		Line: 28
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[1]
+		Line: 29
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[2]
+		Line: 30
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[2]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[3]
+		Line: 31
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[3]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[4]
+		Line: 32
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[4]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedheaders[0]
+		Line: 34
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[0]
+		Line: 36
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[1]
+		Line: 37
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowcredentials
+		Line: 38
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowcredentials
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:31:59.757-03:00  INFO 13836 --- [gateway] [reactor-http-nio-2] com.syp.gateway.trace.ApiLoggingFilter   : ApiLogDTO(method=null, path=/auth/logs, status=200, durationMs=962, duration=0, ip=/[0:0:0:0:0:0:0:1]:65247, requestBody=null, timestamp=2025-10-31T10:31:59.715883300)
+2025-10-31T10:31:59.775-03:00 ERROR 13836 --- [gateway] [reactor-http-nio-2] o.s.w.s.adapter.HttpWebHandlerAdapter    : [fd7c8960-9] Error [java.lang.NullPointerException] for HTTP GET "/auth/logs", but ServerHttpResponse already committed (200 OK)
+2025-10-31T10:31:59.807-03:00 ERROR 13836 --- [gateway] [reactor-http-nio-2] r.n.http.server.HttpServerOperations     : [fd7c8960-7, L:/[0:0:0:0:0:0:0:1]:8765 - R:/[0:0:0:0:0:0:0:1]:65247] Error finishing response. Closing connection
+
+java.lang.NullPointerException: null
+	at java.base/java.util.Objects.requireNonNull(Objects.java:208) ~[na:na]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ HTTP GET "/auth/logs" [ExceptionHandlingWebHandler]
+Original Stack Trace:
+		at java.base/java.util.Objects.requireNonNull(Objects.java:208) ~[na:na]
+		at io.micrometer.core.instrument.ImmutableTag.<init>(ImmutableTag.java:37) ~[micrometer-core-1.15.2.jar:1.15.2]
+		at io.micrometer.core.instrument.Tag.of(Tag.java:31) ~[micrometer-core-1.15.2.jar:1.15.2]
+		at io.micrometer.core.instrument.Tags.and(Tags.java:182) ~[micrometer-core-1.15.2.jar:1.15.2]
+		at io.micrometer.core.instrument.AbstractTimerBuilder.tag(AbstractTimerBuilder.java:78) ~[micrometer-core-1.15.2.jar:1.15.2]
+		at io.micrometer.core.instrument.Timer$Builder.tag(Timer.java:372) ~[micrometer-core-1.15.2.jar:1.15.2]
+		at com.syp.gateway.trace.ApiLoggingFilter.lambda$0(ApiLoggingFilter.java:61) ~[classes/:na]
+		at reactor.core.publisher.MonoRunnable.call(MonoRunnable.java:73) ~[reactor-core-3.7.8.jar:3.7.8]
+		at reactor.core.publisher.MonoRunnable.call(MonoRunnable.java:32) ~[reactor-core-3.7.8.jar:3.7.8]
+		at reactor.core.publisher.MonoIgnoreThen$ThenIgnoreMain.subscribeNext(MonoIgnoreThen.java:229) ~[reactor-core-3.7.8.jar:3.7.8]
+		at reactor.core.publisher.MonoIgnoreThen$ThenIgnoreMain.onComplete(MonoIgnoreThen.java:204) ~[reactor-core-3.7.8.jar:3.7.8]
+		at reactor.core.publisher.FluxDoFinally$DoFinallySubscriber.onComplete(FluxDoFinally.java:128) ~[reactor-core-3.7.8.jar:3.7.8]
+		at reactor.core.publisher.MonoIgnoreThen$ThenIgnoreMain.onComplete(MonoIgnoreThen.java:210) ~[reactor-core-3.7.8.jar:3.7.8]
+		at reactor.core.publisher.MonoPeekTerminal$MonoTerminalPeekSubscriber.onComplete(MonoPeekTerminal.java:299) ~[reactor-core-3.7.8.jar:3.7.8]
+		at org.springframework.http.server.reactive.ChannelSendOperator$WriteCompletionBarrier.onComplete(ChannelSendOperator.java:428) ~[spring-web-6.2.9.jar:6.2.9]
+		at reactor.core.publisher.MonoIgnoreElements$IgnoreElementsSubscriber.onComplete(MonoIgnoreElements.java:89) ~[reactor-core-3.7.8.jar:3.7.8]
+		at reactor.core.publisher.FluxConcatArray$ConcatArraySubscriber.onComplete(FluxConcatArray.java:209) ~[reactor-core-3.7.8.jar:3.7.8]
+		at reactor.core.publisher.MonoIgnoreThen$ThenIgnoreMain.onComplete(MonoIgnoreThen.java:210) ~[reactor-core-3.7.8.jar:3.7.8]
+		at reactor.netty.channel.MonoSendMany$SendManyInner.run(MonoSendMany.java:349) ~[reactor-netty-core-1.2.8.jar:1.2.8]
+		at reactor.netty.channel.MonoSendMany$SendManyInner.trySchedule(MonoSendMany.java:434) ~[reactor-netty-core-1.2.8.jar:1.2.8]
+		at reactor.netty.channel.MonoSendMany$SendManyInner.trySuccess(MonoSendMany.java:599) ~[reactor-netty-core-1.2.8.jar:1.2.8]
+		at reactor.netty.channel.MonoSendMany$SendManyInner.trySuccess(MonoSendMany.java:118) ~[reactor-netty-core-1.2.8.jar:1.2.8]
+		at io.netty.util.internal.PromiseNotificationUtil.trySuccess(PromiseNotificationUtil.java:48) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.ChannelOutboundBuffer.safeSuccess(ChannelOutboundBuffer.java:748) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.ChannelOutboundBuffer.remove(ChannelOutboundBuffer.java:303) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.ChannelOutboundBuffer.removeBytes(ChannelOutboundBuffer.java:383) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.socket.nio.NioSocketChannel.doWrite(NioSocketChannel.java:420) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.AbstractChannel$AbstractUnsafe.flush0(AbstractChannel.java:929) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.flush0(AbstractNioChannel.java:359) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.AbstractChannel$AbstractUnsafe.flush(AbstractChannel.java:893) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.flush(DefaultChannelPipeline.java:1319) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeFlush0(AbstractChannelHandlerContext.java:935) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeFlush(AbstractChannelHandlerContext.java:921) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.flush(AbstractChannelHandlerContext.java:907) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.flush(CombinedChannelDuplexHandler.java:531) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.ChannelOutboundHandlerAdapter.flush(ChannelOutboundHandlerAdapter.java:125) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.flush(CombinedChannelDuplexHandler.java:356) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeFlush0(AbstractChannelHandlerContext.java:937) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeFlush(AbstractChannelHandlerContext.java:921) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.flush(AbstractChannelHandlerContext.java:907) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at reactor.netty.http.server.HttpTrafficHandler.flush(HttpTrafficHandler.java:352) ~[reactor-netty-http-1.2.8.jar:1.2.8]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeFlush0(AbstractChannelHandlerContext.java:937) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeFlush(AbstractChannelHandlerContext.java:921) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.flush(AbstractChannelHandlerContext.java:907) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at reactor.netty.channel.MonoSendMany$SendManyInner$AsyncFlush.run(MonoSendMany.java:801) ~[reactor-netty-core-1.2.8.jar:1.2.8]
+		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
+		at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2025-10-31T10:33:55.255-03:00  INFO 13836 --- [gateway] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-10-31T10:33:55.274-03:00  INFO 13836 --- [gateway] [Thread-7] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-31T10:33:55.289-03:00  INFO 13836 --- [gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+2025-10-31T10:33:55.978-03:00  INFO 13836 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 13836 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2025-10-31T10:33:55.979-03:00  INFO 13836 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-10-31T10:33:58.363-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a0c6d2b4-07f0-347c-ba4c-0132b6ac3d29
+2025-10-31T10:33:59.009-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2025-10-31T10:33:59.009-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2025-10-31T10:33:59.009-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2025-10-31T10:33:59.010-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2025-10-31T10:33:59.010-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2025-10-31T10:33:59.010-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2025-10-31T10:33:59.010-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2025-10-31T10:33:59.010-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2025-10-31T10:33:59.011-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2025-10-31T10:33:59.012-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2025-10-31T10:33:59.012-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2025-10-31T10:33:59.013-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-10-31T10:33:59.014-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2025-10-31T10:33:59.015-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-10-31T10:33:59.871-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-31T10:34:00.094-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-31T10:34:00.231-03:00  INFO 13836 --- [gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8765 (http)
+2025-10-31T10:34:00.701-03:00  INFO 13836 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Started GatewayApplication in 5.227 seconds (process running for 160.248)
+2025-10-31T10:34:00.705-03:00  WARN 13836 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.routes[0].id
+		Line: 11
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].id
+	Key: spring.cloud.gateway.routes[0].uri
+		Line: 12
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].uri
+	Key: spring.cloud.gateway.routes[0].predicates[0]
+		Line: 14
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].predicates[0]
+	Key: spring.cloud.gateway.routes[1].id
+		Line: 16
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].id
+	Key: spring.cloud.gateway.routes[1].uri
+		Line: 17
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].uri
+	Key: spring.cloud.gateway.routes[1].predicates[0]
+		Line: 19
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].predicates[0]
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:34:00.707-03:00  WARN 13836 --- [gateway] [restartedMain] o.s.b.c.p.m.PropertiesMigrationListener  : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedorigins[0]
+		Line: 26
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedorigins[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[0]
+		Line: 28
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[1]
+		Line: 29
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[2]
+		Line: 30
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[2]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[3]
+		Line: 31
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[3]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[4]
+		Line: 32
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[4]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedheaders[0]
+		Line: 34
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[0]
+		Line: 36
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[1]
+		Line: 37
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowcredentials
+		Line: 38
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowcredentials
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:34:00.714-03:00  INFO 13836 --- [gateway] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-31T10:34:32.963-03:00  INFO 13836 --- [gateway] [RMI TCP Connection(16)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-10-31T10:34:32.966-03:00  INFO 13836 --- [gateway] [RMI TCP Connection(16)-127.0.0.1] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-31T10:34:32.970-03:00  INFO 13836 --- [gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+2025-10-31T10:34:43.557-03:00  INFO 15824 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 15824 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2025-10-31T10:34:43.565-03:00  INFO 15824 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-10-31T10:34:43.963-03:00  INFO 15824 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-31T10:34:43.964-03:00  INFO 15824 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-31T10:34:46.639-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a0c6d2b4-07f0-347c-ba4c-0132b6ac3d29
+2025-10-31T10:34:49.047-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2025-10-31T10:34:49.048-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2025-10-31T10:34:49.048-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2025-10-31T10:34:49.048-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2025-10-31T10:34:49.049-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2025-10-31T10:34:49.049-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2025-10-31T10:34:49.049-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2025-10-31T10:34:49.050-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2025-10-31T10:34:49.050-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2025-10-31T10:34:49.050-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2025-10-31T10:34:49.050-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2025-10-31T10:34:49.051-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-10-31T10:34:49.051-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2025-10-31T10:34:49.052-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-10-31T10:34:49.971-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-31T10:34:50.496-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-31T10:34:51.041-03:00  INFO 15824 --- [gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8765 (http)
+2025-10-31T10:34:51.626-03:00  INFO 15824 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Started GatewayApplication in 9.401 seconds (process running for 11.6)
+2025-10-31T10:34:51.637-03:00  WARN 15824 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.routes[0].id
+		Line: 11
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].id
+	Key: spring.cloud.gateway.routes[0].uri
+		Line: 12
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].uri
+	Key: spring.cloud.gateway.routes[0].predicates[0]
+		Line: 14
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].predicates[0]
+	Key: spring.cloud.gateway.routes[1].id
+		Line: 16
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].id
+	Key: spring.cloud.gateway.routes[1].uri
+		Line: 17
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].uri
+	Key: spring.cloud.gateway.routes[1].predicates[0]
+		Line: 19
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].predicates[0]
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:34:51.642-03:00  WARN 15824 --- [gateway] [restartedMain] o.s.b.c.p.m.PropertiesMigrationListener  : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedorigins[0]
+		Line: 26
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedorigins[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[0]
+		Line: 28
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[1]
+		Line: 29
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[2]
+		Line: 30
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[2]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[3]
+		Line: 31
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[3]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedmethods[4]
+		Line: 32
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedmethods[4]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowedheaders[0]
+		Line: 34
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[0]
+		Line: 36
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[0]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].exposedheaders[1]
+		Line: 37
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].exposedheaders[1]
+	Key: spring.cloud.gateway.globalcors.cors-configurations[/**].allowcredentials
+		Line: 38
+		Replacement: spring.cloud.gateway.server.webflux.globalcors.cors-configurations[/**].allowcredentials
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:36:12.094-03:00  INFO 15824 --- [gateway] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-10-31T10:36:12.118-03:00  INFO 15824 --- [gateway] [Thread-7] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-31T10:36:12.170-03:00  INFO 15824 --- [gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+2025-10-31T10:36:12.445-03:00 ERROR 15824 --- [gateway] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.yaml.snakeyaml.constructor.DuplicateKeyException: while constructing a mapping
+ in 'reader', line 1, column 1:
+    server:
+    ^
+found duplicate key logging
+ in 'reader', line 52, column 1:
+    logging:
+    ^
+
+	at org.yaml.snakeyaml.constructor.SafeConstructor.processDuplicateKeys(SafeConstructor.java:119) ~[snakeyaml-2.4.jar:na]
+	at org.yaml.snakeyaml.constructor.SafeConstructor.flattenMapping(SafeConstructor.java:71) ~[snakeyaml-2.4.jar:na]
+	at org.yaml.snakeyaml.constructor.SafeConstructor.flattenMapping(SafeConstructor.java:66) ~[snakeyaml-2.4.jar:na]
+	at org.yaml.snakeyaml.constructor.SafeConstructor.constructMapping2ndStep(SafeConstructor.java:204) ~[snakeyaml-2.4.jar:na]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructMapping(BaseConstructor.java:553) ~[snakeyaml-2.4.jar:na]
+	at org.yaml.snakeyaml.constructor.SafeConstructor$ConstructYamlMap.construct(SafeConstructor.java:592) ~[snakeyaml-2.4.jar:na]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObjectNoCheck(BaseConstructor.java:265) ~[snakeyaml-2.4.jar:na]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:248) ~[snakeyaml-2.4.jar:na]
+	at org.springframework.boot.env.OriginTrackedYamlLoader$OriginTrackingConstructor.constructObject(OriginTrackedYamlLoader.java:119) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructDocument(BaseConstructor.java:202) ~[snakeyaml-2.4.jar:na]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.getData(BaseConstructor.java:167) ~[snakeyaml-2.4.jar:na]
+	at org.springframework.boot.env.OriginTrackedYamlLoader$OriginTrackingConstructor.getData(OriginTrackedYamlLoader.java:99) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.yaml.snakeyaml.Yaml$1.next(Yaml.java:530) ~[snakeyaml-2.4.jar:na]
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:203) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:169) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.boot.env.OriginTrackedYamlLoader.load(OriginTrackedYamlLoader.java:84) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.env.YamlPropertySourceLoader.load(YamlPropertySourceLoader.java:50) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.context.config.StandardConfigDataLoader.load(StandardConfigDataLoader.java:54) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.context.config.StandardConfigDataLoader.load(StandardConfigDataLoader.java:36) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.context.config.ConfigDataLoaders.load(ConfigDataLoaders.java:96) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.context.config.ConfigDataImporter.load(ConfigDataImporter.java:132) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.context.config.ConfigDataImporter.resolveAndLoad(ConfigDataImporter.java:87) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.context.config.ConfigDataEnvironmentContributors.withProcessedImports(ConfigDataEnvironmentContributors.java:129) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.context.config.ConfigDataEnvironment.processInitial(ConfigDataEnvironment.java:245) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.context.config.ConfigDataEnvironment.processAndApply(ConfigDataEnvironment.java:232) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor.postProcessEnvironment(ConfigDataEnvironmentPostProcessor.java:96) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor.postProcessEnvironment(ConfigDataEnvironmentPostProcessor.java:89) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEnvironmentPreparedEvent(EnvironmentPostProcessorApplicationListener.java:132) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEvent(EnvironmentPostProcessorApplicationListener.java:115) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64) ~[spring-boot-3.5.4.jar:3.5.4]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:353) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.4.jar:3.5.4]
+	at com.syp.gateway.GatewayApplication.main(GatewayApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.4.jar:3.5.4]
+
+2025-10-31T10:38:23.966-03:00  INFO 12896 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 12896 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2025-10-31T10:38:23.973-03:00  INFO 12896 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-10-31T10:38:24.349-03:00  INFO 12896 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-31T10:38:24.350-03:00  INFO 12896 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-31T10:38:26.956-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a0c6d2b4-07f0-347c-ba4c-0132b6ac3d29
+2025-10-31T10:38:29.513-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2025-10-31T10:38:29.515-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2025-10-31T10:38:29.516-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2025-10-31T10:38:29.516-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2025-10-31T10:38:29.516-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2025-10-31T10:38:29.517-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2025-10-31T10:38:29.518-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2025-10-31T10:38:29.519-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2025-10-31T10:38:29.519-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2025-10-31T10:38:29.520-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2025-10-31T10:38:29.521-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2025-10-31T10:38:29.521-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-10-31T10:38:29.522-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2025-10-31T10:38:29.523-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-10-31T10:38:30.488-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2025-10-31T10:38:31.043-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-31T10:38:31.539-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8765 (http)
+2025-10-31T10:38:32.085-03:00  INFO 12896 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Started GatewayApplication in 9.425 seconds (process running for 11.162)
+2025-10-31T10:38:32.100-03:00  WARN 12896 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.routes[0].id
+		Line: 11
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].id
+	Key: spring.cloud.gateway.routes[0].uri
+		Line: 12
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].uri
+	Key: spring.cloud.gateway.routes[0].predicates[0]
+		Line: 14
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].predicates[0]
+	Key: spring.cloud.gateway.routes[1].id
+		Line: 16
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].id
+	Key: spring.cloud.gateway.routes[1].uri
+		Line: 17
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].uri
+	Key: spring.cloud.gateway.routes[1].predicates[0]
+		Line: 19
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].predicates[0]
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:38:57.819-03:00  INFO 12896 --- [gateway] [reactor-http-nio-3] com.syp.gateway.trace.ApiLoggingFilter   : ApiLogDTO(method=GET, path=/auth/logs, status=200, durationMs=761, duration=0, ip=/[0:0:0:0:0:0:0:1]:49793, requestBody=null, timestamp=2025-10-31T10:38:57.783208300)
+2025-10-31T10:39:00.076-03:00  INFO 12896 --- [gateway] [reactor-http-nio-3] com.syp.gateway.trace.ApiLoggingFilter   : ApiLogDTO(method=GET, path=/auth/logs, status=200, durationMs=88, duration=0, ip=/[0:0:0:0:0:0:0:1]:49793, requestBody=null, timestamp=2025-10-31T10:39:00.076420800)
+2025-10-31T10:39:10.380-03:00  INFO 12896 --- [gateway] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 9 class path changes (0 additions, 6 deletions, 3 modifications)
+2025-10-31T10:39:10.405-03:00  INFO 12896 --- [gateway] [Thread-7] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-31T10:39:10.418-03:00  INFO 12896 --- [gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+2025-10-31T10:39:11.171-03:00  INFO 12896 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 12896 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2025-10-31T10:39:11.174-03:00  INFO 12896 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-10-31T10:39:12.190-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=82d8d65b-f43d-35f2-9084-b97899009abc
+2025-10-31T10:39:12.697-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2025-10-31T10:39:12.698-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2025-10-31T10:39:12.698-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2025-10-31T10:39:12.698-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2025-10-31T10:39:12.698-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2025-10-31T10:39:12.698-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2025-10-31T10:39:12.699-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2025-10-31T10:39:12.699-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2025-10-31T10:39:12.699-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2025-10-31T10:39:12.699-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2025-10-31T10:39:12.700-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2025-10-31T10:39:12.700-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-10-31T10:39:12.701-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2025-10-31T10:39:12.701-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-10-31T10:39:13.128-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2025-10-31T10:39:13.296-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-31T10:39:13.405-03:00  INFO 12896 --- [gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8765 (http)
+2025-10-31T10:39:13.796-03:00  INFO 12896 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Started GatewayApplication in 3.151 seconds (process running for 52.873)
+2025-10-31T10:39:13.800-03:00  WARN 12896 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
+	Key: spring.cloud.gateway.routes[0].id
+		Line: 11
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].id
+	Key: spring.cloud.gateway.routes[0].uri
+		Line: 12
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].uri
+	Key: spring.cloud.gateway.routes[0].predicates[0]
+		Line: 14
+		Replacement: spring.cloud.gateway.server.webflux.routes[0].predicates[0]
+	Key: spring.cloud.gateway.routes[1].id
+		Line: 16
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].id
+	Key: spring.cloud.gateway.routes[1].uri
+		Line: 17
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].uri
+	Key: spring.cloud.gateway.routes[1].predicates[0]
+		Line: 19
+		Replacement: spring.cloud.gateway.server.webflux.routes[1].predicates[0]
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2025-10-31T10:39:13.804-03:00  INFO 12896 --- [gateway] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-31T12:10:05.130-03:00  INFO 12896 --- [gateway] [RMI TCP Connection(109)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-10-31T12:10:05.229-03:00  INFO 12896 --- [gateway] [RMI TCP Connection(109)-127.0.0.1] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-31T12:10:05.264-03:00  INFO 12896 --- [gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete

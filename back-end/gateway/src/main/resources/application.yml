@@ -17,32 +17,39 @@ spring:
           uri: http://localhost:8001
           predicates:
             - Path=/rendafixa/**
-         
 
-      globalcors:
-        cors-configurations:
-          '[/**]':
-            allowedOrigins:
-              - "http://localhost:4200"
-            allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-              - OPTIONS
-            allowedHeaders:
-              - "*"
-            exposedHeaders:
-              - "Authorization"
-              - "Content-Type"
-            allowCredentials: true
+      server:
+        webflux:
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allowedOrigins:
+                  - "http://localhost:4200"
+                allowedMethods:
+                  - GET
+                  - POST
+                  - PUT
+                  - DELETE
+                  - OPTIONS
+                allowedHeaders:
+                  - "*"
+                exposedHeaders:
+                  - "Authorization"
+                  - "Content-Type"
+                allowCredentials: true
 
 management:
+  endpoint:
+    prometheus:
+      access: unrestricted
   endpoints:
     web:
       exposure:
-        include: health, info, prometheus
-  endpoint:
-    prometheus:
-      enabled: true
- 
+        include: health,info,prometheus
+
+logging:
+  file:
+    name: logs/api.log
+  level:
+    root: INFO
+    com.invest.utils: DEBUG

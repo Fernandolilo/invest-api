@@ -8,6 +8,7 @@ import { ContaComponent } from './components/conta/conta.component';
 import { ListInvestimentoComponent } from './components/list-investimento/list-investimento.component';
 import { NewInvestCdi102Component } from './components/new-invest-cdi102/new-invest-cdi102.component';
 import { NewCategoriaComponent } from './components/new-categoria/new-categoria.component';
+import { ListInvestComponent } from './components/list-invest/list-invest.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'new-invest-cdi102', component: NewInvestCdi102Component },
   { path: 'list-invest', component: ListInvestimentoComponent },
   { path: 'new-categoria', component: NewCategoriaComponent },
+  { path : 'investimentos', component: ListInvestComponent},
   { path: '**', redirectTo: 'login' } // <- sempre deixe essa por último
 ];
 

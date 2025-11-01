@@ -17,6 +17,7 @@ import { DepositoComponent } from './components/deposito/deposito.component';
 import { CategoriaInvestComponent } from './components/categoria-invest/categoria-invest.component';
 import { BrlPipe } from './pipes/brl.pipe';
 import { NewCategoriaComponent } from './components/new-categoria/new-categoria.component';
+import { ListInvestComponent } from './components/list-invest/list-invest.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NewCategoriaComponent } from './components/new-categoria/new-categoria.
     CategoriaInvestComponent,
     BrlPipe,
     NewCategoriaComponent,
+    ListInvestComponent,
 
   ],
   imports: [
