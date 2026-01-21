@@ -80,6 +80,67 @@ Base de dados: wefit-db
 
 caso queira testar a api, apensa abri um terminal na raiz da aplicação.
 
-dar um docker-compose up --build
+dar um docker-compose up --build 
+
+lembrando que ainda não coloquei a stack de mensageria e monitoramento junto ao compose da aplicação, o compose da aplicação esta apenas para rodas em embiente de desenvolvimento.
+
+para tanto é necessário criar um container para a parte de monitoramento 
+
+
+version: '3.8'
+
+services:
+  # --------------------------
+  # RabbitMQ
+  # --------------------------
+  rabbitmq:
+    image: rabbitmq:3.8.3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"       # AMQP
+      - "15672:15672"     # Management UI
+      - "15692:15692"     # Métricas Prometheus
+    environment:
+      RABBITMQ_DEFAULT_USER: nando.systempro@hotmail.com
+      RABBITMQ_DEFAULT_PASS: Fe281244
+      RABBITMQ_ERLANG_COOKIE: secret_pass
+    
+    restart: unless-stopped
+    volumes:
+      - D:/rabbitmq/rabbitmq:/var/lib/rabbitmq   # Persistência dos dados
+
+  # --------------------------
+  # Prometheus
+  # --------------------------
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - D:/test-tech-wefit/back-end/gateway/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      - rabbitmq
+    restart: unless-stopped
+
+  # --------------------------
+  # Grafana
+  # --------------------------
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_DASHBOARDS_JSON_ENABLED: "true"
+    volumes:
+      - D:/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - D:/grafana/dashboards:/var/lib/grafana/dashboards
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
 
  

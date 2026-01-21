@@ -1,0 +1,194 @@
+.header {
+  color: var(--primary);
+}
+
+/* Card de investimento */
+.card {
+  background: var(--background, #fff);
+  color: var(--primary);
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: left;
+  margin-left: 5%;
+  width: 90%;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Cabeçalho dentro do card */
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .valor {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-dark, #003366);
+  }
+}
+
+/* Meta (evolução + data) */
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-muted, #6b7280);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+
+  .evolucao {
+    font-weight: 600;
+
+    &.up {
+      color: var(--success, #057a28);
+    }
+    &.down {
+      color: var(--danger, #b91c1c);
+    }
+  }
+}
+
+/* Descrição resumida */
+.descricao {
+  margin-top: 0.75rem;
+  color: var(--text-default, #555);
+  font-size: 0.95rem;
+}
+
+/* Bloco de detalhes */
+details {
+  margin-top: 0.75rem;
+
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  dl {
+    margin-top: 0.5rem;
+
+    dt {
+      font-weight: 600;
+      margin-top: 0.4rem;
+      color: var(--primary-dark, #003366);
+    }
+
+    dd {
+      margin: 0.2rem 0 0.4rem 0;
+      color: var(--text-muted, #666);
+    }
+  }
+}
+
+/* Rodapé do card */
+.rodape {
+  margin-top: 0.75rem;
+  color: var(--text-muted, #777);
+  font-size: 0.85rem;
+
+  strong {
+    color: var(--primary);
+  }
+}
+
+/* Linhas de cards */
+.row, .row-init {
+  color: var(--primary-light, #446b9f);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.row .card,
+.row-init .card {
+  flex: 1 1 300px;
+  max-width: 350px;
+  box-sizing: border-box;
+}
+
+/* Bordas e botões padrão */
+.border-primary {
+  border: 2px solid #003366 !important;
+}
+
+.btn-v {
+  color: var(--danger);
+}
+
+/* Navbar ticker (mantido do padrão) */
+.navbar-ticker {
+  background-color: var(--background);
+  color: var(--text-default);
+  padding: 0.5rem 1rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-size: 1rem;
+
+  .ticker-wrapper {
+    display: inline-block;
+  }
+
+  .data-item {
+    display: inline-block;
+    margin-right: 2rem;
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .navbar-ticker {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .data-item {
+    margin-right: 1rem;
+  }
+
+  .row .card,
+  .row-init .card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* Rodapé geral */
+footer {
+  background-color: #f8f9fa;
+  padding: 2rem 0;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    .card {
+      text-align: center;
+      border-radius: 0.5rem;
+    }
+
+    .ticker-wrapper {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+  }
+}

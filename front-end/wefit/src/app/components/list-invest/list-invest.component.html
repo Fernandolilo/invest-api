@@ -1,1 +1,89 @@
-<p>list-invest works!</p>
+<section class="investimentos" aria-labelledby="titulo-lista">
+  <h2 id="titulo-lista" class="sr-only">Lista de investimentos</h2>
+
+  <div class="grid">
+    <article
+     *ngFor="let inv of investimentos"
+      class="card"
+      [attr.aria-labelledby]="'titulo'"
+    >
+      <header class="cabecalho">
+        <h3>
+          {{ inv.categoria?.tipo }} — {{ inv.categoria?.indexador || inv.indexador }}
+        </h3>
+
+        <div class="valor">{{ inv.valor | currency: 'BRL' }}</div>
+      </header>
+
+      <div class="meta">
+        <div
+          class="evolucao"
+          [ngClass]="{
+            up: inv.evolucao > 0,
+            down: inv.evolucao < 0
+          }"
+        >
+          <span aria-hidden="true">
+            {{ inv.evolucao > 0 ? '▲' : inv.evolucao < 0 ? '▼' : '—' }}
+          </span>
+          <span>{{ inv.evolucao }}%</span>
+        </div>
+
+        <time [attr.datetime]="inv.instante">
+          Atualizado em {{ inv.instante | date: 'dd/MM/yyyy' }}
+        </time>
+      </div>
+
+      <p class="descricao">
+        {{ inv.categoria?.descricao }}
+      </p>
+
+      <details>
+        <summary>Detalhes da categoria</summary>
+        <dl>
+                 
+
+          <dt>Tipo</dt>
+          <dd>{{ inv.categoria?.tipo }}</dd>
+
+          <dt>Tipo de rendimento</dt>
+          <dd>{{ inv.categoria?.tipoRendimento }}</dd>
+
+          <dt>Indexador</dt>
+          <dd>{{ inv.categoria?.indexador }}</dd>
+
+          <dt>Percentual do indexador (%)</dt>
+          <dd>{{ inv.categoria?.percentualIndexador }}</dd>
+
+          <dt>Percentual adicional (%)</dt>
+          <dd>{{ inv.categoria?.percentualAdicional }}</dd>
+
+          <dt>Carência</dt>
+          <dd>{{ inv.categoria?.carencia }}</dd>
+
+          <dt>Início</dt>
+          <dd>{{ inv.categoria?.dataInicio }}</dd>
+
+          <dt>Vencimento</dt>
+          <dd>{{ inv.categoria?.dataVencimento }}</dd>
+
+          <dt>Risco</dt>
+          <dd>{{ inv.categoria?.risco }}</dd>
+
+          <dt>Resgatável antecipadamente</dt>
+          <dd>{{ inv.categoria?.resgatavelAntecipadamente ? 'Sim' : 'Não' }}</dd>
+        </dl>
+      </details>
+
+      <footer class="rodape">
+        <div>Indexador: <strong>{{ inv.indexador }}</strong></div>
+        <div>
+          Instante:
+          <time [attr.datetime]="inv.instante">
+            {{ inv.instante | date: 'dd/MM/yyyy' }}
+          </time>
+        </div>
+      </footer>
+    </article>
+  </div>
+</section>
