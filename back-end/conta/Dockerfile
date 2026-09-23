@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk-slim
 RUN apt-get update && apt-get -y upgrade && apt-get install -y curl
 ARG JAR_FILE=target/com.invest-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
