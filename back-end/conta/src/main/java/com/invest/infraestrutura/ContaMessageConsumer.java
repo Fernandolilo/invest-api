@@ -1,7 +1,5 @@
 package com.invest.infraestrutura;
 
-import java.util.Optional;
-
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;

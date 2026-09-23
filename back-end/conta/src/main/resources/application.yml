@@ -36,6 +36,19 @@ management:
       access: ALLOW
 
 
+gemini:
+  model: gemini-2.5-flash
+  key: AIzaSyDXe83RkRgtwc5JXi-I8_uonaIzK5GgaKA
 
 
-
+resilience4j:
+  circuitbreaker:
+    instances:
+      processConta:             # nome do CircuitBreaker
+        registerHealthIndicator: true   # expõe no actuator /health
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 40
+        waitDurationInOpenState: 15s
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true

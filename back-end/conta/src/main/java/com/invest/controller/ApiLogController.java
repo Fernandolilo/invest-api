@@ -18,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 public class ApiLogController {
 
 	 private final ApiLogService apiLogService;
+	
 	 	
 	 	@GetMapping
 	    public List<ApiLogDTO> getLogs() {
@@ -31,5 +32,6 @@ public class ApiLogController {
 	    public void clearLogs() {
 	        apiLogService.clearLogs();
 	    }
-	 
+	    
+	   	 
 }

@@ -32,28 +32,21 @@ public class MessageConfig {
 	public Queue queueProduto() {
 		return new Queue(RENDAFIXA_QUEUE, true);
 	}
-	
-	
+
 	@Bean
 	public Exchange declareExchange() {
 		return ExchangeBuilder.topicExchange(CONTA_EXCHANGE).durable(true).build();
 	}
 
 	@Bean
-	public Binding bindingCategory() {
-		TopicExchange exchange = new TopicExchange(CONTA_EXCHANGE);
-		Queue queue = new Queue(CONTA_QUEUE_CC, true);
-		return BindingBuilder.bind(queue).to(exchange).with(ROUTING_KEY_CONTACC);
+	public Binding bindingCategory(Queue queueCategory, Exchange declareExchange) {
+		return BindingBuilder.bind(queueCategory).to((TopicExchange) declareExchange).with(ROUTING_KEY_CONTACC);
 	}
 
 	@Bean
-	public Binding bindingProduto() {
-		TopicExchange exchange = new TopicExchange(CONTA_EXCHANGE);
-		Queue queue = new Queue(RENDAFIXA_QUEUE, true);
-		return BindingBuilder.bind(queue).to(exchange).with(ROUTING_KEY_RENDAFIXA);
+	public Binding bindingProduto(Queue queueProduto, Exchange declareExchange) {
+		return BindingBuilder.bind(queueProduto).to((TopicExchange) declareExchange).with(ROUTING_KEY_RENDAFIXA);
 	}
-
-	
 
 	@Bean
 	public MessageConverter jsonMessageConverter() {

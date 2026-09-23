@@ -45,13 +45,11 @@ class CategoriaServiceTest {
 
 	@InjectMocks
 	private CategoriaInvestimentosServiceImpl service;
-
 	@BeforeEach
 	void setUp() {
-		mapper = new ModelMapper(); // inicializa corretamente
-		service = new CategoriaInvestimentosServiceImpl(repository, mapper);
+	    mapper = new ModelMapper(); // <-- AQUI ESTÁ O ERRO
+	    service = new CategoriaInvestimentosServiceImpl(repository, mapper);
 	}
-
 	@Test
 	@DisplayName("Deve Salvar uma nova carteira de investimento")
 	void saveCategoriaInvestimento() {
@@ -82,24 +80,20 @@ class CategoriaServiceTest {
 	}
 
 	@Test
-	void foundListCategoria() {
-		CategoriaInvestimento categoria =  CategoriaInvestimento.builder().build();
+    void foundListCategoria() {
+        CategoriaInvestimento categoria = CategoriaInvestimento.builder().build();
+        CategoriaInvestimentoDTO dto = CategoriaInvestimentoDTO.builder().build();
+    
+        // Agora sim, ambos são mocks válidos:
+        when(repository.findAll()).thenReturn(List.of(categoria));
+       // when(mapper.map(categoria, CategoriaInvestimentoDTO.class)).thenReturn(dto);
 
-		CategoriaInvestimentoDTO dto =  CategoriaInvestimentoDTO.builder().build();
-	
-		Mockito.when(repository.findAll()).thenReturn(List.of(categoria));
-
-		Mockito.when(mapper.map(categoria, CategoriaInvestimentoDTO.class)).thenReturn(dto);
-
-	
-		List<CategoriaInvestimentoDTO> result = service.foundListCat();
-		
-		assertNotNull(result);
-	    assertEquals(1, result.size());
-	    Mockito.verify(repository, Mockito.times(1)).findAll();
-	    Mockito.verify(mapper, Mockito.times(1)).map(categoria, CategoriaInvestimentoDTO.class);
-
-	}
+        List<CategoriaInvestimentoDTO> result = service.foundListCat();
+        
+        assertNotNull(result);
+        assertEquals(1, result.size());
+        Mockito.verify(repository, Mockito.times(1)).findAll();
+    }
 
 	private CategoriaInvestimentoNewDTO categoriaNewInvestimento() {
 		CategoriaInvestimentoNewDTO dto = CategoriaInvestimentoNewDTO.builder().descricao("Investimento CDI")

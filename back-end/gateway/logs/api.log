@@ -1,27 +1,27 @@
-2026-01-20T10:23:59.866-03:00  INFO 6788 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 6788 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
-2026-01-20T10:23:59.881-03:00  INFO 6788 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
-2026-01-20T10:24:00.625-03:00  INFO 6788 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-01-20T10:24:00.625-03:00  INFO 6788 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-01-20T10:24:03.612-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=82d8d65b-f43d-35f2-9084-b97899009abc
-2026-01-20T10:24:06.007-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
-2026-01-20T10:24:06.008-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
-2026-01-20T10:24:06.008-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
-2026-01-20T10:24:06.009-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
-2026-01-20T10:24:06.009-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
-2026-01-20T10:24:06.009-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
-2026-01-20T10:24:06.010-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
-2026-01-20T10:24:06.010-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
-2026-01-20T10:24:06.010-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
-2026-01-20T10:24:06.011-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
-2026-01-20T10:24:06.012-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
-2026-01-20T10:24:06.013-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
-2026-01-20T10:24:06.013-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
-2026-01-20T10:24:06.014-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
-2026-01-20T10:24:07.141-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
-2026-01-20T10:24:07.896-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2026-01-20T10:24:08.491-03:00  INFO 6788 --- [gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8765 (http)
-2026-01-20T10:24:09.142-03:00  INFO 6788 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Started GatewayApplication in 11.222 seconds (process running for 14.804)
-2026-01-20T10:24:09.152-03:00  WARN 6788 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
+2026-02-15T12:02:57.834-03:00  INFO 4044 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Starting GatewayApplication using Java 17.0.12 with PID 4044 (D:\test-tech-wefit\back-end\gateway\target\classes started by fernando in D:\test-tech-wefit\back-end\gateway)
+2026-02-15T12:02:57.849-03:00  INFO 4044 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-02-15T12:02:58.376-03:00  INFO 4044 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-15T12:02:58.377-03:00  INFO 4044 --- [gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-15T12:03:01.888-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=82d8d65b-f43d-35f2-9084-b97899009abc
+2026-02-15T12:03:04.036-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2026-02-15T12:03:04.037-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2026-02-15T12:03:04.037-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2026-02-15T12:03:04.037-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2026-02-15T12:03:04.037-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2026-02-15T12:03:04.038-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2026-02-15T12:03:04.040-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2026-02-15T12:03:04.042-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2026-02-15T12:03:04.043-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2026-02-15T12:03:04.044-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2026-02-15T12:03:04.045-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2026-02-15T12:03:04.045-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2026-02-15T12:03:04.046-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2026-02-15T12:03:04.047-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2026-02-15T12:03:05.137-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2026-02-15T12:03:05.791-03:00  WARN 4044 --- [gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2026-02-15T12:03:06.416-03:00  INFO 4044 --- [gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8765 (http)
+2026-02-15T12:03:06.946-03:00  INFO 4044 --- [gateway] [restartedMain] com.syp.gateway.GatewayApplication       : Started GatewayApplication in 10.775 seconds (process running for 13.143)
+2026-02-15T12:03:06.959-03:00  WARN 4044 --- [gateway] [restartedMain] ServerWebfluxPropertiesMigrationListener : 
 The use of configuration keys that have been renamed was found in the environment:
 
 Property source 'Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'':
@@ -47,13 +47,13 @@ Property source 'Config resource 'class path resource [application.yml]' via loc
 
 Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
 
-2026-01-20T10:44:05.862-03:00 ERROR 6788 --- [gateway] [reactor-http-nio-3] a.w.r.e.AbstractErrorWebExceptionHandler : [d28d1a60-71]  500 Server Error for HTTP POST "/auth/clients"
+2026-02-15T15:23:16.680-03:00 ERROR 4044 --- [gateway] [reactor-http-nio-3] a.w.r.e.AbstractErrorWebExceptionHandler : [38cc32dc-832]  500 Server Error for HTTP GET "/auth/swagger-ui/index.html"
 
 io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:8000
 	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
 Error has been observed at the following site(s):
 	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP POST "/auth/clients" [ExceptionHandlingWebHandler]
+	*__checkpoint ⇢ HTTP GET "/auth/swagger-ui/index.html" [ExceptionHandlingWebHandler]
 Original Stack Trace:
 Caused by: java.net.ConnectException: Connection refused: no further information
 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
@@ -70,98 +70,6 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
 	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
 
-2026-01-20T10:44:07.152-03:00 ERROR 6788 --- [gateway] [reactor-http-nio-4] a.w.r.e.AbstractErrorWebExceptionHandler : [6488619e-72]  500 Server Error for HTTP POST "/auth/clients"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:8000
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP POST "/auth/clients" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: Connection refused: no further information
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
-	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946) ~[na:na]
-	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
-	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
-
-2026-01-20T10:44:10.039-03:00 ERROR 6788 --- [gateway] [reactor-http-nio-5] a.w.r.e.AbstractErrorWebExceptionHandler : [40526145-73]  500 Server Error for HTTP POST "/auth/clients"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:8000
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP POST "/auth/clients" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: Connection refused: no further information
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
-	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946) ~[na:na]
-	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
-	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
-
-2026-01-20T10:44:13.262-03:00 ERROR 6788 --- [gateway] [reactor-http-nio-6] a.w.r.e.AbstractErrorWebExceptionHandler : [dd67308e-75]  500 Server Error for HTTP POST "/auth/clients"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:8000
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP POST "/auth/clients" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: Connection refused: no further information
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
-	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946) ~[na:na]
-	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
-	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
-
-2026-01-20T10:44:22.483-03:00 ERROR 6788 --- [gateway] [reactor-http-nio-7] a.w.r.e.AbstractErrorWebExceptionHandler : [a7261923-76]  500 Server Error for HTTP POST "/auth/clients"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:8000
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP POST "/auth/clients" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: Connection refused: no further information
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
-	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946) ~[na:na]
-	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.123.Final.jar:4.1.123.Final]
-	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
-
-2026-01-20T13:49:47.730-03:00  INFO 6788 --- [gateway] [RMI TCP Connection(128)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2026-01-20T13:49:47.928-03:00  INFO 6788 --- [gateway] [RMI TCP Connection(128)-127.0.0.1] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
-2026-01-20T13:49:47.980-03:00  INFO 6788 --- [gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+2026-02-15T15:31:31.171-03:00  INFO 4044 --- [gateway] [RMI TCP Connection(219)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-02-15T15:31:31.897-03:00  INFO 4044 --- [gateway] [RMI TCP Connection(219)-127.0.0.1] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-15T15:31:32.074-03:00  INFO 4044 --- [gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
